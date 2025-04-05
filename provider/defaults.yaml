@@ -1,0 +1,46 @@
+version: "0.1"
+metadata:
+  description: "Specification for saidata defaults"
+  author: "Your Name"
+  lastupdate: "2025-04-03"
+settings:
+  packages: ~ # Can be a string, array, or hashmap
+  services: ~ # Can be a string, array, or hashmap
+  files: ~    # Can be a string, array, or hashmap
+  directories: ~ # Can be a string, array, or hashmap
+  processes: ~   # Can be a string, array, or hashmap
+urls:
+  website: ~
+  issues: ~
+  documentation: ~
+  support: ~
+  source: ~
+provider_data_type: {}
+
+
+data_sources:
+  - name: "Sample Data Source"
+    description: "A sample data source for demonstration purposes."
+    url: "https://example.com/sample-data"
+    format: "CSV"
+    schema:
+      - name: "id"
+        type: "integer"
+        description: "Unique identifier for each record."
+      - name: "name"
+        type: "string"
+        description: "Name of the entity."
+      - name: "value"
+        type: "float"
+        description: "Some numerical value associated with the entity."
+  - name: "Another Data Source"
+    description: "Another example data source."
+    url: "https://example.com/another-data"
+    format: "JSON"
+    schema:
+      - name: "id"
+        type: "integer"
+        description: "Unique identifier for each record."
+      - name: "description"
+        type: "string"
+        description: "Description of the entity."

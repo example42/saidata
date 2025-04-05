@@ -1,0 +1,44 @@
+# WIP. Sample provider data for apt package manager
+apt:
+  command_name: apt # TODEFINE: If this command is found and available, the provider is activated
+  settings: # Overrides the default settings
+    files:
+      init:
+        path: /etc/default/$service_name
+  action: # Commands to be executed on specific actions. Variablers are replaced with the values from saidata
+  # TODEFINE: Naming and structure
+    install:
+      - name: Install $package_name
+        command: apt-get install -y $package_name
+        command_check: apt show $package_name # If this command returns 0 the command is not executed
+        command_enable: apt list $package_name
+    uninstall:
+      - name: Uninstall $package_name
+        command: apt-get remove -y $package_name
+        command_check: apt list --installed | grep -v $package_name
+        command_enable: apt list $package_name
+    info:
+      - name: Get information about $package_name
+        command: dpkg -s $package_name
+        command_enable: apt show $package_name # If this command returns 0 the command can be executed
+    update:
+      - name: Update $package_name
+        command: apt-get update
+        command_check: apt list --upgradable | grep $package_name
+    upgrade:
+      - name: Upgrade $package_name
+        command: apt-get upgrade -y $package_name
+        command_check: apt list --upgradable | grep $package_name
+    log:
+      - name: View logs for $package_name
+        command: journalctl -u $service_name
+        command_check: journalctl -u $service_name --no-pager | grep $package_name
+  data_sources: # Data sources to be used by the provider
+    apt:
+      - name: apt
+        command: apt list --installed
+        command_check: apt list --installed | grep $package_name
+        command_enable: apt list $package_name
+
+
+

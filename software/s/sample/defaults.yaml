@@ -1,0 +1,20 @@
+version: "0.1"
+metadata:
+  description: "Specification for saidata defaults"
+  author: "Your Name"
+  lastupdate: "2025-04-03"
+settings:
+  packages: ~ # Can be a string, array, or hashmap
+  services: ~ # Can be a string, array, or hashmap
+  files: ~    # Can be a string, array, or hashmap
+  directories: ~ # Can be a string, array, or hashmap
+  processes: ~   # Can be a string, array, or hashmap
+  ports: ~       # Can be a string, array, or hashmap
+urls:
+  website: ~
+  issues: ~
+  documentation: ~
+  support: ~
+  source: ~
+
+

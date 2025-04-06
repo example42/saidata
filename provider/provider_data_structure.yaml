@@ -1,0 +1,49 @@
+# DO DECIDE: Providers as yaml data format
+# File should support varible interpolations with saidata
+# For example: 
+# The name of the provider (ie: apt, yum, helm...)
+provider:
+  # The version of the provider data api
+  version: "0.1" # Version of the provider data structure
+
+  # How provider is autodetected. Currenrtly only the command name is used
+  emerge:
+    command: cmd # (apt, yum, helm, etc.)
+
+  # Depedencies of the provider. This is a list of packages, commands or other requirements that are required for the provider to work
+  dependencies: {}
+
+  # Commands to be executed on specific actions
+  actions:
+    install: # Action to handle. Only install added here for reference. Same data should be possible for all actions
+      description:  # A descriptive name for the action: Install $package_name
+      commands: # Different commands to implement the action. Each value can be a string or a list of strings
+        pre: # Pre-installation command (if needed)
+        command: # The command(s) to perform an unattended installation:  apt-get install -y $package_name
+        check: # Idempotency check (if it returns 0 'command' is not needed: apt show $package_name
+        emerge: # A command that assess that the provider can perform the requested action - apt list $package_name
+        post: # Post-installation command (if needed)
+
+    uninstall: {}
+  
+  # Provider specific parameters
+  params: {} # A dictionary of saidata provider specific, with custom parameters (ie for apt:key_server, key_fingerprint, release...)
+  
+  # Source of data to use to RAG sai models to fetch provider related data for different software
+  # and generate relevant saidata
+  data_sources:
+    - name: # Data source name
+      description: # A short description of the data source
+      url: # URL to the data source
+      format: # Format of the data (CSV, JSON, etc.)
+      schema: # Schema of the data source
+        - name: # Name of the field
+          type: # Type of the field (string, integer, float, etc.)
+          description: # Description of the field
+
+  # Suggested prompts to generate correct saidata also based on the provided data sources
+  prompts:
+    - name: # Find package name
+      description: # A short description of the prompt
+      prompt: # The prompt to use to generate the package name (Ie: Find the package name for $software_name on $os_name)
+    

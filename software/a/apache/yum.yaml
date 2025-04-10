@@ -1,0 +1,31 @@
+version: "0.1"
+
+yum:
+  directories:
+    config:
+      path: /etc/httpd
+    conf:
+      path: /etc/httpd/conf.d
+    log:
+      path: /var/log/httpd
+    data:
+      path: /var/www/html
+    lib:
+      path: /var/lib/apache2
+  files:
+    config:
+      path: /etc/httpd/conf/httpd.conf
+    log:
+      path: /var/log/httpd/access.log
+    errorlog:
+      path: /var/log/httpd/error.log
+    pid:
+      path: /var/run/httpd.pid
+
+  packages:
+    main:
+      name: httpd
+
+  services:
+    main:
+      name: httpd

@@ -1,0 +1,5 @@
+version: "0.1"
+
+docker:
+  image: httpd
+  nodaemon_args: '-DFOREGROUND'

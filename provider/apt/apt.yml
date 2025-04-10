@@ -26,7 +26,8 @@ apt:
       name: Get information about $package_name
       commands:
         command: apt show $package_name
-    upgrage:
-      name: Update $package_name
+    upgrade:
+      name: Upgrade $package_name
         commands:
-            command: apt-get update
+            command: apt-get upgrade -y $package_name
+ 

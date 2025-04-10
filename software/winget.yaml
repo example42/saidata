@@ -1,0 +1,8 @@
+# Provider specific default overrides
+version: "0.1"
+
+winget:
+  packages:
+    main:
+      name: ~ # Default is $package_name:$package_name
+

@@ -1,0 +1,7 @@
+# Provider specific default overrides
+version: "0.1"
+
+brew:
+  packages:
+    main:
+      name: ~ # Default is $package_name

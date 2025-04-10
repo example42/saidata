@@ -1,0 +1,53 @@
+# This file containes the default saidata settings for all software.
+# These defaults cn be overridden by provider and saidata specific settings.
+
+version: "0.1"
+
+defaults:
+  packages:
+    main:
+      name: ~ # Default is always the software name.
+      version: ~ # Default is always the latest version.
+      architecture: ~ # Default is the underlying architecture.
+      install_options: ~ # Default is undefined. 
+      uninstall_options: ~ # Default is undefined.
+      upgrade_options: ~ # Default is undefined.
+      downgrade_options: ~ # Default is undefined.
+      dependencies: ~ # Default is undefined.
+      source: ~ # Url 
+  services:
+    main:
+      name: ~ # Default is always the software name.
+  directories:
+    config: # Main configuration directory
+      path: ~ # Default is /etc/$software_name
+      owner: root
+      group: root
+      mode: 0755
+    conf:
+      path: ~ # Default is /etc/$software_name/conf.d
+      owner: root
+      group: root
+      mode: 0755
+    log:
+      path: ~ # Default is /var/log/$software_name
+      owner: root
+      group: root
+      mode: 0755
+  processes:
+    main: 
+      path: ~ # Default is $software_name
+      owner: root
+      group: root
+  ports:
+    main:
+      port: ~ # Default is undefined.
+      protocol: tcp
+  dependencies: ~ # Can be a string, array, or hashmap
+
+urls:
+  website: ~
+  issues: ~
+  documentation: ~
+  support: ~
+  source: ~

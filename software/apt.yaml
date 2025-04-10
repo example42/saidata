@@ -1,0 +1,16 @@
+# Provider specific default overrides
+version: "0.1"
+
+apt:
+  directories:
+    config:
+      path: /etc/$software_name
+    conf:
+      path: /etc/$software_name/conf.d
+    log:
+      path: /var/log/$software_name
+
+  packages:
+    main:
+      name: ~ # Default is $package_name
+

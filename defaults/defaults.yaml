@@ -1,0 +1,81 @@
+# This file containes the default saidata settings for all software.
+# These defaults can be overridden by provider and saidata specific settings.
+
+version: 0.1
+
+packages:
+  main:
+    name: $software_name
+    version: latest
+    install_options: ~ # Default is undefined. 
+
+services:
+  main:
+    name: $software_name
+    service_name: $software_name
+
+directories:
+  config: # Main configuration directory
+    path: /etc/$software_name
+    owner: root
+    group: root
+    mode: 0755
+  conf: # Dot conf directory, with separated configuration files, if applicable
+    path: /etc/$software_name/conf.d
+    owner: root
+    group: root
+    mode: 0755
+  log:
+    path: /var/log/$software_name
+    owner: root
+    group: root
+    mode: 0755
+  data: ~ # Main data directory (what you need to backup), default is undefined
+
+processes:
+  main: 
+    path: $software_name
+    owner: root
+    group: root
+
+ports:
+  main:
+    port: ~ # Default is undefined.
+    protocol: tcp
+
+container:
+  name: $software_name
+  image: $software_name
+  version: latest
+  network: ~ # Default is undefined.
+  ports: [] # Array of ports to expose, default is undefined.
+  volumes: [] # Array of volumes to mount, default is undefined.
+  nodaemon_args: ~ # Default is undefined.
+  env: [] # Array of environment variables, default is undefined.
+
+dependencies: ~ # Can be a string, array, or hashmap
+
+urls:
+  website: ~
+  issues: ~
+  documentation: ~
+  support: ~
+  source: ~
+  license: ~
+  changelog: ~
+  download: ~
+  icon: ~
+
+language: ~ # Main programming language (TODECIDE: String, Array and/or Hashmap?)
+
+description: ~ # Default is undefined.
+
+category:
+  main: ~ # Default is undefined.
+  sub: ~ # Default is undefined.
+  tags: ~ # Default is undefined.
+
+license: ~ # Default is undefined.
+
+platforms: [] # Array of supported platforms, e.g. [linux, windows, macos]
+

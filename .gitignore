@@ -1,0 +1,4 @@
+.git/
+.*.sw[op]
+.DS_Store
+.project

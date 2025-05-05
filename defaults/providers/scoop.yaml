@@ -1,0 +1,7 @@
+# Scoop specific default overrides
+version: 0.1
+
+packages:
+  main:
+    name: $software_name:$software_name
+

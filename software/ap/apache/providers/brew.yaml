@@ -1,0 +1,35 @@
+version: 0.1
+
+directories:
+  config:
+    path: /opt/homebrew/etc/httpd
+  conf:
+    path: /opt/homebrew/etc/httpd/extra
+  log:
+    path: /opt/homebrew/var/log/httpd
+  data:
+    path: /opt/homebrew/www/httpd
+  lib:
+    path: /opt/homebrew/var/lib/apache2
+
+files:
+  config:
+    path: /opt/homebrew/etc/httpd/httpd.conf
+  log:
+    path: /opt/homebrew/var/log/httpd/access.log
+  errorlog:
+    path: /opt/homebrew/var/log/httpd/error.log
+  pid:
+    path: /opt/homebrew/var/run/httpd/httpd.pid
+
+packages:
+  main:
+    name: apache-httpd
+
+services:
+  main:
+    name: httpd
+
+processes:
+  main:
+    path: /opt/homebrew/opt/httpd/bin/httpd

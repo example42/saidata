@@ -1,0 +1,17 @@
+# Brew specific default overrides
+version: 0.1
+
+directories:
+  config:
+    path: /opt/homebrew/etc/$software_name
+  conf:
+    path: /opt/homebrew/etc/$software_name/conf.d
+  log:
+    path: /opt/homebrew/var/log/$software_name
+
+files:
+  config:
+    path: /opt/homebrew/etc/$software_name/$software_name.conf
+  log:
+    path: /opt/homebrew/var/log/$software_name/$software_name.log
+

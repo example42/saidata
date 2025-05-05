@@ -1,0 +1,24 @@
+# This is a possible hierarchy of files to look for saidata:
+# From more specific to less specific:
+# WIP
+# $software_name is the software name as passed to sai script
+# $software_initials is the software initials (one or two letters?)
+# $provider is the provider name (choco, brew, apt, yum, etc)
+# $os_name is the OS name (windows, macos, redhat, ubuntu, etc)
+# $os_version is the OS version (22.04, 10, 11, etc)
+# $repo is the repo name (upstream, version specific, etc)
+
+software/$software_initials/$software_name/repos/$repo/$provider/$os_name-$os_version.yaml
+software/$software_initials/$software_name/repos/$repo/$provider/$os_name.yaml
+software/$software_initials/$software_name/repos/$repo/$provider.yaml
+software/$software_initials/$software_name/repos/$repo.yaml
+
+software/$software_initials/$software_name/$provider/$os_name-$os_version.yaml
+software/$software_initials/$software_name/$provider/$os_name.yaml
+software/$software_initials/$software_name/$provider.yaml
+software/$software_initials/$software_name/defaults.yaml
+
+defaults/providers/$provider/$os_name-$os_version.yaml
+defaults/providers/$provider/$os_name.yaml
+defaults/providers/$provider.yaml
+defaults/defaults.yaml

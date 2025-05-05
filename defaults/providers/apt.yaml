@@ -1,0 +1,6 @@
+# APT specific default overrides
+version: 0.1
+
+files:
+  init:
+    path: /etc/default/$software_name

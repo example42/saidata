@@ -1,0 +1,54 @@
+version: 0.1
+
+directories:
+  config:
+    path: /etc/apache2
+  conf:
+    path: /etc/apache2/conf-enabled
+  log:
+    path: /var/log/apache2
+  mods:
+    path: /etc/apache2/mods-enabled
+  sites:
+    path: /etc/apache2/sites-enabled
+  data:
+    path: /var/www/htdocs
+  lib:
+    path: /var/lib/apache2
+
+files:
+  config:
+    path: /etc/apache2/httpd.conf
+  init:
+    path: /etc/default/apache2
+  log:
+    path: /var/log/apache2/access.log
+  errorlog:
+    path: /var/log/apache2/error.log
+  pid:
+    path: /var/run/httpd2.pid
+
+packages:
+  main:
+    name: apache2
+
+services:
+  main:
+    name: apache2
+
+processes:
+  main:
+    path: /usr/sbin/httpd2-prefork
+    owner: wwwrun
+    group: wwwrun
+
+actions:
+  commands:
+    info:
+      show_compile_settings: 'httpd2-prefork -V'
+      show_compiled_modules: 'httpd2-prefork -l'
+      show_loaded_modules: 'httpd2-prefork -t -D DUMP_MODULES'
+    test:
+      validate_config: 'httpd2-prefork -t'
+    version:
+      show_version: httpd2-prefork -v

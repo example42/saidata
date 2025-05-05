@@ -1,0 +1,175 @@
+# Provider YAML data format specification
+# File supports variable interpolations with saidata
+# The name of the provider (ie: apt, yum, helm...) should be the root key
+
+provider:
+  # The version of the provider data api
+  version: 0.1 # Version of the provider data structure
+
+  # Provider auto-detection settings
+  emerge:
+    command: cmd # Command to check (apt, yum, helm, etc.)
+    check_command: "which $command >/dev/null 2>&1" # Command to verify provider availability
+    fallback_commands: [] # Alternative commands to check if main command doesn't exist
+    priority: 100 # Priority for provider selection when multiple are available
+
+  # Dependencies of the provider
+  dependencies:
+    packages: [] # List of packages required for this provider to work
+    commands: [] # List of commands required for this provider to work
+    files: [] # List of files that must exist for this provider to work
+    services: [] # List of services that must be running for this provider to work
+  
+  # Environment settings for all commands
+  settings:
+    env_vars: {} # Environment variables to set for all commands
+    default_options: # Default options for common actions
+      install: ""
+      remove: ""
+      upgrade: ""
+    files:
+      init: 
+        path: "" # Path to init file
+
+  # Commands to be executed on specific actions
+  actions:
+    install:
+      name: "Install $package_name" # A descriptive name for the action
+      commands:
+        pre_check: "" # Idempotency check command (if returns 0, skip installation)
+        pre_check_exit_code: 1 # Expected exit code for pre_check to continue
+        pre: [] # Pre-installation commands (if needed)
+        command: "" # The command(s) to perform an unattended installation
+        post: [] # Post-installation commands (if needed)
+        post_check: "" # Verification check after installation
+        error_handling: # Commands to run if installation fails
+          command: ""
+          message: "Installation failed: $error_message"
+      options:
+        timeout: 300 # Timeout in seconds
+        retries: 3 # Number of retries on failure
+        retry_delay: 5 # Delay between retries in seconds
+    
+    uninstall:
+      name: "Uninstall $package_name"
+      commands:
+        pre_check: ""
+        pre_check_exit_code: 0
+        pre: []
+        command: ""
+        post: []
+        post_check: ""
+        error_handling:
+          command: ""
+          message: "Uninstallation failed: $error_message"
+      options:
+        timeout: 300
+        retries: 3
+        retry_delay: 5
+    
+    update_repositories:
+      name: "Update package repositories"
+      commands:
+        command: ""
+        post_check: ""
+    
+    add_repository:
+      name: "Add repository $repository.name"
+      commands:
+        pre_check: ""
+        pre_check_exit_code: 1
+        key_commands:
+          - "" # Command to add repository key
+        command: "" # Command to add repository
+        update_command: "" # Command to update after adding repository
+        post_check: ""
+      options:
+        timeout: 300
+    
+    remove_repository:
+      name: "Remove repository $repository.name"
+      commands:
+        pre_check: ""
+        pre_check_exit_code: 0
+        command: ""
+        post_check: ""
+  
+  # OS family and version specific configurations
+  os_compatibility:
+    - family: "" # OS family name (debian, rhel, etc.)
+      distributions: [] # List of distributions in this family
+      versions: [] # List of supported OS versions
+      codenames: {} # Map of version to codename
+      settings: {} # OS-specific settings that override default settings
+      actions: {} # OS-specific action commands that override default actions
+  
+  # Provider specific parameters
+  params: 
+    repository_management:
+      supported: true # Whether this provider supports repository management
+      file_path: "" # Path to repository configuration files
+      file_extension: "" # Extension for repository files
+      key_management:
+        command: "" # Command to manage repository keys
+        options: {} # Options for key management
+    
+    versioning:
+      version_selection: # How to specify versions during installation
+        supported: true
+        format: "" # Format string for specifying version
+        example: "" # Example of version specification
+    
+    options:
+      install: {} # Available options for install command
+      uninstall: {} # Available options for uninstall command
+      upgrade: {} # Available options for upgrade command
+  
+  # Source of data to use to RAG sai models to fetch provider related data
+  data_sources:
+    - name: "" # Data source name
+      description: "" # A short description of the data source
+      url: "" # URL to the data source
+      format: "" # Format of the data (CSV, JSON, etc.)
+      refresh_interval: "daily" # How often to refresh the data
+      auth_required: false # Whether authentication is required
+      auth_method: "" # Authentication method if required
+      schema:
+        - name: "" # Name of the field
+          type: "" # Type of the field (string, integer, float, etc.)
+          description: "" # Description of the field
+    
+    - name: "os_version_mapping"
+      description: "Mapping of OS versions to their codenames and support status"
+      url: "https://example.com/os_versions.json"
+      format: "json"
+      schema:
+        - name: "os_name"
+          type: "string"
+          description: "Name of the operating system (debian, ubuntu, etc.)"
+        - name: "version"
+          type: "string" 
+          description: "Version number"
+        - name: "codename"
+          type: "string"
+          description: "Codename for the version (focal, bullseye, etc.)"
+        - name: "eol_date"
+          type: "date"
+          description: "End of life date for this OS version"
+
+  # Suggested prompts to generate correct saidata
+  prompts:
+    - name: "find_package_name"
+      description: "Find the package name for software on specific OS"
+      prompt: "Find the package name for $software_name on $os_name version $os_version"
+    
+    - name: "get_repository_info"
+      description: "Find repository information for software"
+      prompt: "What is the official repository URL for $software_name on $os_name $os_version, and what is the corresponding GPG key?"
+    
+    - name: "find_dependencies"
+      description: "Find dependencies for a software package"
+      prompt: "List all required dependencies for $software_name on $os_name version $os_version"
+    
+    - name: "version_compatibility"
+      description: "Check version compatibility with OS versions"
+      prompt: "Which versions of $software_name are compatible with $os_name version $os_version, and which is recommended?"

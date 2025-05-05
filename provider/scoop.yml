@@ -1,0 +1,40 @@
+# WIP. Sample provider data for apt package manager
+apt:
+  version: 0.1
+  emerge:
+    command: scoop
+
+  settings:
+    files:
+      init:
+        path: /etc/default/$service_name
+
+  actions:
+    install:
+      name: Install $package_name
+      commands:
+        command: scoop install $package_name
+        check: scoop prefix $package_name
+        emerge: scoop info $package_name
+    uninstall:
+      name: Uninstall $package_name
+      commands:
+        command: scoop uninstall $package_name
+        check: scoop prefix $package_name # invert
+    info:
+      name: Show $package_name location
+      commands:
+        command: scoop show $package_name
+    upgrade:
+      name: Upgrade $package_name
+      commands:
+          command: scoop upgrade -y $package_name
+    list:
+      name: List installed apps
+      commands:
+        command: scoop list
+    status:
+      name: Show status of $package_name
+      commands:
+        command: scoop status $package_name
+    

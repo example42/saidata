@@ -1,13 +1,9 @@
-# WIP. Sample provider data for apt package manager
+# WIP. Sample provider data         emerge: apt list $package_name
+for apt package manager
 apt:
   version: 0.1
   emerge:
-    command: cmd
-
-  settings:
-    files:
-      init:
-        path: /etc/default/$service_name
+    command: apt
 
   actions:
     install:
@@ -15,7 +11,6 @@ apt:
       commands:
         command: apt-get install -y $package_name
         check: apt show $package_name
-        emerge: apt list $package_name
     uninstall:
       name: Uninstall $package_name
       commands:

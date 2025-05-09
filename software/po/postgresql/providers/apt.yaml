@@ -1,0 +1,6 @@
+version: 0.1
+
+directories:
+  log:
+    path: /var/log/postgresql
+

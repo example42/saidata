@@ -3,7 +3,7 @@ version: 0.1
 directories:
   config:
     path: /opt/homebrew/etc/httpd
-  dotconf:
+  conf:
     path: /opt/homebrew/etc/httpd/extra
   log:
     path: /opt/homebrew/var/log/httpd
@@ -23,13 +23,13 @@ files:
     path: /opt/homebrew/var/run/httpd/httpd.pid
 
 packages:
-  default:
+  main:
     name: apache-httpd
 
 services:
-  default:
+  main:
     name: httpd
 
 processes:
-  default:
+  main:
     path: /opt/homebrew/opt/httpd/bin/httpd

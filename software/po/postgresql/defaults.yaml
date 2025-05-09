@@ -1,0 +1,33 @@
+version: 0.1
+
+urls:
+  website: https://www.postgresql.org/
+  documentation: https://www.postgresql.org/docs/
+  support: https://www.postgresql.org/support/
+  source: https://github.com/postgres/postgres
+  license: https://github.com/postgres/postgres?tab=License-1-ov-file
+  changelog: https://www.postgresql.org/docs/release/
+  download: https://www.postgresql.org/download/
+  icon: https://www.postgresql.org/media/img/about/press/elephant.png
+
+containers:
+  upstream:
+    image: docker.io/postgres
+
+ports:
+  main:
+    port: 5432
+    protocol: tcp
+
+processes:
+  main: 
+    path: postgres
+    owner: postgres
+    group: postgres
+
+  config_file_path: '/var/lib/pgsql/data/postgresql.conf'
+  config_dir_path: '/var/lib/pgsql/data'
+  data_dir_path: '/var/lib/pgsql/data'
+  pid_file_path: '/var/run/postgresql/.s.PGSQL.5432'
+  log_file_path: '/var/lib/pgsql/data/pg_log/postgresql.log'
+  log_dir_path: '/var/lib/pgsql/data/pg_log'

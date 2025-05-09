@@ -1,0 +1,21 @@
+version: 0.1
+
+directories:
+  config:
+    path: /etc/postgresql/16/main
+  conf:
+    path: /etc/postgresql/16/main/conf.d
+  data:
+    path: /var/lib/postgresql/16/main
+
+files:
+  config:
+    path: /etc/postgresql/16/main/postgresql.conf
+  hba:
+    path: /etc/postgresql/16/main/pg_hba.conf
+  ident:
+    path: /etc/postgresql/16/main/pg_ident.conf
+  log:
+    path: /var/log/postgresql/postgresql-16-main.log
+  pid:
+    path: /var/run/postgresql/16-main.pid

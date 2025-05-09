@@ -3,7 +3,7 @@ version: 0.1
 directories:
   config:
     path: /etc/apache2
-  conf:
+  dotconf:
     path: /etc/apache2/conf-enabled
   log:
     path: /var/log/apache2
@@ -27,14 +27,14 @@ files:
     path: /var/run/apache2/apache2.pid
 
 packages:
-  main:
+  default:
     name: apache2
 
 services:
-  main:
+  default:
     name: apache2
 
 processes:
-  main:
+  default:
     path: /usr/sbin/apache2
 

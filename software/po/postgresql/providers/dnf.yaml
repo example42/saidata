@@ -3,7 +3,7 @@ version: 0.1
 directories:
   config:
     path: /etc/httpd
-  dotconf:
+  conf:
     path: /etc/httpd/conf.d
   log:
     path: /var/log/httpd
@@ -25,15 +25,15 @@ files:
     path: /var/run/httpd/httpd.pid
 
 packages:
-  default:
+  main:
     name: httpd
 
 services:
-  default:
+  main:
     name: httpd
 
 processes:
-  default:
+  main:
     path: /usr/sbin/httpd
     owner: root
     group: root

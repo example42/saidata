@@ -4,13 +4,21 @@
 version: 0.1
 
 packages:
-  main:
+  default:
     name: $software_name
     version: latest
-    install_options: ~ # Default is undefined. 
+    install_options: ~ # Default is undefined.
+  dev:
+    name: $software_name-dev
+    version: latest
+    install_options: ~ # Default is undefined.
+  doc:
+    name: $software_name-doc
+    version: latest
+    install_options: ~ # Default is undefined.
 
 services:
-  main:
+  default:
     name: $software_name
     service_name: $software_name
 
@@ -20,7 +28,7 @@ directories:
     owner: root
     group: root
     mode: 0755
-  conf: # Dot conf directory, with separated configuration files, if applicable
+  dotconf: # Dot conf directory, with separated configuration files, if applicable
     path: /etc/$software_name/conf.d
     owner: root
     group: root
@@ -43,17 +51,26 @@ ports:
     port: ~ # Default is undefined.
     protocol: tcp
 
-container:
-  name: $software_name
-  image: $software_name
-  version: latest
-  network: ~ # Default is undefined.
-  ports: [] # Array of ports to expose, default is undefined.
-  volumes: [] # Array of volumes to mount, default is undefined.
-  nodaemon_args: ~ # Default is undefined.
-  env: [] # Array of environment variables, default is undefined.
+containers:
+  upstream:
+    name: $software_name
+    image: $software_name
+    version: latest
+    network: ~ # Default is undefined.
+    ports: [] # Array of ports to expose, default is undefined.
+    volumes: [] # Array of volumes to mount, default is undefined.
+    nodaemon_args: ~ # Default is undefined.
+    env: [] # Array of environment variables, default is undefined.
+  bitnami: {}
 
-dependencies: ~ # Can be a string, array, or hashmap
+charts:
+  upstream: {}
+  bitnami: {}
+
+repos:
+  upstream: {}
+  16: {}
+  18: {}
 
 urls:
   website: ~

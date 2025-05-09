@@ -7,9 +7,10 @@ urls:
   support: https://httpd.apache.org/support.html
   source: https://github.com/apache/httpd
 
-container:
-  image: httpd
-  nodaemon_args: '-DFOREGROUND'
+containers:
+  upstream:
+    image: docker.io/httpd
+    nodaemon_args: '-DFOREGROUND'
 
 actions:
   commands:

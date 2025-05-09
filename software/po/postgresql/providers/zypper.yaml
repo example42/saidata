@@ -3,7 +3,7 @@ version: 0.1
 directories:
   config:
     path: /etc/apache2
-  dotconf:
+  conf:
     path: /etc/apache2/conf-enabled
   log:
     path: /var/log/apache2
@@ -29,15 +29,15 @@ files:
     path: /var/run/httpd2.pid
 
 packages:
-  default:
+  main:
     name: apache2
 
 services:
-  default:
+  main:
     name: apache2
 
 processes:
-  default:
+  main:
     path: /usr/sbin/httpd2-prefork
     owner: wwwrun
     group: wwwrun

@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://activemq.apache.org/
+  issues: https://issues.apache.org/jira/projects/AMQ/issues
+  documentation: https://activemq.apache.org/documentation.html
+  support: https://activemq.apache.org/support.html
+  source: https://github.com/apache/activemq
+  license: https://www.apache.org/licenses/LICENSE-2.0
+  download: https://activemq.apache.org/download.html
+containers:
+  upstream:
+    name: activemq
+    image: rmohr/activemq
+    version: latest
+description: ActiveMQ is an open source message broker written in Java that supports
+  multiple protocols and messaging patterns. It is designed to provide reliable and
+  scalable messaging for applications.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Messaging
+  tags:
+  - message broker
+  - Java
+  - messaging
+

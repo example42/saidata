@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://obsproject.com/
+  issues: https://github.com/obsproject/obs-studio/issues
+  documentation: https://obsproject.com/wiki/
+  support: https://obsproject.com/support
+  source: https://github.com/obsproject/obs-studio
+  license: https://github.com/obsproject/obs-studio/blob/master/LICENSE
+  download: https://obsproject.com/download
+containers:
+  upstream:
+    name: obs-studio
+    image: obsproject/obs-studio
+    version: latest
+description: Open Broadcaster Software (OBS) Studio is a free and open-source software
+  for video recording and live streaming.
+language: C++
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Multimedia
+  sub: Video Recording and Streaming
+  tags:
+  - obs
+  - video
+  - streaming
+

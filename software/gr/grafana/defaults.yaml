@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  grafana:
+    website: https://grafana.com/
+    issues: https://github.com/grafana/grafana/issues
+    documentation: https://grafana.com/docs/
+    support: https://grafana.com/support/
+    source: https://github.com/grafana/grafana
+    license: https://github.com/grafana/grafana/blob/master/LICENSE.md
+    download: https://grafana.com/get
+containers:
+  upstream:
+    name: grafana
+    image: grafana/grafana
+    version: latest
+description: Grafana is an open source web-based data visualization and monitoring
+  tool. It allows users to create and share dashboards, set alerts, and track metrics
+  from various data sources.
+ports:
+  default:
+    port: 3000
+language: JavaScript
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Data Visualization
+  tags:
+  - web
+  - monitoring
+  - metrics
+

@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.terraform.io/
+  issues: https://github.com/hashicorp/terraform/issues
+  documentation: https://www.terraform.io/docs/index.html
+  support: https://www.terraform.io/docs/support/index.html
+  source: https://github.com/hashicorp/terraform
+  license: https://github.com/hashicorp/terraform/blob/master/LICENSE
+containers:
+  upstream:
+    name: terraform
+    image: hashicorp/terraform
+    version: latest
+description: Terraform is an open-source infrastructure as code software tool created
+  by HashiCorp. It enables users to define and provision a datacenter infrastructure
+  using a high-level configuration language known as HashiCorp Configuration Language
+  (HCL), or optionally JSON.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Infrastructure as Code
+  sub: Configuration Management
+  tags:
+  - terraform
+  - infrastructure
+  - configuration
+

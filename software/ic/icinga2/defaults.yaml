@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://icinga.com/
+  issues: https://github.com/Icinga/icinga2/issues
+  documentation: https://icinga.com/docs/icinga2/latest/
+  support: https://icinga.com/support/
+  source: https://github.com/Icinga/icinga2
+  license: https://github.com/Icinga/icinga2/blob/master/LICENSE
+containers:
+  upstream:
+    name: icinga2
+    image: icinga/icinga2
+    version: latest
+description: Icinga 2 is an open source monitoring software that checks the availability
+  of network resources, notifies users of outages, and generates performance data
+  for reporting. It is a powerful and scalable solution for monitoring large, complex
+  environments.
+language: C++
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - monitoring
+  - network
+  - performance
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://openjdk.java.net/
+  issues: https://bugs.openjdk.java.net/
+  documentation: https://docs.oracle.com/en/java/javase/11/
+  support: https://www.oracle.com/java/technologies/javase-support.html
+  source: https://github.com/openjdk/jdk
+  license: https://openjdk.java.net/legal/gplv2+ce.html
+containers:
+  upstream:
+    name: openjdk-jre
+    image: openjdk:8-jre
+    version: latest
+description: OpenJDK JRE is a free and open-source implementation of the Java Runtime
+  Environment. It allows users to run Java applications on their systems without needing
+  to install the full Java Development Kit (JDK).
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Java Runtime Environment
+  tags:
+  - java
+  - runtime
+  - environment
+

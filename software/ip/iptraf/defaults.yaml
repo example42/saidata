@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://github.com/iptraf-ng/iptraf-ng
+  issues: https://github.com/iptraf-ng/iptraf-ng/issues
+  documentation: https://github.com/iptraf-ng/iptraf-ng/wiki
+  source: https://github.com/iptraf-ng/iptraf-ng
+  license: https://github.com/iptraf-ng/iptraf-ng/blob/master/COPYING
+  download: https://github.com/iptraf-ng/iptraf-ng/releases
+containers:
+  upstream:
+    name: iptraf
+    image: docker.io/centos/iptraf
+    version: latest
+description: IPtraf is a console-based network monitoring utility that displays various
+  network statistics including TCP/UDP traffic, network interface statistics, and
+  packet counts. It can be used to monitor network activity, troubleshoot network
+  issues, and analyze network performance.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Monitoring
+  tags:
+  - network
+  - monitoring
+  - traffic
+

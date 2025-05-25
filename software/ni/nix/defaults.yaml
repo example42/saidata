@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://nixos.org/
+  issues: https://github.com/NixOS/nix/issues
+  documentation: https://nixos.org/nix/manual/
+  support: https://nixos.org/support/
+  source: https://github.com/NixOS/nix
+  license: https://github.com/NixOS/nix/blob/master/COPYING
+containers:
+  upstream:
+    name: nix
+    image: nixos/nix
+    version: latest
+description: Nix is a powerful package manager for Linux and other Unix systems. It
+  allows users to easily install, upgrade, and manage software packages on their system.
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Package Manager
+  tags:
+  - nix
+  - package manager
+  - linux
+  - unix
+

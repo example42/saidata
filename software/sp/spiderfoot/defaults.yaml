@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.spiderfoot.net/
+  issues: https://github.com/smicallef/spiderfoot/issues
+  documentation: https://www.spiderfoot.net/documentation/
+  support: https://www.spiderfoot.net/support/
+  source: https://github.com/smicallef/spiderfoot
+  license: https://github.com/smicallef/spiderfoot/blob/master/LICENSE
+containers:
+  upstream:
+    name: spiderfoot
+    image: spiderfoot/spiderfoot
+    version: latest
+description: SpiderFoot is an open source intelligence (OSINT) automation tool. It
+  automates the process of gathering intelligence about a given target, which may
+  be an IP address, domain name, hostname or network subnet. It gathers information
+  from a variety of sources, including search engines, social media platforms, and
+  public databases.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security
+  sub: OSINT
+  tags:
+  - security
+  - osint
+  - automation
+

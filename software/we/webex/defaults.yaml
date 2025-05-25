@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  webex:
+    website: https://www.webex.com/
+    documentation: https://help.webex.com/
+    support: https://help.webex.com/contact
+    download: https://www.webex.com/downloads.html
+containers:
+  upstream:
+    name: webex
+    image: ciscosystems/webex
+    version: latest
+description: Webex is a web conferencing and collaboration platform that allows users
+  to host online meetings, webinars, and virtual events.
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Conferencing
+  tags:
+  - web
+  - conferencing
+  - collaboration
+

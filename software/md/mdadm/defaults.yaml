@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.kernel.org/pub/linux/utils/raid/mdadm/
+  issues: https://github.com/neilbrown/mdadm/issues
+  documentation: https://raid.wiki.kernel.org/index.php/Mdadm
+  source: https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git/
+  license: GNU General Public License v2.0
+containers:
+  upstream:
+    name: mdadm
+    image: mdadm/mdadm
+    version: latest
+description: mdadm is a software tool for managing and monitoring software RAID arrays
+  on Linux systems. It allows for the creation, management, and monitoring of RAID
+  arrays, as well as the ability to add and remove devices from existing arrays.
+language: C
+license: Open Source
+platforms:
+- Linux
+category:
+  default: System Administration
+  sub: RAID Management
+  tags:
+  - mdadm
+  - RAID
+  - Linux
+  - system administration
+

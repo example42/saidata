@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.softwarecollections.org/
+  issues: https://github.com/sclorg/sclorg/issues
+  documentation: https://www.softwarecollections.org/en/docs/
+  source: https://github.com/sclorg/sclorg
+  license: https://www.softwarecollections.org/en/docs/licenses/
+  download: https://www.softwarecollections.org/en/scls/
+containers:
+  upstream:
+    name: scl
+    image: centos/scl
+    version: latest
+description: SCL (Simple Command Line) is a lightweight web server written in Python.
+  It allows users to quickly and easily serve static files from a specified directory.
+ports:
+  default:
+    port: 8000
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://docs.openstack.org/cinder/latest/
+  issues: https://bugs.launchpad.net/cinder
+  documentation: https://docs.openstack.org/cinder/latest/
+  support: https://ask.openstack.org/en/questions/
+  source: https://github.com/openstack/cinder
+  license: Apache License 2.0
+containers:
+  upstream:
+    name: cinder
+    image: openstack/cinder
+    version: latest
+description: Cinder is an open source web server written in Python. It is designed
+  to be fast, lightweight, and easy to use.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

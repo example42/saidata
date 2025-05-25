@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.openswan.org/
+  issues: https://github.com/xelerance/Openswan/issues
+  documentation: https://www.openswan.org/docs/
+  support: https://www.openswan.org/support/
+  source: https://github.com/xelerance/Openswan
+  license: https://www.openswan.org/license/
+  download: https://www.openswan.org/download/
+containers:
+  upstream:
+    name: openswan
+    image: openswan/openswan
+    version: latest
+description: Openswan is an open source implementation of IPsec for Linux that allows
+  for secure communication over the internet. It supports both IPv4 and IPv6 and can
+  be used for site-to-site and remote access VPNs.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Security
+  sub: VPN
+  tags:
+  - ipsec
+  - security
+  - encryption
+

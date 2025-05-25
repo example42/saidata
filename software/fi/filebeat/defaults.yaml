@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/beats/filebeat
+  issues: https://github.com/elastic/beats/issues
+  documentation: https://www.elastic.co/guide/en/beats/filebeat/current/index.html
+  support: https://www.elastic.co/support/
+  source: https://github.com/elastic/beats/tree/master/filebeat
+  license: https://github.com/elastic/beats/blob/master/LICENSE.txt
+  download: https://www.elastic.co/downloads/beats/filebeat
+containers:
+  upstream:
+    name: filebeat
+    image: docker.elastic.co/beats/filebeat:7.10.2
+    version: latest
+description: Filebeat is a lightweight log shipper that sends logs from different
+  sources to a central location for processing and analysis. It is part of the Elastic
+  Stack and is designed to be highly efficient and easy to use.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Log Management
+  tags:
+  - log
+  - shipper
+  - elastic stack
+

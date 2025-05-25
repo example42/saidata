@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://www.sudo.ws/
+  issues: https://github.com/sudo-project/sudo/issues
+  documentation: https://www.sudo.ws/man/sudo.man.html
+  support: https://www.sudo.ws/support.html
+  source: https://github.com/sudo-project/sudo
+  license: https://www.sudo.ws/license.html
+  download: https://www.sudo.ws/download.html
+containers:
+  upstream:
+    name: sudo
+    image: sudo
+    version: latest
+description: sudo (Superuser Do) is a command-line utility that allows users to run
+  commands with the security privileges of another user, by default the superuser.
+  It is used to provide a way for users to execute commands as root without having
+  to log in as root.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Administration
+  tags:
+  - sudo
+  - command-line
+  - security
+  - root
+

@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://puppet.com/docs/pe/2019.8/pe_client_tools.html
+  issues: https://tickets.puppet.com/browse/PE
+  documentation: https://puppet.com/docs/pe/2019.8/pe_client_tools.html
+  support: https://puppet.com/support-services
+  license: https://puppet.com/legal
+  download: https://puppet.com/download-puppet-enterprise
+containers:
+  upstream:
+    name: pe-client-tools
+    image: puppet/puppet-agent
+    version: latest
+description: Tools for managing Puppet Enterprise clients
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Configuration Management
+  sub: Puppet
+  tags:
+  - puppet
+  - configuration management
+  - automation
+

@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://yum.baseurl.org/
+  issues: https://github.com/Yelp/dumb-init/issues
+  documentation: https://yum.baseurl.org/wiki/YumCron
+  source: https://github.com/rpm-software-management/yum-cron
+  license: GNU General Public License v2.0
+  download: https://yum.baseurl.org/download/yum-cron/
+containers:
+  upstream:
+    name: yum-cron
+    image: centos/yum-cron
+    version: latest
+description: yum-cron is a utility that automatically updates and installs packages
+  on Linux systems using the yum package manager. It can be configured to run at regular
+  intervals, ensuring that the system is always up-to-date with the latest security
+  patches and bug fixes.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Administration
+  sub: Package Management
+  tags:
+  - yum
+  - cron
+  - package manager
+  - updates
+

@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  website: https://gitlab.com/psmisc/psmisc
+  issues: https://gitlab.com/psmisc/psmisc/-/issues
+  source: https://gitlab.com/psmisc/psmisc/-/tree/master
+  license: https://gitlab.com/psmisc/psmisc/-/blob/master/COPYING
+  download: https://gitlab.com/psmisc/psmisc/-/archive/master/psmisc-master.tar.gz
+containers:
+  upstream:
+    name: psmisc
+    image: psmisc
+    version: latest
+description: Utilities for managing processes on Linux
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Administration
+  tags:
+  - processes
+  - management
+  - Linux
+

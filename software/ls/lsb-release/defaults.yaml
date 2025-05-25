@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://wiki.linuxfoundation.org/lsb/start
+  issues: https://wiki.linuxfoundation.org/lsb/bugs
+  documentation: https://wiki.linuxfoundation.org/lsb/documentation
+  support: https://wiki.linuxfoundation.org/lsb/support
+  source: https://wiki.linuxfoundation.org/lsb/source
+  license: https://wiki.linuxfoundation.org/lsb/license
+  download: https://wiki.linuxfoundation.org/lsb/download
+containers:
+  upstream:
+    name: lsb-release
+    image: debian:latest
+    version: latest
+description: Command-line tool to display LSB (Linux Standard Base) information about
+  the Linux distribution.
+language: Bash
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Administration
+  sub: Linux Distribution
+  tags:
+  - lsb
+  - linux
+  - distribution
+

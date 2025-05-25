@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://libvirt.org/
+  issues: https://libvirt.org/bugs.html
+  documentation: https://libvirt.org/docs.html
+  support: https://libvirt.org/support.html
+  source: https://libvirt.org/git/
+  license: https://libvirt.org/license.html
+  download: https://libvirt.org/download.html
+containers:
+  upstream:
+    name: libvirt
+    image: libvirt/libvirt
+    version: latest
+description: Libvirt is a toolkit to interact with the virtualization capabilities
+  of Linux and other operating systems. It provides a common API for managing various
+  virtualization technologies, such as KVM, Xen, LXC, and more.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Virtualization
+  tags:
+  - libvirt
+  - virtualization
+  - KVM
+  - Xen
+  - LXC
+

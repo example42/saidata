@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://mmonit.com/monit/
+  issues: https://mmonit.com/monit/bugs/
+  documentation: https://mmonit.com/monit/documentation/
+  support: https://mmonit.com/monit/support/
+  source: https://mmonit.com/monit/download/
+  license: https://mmonit.com/monit/license/
+  download: https://mmonit.com/monit/download/
+containers:
+  upstream:
+    name: monit
+    image: mmonit/monit
+    version: latest
+description: Monit is a free and open source utility for managing and monitoring Unix
+  systems. It conducts automatic maintenance and repair and can execute meaningful
+  causal actions in error situations.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - system
+  - monitoring
+  - unix
+

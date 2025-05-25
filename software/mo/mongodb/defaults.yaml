@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.mongodb.com/
+  issues: https://jira.mongodb.org/
+  documentation: https://docs.mongodb.com/
+  support: https://www.mongodb.com/support
+  source: https://github.com/mongodb/mongo
+  license: https://www.mongodb.com/licensing/server-side-public-license
+  download: https://www.mongodb.com/download-center/community
+containers:
+  upstream:
+    name: mongodb
+    image: mongo
+    version: latest
+description: MongoDB is a cross-platform document-oriented database program. It uses
+  a JSON-like format to store data and provides high performance, high availability,
+  and automatic scaling.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Database
+  tags:
+  - database
+  - document-oriented
+  - JSON
+

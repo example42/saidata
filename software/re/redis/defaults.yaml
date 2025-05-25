@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://redis.io/
+  issues: https://github.com/antirez/redis/issues
+  documentation: https://redis.io/documentation
+  support: https://redis.io/support
+  source: https://github.com/antirez/redis
+  license: https://redis.io/topics/license
+  download: https://redis.io/download
+containers:
+  upstream:
+    name: redis
+    image: redis
+    version: latest
+description: Redis is an open source, in-memory data structure store, used as a database,
+  cache, and message broker. It supports various data structures such as strings,
+  hashes, lists, sets, and more. It also provides high availability and automatic
+  partitioning.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Database
+  sub: NoSQL
+  tags:
+  - database
+  - cache
+  - message broker
+  - data structures
+

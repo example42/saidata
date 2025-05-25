@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://github.com/sysstat/sysstat
+  issues: https://github.com/sysstat/sysstat/issues
+  documentation: https://github.com/sysstat/sysstat/wiki
+  source: https://github.com/sysstat/sysstat
+  license: https://github.com/sysstat/sysstat/blob/master/COPYING
+  download: https://github.com/sysstat/sysstat/releases
+containers:
+  upstream:
+    name: sysstat
+    image: sysstat/sysstat
+    version: latest
+description: Sysstat is a command-line tool for monitoring system performance and
+  resource usage on Linux systems. It collects and reports data on CPU, memory, disk,
+  and network activity, as well as process and system statistics.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - system
+  - monitoring
+  - performance
+  - resource usage
+

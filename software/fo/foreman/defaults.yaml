@@ -1,0 +1,37 @@
+version: '0.1'
+urls:
+  foreman:
+    website: https://theforeman.org/
+    issues: https://projects.theforeman.org/projects/foreman/issues
+    documentation: https://theforeman.org/manuals/2.4/index.html
+    support: https://theforeman.org/support.html
+    source: https://github.com/theforeman/foreman
+    license: https://github.com/theforeman/foreman/blob/develop/LICENSE
+    download: https://theforeman.org/downloads.html
+containers:
+  upstream:
+    name: foreman
+    image: theforeman/foreman
+    version: latest
+description: Foreman is a complete lifecycle management tool for physical and virtual
+  servers. It provides provisioning, configuration management, monitoring and reporting
+  capabilities.
+ports:
+  default:
+    port: 443
+  ssl:
+    port: 443
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Infrastructure Management
+  sub: Server Provisioning
+  tags:
+  - foreman
+  - server
+  - provisioning
+

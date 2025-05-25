@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://puppet.com/docs/puppetdb/latest/
+  issues: https://tickets.puppetlabs.com/browse/PDB
+  documentation: https://puppet.com/docs/puppetdb/latest/
+  support: https://puppet.com/support-services/customer-support
+  source: https://github.com/puppetlabs/puppetdb
+  license: https://github.com/puppetlabs/puppetdb/blob/master/LICENSE
+containers:
+  upstream:
+    name: puppetdb-termini
+    image: puppet/puppetdb-termini
+    version: latest
+description: PuppetDB Termini is a client library for interacting with PuppetDB, a
+  data warehouse for Puppet. It provides a simple API for querying and manipulating
+  data in PuppetDB.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Configuration Management
+  tags:
+  - puppet
+  - configuration
+  - management
+

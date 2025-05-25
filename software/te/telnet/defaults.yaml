@@ -1,0 +1,27 @@
+version: '0.1'
+containers:
+  upstream:
+    name: telnet
+    image: telnet
+    version: latest
+description: Telnet is a network protocol used on the Internet or local area networks
+  to provide a bidirectional interactive text-oriented communication facility using
+  a virtual terminal connection. It allows a user to log into a remote computer and
+  execute commands as if they were sitting at the remote computer.
+ports:
+  default:
+    port: 23
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Protocol
+  sub: Remote Access
+  tags:
+  - telnet
+  - network
+  - remote
+  - terminal
+

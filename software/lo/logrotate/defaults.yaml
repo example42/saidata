@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://github.com/logrotate/logrotate
+  issues: https://github.com/logrotate/logrotate/issues
+  documentation: https://linux.die.net/man/8/logrotate
+  source: https://github.com/logrotate/logrotate
+  license: https://github.com/logrotate/logrotate/blob/master/COPYING
+containers:
+  upstream:
+    name: logrotate
+    image: logrotate
+    version: latest
+description: Logrotate is a utility designed for managing log files on Linux systems.
+  It allows for automatic rotation, compression, removal, and mailing of log files.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Administration
+  sub: Log Management
+  tags:
+  - log
+  - management
+  - utility
+

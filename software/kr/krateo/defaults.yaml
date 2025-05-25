@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.krateo.com
+  issues: https://github.com/krateo/krateo/issues
+  documentation: https://github.com/krateo/krateo/wiki
+  source: https://github.com/krateo/krateo
+  license: https://github.com/krateo/krateo/blob/master/LICENSE
+  download: https://github.com/krateo/krateo/releases
+containers:
+  upstream:
+    name: krateo
+    image: krateo/krateo
+    version: latest
+description: Krateo is a lightweight and fast web server written in Python. It is
+  designed to handle high traffic and can be easily configured for various use cases.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

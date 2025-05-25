@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.openvswitch.org/
+  issues: https://github.com/openvswitch/ovs/issues
+  documentation: https://docs.openvswitch.org/
+  support: https://www.openvswitch.org/support/
+  source: https://github.com/openvswitch/ovs
+  license: https://github.com/openvswitch/ovs/blob/master/LICENSE
+containers:
+  upstream:
+    name: openvswitch
+    image: openvswitch/ovs
+    version: latest
+description: Openvswitch is an open source software that provides a virtual switch
+  for creating and managing virtual networks. It is designed to be used in multi-server
+  virtualization environments, allowing for efficient communication between virtual
+  machines and physical networks.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Networking
+  sub: Virtual Switch
+  tags:
+  - openvswitch
+  - virtualization
+  - networking
+

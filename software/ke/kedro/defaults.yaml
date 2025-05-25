@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://kedro.readthedocs.io/en/stable/
+  issues: https://github.com/quantumblacklabs/kedro/issues
+  documentation: https://kedro.readthedocs.io/en/stable/
+  support: https://github.com/quantumblacklabs/kedro/issues
+  source: https://github.com/quantumblacklabs/kedro
+  license: https://github.com/quantumblacklabs/kedro/blob/master/LICENSE
+containers:
+  upstream:
+    name: kedro
+    image: kedroproject/kedro
+    version: latest
+description: Kedro is an open source data pipeline framework for machine learning
+  and data science projects.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Data Pipeline Framework
+  tags:
+  - data
+  - pipeline
+  - machine learning
+  - data science
+

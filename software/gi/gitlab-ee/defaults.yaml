@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://about.gitlab.com/
+  issues: https://gitlab.com/gitlab-org/gitlab-ee/issues
+  documentation: https://docs.gitlab.com/ee/
+  support: https://about.gitlab.com/support/
+  source: https://gitlab.com/gitlab-org/gitlab-ee
+  license: https://about.gitlab.com/installation/#gitlab-license
+containers:
+  upstream:
+    name: gitlab-ee
+    image: gitlab/gitlab-ee
+    version: latest
+description: GitLab Enterprise Edition is a web-based DevOps lifecycle tool that provides
+  a Git repository manager with issue tracking, CI/CD pipelines, and more.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: DevOps
+  sub: Git Management
+  tags:
+  - git
+  - devops
+  - repository
+  - issue tracking
+  - ci/cd
+

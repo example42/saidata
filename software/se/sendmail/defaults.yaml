@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.sendmail.com/
+  issues: https://github.com/sendmail/sendmail/issues
+  documentation: https://www.sendmail.com/documentation/
+  support: https://www.sendmail.com/support/
+  source: https://github.com/sendmail/sendmail
+  license: https://www.sendmail.com/license/
+  download: https://www.sendmail.com/download/
+containers:
+  upstream:
+    name: sendmail
+    image: sendmail/sendmail
+    version: latest
+description: Sendmail is a popular open source mail transfer agent (MTA) used for
+  sending and receiving emails. It is a highly configurable and widely used solution
+  for managing email communication.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Mail Server
+  tags:
+  - mail
+  - server
+  - email
+

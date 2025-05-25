@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://openjdk.java.net/
+  issues: https://bugs.openjdk.java.net/
+  documentation: https://docs.oracle.com/en/java/javase/11/
+  support: https://www.oracle.com/java/technologies/javase-support.html
+  source: https://github.com/openjdk/jdk
+  license: https://openjdk.java.net/legal/gplv2+ce.html
+containers:
+  upstream:
+    name: openjdk-jdk
+    image: openjdk:latest
+    version: latest
+description: OpenJDK is a free and open-source implementation of the Java Platform,
+  Standard Edition (Java SE). It is the result of an effort Sun Microsystems began
+  in 2006. The implementation is licensed under the GNU General Public License (GNU
+  GPL) version 2 with a linking exception.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Java Development Kit
+  tags:
+  - java
+  - jdk
+  - development
+

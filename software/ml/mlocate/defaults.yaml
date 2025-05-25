@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://pagure.io/mlocate
+  issues: https://pagure.io/mlocate/issues
+  documentation: https://pagure.io/mlocate/blob/master/f/README
+  source: https://pagure.io/mlocate.git
+  license: https://pagure.io/mlocate/blob/master/f/COPYING
+containers:
+  upstream:
+    name: mlocate
+    image: mlocate
+    version: latest
+description: mlocate is a command-line utility for finding files on a Linux or MacOS
+  system. It uses a database to quickly locate files based on their name or other
+  attributes.
+language: C
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Utility
+  tags:
+  - file
+  - search
+  - utility
+

@@ -1,0 +1,25 @@
+version: '0.1'
+urls:
+  website: https://github.com/ThomasHabets/iotop
+  issues: https://github.com/ThomasHabets/iotop/issues
+  documentation: https://github.com/ThomasHabets/iotop/blob/master/README.md
+  source: https://github.com/ThomasHabets/iotop
+  license: https://github.com/ThomasHabets/iotop/blob/master/COPYING
+containers:
+  upstream:
+    name: iotop
+    image: docker.io/centos/iotop
+    version: latest
+description: A top-like utility for monitoring I/O usage of processes on Linux
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - iot
+  - processes
+  - monitoring
+

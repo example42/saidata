@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://rpmfusion.org/
+  issues: https://bugzilla.rpmfusion.org/
+  documentation: https://rpmfusion.org/Documentation
+  support: https://rpmfusion.org/Support
+  license: https://rpmfusion.org/Licenses
+  download: https://rpmfusion.org/Configuration
+containers:
+  upstream:
+    name: rpmfusion-free
+    image: rpmfusion/free
+    version: latest
+description: RPM Fusion Free is a software repository that provides additional packages
+  for the Fedora and Red Hat Enterprise Linux distributions. It includes software
+  that is not available in the official repositories due to licensing or patent issues.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Package Repository
+  tags:
+  - rpm
+  - repository
+  - linux
+

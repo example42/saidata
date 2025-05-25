@@ -1,0 +1,25 @@
+version: '0.1'
+urls:
+  website: https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client
+  issues: https://github.com/kubernetes-incubator/external-storage/issues
+  documentation: https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client/docs
+  source: https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client
+  license: https://github.com/kubernetes-incubator/external-storage/blob/master/LICENSE
+containers:
+  upstream:
+    name: nfs-client
+    image: docker.io/linuxserver/nfs-client
+    version: latest
+description: A client for accessing files over the NFS protocol
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: File Sharing
+  tags:
+  - nfs
+  - client
+  - file sharing
+

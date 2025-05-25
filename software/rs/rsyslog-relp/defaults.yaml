@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.rsyslog.com/
+  issues: https://github.com/rsyslog/rsyslog/issues
+  documentation: https://www.rsyslog.com/doc/
+  support: https://www.rsyslog.com/support/
+  source: https://github.com/rsyslog/rsyslog
+  license: https://github.com/rsyslog/rsyslog/blob/master/COPYING
+  download: https://www.rsyslog.com/downloads/download-v8-stable/
+containers:
+  upstream:
+    name: rsyslog-relp
+    image: rsyslog/rsyslog-relp
+    version: latest
+description: A reliable and secure logging system using the RELP protocol
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Logging
+  sub: Network Logging
+  tags:
+  - logging
+  - network
+  - syslog
+

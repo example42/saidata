@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.sysdig.com/
+  issues: https://github.com/draios/sysdig/issues
+  documentation: https://docs.sysdig.com/
+  support: https://support.sysdig.com/
+  source: https://github.com/draios/sysdig
+  download: https://github.com/draios/sysdig/releases
+containers:
+  upstream:
+    name: sysdig
+    image: sysdig/sysdig
+    version: latest
+description: Sysdig is an open source system monitoring and troubleshooting tool.
+  It provides deep visibility into Linux system internals with a powerful command-line
+  interface and a rich set of APIs.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - system
+  - monitoring
+  - troubleshooting
+

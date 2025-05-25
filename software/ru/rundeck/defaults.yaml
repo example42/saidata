@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.rundeck.com/
+  issues: https://github.com/rundeck/rundeck/issues
+  documentation: https://docs.rundeck.com/
+  support: https://support.rundeck.com/
+  source: https://github.com/rundeck/rundeck
+  license: https://github.com/rundeck/rundeck/blob/master/LICENSE
+  download: https://www.rundeck.com/open-source/download
+containers:
+  upstream:
+    name: rundeck
+    image: rundeck/rundeck
+    version: latest
+description: Rundeck is an open source automation tool that helps with job scheduling,
+  execution, and management. It allows users to run tasks on multiple nodes from a
+  single control panel, making it easier to manage complex workflows.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Automation
+  tags:
+  - automation
+  - job scheduling
+  - execution
+  - management
+

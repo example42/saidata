@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://www.twitch.tv/broadcast/studio
+  issues: https://help.twitch.tv/s/article/twitch-studio-known-issues?language=en_US
+  documentation: https://help.twitch.tv/s/article/twitch-studio-setup-and-optimization-guide?language=en_US
+  support: https://help.twitch.tv/s/contactsupport?language=en_US
+  download: https://www.twitch.tv/broadcast/studio/download
+containers:
+  upstream:
+    name: twitch-studio
+    image: twitchdev/twitch-studio
+    version: latest
+description: Twitch Studio is a web server that allows users to stream live video
+  content on the popular streaming platform, Twitch. It provides a user-friendly interface
+  for setting up and managing live streams, making it a popular choice for content
+  creators.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

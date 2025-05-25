@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  website: https://people.freebsd.org/~abe/
+  source: https://github.com/lsof-org/lsof
+  license: https://github.com/lsof-org/lsof/blob/master/LICENSE
+containers:
+  upstream:
+    name: lsof
+    image: docker.io/alpine/lsof
+    version: latest
+description: lsof (List Open Files) is a command-line utility used for displaying
+  information about files opened by processes on a Unix or Unix-like system. It can
+  also be used to list network connections, open sockets, and shared memory segments.
+language: C
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Administration
+  sub: Process Management
+  tags:
+  - system
+  - process
+  - files
+

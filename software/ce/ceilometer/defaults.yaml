@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://docs.openstack.org/ceilometer/latest/
+  issues: https://bugs.launchpad.net/ceilometer
+  documentation: https://docs.openstack.org/ceilometer/latest/
+  source: https://github.com/openstack/ceilometer
+  license: Apache License 2.0
+containers:
+  upstream:
+    name: ceilometer
+    image: openstack/ceilometer
+    version: latest
+description: OpenStack Telemetry (Ceilometer) is a data collection service that provides
+  the ability to normalise and transform data across all current OpenStack core components
+  with work underway to support future OpenStack components. It is a highly scalable,
+  fault-tolerant, and extensible tool for collecting and processing measurements in
+  OpenStack.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Monitoring
+  tags:
+  - openstack
+  - telemetry
+  - data collection
+  - monitoring
+

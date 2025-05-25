@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://orientdb.org/
+  issues: https://github.com/orientechnologies/orientdb/issues
+  documentation: https://orientdb.org/docs/3.1.x/
+  support: https://orientdb.org/support/
+  source: https://github.com/orientechnologies/orientdb
+  license: https://github.com/orientechnologies/orientdb/blob/master/LICENSE.txt
+  download: https://orientdb.org/download/
+containers:
+  upstream:
+    name: orientdb
+    image: orientdb
+    version: latest
+description: OrientDB is an open source NoSQL database management system written in
+  Java. It is designed to store and manage graph data, document data, and key-value
+  data.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Database
+  sub: NoSQL
+  tags:
+  - database
+  - nosql
+  - graph
+  - document
+  - key-value
+

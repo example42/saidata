@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://crowdsec.net/
+  issues: https://github.com/crowdsecurity/crowdsec/issues
+  documentation: https://docs.crowdsec.net/
+  support: https://crowdsec.net/support/
+  source: https://github.com/crowdsecurity/crowdsec
+  license: https://github.com/crowdsecurity/crowdsec/blob/master/LICENSE
+containers:
+  upstream:
+    name: crowdsec
+    image: crowdsecurity/crowdsec
+    version: latest
+description: Crowdsec is an open-source security solution designed to protect servers,
+  services, containers, or virtual machines exposed on the internet with a server-side
+  agent. It leverages a behavior analysis system to detect attacks and add them to
+  a centralized IP reputation database. This database can be used to block further
+  attacks from the same IP address or range.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security
+  sub: Intrusion Detection
+  tags:
+  - security
+  - intrusion detection
+  - server protection
+

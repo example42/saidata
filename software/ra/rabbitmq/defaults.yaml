@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.rabbitmq.com/
+  issues: https://github.com/rabbitmq/rabbitmq-server/issues
+  documentation: https://www.rabbitmq.com/documentation.html
+  support: https://www.rabbitmq.com/support.html
+  source: https://github.com/rabbitmq/rabbitmq-server
+  license: https://www.rabbitmq.com/mpl.html
+  download: https://www.rabbitmq.com/download.html
+containers:
+  upstream:
+    name: rabbitmq
+    image: rabbitmq
+    version: latest
+description: RabbitMQ is an open source message broker software that implements the
+  Advanced Message Queuing Protocol (AMQP). It is written in the Erlang programming
+  language and is built on the Open Telecom Platform framework. It is designed to
+  handle large amounts of messages and is highly scalable and reliable.
+language: Erlang
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Message Broker
+  tags:
+  - message
+  - broker
+  - amqp
+

@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://www.phusionpassenger.com/library/config/apache/intro.html
+  issues: https://github.com/phusion/passenger/issues
+  documentation: https://www.phusionpassenger.com/library/config/apache/intro.html
+  support: https://www.phusionpassenger.com/support
+  source: https://github.com/phusion/passenger
+  license: https://github.com/phusion/passenger/blob/master/LICENSE
+containers:
+  upstream:
+    name: passenger-apache
+    image: passenger-apache
+    version: latest
+description: Passenger Apache is a web server that integrates with Apache HTTP Server
+  to provide a fast and efficient way to serve Ruby, Node.js, and Python web applications.
+  It also supports multiple programming languages and frameworks, making it a versatile
+  choice for web development.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Ruby, Node.js, Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

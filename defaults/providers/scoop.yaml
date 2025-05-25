@@ -2,6 +2,6 @@
 version: 0.1
 
 packages:
-  main:
+  default:
     name: $software_name:$software_name
 

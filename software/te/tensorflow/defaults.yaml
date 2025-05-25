@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.tensorflow.org/
+  issues: https://github.com/tensorflow/tensorflow/issues
+  documentation: https://www.tensorflow.org/api_docs/
+  support: https://www.tensorflow.org/support
+  source: https://github.com/tensorflow/tensorflow
+  license: https://github.com/tensorflow/tensorflow/blob/master/LICENSE
+  download: https://www.tensorflow.org/install/
+containers:
+  upstream:
+    name: tensorflow
+    image: tensorflow/tensorflow
+    version: latest
+description: TensorFlow is an open-source software library for dataflow and differentiable
+  programming across a range of tasks. It is a symbolic math library, and is also
+  used for machine learning applications such as neural networks.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Machine Learning
+  tags:
+  - machine learning
+  - neural networks
+  - dataflow
+  - differentiable programming
+

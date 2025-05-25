@@ -1,0 +1,41 @@
+version: '0.1'
+urls:
+  passenger:
+    website: https://www.phusionpassenger.com/
+    issues: https://github.com/phusion/passenger/issues
+    documentation: https://www.phusionpassenger.com/library/
+    support: https://www.phusionpassenger.com/support
+    source: https://github.com/phusion/passenger
+    license: https://github.com/phusion/passenger/blob/master/LICENSE
+    download: https://www.phusionpassenger.com/download
+containers:
+  upstream:
+    name: passenger
+    image: phusion/passenger
+    version: latest
+description: Passenger is a web server and application server designed to be fast,
+  robust and lightweight. It is written in Ruby and supports multiple programming
+  languages, including Python, Node.js, and Ruby on Rails. Passenger is open source
+  and is available for Linux and MacOS platforms.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: Application Server
+  tags:
+  - web
+  - server
+  - application
+  - ruby
+  - python
+  - node.js
+  - rails
+

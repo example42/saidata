@@ -1,0 +1,22 @@
+version: '0.1'
+containers:
+  upstream:
+    name: motd
+    image: docker.io/library/motd
+    version: latest
+description: Message of the Day (MOTD) is a simple text-based software that displays
+  a customizable message to users when they log into a computer or server. It is commonly
+  used for system administration purposes or to provide important information to users.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Administration
+  sub: Message Display
+  tags:
+  - motd
+  - system
+  - administration
+

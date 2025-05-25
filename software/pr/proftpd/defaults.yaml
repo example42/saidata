@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.proftpd.org/
+  issues: https://github.com/proftpd/proftpd/issues
+  documentation: https://www.proftpd.org/docs/
+  support: https://www.proftpd.org/support.html
+  source: https://github.com/proftpd/proftpd
+  license: https://www.proftpd.org/license.html
+  download: https://www.proftpd.org/download.html
+containers:
+  upstream:
+    name: proftpd
+    image: proftpd/proftpd
+    version: latest
+description: ProFTPD is a highly configurable and secure FTP server software for Unix-based
+  operating systems.
+ports:
+  default:
+    port: 21
+  ssl:
+    port: 990
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: FTP Server
+  tags:
+  - ftp
+  - server
+  - file transfer
+

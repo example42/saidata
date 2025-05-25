@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.isc.org/bind/
+  issues: https://gitlab.isc.org/isc-projects/bind9/-/issues
+  documentation: https://downloads.isc.org/isc/bind9/9.16.6/doc/arm/Bv9ARM.html
+  support: https://www.isc.org/support/
+  source: https://gitlab.isc.org/isc-projects/bind9
+  license: https://www.isc.org/licenses/
+  download: https://www.isc.org/bind/download/
+containers:
+  upstream:
+    name: bind-utils
+    image: bind-utils
+    version: latest
+description: A collection of utilities for managing DNS zones and records
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Networking
+  sub: DNS
+  tags:
+  - dns
+  - networking
+  - utilities
+

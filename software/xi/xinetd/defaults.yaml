@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://xinetd.org/
+  issues: https://github.com/xinetd-org/xinetd/issues
+  documentation: https://xinetd.org/docs.html
+  support: https://xinetd.org/support.html
+  source: https://github.com/xinetd-org/xinetd
+  license: https://github.com/xinetd-org/xinetd/blob/master/COPYING
+containers:
+  upstream:
+    name: xinetd
+    image: alpine/xinetd
+    version: latest
+description: xinetd is an open source web server that allows for the execution of
+  multiple network services on a single machine. It acts as a super-server, managing
+  connections and launching the appropriate service for each connection.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/beats/journalbeat
+  issues: https://github.com/elastic/beats/issues
+  documentation: https://www.elastic.co/guide/en/beats/journalbeat/current/index.html
+  support: https://discuss.elastic.co/c/beats/journalbeat
+  source: https://github.com/elastic/beats/tree/master/journalbeat
+  license: https://github.com/elastic/beats/blob/master/journalbeat/LICENSE.txt
+containers:
+  upstream:
+    name: journalbeat
+    image: docker.elastic.co/beats/journalbeat:7.10.2
+    version: latest
+description: Journalbeat is a lightweight log shipper for forwarding and centralizing
+  log data from systemd journals. It is designed to be used with Elasticsearch and
+  Kibana for real-time analysis and visualization of logs.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Log Management
+  tags:
+  - log
+  - shipper
+  - systemd
+  - elasticsearch
+  - kibana
+

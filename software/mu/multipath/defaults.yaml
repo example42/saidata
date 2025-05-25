@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://multipath.io/
+  issues: https://github.com/multipath-io/multipath/issues
+  documentation: https://docs.multipath.io/
+  support: https://support.multipath.io/
+  source: https://github.com/multipath-io/multipath
+  download: https://multipath.io/download/
+containers:
+  upstream:
+    name: multipath
+    image: docker.io/multipath/multipath-tools
+    version: latest
+description: Multipath is a software that allows for the simultaneous use of multiple
+  network paths for increased performance and reliability. It is commonly used in
+  load balancing and failover scenarios.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Networking
+  sub: Load Balancing
+  tags:
+  - multipath
+  - networking
+  - load balancing
+

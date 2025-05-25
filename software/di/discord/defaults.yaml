@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://discord.com/
+  issues: https://support.discord.com/hc/en-us/requests/new
+  documentation: https://discord.com/developers/docs/intro
+  support: https://support.discord.com/hc/en-us
+  download: https://discord.com/download
+containers:
+  upstream:
+    name: discord
+    image: discord/discord
+    version: latest
+description: Discord is a popular communication platform that allows users to chat,
+  make voice and video calls, and share media with friends and communities.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: 'null'
+  sub: 'null'
+  tags:
+  - web
+  - communication
+  - chat
+

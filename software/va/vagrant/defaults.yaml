@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.vagrantup.com/
+  issues: https://github.com/hashicorp/vagrant/issues
+  documentation: https://www.vagrantup.com/docs/
+  support: https://www.vagrantup.com/support.html
+  source: https://github.com/hashicorp/vagrant
+  license: https://github.com/hashicorp/vagrant/blob/master/LICENSE
+  download: https://www.vagrantup.com/downloads.html
+containers:
+  upstream:
+    name: vagrant
+    image: hashicorp/vagrant
+    version: latest
+description: Vagrant is an open-source software for building and managing virtual
+  machine environments in a single workflow. It provides easy to configure, reproducible,
+  and portable work environments built on top of industry-standard technology and
+  controlled by a single consistent workflow to help maximize the productivity and
+  flexibility of you and your team.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Virtualization
+  tags:
+  - vagrant
+  - virtualization
+  - development
+

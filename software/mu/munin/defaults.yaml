@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://munin-monitoring.org/
+  issues: https://github.com/munin-monitoring/munin/issues
+  documentation: https://munin-monitoring.org/wiki/
+  support: https://munin-monitoring.org/wiki/Support
+  source: https://github.com/munin-monitoring/munin
+  license: https://github.com/munin-monitoring/munin/blob/master/LICENSE
+  download: https://github.com/munin-monitoring/munin/releases
+containers:
+  upstream:
+    name: munin
+    image: munin
+    version: latest
+description: Munin is a networked resource monitoring tool that can help analyze resource
+  trends and usage in a computer environment. It uses a client-server model where
+  the server collects data and the clients display it in a variety of ways. It is
+  designed to be very plug and play. A default installation provides a lot of graphs
+  with almost no work.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Monitoring
+  sub: Resource Monitoring
+  tags:
+  - network
+  - resource
+  - monitoring
+

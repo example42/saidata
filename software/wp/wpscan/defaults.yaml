@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://wpscan.com/
+  issues: https://github.com/wpscanteam/wpscan/issues
+  documentation: https://wpscan.com/documentation
+  support: https://wpscan.com/support
+  source: https://github.com/wpscanteam/wpscan
+  download: https://wpscan.com/download
+containers:
+  upstream:
+    name: wpscan
+    image: wpscanteam/wpscan
+    version: latest
+description: WPScan is a black box WordPress vulnerability scanner.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Security
+  sub: Vulnerability Scanner
+  tags:
+  - wordpress
+  - security
+  - scanner
+

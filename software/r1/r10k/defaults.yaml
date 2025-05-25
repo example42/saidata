@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  website: https://github.com/puppetlabs/r10k
+  issues: https://github.com/puppetlabs/r10k/issues
+  documentation: https://github.com/puppetlabs/r10k/blob/master/README.md
+  source: https://github.com/puppetlabs/r10k
+  license: https://github.com/puppetlabs/r10k/blob/master/LICENSE
+containers:
+  upstream:
+    name: r10k
+    image: puppet/r10k
+    version: latest
+description: r10k is a tool that helps you deploy Puppet code and modules.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Configuration Management
+  tags:
+  - puppet
+  - deployment
+  - configuration
+

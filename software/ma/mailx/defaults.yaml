@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://mailx.sourceforge.io/
+  issues: https://sourceforge.net/p/heirloom/mailx/bugs/
+  documentation: https://mailx.sourceforge.io/docs/
+  support: https://sourceforge.net/projects/heirloom/mailx/support
+  source: https://sourceforge.net/projects/heirloom/mailx/
+  license: https://mailx.sourceforge.io/license/
+  download: https://sourceforge.net/projects/heirloom/files/mailx/
+containers:
+  upstream:
+    name: mailx
+    image: mailx
+    version: latest
+description: A command-line email client that is part of the Unix mailutils package.
+  It allows users to send and receive emails from the command line.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Email Client
+  tags:
+  - email
+  - client
+  - command-line
+

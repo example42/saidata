@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.graylog.org/
+  issues: https://github.com/Graylog2/graylog2-server/issues
+  documentation: https://docs.graylog.org/
+  support: https://www.graylog.org/support
+  source: https://github.com/Graylog2/graylog2-server
+  license: https://www.graylog.org/graylog-license
+containers:
+  upstream:
+    name: graylog2
+    image: graylog/graylog:latest
+    version: latest
+description: Graylog2 is an open source log management platform that helps organizations
+  to collect, index, and analyze log data from various sources in a centralized location.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Log Management
+  tags:
+  - log
+  - management
+  - monitoring
+

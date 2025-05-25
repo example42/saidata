@@ -1,0 +1,37 @@
+version: '0.1'
+urls:
+  haproxy:
+    website: https://www.haproxy.org/
+    issues: https://github.com/haproxy/haproxy/issues
+    documentation: https://www.haproxy.org/documentation/
+    support: https://www.haproxy.com/support/
+    source: https://github.com/haproxy/haproxy
+    license: https://www.haproxy.org/download/2.2/doc/LICENSE
+    download: https://www.haproxy.org/download/
+containers:
+  upstream:
+    name: haproxy
+    image: haproxy
+    version: latest
+description: HAProxy is a free and open-source load balancing and proxying software
+  that allows for high availability and scalability for web applications.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Load Balancer
+  sub: Proxy Server
+  tags:
+  - load balancing
+  - proxy
+  - web
+  - server
+

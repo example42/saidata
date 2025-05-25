@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://freeradius.org/
+  issues: https://github.com/FreeRADIUS/freeradius-server/issues
+  documentation: https://wiki.freeradius.org/
+  support: https://freeradius.org/support/
+  source: https://github.com/FreeRADIUS/freeradius-server
+  license: https://github.com/FreeRADIUS/freeradius-server/blob/master/LICENSE
+  download: https://freeradius.org/download.html
+containers:
+  upstream:
+    name: freeradius
+    image: freeradius/freeradius-server
+    version: latest
+description: FreeRADIUS is a high-performance, highly configurable, and feature-rich
+  open source RADIUS server.
+ports:
+  default:
+    port: 1812
+  ssl:
+    port: 1813
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Authentication
+  tags:
+  - radius
+  - authentication
+  - network
+

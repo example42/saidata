@@ -1,0 +1,36 @@
+version: '0.1'
+urls:
+  heartbeat:
+    website: https://www.elastic.co/beats/heartbeat
+    issues: https://github.com/elastic/beats/issues
+    documentation: https://www.elastic.co/guide/en/beats/heartbeat/current/index.html
+    support: https://discuss.elastic.co/c/beats/heartbeat
+    source: https://github.com/elastic/beats/tree/master/heartbeat
+    license: https://github.com/elastic/beats/blob/master/LICENSE.txt
+containers:
+  upstream:
+    name: heartbeat
+    image: docker.elastic.co/beats/heartbeat:7.10.2
+    version: latest
+description: Heartbeat is a web server that provides real-time monitoring of server
+  and application performance. It collects and displays metrics such as CPU usage,
+  memory usage, and network traffic to help identify potential issues and troubleshoot
+  problems quickly.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

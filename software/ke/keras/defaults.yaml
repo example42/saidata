@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://keras.io/
+  issues: https://github.com/keras-team/keras/issues
+  documentation: https://keras.io/api/
+  support: https://keras.io/getting_started/faq/
+  source: https://github.com/keras-team/keras
+  license: https://github.com/keras-team/keras/blob/master/LICENSE
+  download: https://pypi.org/project/Keras/
+containers:
+  upstream:
+    name: keras
+    image: tensorflow/tensorflow:latest-gpu-py3-jupyter
+    version: latest
+description: Keras is an open-source neural network library written in Python. It
+  is designed to enable fast experimentation with deep neural networks, and has a
+  focus on being user-friendly, modular, and extensible.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Machine Learning
+  sub: Neural Network Library
+  tags:
+  - machine learning
+  - neural network
+  - library
+

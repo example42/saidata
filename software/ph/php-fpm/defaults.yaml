@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://www.php.net/manual/en/install.fpm.php
+  issues: https://bugs.php.net/
+  documentation: https://www.php.net/manual/en/install.fpm.php
+  support: https://www.php.net/support.php
+  source: https://github.com/php/php-src/tree/master/sapi/fpm
+  license: https://www.php.net/license/
+  download: https://www.php.net/downloads.php
+containers:
+  upstream:
+    name: php-fpm
+    image: php:fpm
+    version: latest
+description: FastCGI Process Manager for PHP
+ports:
+  default:
+    port: 9000
+language: PHP
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

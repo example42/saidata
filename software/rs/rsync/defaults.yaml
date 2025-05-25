@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://rsync.samba.org/
+  issues: https://bugzilla.samba.org/
+  documentation: https://rsync.samba.org/documentation.html
+  support: https://rsync.samba.org/support.html
+  source: https://git.samba.org/?p=rsync.git;a=summary
+  license: https://rsync.samba.org/license.html
+  download: https://rsync.samba.org/download.html
+containers:
+  upstream:
+    name: rsync
+    image: rsync
+    version: latest
+description: rsync is a fast and versatile file synchronization and backup tool that
+  uses the rsync algorithm to efficiently transfer and synchronize files between two
+  locations. It is commonly used for remote backups, mirroring websites, and copying
+  large files.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: File Transfer
+  sub: Backup and Synchronization
+  tags:
+  - file transfer
+  - backup
+  - synchronization
+

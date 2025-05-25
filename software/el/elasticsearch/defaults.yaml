@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/elasticsearch/
+  issues: https://github.com/elastic/elasticsearch/issues
+  documentation: https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+  support: https://www.elastic.co/support/
+  source: https://github.com/elastic/elasticsearch
+  license: https://github.com/elastic/elasticsearch/blob/master/LICENSE.txt
+  download: https://www.elastic.co/downloads/elasticsearch
+containers:
+  upstream:
+    name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch
+    version: latest
+description: Elasticsearch is a distributed, RESTful search and analytics engine capable
+  of solving a growing number of use cases. As the heart of the Elastic Stack, it
+  centrally stores your data so you can discover the expected and uncover the unexpected.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Search Engine
+  tags:
+  - search
+  - analytics
+  - distributed
+

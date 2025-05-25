@@ -1,0 +1,24 @@
+version: '0.1'
+urls:
+  website: https://www.kernel.org/doc/Documentation/filesystems/sysfs.txt
+  documentation: https://www.kernel.org/doc/Documentation/filesystems/sysfs.txt
+  source: https://github.com/torvalds/linux/tree/master/fs/sysfs
+  license: GNU General Public License v2.0
+containers:
+  upstream:
+    name: sysfs
+    image: sysfs
+    version: latest
+description: A virtual file system for the Linux kernel
+language: C
+license: Open Source
+platforms:
+- Linux
+category:
+  default: System Utilities
+  sub: File System
+  tags:
+  - linux
+  - kernel
+  - file system
+

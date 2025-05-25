@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.bacula.org/
+  issues: https://bugs.bacula.org/
+  documentation: https://www.bacula.org/documentation/
+  support: https://www.bacula.org/support/
+  source: https://github.com/bacula/bacula
+  license: https://www.bacula.org/5.4.x-manuals/en/main/License.html
+  download: https://www.bacula.org/download.html
+containers:
+  upstream:
+    name: bacula-client
+    image: bacula/bacula-client
+    version: latest
+description: Open source backup software for Linux, Windows, and MacOS
+language: C++
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Backup
+  tags:
+  - backup
+  - data
+  - recovery
+

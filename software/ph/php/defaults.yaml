@@ -1,0 +1,36 @@
+version: '0.1'
+urls:
+  website: https://www.php.net/
+  issues: https://bugs.php.net/
+  documentation: https://www.php.net/docs.php
+  support: https://www.php.net/support.php
+  source: https://github.com/php/php-src
+  license: https://www.php.net/license/
+  download: https://www.php.net/downloads.php
+containers:
+  upstream:
+    name: php
+    image: php
+    version: latest
+description: PHP is a popular server-side scripting language designed for web development.
+  It is used to create dynamic web pages and can be embedded into HTML code. It is
+  known for its ease of use and wide range of features.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: PHP
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Development
+  sub: Server-side Scripting
+  tags:
+  - php
+  - web development
+  - server-side scripting
+

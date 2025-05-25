@@ -25,15 +25,15 @@ files:
     path: /var/run/httpd/httpd.pid
 
 packages:
-  main:
+  default:
     name: httpd
 
 services:
-  main:
+  default:
     name: httpd
 
 processes:
-  main:
+  default:
     path: /usr/sbin/httpd
     owner: root
     group: root

@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://icinga.com/
+  issues: https://github.com/Icinga/icinga2/issues
+  documentation: https://icinga.com/docs/
+  support: https://icinga.com/support/
+  source: https://github.com/Icinga/icinga2
+  license: https://github.com/Icinga/icinga2/blob/master/LICENSE
+containers:
+  upstream:
+    name: icinga
+    image: icinga/icinga2
+    version: latest
+description: Icinga is an open source network monitoring software that provides monitoring
+  of hosts and services, alerts, and reporting capabilities.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Network Monitoring
+  tags:
+  - network
+  - monitoring
+  - alerts
+  - reporting
+

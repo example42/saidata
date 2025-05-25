@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://strace.io/
+  issues: https://github.com/strace/strace/issues
+  documentation: https://strace.io/strace.pdf
+  support: https://strace.io/support.html
+  source: https://github.com/strace/strace
+  license: https://github.com/strace/strace/blob/master/COPYING
+  download: https://strace.io/download.html
+containers:
+  upstream:
+    name: strace
+    image: strace/strace
+    version: latest
+description: strace is a debugging utility for Linux that allows users to monitor
+  and record system calls made by a program. It can be used to troubleshoot issues
+  and analyze performance of applications.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - debugging
+  - system calls
+  - performance
+

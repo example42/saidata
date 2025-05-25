@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://www.influxdata.com/
+  issues: https://github.com/influxdata/influxdb/issues
+  documentation: https://docs.influxdata.com/influxdb/
+  support: https://support.influxdata.com/
+  source: https://github.com/influxdata/influxdb
+  license: https://github.com/influxdata/influxdb/blob/master/LICENSE
+containers:
+  upstream:
+    name: influxdb
+    image: influxdb
+    version: latest
+description: InfluxDB is a high-performance, distributed time series database designed
+  to handle massive amounts of data and real-time analytics. It is commonly used for
+  monitoring, metrics, and IoT sensor data.
+ports:
+  default:
+    port: 8086
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Database
+  sub: Time Series Database
+  tags:
+  - database
+  - time series
+  - metrics
+  - monitoring
+  - IoT
+

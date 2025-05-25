@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.postfix.org/
+  issues: https://www.postfix.org/bugs.html
+  documentation: https://www.postfix.org/documentation.html
+  support: https://www.postfix.org/support.html
+  source: https://github.com/vdukhovni/postfix
+  license: https://www.postfix.org/COPYRIGHT_LICENSE
+  download: https://www.postfix.org/download.html
+containers:
+  upstream:
+    name: postfix
+    image: postfix
+    version: latest
+description: Postfix is a free and open-source mail transfer agent (MTA) that routes
+  and delivers electronic mail. It is a popular alternative to Sendmail, the default
+  MTA on many Linux distributions.
+ports:
+  default:
+    port: 25
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Mail Server
+  tags:
+  - mail
+  - server
+  - smtp
+

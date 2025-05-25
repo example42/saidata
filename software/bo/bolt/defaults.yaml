@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://puppet.com/docs/bolt/latest/bolt.html
+  issues: https://github.com/puppetlabs/bolt/issues
+  documentation: https://puppet.com/docs/bolt/latest/bolt.html
+  support: https://puppet.com/support-services
+  source: https://github.com/puppetlabs/bolt
+  license: https://github.com/puppetlabs/bolt/blob/master/LICENSE
+containers:
+  upstream:
+    name: bolt
+    image: bolt/bolt
+    version: latest
+description: Bolt is a lightweight and fast web server written in Python. It is designed
+  to handle high traffic and can be easily configured for various web applications.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.consul.io/
+  issues: https://github.com/hashicorp/consul/issues
+  documentation: https://www.consul.io/docs/
+  support: https://www.consul.io/support.html
+  source: https://github.com/hashicorp/consul
+  license: https://www.consul.io/licenses.html
+  download: https://www.consul.io/downloads.html
+containers:
+  upstream:
+    name: consul
+    image: consul
+    version: latest
+description: Consul is a service mesh solution providing a full featured control plane
+  with service discovery, configuration, and segmentation functionality.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: 'null'
+  sub: 'null'
+  tags:
+  - service mesh
+  - service discovery
+  - configuration
+  - segmentation
+

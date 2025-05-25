@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.supervisor.org/
+  issues: https://github.com/Supervisor/supervisor/issues
+  documentation: https://supervisord.org/
+  source: https://github.com/Supervisor/supervisor
+  license: https://github.com/Supervisor/supervisor/blob/master/LICENSE
+  download: https://pypi.org/project/supervisor/
+containers:
+  upstream:
+    name: supervisor
+    image: supervisor
+    version: latest
+description: Supervisor is a client/server system that allows its users to monitor
+  and control a number of processes on UNIX-like operating systems.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Management
+  sub: Process Management
+  tags:
+  - system
+  - process
+  - management
+

@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://jupyterlab.readthedocs.io/en/stable/
+  issues: https://github.com/jupyterlab/jupyterlab/issues
+  documentation: https://jupyterlab.readthedocs.io/en/stable/
+  source: https://github.com/jupyterlab/jupyterlab
+  license: BSD-3-Clause
+  download: https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html
+containers:
+  upstream:
+    name: jupyterlab
+    image: jupyterlab/jupyterlab
+    version: latest
+description: JupyterLab is a web-based interactive development environment for Jupyter
+  notebooks, code, and data.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

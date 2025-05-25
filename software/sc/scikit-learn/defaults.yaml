@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://scikit-learn.org/
+  issues: https://github.com/scikit-learn/scikit-learn/issues
+  documentation: https://scikit-learn.org/stable/documentation.html
+  source: https://github.com/scikit-learn/scikit-learn
+  license: https://github.com/scikit-learn/scikit-learn/blob/master/COPYING
+  download: https://pypi.org/project/scikit-learn/
+containers:
+  upstream:
+    name: scikit-learn
+    image: scikit-learn
+    version: latest
+description: scikit-learn is a free and open-source machine learning library for the
+  Python programming language. It features various classification, regression and
+  clustering algorithms including support vector machines, random forests, gradient
+  boosting, k-means and DBSCAN, and is designed to interoperate with the Python numerical
+  and scientific libraries NumPy and SciPy.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Machine Learning
+  tags:
+  - machine learning
+  - python
+  - data science
+

@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/elastic-agent
+  issues: https://github.com/elastic/beats/issues
+  documentation: https://www.elastic.co/guide/en/beats/elastic-agent/current/index.html
+  support: https://www.elastic.co/support/
+  source: https://github.com/elastic/beats/tree/master/x-pack/elastic-agent
+  license: https://www.elastic.co/subscriptions
+  download: https://www.elastic.co/downloads/elastic-agent
+containers:
+  upstream:
+    name: elastic-agent
+    image: elastic/elastic-agent
+    version: latest
+description: Elastic Agent is a lightweight and flexible web server that allows for
+  easy deployment and management of web applications.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

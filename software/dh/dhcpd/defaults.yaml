@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.isc.org/dhcp/
+  issues: https://gitlab.isc.org/isc-projects/dhcp/-/issues
+  documentation: https://kb.isc.org/docs/isc-dhcp
+  support: https://www.isc.org/support/
+  source: https://gitlab.isc.org/isc-projects/dhcp
+  license: https://www.isc.org/licenses/
+  download: https://www.isc.org/downloads/
+containers:
+  upstream:
+    name: dhcpd
+    image: docker.io/library/dhcpd
+    version: latest
+description: Dynamic Host Configuration Protocol (DHCP) server for assigning IP addresses
+  to devices on a network
+ports:
+  default:
+    port: 67
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Networking
+  sub: DHCP Server
+  tags:
+  - networking
+  - dhcp
+  - server
+

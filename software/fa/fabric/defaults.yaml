@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.fabrics.io/
+  issues: https://github.com/fabricjs/fabric.js/issues
+  documentation: https://docs.fabrics.io/
+  support: https://stackoverflow.com/questions/tagged/fabricjs
+  source: https://github.com/fabricjs/fabric.js
+  license: https://github.com/fabricjs/fabric.js/blob/master/LICENSE
+containers:
+  upstream:
+    name: fabric
+    image: hyperledger/fabric
+    version: latest
+description: Fabric is a Python library and command-line tool for streamlining the
+  use of SSH for application deployment or systems administration tasks. It provides
+  a basic suite of operations for executing local or remote shell commands (normally
+  or via sudo) and uploading/downloading files, as well as auxiliary functionality
+  such as prompting the running user for input, or aborting execution.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

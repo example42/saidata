@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://nats.io/
+  issues: https://github.com/nats-io/nats-server/issues
+  documentation: https://docs.nats.io/
+  support: https://nats.io/support/
+  source: https://github.com/nats-io/nats-server
+  license: https://github.com/nats-io/nats-server/blob/master/LICENSE
+containers:
+  upstream:
+    name: nats-server
+    image: nats
+    version: latest
+description: A lightweight, high-performance messaging system for distributed systems
+  and cloud native applications.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Messaging System
+  tags:
+  - messaging
+  - distributed systems
+  - cloud native applications
+

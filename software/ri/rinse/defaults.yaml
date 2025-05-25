@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.rinse.com/
+  issues: https://github.com/rinsehq/rinse/issues
+  documentation: https://docs.rinse.com/
+  support: https://support.rinse.com/
+  source: https://github.com/rinsehq/rinse
+  download: https://www.rinse.com/download/
+containers:
+  upstream:
+    name: rinse
+    image: docker.io/rinse/rinse
+    version: latest
+description: Rinse is a lightweight and fast web server written in Python. It is designed
+  to handle high traffic and can be easily configured for various use cases.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

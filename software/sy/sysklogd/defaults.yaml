@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://github.com/sysklogd/sysklogd
+  issues: https://github.com/sysklogd/sysklogd/issues
+  documentation: https://github.com/sysklogd/sysklogd/blob/master/README.md
+  source: https://github.com/sysklogd/sysklogd
+  license: https://github.com/sysklogd/sysklogd/blob/master/COPYING
+containers:
+  upstream:
+    name: sysklogd
+    image: debian:latest
+    version: latest
+description: Sysklogd is a system logging daemon that provides a standard mechanism
+  for logging system messages.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Utilities
+  tags:
+  - syslog
+  - logging
+  - daemon
+

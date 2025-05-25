@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.fail2ban.org/
+  issues: https://github.com/fail2ban/fail2ban/issues
+  documentation: https://www.fail2ban.org/wiki/index.php/Main_Page
+  support: https://www.fail2ban.org/wiki/index.php/Support
+  source: https://github.com/fail2ban/fail2ban
+  license: GNU General Public License v2.0
+containers:
+  upstream:
+    name: fail2ban
+    image: fail2ban/fail2ban
+    version: latest
+description: Fail2ban is an open source intrusion prevention software that scans log
+  files and bans IP addresses that show malicious activity.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security
+  sub: Intrusion Prevention
+  tags:
+  - security
+  - intrusion prevention
+  - log scanning
+

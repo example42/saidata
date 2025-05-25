@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://nfs.sourceforge.io/
+  issues: https://sourceforge.net/p/nfs/bugs/
+  documentation: https://nfs.sourceforge.io/doc/
+  support: https://sourceforge.net/p/nfs/discussion/
+  source: https://sourceforge.net/projects/nfs/
+  license: https://nfs.sourceforge.io/license.html
+  download: https://sourceforge.net/projects/nfs/files/latest/download
+containers:
+  upstream:
+    name: nfs-server
+    image: dperson/nfsd
+    version: latest
+description: A network file system (NFS) server that allows remote clients to access
+  files over a network.
+ports:
+  default:
+    port: 2049
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: File Sharing
+  tags:
+  - network
+  - file
+  - sharing
+

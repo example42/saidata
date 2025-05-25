@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.rsyslog.com/
+  issues: https://github.com/rsyslog/rsyslog/issues
+  documentation: https://www.rsyslog.com/doc/
+  support: https://www.rsyslog.com/support/
+  source: https://github.com/rsyslog/rsyslog
+  license: https://www.rsyslog.com/copyright/
+  download: https://www.rsyslog.com/downloads/
+containers:
+  upstream:
+    name: rsyslog
+    image: rsyslog/rsyslog
+    version: latest
+description: Rsyslog is an open source, high-performance log management solution that
+  collects, stores, and distributes log data. It supports a wide variety of input
+  and output methods, making it a flexible and versatile tool for managing logs.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Log Management
+  tags:
+  - log
+  - management
+  - syslog
+

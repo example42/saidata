@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  twitch:
+    website: https://www.twitch.tv/
+    support: https://help.twitch.tv/
+    icon: https://www.twitch.tv/p/assets/uploads/glitch_474x356.png
+containers:
+  upstream:
+    name: twitch
+    image: twitch/twitch
+    version: latest
+description: Twitch is a live streaming platform for video games, esports, and other
+  creative content. It allows users to watch and chat with millions of other fans
+  from around the world.
+language: 'null'
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Streaming Platform
+  tags:
+  - twitch
+  - streaming
+  - video games
+

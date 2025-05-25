@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://puppet.com/docs/puppetserver/latest/puppetserver_index.html
+  issues: https://tickets.puppet.com/browse/SERVER
+  documentation: https://puppet.com/docs/puppetserver/latest/
+  support: https://puppet.com/support-services
+  source: https://github.com/puppetlabs/puppetserver
+  license: https://github.com/puppetlabs/puppetserver/blob/master/LICENSE
+  download: https://puppet.com/download-puppet-server
+containers:
+  upstream:
+    name: puppetserver
+    image: puppet/puppetserver
+    version: latest
+description: Puppetserver is a server automation platform that allows you to define
+  and enforce the state of your infrastructure throughout its lifecycle. It acts as
+  the central hub for configuration management, orchestration, and reporting.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Configuration Management
+  sub: Server Automation
+  tags:
+  - puppet
+  - configuration
+  - automation
+

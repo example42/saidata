@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://www.tree.com
+  issues: https://github.com/tree/issues
+  documentation: https://www.tree.com/docs
+  support: https://www.tree.com/support
+  source: https://github.com/tree
+  license: https://www.tree.com/license
+  icon: https://www.tree.com/icon
+containers:
+  upstream:
+    name: tree
+    image: docker.io/library/tree
+    version: latest
+description: A tree data structure implementation in Python
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Data Structures
+  sub: Tree
+  tags:
+  - data structure
+  - tree
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  webex-meetings:
+    website: https://www.webex.com/
+    documentation: https://help.webex.com/en-us/
+    support: https://help.webex.com/contact
+    download: https://www.webex.com/downloads.html
+containers:
+  upstream:
+    name: webex-meetings
+    image: ciscospark/webex-meetings
+    version: latest
+description: Webex Meetings is a video conferencing and collaboration platform that
+  allows users to host and join online meetings, webinars, and training sessions.
+language: 'null'
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Video Conferencing
+  tags:
+  - webex
+  - meetings
+  - video
+  - conferencing
+  - collaboration
+

@@ -1,0 +1,37 @@
+version: '0.1'
+urls:
+  website: https://www.varnish-cache.org/
+  issues: https://github.com/varnishcache/varnish-cache/issues
+  documentation: https://varnish-cache.org/docs/
+  support: https://varnish-cache.org/support/
+  source: https://github.com/varnishcache/varnish-cache
+  license: https://github.com/varnishcache/varnish-cache/blob/master/LICENSE
+containers:
+  upstream:
+    name: varnish
+    image: varnish:latest
+    version: latest
+description: Varnish is a high-performance HTTP accelerator designed for content-heavy
+  dynamic websites. It acts as a reverse proxy and caches frequently accessed content,
+  reducing server load and improving website performance.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+  - reverse proxy
+  - caching
+

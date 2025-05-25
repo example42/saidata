@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.ruby-lang.org/
+  issues: https://bugs.ruby-lang.org/
+  documentation: https://www.ruby-lang.org/en/documentation/
+  support: https://www.ruby-lang.org/en/support/
+  source: https://github.com/ruby/ruby
+  license: https://www.ruby-lang.org/en/about/license.txt
+  download: https://www.ruby-lang.org/en/downloads/
+containers:
+  upstream:
+    name: ruby
+    image: ruby
+    version: latest
+description: Ruby is a dynamic, open source programming language with a focus on simplicity
+  and productivity. It has an elegant syntax that is natural to read and easy to write.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: General Purpose
+  tags:
+  - ruby
+  - programming language
+  - open source
+

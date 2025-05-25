@@ -15,12 +15,12 @@ containers:
     image: docker.io/postgres
 
 ports:
-  main:
+  default:
     port: 5432
     protocol: tcp
 
 processes:
-  main: 
+  default: 
     path: postgres
     owner: postgres
     group: postgres

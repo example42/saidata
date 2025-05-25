@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://nfs.sourceforge.io/
+  issues: https://sourceforge.net/p/nfs/bugs/
+  documentation: https://nfs.sourceforge.io/documentation.html
+  support: https://sourceforge.net/p/nfs/discussion/
+  source: https://sourceforge.net/projects/nfs/
+  license: https://nfs.sourceforge.io/license.html
+  download: https://sourceforge.net/projects/nfs/files/latest/download
+containers:
+  upstream:
+    name: nfs
+    image: docker.io/library/nfs
+    version: latest
+description: Network File System (NFS) is a distributed file system protocol that
+  allows clients to access files over a network in a transparent manner. It is commonly
+  used for sharing files between computers in a network environment.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: File Sharing
+  tags:
+  - network
+  - file system
+  - protocol
+

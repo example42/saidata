@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://mlflow.org/
+  issues: https://github.com/mlflow/mlflow/issues
+  documentation: https://mlflow.org/docs/latest/index.html
+  support: https://mlflow.org/community/
+  source: https://github.com/mlflow/mlflow
+  license: https://github.com/mlflow/mlflow/blob/master/LICENSE
+containers:
+  upstream:
+    name: mlflow
+    image: mlflow/mlflow
+    version: latest
+description: MLflow is an open source platform for managing the end-to-end machine
+  learning lifecycle. It provides tracking, packaging, and deploying models across
+  multiple frameworks and languages.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Machine Learning
+  tags:
+  - mlflow
+  - machine learning
+  - model management
+

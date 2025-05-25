@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://www.docker.com/
+  issues: https://github.com/docker/docker-ce/issues
+  documentation: https://docs.docker.com/
+  support: https://www.docker.com/support
+  source: https://github.com/docker/docker-ce
+  license: https://www.docker.com/legal
+containers:
+  upstream:
+    name: docker
+    image: docker
+    version: latest
+description: Docker is a containerization platform that allows developers to package,
+  ship, and run applications in isolated environments.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Containerization
+  tags:
+  - docker
+  - containerization
+  - virtualization
+

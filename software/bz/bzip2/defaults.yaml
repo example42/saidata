@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://sourceware.org/bzip2/
+  issues: https://sourceware.org/bugzilla/buglist.cgi?component=bzip2&product=bzip2&resolution=---
+  documentation: https://sourceware.org/bzip2/manual/
+  source: https://sourceware.org/git/?p=bzip2.git;a=summary
+  license: https://sourceware.org/bzip2/license.html
+  download: https://sourceware.org/bzip2/download.html
+containers:
+  upstream:
+    name: bzip2
+    image: docker.io/library/bzip2
+    version: latest
+description: bzip2 is a free and open-source file compression program that uses the
+  Burrows-Wheeler algorithm. It is commonly used to compress large files and is known
+  for its high compression ratio and fast decompression speed.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Compression
+  tags:
+  - compression
+  - file
+  - algorithm
+

@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  mgmt:
+    website: https://www.mgmt.com
+    issues: https://github.com/mgmt/issues
+    documentation: https://docs.mgmt.com
+    support: https://support.mgmt.com
+    source: https://github.com/mgmt/source
+    license: https://www.mgmt.com/license
+    download: https://www.mgmt.com/download
+containers:
+  upstream:
+    name: mgmt
+    image: docker.io/purpleidea/mgmt
+    version: latest
+description: Management tool for configuring and monitoring systems
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Management
+  tags:
+  - management
+  - configuration
+  - monitoring
+

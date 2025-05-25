@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://github.com/github/octocatalog-diff
+  issues: https://github.com/github/octocatalog-diff/issues
+  documentation: https://github.com/github/octocatalog-diff/blob/master/README.md
+  source: https://github.com/github/octocatalog-diff
+  license: https://github.com/github/octocatalog-diff/blob/master/LICENSE
+containers:
+  upstream:
+    name: octocatalog-diff
+    image: puppet/octocatalog-diff
+    version: latest
+description: Octocatalog-diff is a tool for comparing Puppet catalogs, allowing users
+  to see the differences between two versions of a catalog and understand the impact
+  of changes on their infrastructure.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Configuration Management
+  sub: Puppet
+  tags:
+  - puppet
+  - catalog
+  - diff
+

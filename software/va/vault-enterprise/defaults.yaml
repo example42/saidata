@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.hashicorp.com/products/vault/
+  issues: https://github.com/hashicorp/vault-enterprise/issues
+  documentation: https://www.vaultproject.io/docs/enterprise/
+  support: https://www.hashicorp.com/support/
+  license: https://www.hashicorp.com/products/vault/pricing/
+  download: https://www.hashicorp.com/products/vault/downloads/
+containers:
+  upstream:
+    name: vault-enterprise
+    image: hashicorp/vault-enterprise
+    version: latest
+description: Vault Enterprise is a secure and reliable web server that allows users
+  to store and manage sensitive information. It provides advanced encryption and access
+  control features to protect data from unauthorized access.
+language: 'null'
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

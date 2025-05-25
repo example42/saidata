@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://www.keepalived.org/
+  issues: https://github.com/acassen/keepalived/issues
+  documentation: https://www.keepalived.org/documentation.html
+  support: https://www.keepalived.org/support.html
+  source: https://github.com/acassen/keepalived
+  license: https://github.com/acassen/keepalived/blob/master/LICENSE
+containers:
+  upstream:
+    name: keepalived
+    image: keepalived/keepalived
+    version: latest
+description: Keepalived is a routing software written in C that provides simple and
+  robust facilities for load balancing and high-availability to Linux systems.
+ports:
+  default:
+    port: 0
+  ssl:
+    port: 0
+language: C
+license: Open Source
+platforms:
+- Linux
+category:
+  default: Networking
+  sub: Load Balancing
+  tags:
+  - routing
+  - load balancing
+  - high-availability
+

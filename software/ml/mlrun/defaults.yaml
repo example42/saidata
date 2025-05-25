@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.mlrun.org/
+  issues: https://github.com/mlrun/mlrun/issues
+  documentation: https://docs.mlrun.org/
+  source: https://github.com/mlrun/mlrun
+  license: https://github.com/mlrun/mlrun/blob/master/LICENSE
+  download: https://pypi.org/project/mlrun/
+containers:
+  upstream:
+    name: mlrun
+    image: mlrun/mlrun
+    version: latest
+description: MLRun is an open-source software for managing and automating machine
+  learning workflows.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Machine Learning
+  tags:
+  - ml
+  - machine learning
+  - automation
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/kibana
+  issues: https://github.com/elastic/kibana/issues
+  documentation: https://www.elastic.co/guide/en/kibana/current/index.html
+  support: https://www.elastic.co/support/
+  source: https://github.com/elastic/kibana
+  license: https://github.com/elastic/kibana/blob/master/LICENSE.txt
+  download: https://www.elastic.co/downloads/kibana
+containers:
+  upstream:
+    name: kibana
+    image: docker.elastic.co/kibana/kibana
+    version: latest
+description: Kibana is an open source analytics and visualization platform designed
+  to work with Elasticsearch. It provides a user-friendly interface for exploring
+  and analyzing data stored in Elasticsearch indices.
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Analytics
+  sub: Data Visualization
+  tags:
+  - analytics
+  - visualization
+  - elasticsearch
+

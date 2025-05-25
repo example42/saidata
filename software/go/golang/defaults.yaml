@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://golang.org/
+  issues: https://github.com/golang/go/issues
+  documentation: https://golang.org/doc/
+  support: https://golang.org/help/
+  source: https://github.com/golang/go
+  license: https://golang.org/LICENSE
+  download: https://golang.org/dl/
+containers:
+  upstream:
+    name: golang
+    image: golang
+    version: latest
+description: Go is an open source programming language that makes it easy to build
+  simple, reliable, and efficient software.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Development
+  sub: Web Framework
+  tags:
+  - web
+  - development
+  - framework
+

@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.quagga.net/
+  issues: https://github.com/Quagga/quagga/issues
+  documentation: https://www.quagga.net/docs/
+  support: https://www.quagga.net/support/
+  source: https://github.com/Quagga/quagga
+  license: https://github.com/Quagga/quagga/blob/master/COPYING
+containers:
+  upstream:
+    name: quagga
+    image: quagga
+    version: latest
+description: Quagga is a free and open-source routing software suite that provides
+  implementations of various routing protocols, including OSPF, RIP, BGP, and IS-IS.
+  It is designed to run on Unix-like operating systems such as Linux, FreeBSD, and
+  NetBSD.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Networking
+  sub: Routing
+  tags:
+  - networking
+  - routing
+  - protocols
+

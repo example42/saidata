@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://ohmyz.sh/
+  issues: https://github.com/ohmyzsh/ohmyzsh/issues
+  documentation: https://github.com/ohmyzsh/ohmyzsh/wiki
+  source: https://github.com/ohmyzsh/ohmyzsh
+  license: https://github.com/ohmyzsh/ohmyzsh/blob/master/LICENSE.txt
+  download: https://github.com/ohmyzsh/ohmyzsh/releases
+containers:
+  upstream:
+    name: oh-my-zsh
+    image: ohmyzsh/ohmyzsh
+    version: latest
+description: oh-my-zsh is a framework for managing your zsh configuration. It includes
+  hundreds of plugins and themes to enhance your terminal experience.
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Terminal
+  sub: Shell
+  tags:
+  - zsh
+  - terminal
+  - shell
+

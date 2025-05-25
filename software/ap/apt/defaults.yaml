@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://apt-get.org/
+  issues: https://github.com/apt/apt/issues
+  documentation: https://manpages.debian.org/jessie/apt/apt.8.en.html
+  support: https://www.debian.org/support
+  source: https://salsa.debian.org/apt-team/apt
+  license: https://www.debian.org/legal/licenses/
+containers:
+  upstream:
+    name: apt
+    image: docker.io/library/apt
+    version: latest
+description: Advanced Package Tool (APT) is a free and open-source package management
+  system used by Debian and its derivatives. It allows users to easily install, update,
+  and remove software packages on their system.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Package Management
+  tags:
+  - apt
+  - package
+  - management
+

@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://code.visualstudio.com/
+  issues: https://github.com/microsoft/vscode/issues
+  documentation: https://code.visualstudio.com/docs
+  support: https://code.visualstudio.com/support
+  source: https://github.com/microsoft/vscode
+  license: https://code.visualstudio.com/license
+  download: https://code.visualstudio.com/download
+containers:
+  upstream:
+    name: vscode
+    image: mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+    version: latest
+description: Visual Studio Code (VSCode) is a free and open-source code editor developed
+  by Microsoft for Windows, Linux, and macOS. It includes support for debugging, embedded
+  Git control, syntax highlighting, intelligent code completion, snippets, and code
+  refactoring. It is highly customizable, allowing users to install extensions for
+  additional functionality.
+language: JavaScript
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Code Editor
+  tags:
+  - code
+  - editor
+  - development
+

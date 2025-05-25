@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.exim.org/
+  issues: https://github.com/Exim/exim/issues
+  documentation: https://www.exim.org/docs.html
+  support: https://www.exim.org/support.html
+  source: https://github.com/Exim/exim
+  license: https://github.com/Exim/exim/blob/master/COPYING
+  download: https://www.exim.org/download.html
+containers:
+  upstream:
+    name: exim
+    image: exim/exim
+    version: latest
+description: Exim is a mail transfer agent (MTA) developed for Unix-like operating
+  systems. It is a highly configurable and flexible software that is widely used for
+  email routing and delivery.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Mail Server
+  tags:
+  - mail
+  - server
+  - smtp
+

@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://metaflow.org/
+  issues: https://github.com/Netflix/metaflow/issues
+  documentation: https://docs.metaflow.org/
+  support: https://metaflow.org/support/
+  source: https://github.com/Netflix/metaflow
+  license: https://github.com/Netflix/metaflow/blob/master/LICENSE
+containers:
+  upstream:
+    name: metaflow
+    image: metaflow/metaflow
+    version: latest
+description: Metaflow is a Python-based open source web server that provides a flexible
+  and scalable platform for building and deploying data science projects. It allows
+  users to easily create, manage, and monitor data pipelines, making it ideal for
+  machine learning and data engineering workflows.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

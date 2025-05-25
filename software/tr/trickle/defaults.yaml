@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://trickle.app/
+  issues: https://github.com/mariusor/trickle/issues
+  documentation: https://github.com/mariusor/trickle#readme
+  source: https://github.com/mariusor/trickle
+  license: MIT
+  download: https://github.com/mariusor/trickle/releases
+containers:
+  upstream:
+    name: trickle
+    image: trickledocker/trickle
+    version: latest
+description: Trickle is a lightweight web server written in Python, designed for serving
+  static files and handling HTTP requests efficiently.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

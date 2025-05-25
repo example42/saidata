@@ -1,0 +1,22 @@
+version: '0.1'
+containers:
+  upstream:
+    name: notebook
+    image: jupyter/notebook
+    version: latest
+description: A notebook is a web-based application that allows users to create, edit,
+  and organize notes in a digital format. It is commonly used for taking notes, organizing
+  ideas, and keeping track of tasks and projects.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

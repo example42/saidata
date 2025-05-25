@@ -23,13 +23,13 @@ files:
     path: /opt/homebrew/var/run/httpd/httpd.pid
 
 packages:
-  main:
+  default:
     name: apache-httpd
 
 services:
-  main:
+  default:
     name: httpd
 
 processes:
-  main:
+  default:
     path: /opt/homebrew/opt/httpd/bin/httpd

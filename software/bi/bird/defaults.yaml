@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.bird.network/
+  issues: https://github.com/bird-network/bird/issues
+  documentation: https://bird.network/documentation/
+  support: https://bird.network/support/
+  source: https://github.com/bird-network/bird
+  license: https://github.com/bird-network/bird/blob/master/LICENSE
+containers:
+  upstream:
+    name: bird
+    image: docker.io/bird/bird
+    version: latest
+description: BIRD is an open source web server written in Python, designed to be fast,
+  secure, and easy to use.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

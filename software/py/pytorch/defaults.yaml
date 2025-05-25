@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://pytorch.org/
+  issues: https://github.com/pytorch/pytorch/issues
+  documentation: https://pytorch.org/docs/
+  support: https://pytorch.org/support/
+  source: https://github.com/pytorch/pytorch
+  license: https://github.com/pytorch/pytorch/blob/master/LICENSE
+  download: https://pytorch.org/get-started/locally/
+containers:
+  upstream:
+    name: pytorch
+    image: pytorch/pytorch
+    version: latest
+description: PyTorch is an open source machine learning framework that accelerates
+  the path from research prototyping to production deployment. It is a deep learning
+  platform that provides maximum flexibility and speed.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Machine Learning
+  sub: Deep Learning
+  tags:
+  - pytorch
+  - machine learning
+  - deep learning
+

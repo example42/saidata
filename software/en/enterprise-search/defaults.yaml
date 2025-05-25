@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/enterprise-search
+  issues: https://github.com/elastic/enterprise-search/issues
+  documentation: https://www.elastic.co/guide/en/enterprise-search/current/index.html
+  support: https://www.elastic.co/support/
+  license: https://www.elastic.co/subscriptions
+  download: https://www.elastic.co/downloads/enterprise-search
+containers:
+  upstream:
+    name: enterprise-search
+    image: docker.elastic.co/enterprise-search/enterprise-search:latest
+    version: latest
+description: Enterprise Search is a powerful search engine designed for enterprise
+  use. It allows users to quickly and easily search through large amounts of data
+  to find the information they need.
+language: Java
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Enterprise Search
+  tags:
+  - search
+  - enterprise
+  - data
+

@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.jboss.org/
+  issues: https://issues.jboss.org/
+  documentation: https://docs.jboss.org/
+  support: https://www.jboss.org/support/
+  source: https://github.com/jbossas/jboss-as
+  download: https://www.jboss.org/downloads/
+containers:
+  upstream:
+    name: jboss
+    image: jboss/jboss
+    version: latest
+description: JBoss is an open source Java-based application server used for building,
+  deploying, and hosting enterprise Java applications, web applications, and services.
+  It provides a complete set of services for enterprise applications, including security,
+  transactions, messaging, and management.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Application Server
+  tags:
+  - java
+  - web
+  - server
+  - enterprise
+

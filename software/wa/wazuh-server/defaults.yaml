@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://wazuh.com/
+  issues: https://github.com/wazuh/wazuh/issues
+  documentation: https://documentation.wazuh.com/
+  support: https://wazuh.com/support/
+  source: https://github.com/wazuh/wazuh
+  license: https://github.com/wazuh/wazuh/blob/master/LICENSE
+  download: https://github.com/wazuh/wazuh/releases
+containers:
+  upstream:
+    name: wazuh-server
+    image: wazuh/wazuh-server
+    version: latest
+description: Wazuh Server is an open source web server designed for security monitoring
+  and management.
+ports:
+  default:
+    port: 1514
+  ssl:
+    port: 1515
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Security
+  sub: Security Monitoring
+  tags:
+  - security
+  - monitoring
+  - management
+

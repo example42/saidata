@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://rpms.remirepo.net/
+  issues: https://github.com/remicollet/remirepo/issues
+  documentation: https://rpms.remirepo.net/wizard/
+  support: https://rpms.remirepo.net/wizard/
+  source: https://github.com/remicollet/remirepo
+  download: https://rpms.remirepo.net/
+containers:
+  upstream:
+    name: remi
+    image: remi
+    version: latest
+description: A lightweight and fast HTTP server written in Python, designed for use
+  in web applications and APIs.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

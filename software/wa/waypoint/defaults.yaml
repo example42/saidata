@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.waypointproject.io/
+  issues: https://github.com/hashicorp/waypoint/issues
+  documentation: https://www.waypointproject.io/docs
+  source: https://github.com/hashicorp/waypoint
+  license: https://github.com/hashicorp/waypoint/blob/main/LICENSE
+  download: https://www.waypointproject.io/downloads
+containers:
+  upstream:
+    name: waypoint
+    image: hashicorp/waypoint
+    version: latest
+description: Waypoint is a lightweight and efficient web server written in Python.
+  It is designed to handle HTTP requests and serve web content with ease.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

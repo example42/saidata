@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.nomadproject.io/enterprise
+  issues: https://github.com/hashicorp/nomad-enterprise/issues
+  documentation: https://www.nomadproject.io/docs/enterprise
+  support: https://www.nomadproject.io/support
+  license: https://www.nomadproject.io/enterprise/license
+  download: https://www.nomadproject.io/enterprise/download
+containers:
+  upstream:
+    name: nomad-enterprise
+    image: hashicorp/nomad-enterprise
+    version: latest
+description: Nomad Enterprise is a distributed, highly available, and datacenter-aware
+  cluster and application scheduler designed to support microservices and batch workloads.
+language: Go
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Infrastructure
+  sub: Cluster Management
+  tags:
+  - cluster
+  - scheduler
+  - microservices
+  - batch
+

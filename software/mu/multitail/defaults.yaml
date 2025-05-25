@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.vanheusden.com/multitail/
+  issues: https://github.com/flok99/multitail/issues
+  documentation: https://www.vanheusden.com/multitail/documentation.php
+  support: https://www.vanheusden.com/multitail/support.php
+  source: https://github.com/flok99/multitail
+  license: https://github.com/flok99/multitail/blob/master/COPYING
+  download: https://www.vanheusden.com/multitail/download.php
+containers:
+  upstream:
+    name: multitail
+    image: docker.io/multitail/multitail
+    version: latest
+description: Multitail is a command-line tool that allows users to monitor multiple
+  log files in real-time. It supports color highlighting, filtering, and merging of
+  log files from different sources.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Administration
+  sub: Log Monitoring
+  tags:
+  - log
+  - monitoring
+  - command-line
+

@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.boundary.com/
+  issues: https://github.com/boundary/boundary/issues
+  documentation: https://docs.boundary.com/
+  support: https://support.boundary.com/
+  source: https://github.com/boundary/boundary
+  download: https://www.boundary.com/download
+containers:
+  upstream:
+    name: boundary
+    image: hashicorp/boundary
+    version: latest
+description: Boundary is a lightweight and efficient web server written in Python.
+  It is designed to handle high traffic and provide fast response times.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

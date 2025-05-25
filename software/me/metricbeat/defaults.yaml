@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/beats/metricbeat
+  issues: https://github.com/elastic/beats/issues
+  documentation: https://www.elastic.co/guide/en/beats/metricbeat/current/index.html
+  support: https://www.elastic.co/support/matrix#matrix_beats
+  source: https://github.com/elastic/beats/tree/master/metricbeat
+  license: https://github.com/elastic/beats/blob/master/metricbeat/LICENSE.txt
+containers:
+  upstream:
+    name: metricbeat
+    image: docker.elastic.co/beats/metricbeat:7.9.2
+    version: latest
+description: Metricbeat is a lightweight shipper that collects and sends system and
+  application metrics to the Elastic Stack. It is used to monitor servers, containers,
+  and applications in real-time.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Monitoring
+  tags:
+  - metrics
+  - monitoring
+  - Elastic Stack
+

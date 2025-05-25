@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://wiki.archlinux.org/index.php/Autofs
+  issues: https://github.com/autofs/autofs/issues
+  documentation: https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.6.tar.gz
+  source: https://github.com/autofs/autofs
+  license: GNU General Public License v2.0
+  download: https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.6.tar.gz
+containers:
+  upstream:
+    name: autofs
+    image: docker.io/library/autofs
+    version: latest
+description: Autofs is a program for automatically mounting directories on an as-needed
+  basis. It is a kernel-based automounter for Linux. It allows for on-demand mounting
+  of remote filesystems, and can be configured to handle a variety of different filesystem
+  types.
+language: C
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Administration
+  sub: Filesystem Management
+  tags:
+  - automounter
+  - filesystem
+  - remote
+  - mounting
+

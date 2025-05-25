@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://gitlab.com/gitlab-org/gitlab-ce
+  issues: https://gitlab.com/gitlab-org/gitlab-ce/issues
+  documentation: https://docs.gitlab.com/ce/
+  support: https://about.gitlab.com/support/
+  source: https://gitlab.com/gitlab-org/gitlab-ce/tree/master
+  license: https://gitlab.com/gitlab-org/gitlab-ce/blob/master/LICENSE
+containers:
+  upstream:
+    name: gitlab-ce
+    image: gitlab/gitlab-ce
+    version: latest
+description: GitLab Community Edition (CE) is an open source web-based DevOps lifecycle
+  tool that provides a Git repository manager, issue tracking, CI/CD pipeline, and
+  more.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

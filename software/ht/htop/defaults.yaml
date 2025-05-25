@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://htop.dev/
+  issues: https://github.com/htop-dev/htop/issues
+  documentation: https://htop.dev/docs/
+  support: https://htop.dev/support/
+  source: https://github.com/htop-dev/htop
+  license: https://github.com/htop-dev/htop/blob/master/LICENSE
+containers:
+  upstream:
+    name: htop
+    image: htop
+    version: latest
+description: htop is an interactive process viewer for Unix systems. It is designed
+  to replace the traditional Unix top command and provides a more user-friendly and
+  customizable interface.
+language: C
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - process
+  - monitoring
+  - system
+

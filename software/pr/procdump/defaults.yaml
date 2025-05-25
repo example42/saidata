@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  website: https://docs.microsoft.com/en-us/sysinternals/downloads/procdump
+  documentation: https://docs.microsoft.com/en-us/sysinternals/downloads/procdump
+  support: https://docs.microsoft.com/en-us/sysinternals/downloads/procdump
+  license: https://docs.microsoft.com/en-us/sysinternals/license-terms
+  download: https://download.sysinternals.com/files/Procdump.zip
+containers:
+  upstream:
+    name: procdump
+    image: microsoft/procdump
+    version: latest
+description: Procdump is a command-line utility for creating crash dumps of processes
+  on Windows systems. It can be used to troubleshoot application crashes and hangs,
+  as well as to gather diagnostic information for support personnel.
+language: C++
+license: Public Domain
+platforms:
+- Windows
+category:
+  default: System Utility
+  tags:
+  - procdump
+  - crash dump
+  - diagnostics
+

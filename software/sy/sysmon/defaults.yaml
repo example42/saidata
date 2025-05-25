@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
+  issues: https://github.com/SwiftOnSecurity/sysmon-config/issues
+  documentation: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon#documentation
+  support: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon#support-and-feedback
+  source: https://github.com/Microsoft/sysmon
+  license: https://docs.microsoft.com/en-us/sysinternals/license-terms
+  download: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
+containers:
+  upstream:
+    name: sysmon
+    image: microsoft/sysmon
+    version: latest
+description: Sysmon is a system monitoring tool that provides real-time monitoring
+  of system activity, including process creation, network connections, and changes
+  to file system and registry. It is designed to help detect and investigate malicious
+  activity on Windows systems.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - system
+  - monitoring
+  - security
+

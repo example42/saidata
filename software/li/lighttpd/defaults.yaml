@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://www.lighttpd.net/
+  issues: https://redmine.lighttpd.net/projects/lighttpd/issues
+  documentation: https://redmine.lighttpd.net/projects/lighttpd/wiki
+  support: https://redmine.lighttpd.net/projects/lighttpd/boards
+  source: https://github.com/lighttpd/lighttpd1.4
+  license: https://github.com/lighttpd/lighttpd1.4/blob/master/COPYING
+  download: https://www.lighttpd.net/download/
+containers:
+  upstream:
+    name: lighttpd
+    image: lighttpd
+    version: latest
+description: Lighttpd is a lightweight open-source web server optimized for speed,
+  efficiency, and flexibility. It is designed to handle high-performance environments
+  and is commonly used for serving static content, CGI scripts, and FastCGI applications.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

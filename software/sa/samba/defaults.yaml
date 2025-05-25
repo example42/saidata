@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.samba.org/
+  issues: https://bugzilla.samba.org/
+  documentation: https://www.samba.org/samba/docs/
+  support: https://www.samba.org/samba/support/
+  source: https://git.samba.org/
+  license: https://www.samba.org/samba/license/
+  download: https://www.samba.org/samba/download/
+containers:
+  upstream:
+    name: samba
+    image: dperson/samba
+    version: latest
+description: Samba is a free and open-source software suite that provides file and
+  print services for various Microsoft Windows clients and can integrate with a Windows
+  Server domain. It allows for file and printer sharing between Linux, Windows, and
+  macOS systems.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: File Sharing
+  sub: Network Services
+  tags:
+  - file sharing
+  - networking
+  - windows
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.syslog-ng.com/
+  issues: https://github.com/syslog-ng/syslog-ng/issues
+  documentation: https://www.syslog-ng.com/technical-documents/
+  support: https://www.syslog-ng.com/support/
+  source: https://github.com/syslog-ng/syslog-ng
+  license: https://github.com/syslog-ng/syslog-ng/blob/master/COPYING
+  download: https://www.syslog-ng.com/downloads/
+containers:
+  upstream:
+    name: syslog-ng
+    image: syslogng/syslog-ng
+    version: latest
+description: Syslog-ng is an open source log management tool that collects, processes,
+  and stores logs from various sources for easy analysis and troubleshooting.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Log Management
+  tags:
+  - syslog
+  - log
+  - management
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://yarnpkg.com/
+  issues: https://github.com/yarnpkg/yarn/issues
+  documentation: https://yarnpkg.com/getting-started
+  support: https://yarnpkg.com/support
+  source: https://github.com/yarnpkg/yarn
+  license: https://github.com/yarnpkg/yarn/blob/master/LICENSE
+  download: https://yarnpkg.com/getting-started/install
+containers:
+  upstream:
+    name: yarn
+    image: node:latest
+    version: latest
+description: Yarn is a package manager for JavaScript, designed to be a more secure
+  and reliable alternative to npm. It allows for fast, parallel installation of packages
+  and ensures consistent dependencies across different machines.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Package Manager
+  tags:
+  - javascript
+  - npm
+  - dependencies
+

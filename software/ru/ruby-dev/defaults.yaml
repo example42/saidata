@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.ruby-lang.org/en/
+  issues: https://bugs.ruby-lang.org/
+  documentation: https://www.ruby-lang.org/en/documentation/
+  support: https://www.ruby-lang.org/en/support/
+  source: https://github.com/ruby/ruby
+  license: https://www.ruby-lang.org/en/about/license.txt
+  download: https://www.ruby-lang.org/en/downloads/
+containers:
+  upstream:
+    name: ruby-dev
+    image: ruby:dev
+    version: latest
+description: Development tools for the Ruby programming language
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Development Tools
+  tags:
+  - ruby
+  - development
+  - tools
+

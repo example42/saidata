@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.tcpdump.org/
+  issues: https://github.com/the-tcpdump-group/tcpdump/issues
+  documentation: https://www.tcpdump.org/manpages/tcpdump.1.html
+  source: https://github.com/the-tcpdump-group/tcpdump
+  license: https://github.com/the-tcpdump-group/tcpdump/blob/master/COPYING
+  download: https://www.tcpdump.org/release/
+containers:
+  upstream:
+    name: tcpdump
+    image: tcpdump/tcpdump
+    version: latest
+description: tcpdump is a command-line packet analyzer tool that allows users to capture
+  and display network traffic. It can be used for troubleshooting network issues,
+  monitoring network activity, and analyzing network protocols.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Monitoring
+  tags:
+  - network
+  - monitoring
+  - packet analyzer
+

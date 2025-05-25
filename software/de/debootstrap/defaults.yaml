@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://salsa.debian.org/installer-team/debootstrap
+  issues: https://salsa.debian.org/installer-team/debootstrap/-/issues
+  documentation: https://wiki.debian.org/Debootstrap
+  source: https://salsa.debian.org/installer-team/debootstrap.git
+  license: GPL-2.0-only
+  download: https://salsa.debian.org/installer-team/debootstrap/-/archive/master/debootstrap-master.tar.gz
+containers:
+  upstream:
+    name: debootstrap
+    image: debian:latest
+    version: latest
+description: Debootstrap is a tool that allows users to create a Debian-based operating
+  system from scratch. It is commonly used for creating minimal or specialized Linux
+  distributions.
+language: Shell
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Operating System
+  tags:
+  - linux
+  - debian
+  - distribution
+

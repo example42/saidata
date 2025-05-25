@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://pam.sourceforge.io/
+  issues: https://sourceforge.net/p/pam/bugs/
+  documentation: https://pam.sourceforge.io/docs/
+  support: https://sourceforge.net/p/pam/discussion/
+  source: https://sourceforge.net/p/pam/code/
+  license: https://pam.sourceforge.io/license/
+  download: https://sourceforge.net/projects/pam/files/
+containers:
+  upstream:
+    name: pam
+    image: pam
+    version: latest
+description: Pluggable Authentication Modules (PAM) is a security framework for Linux
+  and other Unix-like operating systems that allows for dynamic authentication methods
+  to be added to the system.
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security
+  sub: Authentication
+  tags:
+  - pam
+  - security
+  - authentication
+

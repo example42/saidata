@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://github.com/NagiosEnterprises/nrpe
+  issues: https://github.com/NagiosEnterprises/nrpe/issues
+  documentation: https://assets.nagios.com/downloads/nagioscore/docs/nrpe/NRPE.pdf
+  support: https://support.nagios.com/kb/category.php?id=53
+  source: https://github.com/NagiosEnterprises/nrpe
+  license: https://github.com/NagiosEnterprises/nrpe/blob/master/COPYING
+  download: https://github.com/NagiosEnterprises/nrpe/releases
+containers:
+  upstream:
+    name: nrpe
+    image: nagios/nrpe:latest
+    version: latest
+description: NRPE (Nagios Remote Plugin Executor) is a Nagios agent that allows remote
+  system monitoring using scripts that are executed on the remote host.
+ports:
+  default:
+    port: 5666
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  sub: Nagios Agent
+  tags:
+  - nagios
+  - monitoring
+  - agent
+

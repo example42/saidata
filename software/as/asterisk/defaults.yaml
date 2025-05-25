@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.asterisk.org/
+  issues: https://issues.asterisk.org/
+  documentation: https://wiki.asterisk.org/wiki/display/AST/Home
+  support: https://www.asterisk.org/support/
+  source: https://github.com/asterisk/asterisk
+  license: https://www.asterisk.org/community/licensing
+  download: https://www.asterisk.org/downloads
+containers:
+  upstream:
+    name: asterisk
+    image: asterisk
+    version: latest
+description: Asterisk is an open source software implementation of a telephone private
+  branch exchange (PBX) and includes features such as voicemail, conference calling,
+  and interactive voice response (IVR).
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Telephony
+  sub: PBX
+  tags:
+  - telephony
+  - pbx
+  - voicemail
+  - conference calling
+  - ivr
+

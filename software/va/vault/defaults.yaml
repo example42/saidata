@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.vaultproject.io/
+  issues: https://github.com/hashicorp/vault/issues
+  documentation: https://www.vaultproject.io/docs/
+  support: https://www.vaultproject.io/support/
+  source: https://github.com/hashicorp/vault
+  license: https://www.vaultproject.io/licenses/
+containers:
+  upstream:
+    name: vault
+    image: vault
+    version: latest
+description: Vault is a secure and encrypted data storage solution for managing secrets
+  and protecting sensitive information.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security
+  sub: Data Storage
+  tags:
+  - vault
+  - encryption
+  - secrets
+  - security
+

@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://www.ntp.org/
+  issues: https://github.com/ntp-project/ntp/issues
+  documentation: https://www.ntp.org/documentation.html
+  support: https://www.ntp.org/support.html
+  source: https://github.com/ntp-project/ntp
+  license: https://www.ntp.org/license.html
+  download: https://www.ntp.org/downloads.html
+containers:
+  upstream:
+    name: ntp
+    image: ntpd
+    version: latest
+description: Network Time Protocol (NTP) is a networking protocol for clock synchronization
+  between computer systems over packet-switched, variable-latency data networks.
+ports:
+  default:
+    port: 123
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Protocol
+  sub: Time Synchronization
+  tags:
+  - networking
+  - time
+  - synchronization
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://puppet.com/docs/puppet/latest/puppet_agent.html
+  issues: https://tickets.puppet.com/browse/PUP
+  documentation: https://puppet.com/docs/puppet/latest/puppet_agent.html
+  support: https://puppet.com/support-services
+  source: https://github.com/puppetlabs/puppet-agent
+  license: https://puppet.com/legal/puppet-agent-license
+  download: https://puppet.com/download-puppet-agent
+containers:
+  upstream:
+    name: puppet-agent
+    image: puppet/puppet-agent
+    version: latest
+description: Puppet Agent is an open source configuration management tool that helps
+  automate the deployment and management of software and infrastructure.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Configuration Management
+  tags:
+  - puppet
+  - configuration
+  - management
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.vim.org/
+  issues: https://github.com/vim/vim/issues
+  documentation: https://www.vim.org/docs.php
+  support: https://www.vim.org/support.php
+  source: https://github.com/vim/vim
+  license: https://github.com/vim/vim/blob/master/LICENSE
+  download: https://www.vim.org/download.php
+containers:
+  upstream:
+    name: vim
+    image: vim
+    version: latest
+description: Vim is a highly configurable text editor built to enable efficient text
+  editing. It is an improved version of the vi editor distributed with most UNIX systems.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Text Editor
+tags:
+- text editor
+- vi
+- unix
+

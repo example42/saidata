@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://nuclei.projectdiscovery.io/
+  issues: https://github.com/projectdiscovery/nuclei/issues
+  documentation: https://nuclei.projectdiscovery.io/usage/
+  source: https://github.com/projectdiscovery/nuclei
+  license: MIT
+  download: https://github.com/projectdiscovery/nuclei/releases
+containers:
+  upstream:
+    name: nuclei
+    image: projectdiscovery/nuclei
+    version: latest
+description: Nuclei is a fast and customizable web server written in Python, designed
+  for high performance and low resource usage.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

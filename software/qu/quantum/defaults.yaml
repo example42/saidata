@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://www.quantum.com/
+  issues: https://www.quantum.com/support/product-support/
+  documentation: https://www.quantum.com/products/scale-out-storage/stornext/
+  support: https://www.quantum.com/support/
+  license: https://www.quantum.com/legal/
+  download: https://www.quantum.com/products/scale-out-storage/stornext/
+containers:
+  upstream:
+    name: quantum
+    image: docker/quantum
+    version: latest
+description: Quantum is a Python-based open source web server that supports HTTP and
+  HTTPS protocols. It is designed to be fast, lightweight, and easy to use, making
+  it a popular choice for hosting websites and web applications. Quantum is compatible
+  with Linux and MacOS platforms and is licensed under the open source MIT license.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

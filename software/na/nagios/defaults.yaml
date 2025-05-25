@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  nagios:
+    website: https://www.nagios.org/
+    issues: https://github.com/NagiosEnterprises/nagioscore/issues
+    documentation: https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/toc.html
+    support: https://support.nagios.com/forum/
+    source: https://github.com/NagiosEnterprises/nagioscore
+    license: https://www.nagios.org/about/legal/
+    download: https://www.nagios.org/downloads/
+containers:
+  upstream:
+    name: nagios
+    image: nagios/nagios
+    version: latest
+description: Nagios is a popular open source monitoring system that allows you to
+  keep an eye on your network infrastructure, servers, and applications. It provides
+  alerts and notifications when issues arise, helping you to quickly identify and
+  resolve problems before they impact your business.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Monitoring System
+  tags:
+  - monitoring
+  - network
+  - servers
+  - applications
+

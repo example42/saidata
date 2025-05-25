@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.zabbix.com/
+  issues: https://support.zabbix.com/
+  documentation: https://www.zabbix.com/documentation/current/
+  support: https://www.zabbix.com/support
+  source: https://github.com/zabbix/zabbix
+  license: https://www.zabbix.com/license.php
+  download: https://www.zabbix.com/download_agents
+containers:
+  upstream:
+    name: zabbix-agent
+    image: zabbix/zabbix-agent
+    version: latest
+description: Zabbix Agent is a monitoring software that collects data from devices
+  on a network and sends it to a central server for analysis and visualization.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Monitoring
+  sub: Network Monitoring
+  tags:
+  - zabbix
+  - agent
+  - monitoring
+

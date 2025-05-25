@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://github.com/vkorn/ssmtp
+  issues: https://github.com/vkorn/ssmtp/issues
+  documentation: https://github.com/vkorn/ssmtp/blob/master/README.md
+  source: https://github.com/vkorn/ssmtp
+  license: https://github.com/vkorn/ssmtp/blob/master/LICENSE
+  download: https://github.com/vkorn/ssmtp/releases
+containers:
+  upstream:
+    name: ssmtp
+    image: linuxserver/ssmtp
+    version: latest
+description: Simple Mail Transfer Protocol (SMTP) client for sending emails
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Email
+  tags:
+  - smtp
+  - email
+  - client
+

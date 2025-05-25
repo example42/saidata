@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://zeek.org/
+  issues: https://github.com/zeek/zeek/issues
+  documentation: https://docs.zeek.org/en/stable/
+  support: https://zeek.org/support/
+  source: https://github.com/zeek/zeek
+  license: https://github.com/zeek/zeek/blob/master/COPYING
+containers:
+  upstream:
+    name: zeek
+    image: zeek/zeek
+    version: latest
+description: Zeek is a powerful network analysis framework that is used for security
+  monitoring, network traffic analysis, and intrusion detection. It provides a high-level
+  programming language for creating custom analysis scripts and supports a wide range
+  of protocols and file formats.
+language: C++
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Security
+  sub: Intrusion Detection
+  tags:
+  - network
+  - security
+  - intrusion detection
+

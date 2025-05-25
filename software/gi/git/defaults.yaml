@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://github.com/
+  issues: https://github.com/issues
+  documentation: https://docs.github.com/
+  support: https://support.github.com/
+  source: https://github.com/
+  license: https://github.com/licensing
+containers:
+  upstream:
+    name: git
+    image: docker.io/git
+    version: latest
+description: Git is a distributed version control system designed to handle everything
+  from small to very large projects with speed and efficiency. It is easy to learn
+  and has a tiny footprint with lightning fast performance.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Version Control
+  tags:
+  - git
+  - version control
+  - distributed
+  - source code management
+

@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://wazuh.com/
+  issues: https://github.com/wazuh/wazuh/issues
+  documentation: https://documentation.wazuh.com/
+  support: https://wazuh.com/support/
+  source: https://github.com/wazuh/wazuh
+  license: https://github.com/wazuh/wazuh/blob/master/LICENSE
+containers:
+  upstream:
+    name: wazuh-agent
+    image: wazuh/wazuh-agent
+    version: latest
+description: Wazuh Agent is an open source security monitoring software that collects,
+  analyzes and correlates data from multiple sources to provide comprehensive threat
+  detection, visibility and compliance management.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security Monitoring
+  tags:
+  - security
+  - monitoring
+  - threat detection
+  - compliance management
+

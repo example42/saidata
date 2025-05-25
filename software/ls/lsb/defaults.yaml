@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.linuxfoundation.org/lsb/
+  issues: https://github.com/lsbproject/lsb/issues
+  documentation: https://wiki.linuxfoundation.org/lsb/start
+  support: https://www.linuxfoundation.org/lsb/support/
+  source: https://github.com/lsbproject/lsb
+  license: https://www.linuxfoundation.org/lsb/license/
+containers:
+  upstream:
+    name: lsb
+    image: lsb
+    version: latest
+description: LSB (Linux Standard Base) is a set of standards for Linux distributions
+  to ensure compatibility and interoperability between different versions. It includes
+  specifications for file system hierarchy, libraries, and system commands.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Operating System
+  sub: Linux Distribution
+  tags:
+  - linux
+  - standard
+  - compatibility
+

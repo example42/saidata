@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.example.com
+  issues: https://www.example.com/issues
+  documentation: https://www.example.com/docs
+  support: https://www.example.com/support
+  source: https://github.com/example/example
+  license: https://www.example.com/license
+  download: https://www.example.com/download
+containers:
+  upstream:
+    name: screen
+    image: screen
+    version: latest
+description: Screen is a full-screen window manager that multiplexes a physical terminal
+  between several processes, typically interactive shells. It offers a user-friendly
+  interface for managing multiple terminal sessions within a single window.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Terminal Multiplexer
+  tags:
+  - terminal
+  - multiplexer
+  - shell
+

@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://firewalld.org/
+  issues: https://github.com/firewalld/firewalld/issues
+  documentation: https://firewalld.org/documentation/
+  support: https://firewalld.org/support/
+  source: https://github.com/firewalld/firewalld
+  license: https://github.com/firewalld/firewalld/blob/master/COPYING
+containers:
+  upstream:
+    name: firewalld
+    image: docker.io/firewalld/firewalld
+    version: latest
+description: Firewalld is a dynamic firewall management tool for Linux operating systems.
+  It provides a flexible way to configure firewall rules and manage network traffic.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security
+  sub: Firewall
+  tags:
+  - firewall
+  - security
+  - network
+

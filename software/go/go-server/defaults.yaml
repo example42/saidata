@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.gocd.org/
+  issues: https://github.com/gocd/gocd/issues
+  documentation: https://docs.gocd.org/current/
+  support: https://www.gocd.org/support/
+  source: https://github.com/gocd/gocd
+  license: https://www.apache.org/licenses/LICENSE-2.0
+  download: https://www.gocd.org/download/
+containers:
+  upstream:
+    name: go-server
+    image: gocd/gocd-server
+    version: latest
+description: Go Server is a lightweight and efficient web server written in the Go
+  programming language. It is designed to handle high traffic and is commonly used
+  for hosting web applications and APIs.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

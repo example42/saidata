@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/beats/packetbeat
+  issues: https://github.com/elastic/beats/issues
+  documentation: https://www.elastic.co/guide/en/beats/packetbeat/current/index.html
+  support: https://discuss.elastic.co/c/beats/packetbeat
+  source: https://github.com/elastic/beats/tree/master/packetbeat
+  license: https://github.com/elastic/beats/blob/master/packetbeat/LICENSE.txt
+containers:
+  upstream:
+    name: packetbeat
+    image: docker.elastic.co/beats/packetbeat:7.10.2
+    version: latest
+description: Packetbeat is an open source network packet analyzer that monitors and
+  analyzes network traffic in real-time. It is designed to provide insights into the
+  performance and behavior of applications and services running on a network.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Network Monitoring
+  sub: Packet Analyzer
+  tags:
+  - network
+  - monitoring
+  - packet
+  - analyzer
+

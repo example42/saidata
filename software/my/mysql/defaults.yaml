@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://www.mysql.com/
+  issues: https://bugs.mysql.com/
+  documentation: https://dev.mysql.com/doc/
+  support: https://www.mysql.com/support/
+  source: https://github.com/mysql/mysql-server
+  license: https://www.mysql.com/about/legal/licensing/
+  download: https://dev.mysql.com/downloads/
+containers:
+  upstream:
+    name: mysql
+    image: mysql
+    version: latest
+description: MySQL is an open-source relational database management system (RDBMS)
+  that uses Structured Query Language (SQL). It is a popular choice for web applications
+  and is known for its reliability, scalability, and ease of use.
+ports:
+  default:
+    port: 3306
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Database
+  sub: Relational Database Management System
+  tags:
+  - database
+  - sql
+  - rdbms
+

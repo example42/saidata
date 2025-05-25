@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://omiproject.org/
+  issues: https://github.com/omiproject/omi/issues
+  documentation: https://github.com/omiproject/omi/wiki
+  source: https://github.com/omiproject/omi
+  license: https://github.com/omiproject/omi/blob/master/LICENSE
+  download: https://github.com/omiproject/omi/releases
+containers:
+  upstream:
+    name: omi
+    image: microsoft/omi
+    version: latest
+description: Open Management Infrastructure (OMI) is an open source web server that
+  provides a platform for managing and monitoring resources in a distributed environment.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

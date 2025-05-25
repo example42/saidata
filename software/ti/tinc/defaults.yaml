@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.tinc-vpn.org/
+  issues: https://www.tinc-vpn.org/bugs/
+  documentation: https://www.tinc-vpn.org/documentation/
+  support: https://www.tinc-vpn.org/support/
+  source: https://www.tinc-vpn.org/git/
+  license: https://www.tinc-vpn.org/license/
+  download: https://www.tinc-vpn.org/download/
+containers:
+  upstream:
+    name: tinc
+    image: tinc/tinc
+    version: latest
+description: tinc is a Virtual Private Network (VPN) daemon that uses tunnelling and
+  encryption to create a secure network connection over the internet. It is designed
+  to be lightweight, easy to configure, and highly secure.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Networking
+  sub: VPN
+  tags:
+  - networking
+  - vpn
+  - security
+

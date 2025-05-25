@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://security.appspot.com/vsftpd.html
+  issues: https://security.appspot.com/vsftpd.html#issues
+  documentation: https://security.appspot.com/vsftpd.html#documentation
+  support: https://security.appspot.com/vsftpd.html#support
+  source: https://security.appspot.com/vsftpd.html#source
+  license: https://security.appspot.com/vsftpd.html#license
+  download: https://security.appspot.com/vsftpd.html#download
+containers:
+  upstream:
+    name: vsftpd
+    image: vsftpd
+    version: latest
+description: vsftpd (Very Secure FTP Daemon) is a lightweight, stable, and secure
+  FTP server for Linux and Unix-like systems. It supports IPv6, SSL, and virtual users.
+ports:
+  default:
+    port: 21
+  ssl:
+    port: 990
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: FTP Server
+  tags:
+  - ftp
+  - server
+  - secure
+

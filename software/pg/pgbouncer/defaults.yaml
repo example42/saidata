@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.pgbouncer.org/
+  issues: https://github.com/pgbouncer/pgbouncer/issues
+  documentation: https://www.pgbouncer.org/documentation.html
+  support: https://www.pgbouncer.org/support.html
+  source: https://github.com/pgbouncer/pgbouncer
+  license: https://github.com/pgbouncer/pgbouncer/blob/master/COPYING
+  download: https://www.pgbouncer.org/downloads.html
+containers:
+  upstream:
+    name: pgbouncer
+    image: pgbouncer/pgbouncer
+    version: latest
+description: Lightweight connection pooler for PostgreSQL
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Database
+  sub: PostgreSQL
+  tags:
+  - database
+  - connection pooler
+  - PostgreSQL
+

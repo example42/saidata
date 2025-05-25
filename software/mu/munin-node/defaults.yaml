@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://munin-monitoring.org/
+  issues: https://github.com/munin-monitoring/munin/issues
+  documentation: https://munin-monitoring.org/wiki/
+  support: https://munin-monitoring.org/support/
+  source: https://github.com/munin-monitoring/munin
+  license: https://github.com/munin-monitoring/munin/blob/master/LICENSE
+  download: https://github.com/munin-monitoring/munin/releases
+containers:
+  upstream:
+    name: munin-node
+    image: munin/munin-node
+    version: latest
+description: Munin-node is a monitoring tool that collects and displays system information
+  in graphs through a web interface.
+language: Perl
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - monitoring
+  - system
+  - graphs
+

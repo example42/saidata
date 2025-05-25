@@ -41,13 +41,13 @@ directories:
   data: ~ # Main data directory (what you need to backup), default is undefined
 
 processes:
-  main: 
+  default: 
     path: $software_name
     owner: root
     group: root
 
 ports:
-  main:
+  default:
     port: ~ # Default is undefined.
     protocol: tcp
 
@@ -88,7 +88,7 @@ language: ~ # Main programming language (TODECIDE: String, Array and/or Hashmap?
 description: ~ # Default is undefined.
 
 category:
-  main: ~ # Default is undefined.
+  default: ~ # Default is undefined.
   sub: ~ # Default is undefined.
   tags: ~ # Default is undefined.
 

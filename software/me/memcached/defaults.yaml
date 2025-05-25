@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://memcached.org/
+  issues: https://github.com/memcached/memcached/issues
+  documentation: https://memcached.org/documentation/
+  support: https://memcached.org/support/
+  source: https://github.com/memcached/memcached
+  license: https://github.com/memcached/memcached/blob/master/LICENSE
+  download: https://memcached.org/downloads
+containers:
+  upstream:
+    name: memcached
+    image: memcached
+    version: latest
+description: A high-performance, distributed memory object caching system
+ports:
+  default:
+    port: 11211
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Database
+  sub: Caching
+  tags:
+  - database
+  - caching
+  - performance
+

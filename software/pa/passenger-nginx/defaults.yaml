@@ -1,0 +1,38 @@
+version: '0.1'
+urls:
+  website: https://www.nginx.com/products/nginx/
+  issues: https://github.com/nginxinc/docker-nginx/issues
+  documentation: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/
+  support: https://www.nginx.com/support/
+  source: https://github.com/nginxinc/docker-nginx
+  license: https://www.nginx.com/legal/licenses/
+containers:
+  upstream:
+    name: passenger-nginx
+    image: passenger-nginx
+    version: latest
+description: Passenger-Nginx is a web server that integrates the Passenger application
+  server with the Nginx web server. It allows for easy deployment and management of
+  Ruby, Node.js, and Python web applications.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+  - ruby
+  - node.js
+  - python
+

@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  puppet_repo:
+    website: https://puppet.com/
+    issues: https://puppet.com/docs/puppet/latest/reporting_issues.html
+    documentation: https://puppet.com/docs/puppet/latest/index.html
+    support: https://puppet.com/support-services
+    source: https://github.com/puppetlabs/puppet
+    license: https://github.com/puppetlabs/puppet/blob/master/LICENSE
+    download: https://puppet.com/download-puppet/
+containers:
+  upstream:
+    name: puppet_repo
+    image: puppet/puppet_repo
+    version: latest
+description: Puppet Repo is a configuration management tool that allows users to define
+  and enforce the state of their infrastructure as code.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Configuration Management
+  tags:
+  - puppet
+  - configuration
+  - management
+

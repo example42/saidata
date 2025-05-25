@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://marlam.de/msmtp/
+  issues: https://marlam.de/msmtp/bugs/
+  documentation: https://marlam.de/msmtp/documentation/
+  support: https://marlam.de/msmtp/support/
+  source: https://marlam.de/msmtp/source/
+  license: https://marlam.de/msmtp/license/
+  download: https://marlam.de/msmtp/download/
+containers:
+  upstream:
+    name: msmtp
+    image: msmtp/msmtp
+    version: latest
+description: msmtp is a simple SMTP client that can be used to send emails from a
+  command line or a script. It supports various authentication methods and can be
+  configured to use different SMTP servers depending on the sender address.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Email Client
+  tags:
+  - email
+  - client
+  - smtp
+

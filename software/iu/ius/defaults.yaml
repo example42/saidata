@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://ius.io/
+  issues: https://github.com/iuscommunity-pkg
+  documentation: https://ius.io/
+  support: https://ius.io/support/
+  source: https://github.com/iuscommunity-pkg
+  license: https://github.com/iuscommunity-pkg/LICENSE
+containers:
+  upstream:
+    name: ius
+    image: iuscommunity/ius
+    version: latest
+description: IUS is a web server written in Python that supports HTTP and HTTPS protocols.
+  It is designed to be lightweight and easy to use, making it a great choice for hosting
+  simple websites or web applications.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://www.openstack.org/software/releases/keystone
+  issues: https://bugs.launchpad.net/keystone
+  documentation: https://docs.openstack.org/keystone/latest/
+  support: https://ask.openstack.org/en/questions/
+  source: https://github.com/openstack/keystone
+  license: Apache License 2.0
+containers:
+  upstream:
+    name: keystone
+    image: openstack/keystone
+    version: latest
+description: Keystone is a lightweight and flexible web server written in Python.
+  It is designed to be easy to use and highly customizable, making it a popular choice
+  for web developers and system administrators alike.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

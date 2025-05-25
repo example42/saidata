@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://pypi.org/project/pip/
+  issues: https://github.com/pypa/pip/issues
+  documentation: https://pip.pypa.io/en/stable/
+  source: https://github.com/pypa/pip
+  license: MIT License
+  download: https://pypi.org/project/pip/#files
+containers:
+  upstream:
+    name: python-pip
+    image: python:latest
+    version: latest
+description: Package installer for Python
+language: Python
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Package Management
+  tags:
+  - python
+  - package
+  - installer
+

@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://pwgen.sourceforge.io/
+  issues: https://sourceforge.net/p/pwgen/bugs/
+  documentation: https://pwgen.sourceforge.io/man/pwgen.html
+  support: https://sourceforge.net/p/pwgen/support-requests/
+  source: https://sourceforge.net/projects/pwgen/
+  license: https://pwgen.sourceforge.io/license.html
+  download: https://sourceforge.net/projects/pwgen/files/latest/download
+containers:
+  upstream:
+    name: pwgen
+    image: docker.io/library/pwgen
+    version: latest
+description: pwgen is a password generator tool that creates random, secure passwords
+  for use in various applications and systems. It can generate passwords of varying
+  lengths and complexity, making it a useful tool for creating strong and unique passwords.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Security
+  sub: Password Management
+  tags:
+  - password
+  - generator
+  - security
+

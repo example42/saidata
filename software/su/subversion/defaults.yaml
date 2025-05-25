@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://subversion.apache.org/
+  issues: https://issues.apache.org/jira/projects/SVN/issues
+  documentation: https://subversion.apache.org/docs/
+  support: https://subversion.apache.org/support.html
+  source: https://svn.apache.org/repos/asf/subversion/
+  license: https://svn.apache.org/repos/asf/subversion/trunk/LICENSE
+containers:
+  upstream:
+    name: subversion
+    image: svn
+    version: latest
+description: Subversion is a version control system used for software development
+  and collaboration. It allows users to track changes to code, manage different versions,
+  and collaborate with others on projects.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Version Control
+  tags:
+  - version control
+  - software development
+  - collaboration
+

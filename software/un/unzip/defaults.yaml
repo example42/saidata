@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.unzip.org/
+  issues: https://github.com/madler/unzip/issues
+  documentation: https://www.unzip.org/documentation.html
+  support: https://www.unzip.org/support.html
+  source: https://github.com/madler/unzip
+  license: https://github.com/madler/unzip/blob/master/LICENSE
+containers:
+  upstream:
+    name: unzip
+    image: docker.io/library/unzip
+    version: latest
+description: Unzip is a software utility used for extracting compressed files from
+  archives. It supports a wide range of archive formats and can be used to create,
+  modify, and extract archives.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Utility
+  sub: File Compression
+  tags:
+  - unzip
+  - archive
+  - compression
+

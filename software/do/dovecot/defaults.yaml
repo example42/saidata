@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.dovecot.org/
+  issues: https://github.com/dovecot/core/issues
+  documentation: https://doc.dovecot.org/
+  support: https://dovecot.org/support/
+  source: https://github.com/dovecot/core
+  license: https://github.com/dovecot/core/blob/master/COPYING
+  download: https://www.dovecot.org/download/
+containers:
+  upstream:
+    name: dovecot
+    image: dovecot/dovecot
+    version: latest
+description: Dovecot is an open source IMAP and POP3 email server for Linux/UNIX-like
+  systems, written primarily with security in mind.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Email Server
+  tags:
+  - email
+  - server
+  - imap
+  - pop3
+

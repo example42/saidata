@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://duply.net/
+  issues: https://github.com/duplicati/duply/issues
+  documentation: https://duply.net/doc/
+  source: https://github.com/duplicati/duply
+  download: https://duply.net/download/
+containers:
+  upstream:
+    name: duply
+    image: duply/duply
+    version: latest
+description: Duply is a command-line based backup software that uses Duplicity as
+  the backend. It provides a simple yet powerful way to backup your data and securely
+  store it in various cloud storage providers or local storage.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Backup
+  tags:
+  - backup
+  - duplicity
+  - cloud storage
+

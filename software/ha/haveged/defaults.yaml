@@ -1,0 +1,32 @@
+version: '0.1'
+urls:
+  website: https://www.issihosts.com/haveged/
+  issues: https://github.com/jirka-h/haveged/issues
+  documentation: https://github.com/jirka-h/haveged/blob/master/README.md
+  source: https://github.com/jirka-h/haveged
+  license: https://github.com/jirka-h/haveged/blob/master/COPYING
+  download: https://github.com/jirka-h/haveged/releases
+containers:
+  upstream:
+    name: haveged
+    image: haveged
+    version: latest
+description: A simple and lightweight web server for serving static content
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

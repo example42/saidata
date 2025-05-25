@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://www.elastic.co/beats/auditbeat
+  issues: https://github.com/elastic/beats/issues
+  documentation: https://www.elastic.co/guide/en/beats/auditbeat/current/index.html
+  support: https://www.elastic.co/support/matrix#matrix_beats
+  source: https://github.com/elastic/beats/tree/master/auditbeat
+  license: https://github.com/elastic/beats/blob/master/LICENSE.txt
+containers:
+  upstream:
+    name: auditbeat
+    image: docker.elastic.co/beats/auditbeat:7.10.2
+    version: latest
+description: Auditbeat is an open source lightweight shipper that collects and sends
+  system audit data to Elasticsearch or Logstash for further analysis.
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Monitoring
+  tags:
+  - audit
+  - monitoring
+  - system
+

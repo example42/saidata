@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.openstack.org/software/releases/rocky/components/nova
+  issues: https://bugs.launchpad.net/nova
+  documentation: https://docs.openstack.org/nova/latest/
+  support: https://ask.openstack.org/en/questions/
+  source: https://github.com/openstack/nova
+  license: https://www.apache.org/licenses/LICENSE-2.0
+containers:
+  upstream:
+    name: nova
+    image: openstack/nova
+    version: latest
+description: OpenStack Compute (Nova) is a cloud computing fabric controller, which
+  is the main part of an IaaS system. It is designed to manage and automate pools
+  of computer resources and can work with widely available virtualization technologies,
+  as well as bare metal and high-performance computing (HPC) configurations.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Cloud Computing
+  sub: Infrastructure as a Service (IaaS)
+  tags:
+  - openstack
+  - cloud
+  - iaas
+

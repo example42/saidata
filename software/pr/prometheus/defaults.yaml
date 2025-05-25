@@ -1,0 +1,39 @@
+version: '0.1'
+urls:
+  website: https://prometheus.io/
+  issues: https://github.com/prometheus/prometheus/issues
+  documentation: https://prometheus.io/docs/introduction/overview/
+  support: https://prometheus.io/community/
+  source: https://github.com/prometheus/prometheus
+  license: https://github.com/prometheus/prometheus/blob/master/LICENSE
+containers:
+  upstream:
+    name: prometheus
+    image: prom/prometheus
+    version: latest
+description: Prometheus is an open-source systems monitoring and alerting toolkit
+  originally built at SoundCloud. Since its inception in 2012, many companies and
+  organizations have adopted Prometheus, and the project has a very active developer
+  and user community. It is now a standalone open source project and maintained independently
+  of any company. Prometheus is a systems and service monitoring system. It collects
+  metrics from configured targets at given intervals, evaluates rule expressions,
+  displays the results, and can trigger alerts if some condition is observed to be
+  true. It is written in Go and has a powerful query language called PromQL.
+ports:
+  default:
+    port: 9090
+language: Go
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Monitoring
+  sub: Systems Monitoring
+  tags:
+  - prometheus
+  - monitoring
+  - metrics
+  - alerting
+

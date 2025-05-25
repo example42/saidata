@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  website: https://gitlab.com/gitlab-org/gitlab-cli
+  issues: https://gitlab.com/gitlab-org/gitlab-cli/-/issues
+  documentation: https://docs.gitlab.com/ee/user/project/cloning.html#gitlab-cli
+  source: https://gitlab.com/gitlab-org/gitlab-cli/-/tree/master
+  license: https://gitlab.com/gitlab-org/gitlab-cli/-/blob/master/LICENSE
+containers:
+  upstream:
+    name: gitlab-cli
+    image: gitlab/gitlab-cli
+    version: latest
+description: A command line interface for managing GitLab repositories and projects
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Development Tools
+  sub: Version Control
+  tags:
+  - git
+  - gitlab
+  - cli
+

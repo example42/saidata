@@ -1,0 +1,34 @@
+version: '0.1'
+urls:
+  website: https://hdm.dev/
+  issues: https://github.com/hdm-project/hdm/issues
+  documentation: https://hdm-project.github.io/hdm-docs/
+  source: https://github.com/hdm-project/hdm
+  license: https://github.com/hdm-project/hdm/blob/master/LICENSE
+  download: https://github.com/hdm-project/hdm/releases
+containers:
+  upstream:
+    name: hdm
+    image: hdmproject/hdm
+    version: latest
+description: HDM is a lightweight and fast HTTP server written in Python. It is designed
+  to be easy to use and highly customizable, making it a great choice for web developers
+  and system administrators alike.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http
+

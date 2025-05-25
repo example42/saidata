@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://www.packer.io/
+  issues: https://github.com/hashicorp/packer/issues
+  documentation: https://www.packer.io/docs/
+  support: https://www.packer.io/support/
+  source: https://github.com/hashicorp/packer
+  license: https://www.packer.io/license.html
+  download: https://www.packer.io/downloads.html
+containers:
+  upstream:
+    name: packer
+    image: hashicorp/packer
+    version: latest
+description: Packer is an open source tool for creating identical machine images for
+  multiple platforms from a single source configuration.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Infrastructure Automation
+  sub: Image Creation
+  tags:
+  - packer
+  - image
+  - automation
+

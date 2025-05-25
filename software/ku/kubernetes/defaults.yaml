@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://kubernetes.io/
+  issues: https://github.com/kubernetes/kubernetes/issues
+  documentation: https://kubernetes.io/docs/
+  support: https://kubernetes.io/docs/home/
+  source: https://github.com/kubernetes/kubernetes
+  license: https://github.com/kubernetes/kubernetes/blob/master/LICENSE
+  download: https://kubernetes.io/docs/setup/
+containers:
+  upstream:
+    name: kubernetes
+    image: k8s.gcr.io/kube-apiserver:v1.21.0
+    version: latest
+description: Kubernetes is an open-source container orchestration system for automating
+  deployment, scaling, and management of containerized applications.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Container Orchestration
+  tags:
+  - kubernetes
+  - container
+  - orchestration
+

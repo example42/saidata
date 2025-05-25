@@ -1,0 +1,28 @@
+version: '0.1'
+urls:
+  website: https://mariadb.org/
+  issues: https://jira.mariadb.org/
+  documentation: https://mariadb.com/kb/en/
+  support: https://mariadb.com/support/
+  source: https://github.com/MariaDB/server
+  license: https://mariadb.com/kb/en/mariadb-license/
+  download: https://mariadb.com/downloads/
+containers:
+  upstream:
+    name: mariadb
+    image: mariadb
+    version: latest
+description: MariaDB is an open source relational database management system (RDBMS)
+  that is a fork of MySQL. It is developed and maintained by the MariaDB Foundation.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Database
+  tags:
+  - database
+  - RDBMS
+  - MySQL
+

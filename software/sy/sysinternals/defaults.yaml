@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  website: https://docs.microsoft.com/en-us/sysinternals/
+  issues: https://docs.microsoft.com/en-us/sysinternals/support
+  documentation: https://docs.microsoft.com/en-us/sysinternals/learn/
+  support: https://docs.microsoft.com/en-us/sysinternals/support
+  license: https://docs.microsoft.com/en-us/sysinternals/license-terms
+  download: https://docs.microsoft.com/en-us/sysinternals/downloads/
+containers:
+  upstream:
+    name: sysinternals
+    image: mcr.microsoft.com/sysinternals
+    version: latest
+description: Sysinternals is a suite of advanced system utilities for Microsoft Windows
+  that can help users troubleshoot and diagnose their Windows systems.
+language: C++
+license: Commercial
+platforms:
+- Windows
+category:
+  default: System Utilities
+  tags:
+  - windows
+  - system
+  - utilities
+

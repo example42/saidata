@@ -29,15 +29,15 @@ files:
     path: /var/run/httpd2.pid
 
 packages:
-  main:
+  default:
     name: apache2
 
 services:
-  main:
+  default:
     name: apache2
 
 processes:
-  main:
+  default:
     path: /usr/sbin/httpd2-prefork
     owner: wwwrun
     group: wwwrun

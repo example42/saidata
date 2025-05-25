@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://puppet.com/
+  issues: https://puppet.com/docs/puppet/latest/reporting_issues.html
+  documentation: https://puppet.com/docs/puppet/latest/index.html
+  support: https://puppet.com/support-services
+  source: https://github.com/puppetlabs/puppet
+  license: https://puppet.com/legal/puppet-software-license-agreement
+  download: https://puppet.com/download-puppet/
+containers:
+  upstream:
+    name: puppet
+    image: puppet/puppet
+    version: latest
+description: Puppet is an open-source configuration management tool that helps automate
+  the deployment and management of software and systems.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Configuration Management
+  tags:
+  - configuration
+  - management
+  - automation
+

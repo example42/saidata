@@ -1,0 +1,26 @@
+version: '0.1'
+urls:
+  website: https://brew.sh/
+  issues: https://github.com/Homebrew/brew/issues
+  documentation: https://docs.brew.sh/
+  support: https://github.com/Homebrew/brew/blob/master/README.md#homebrew
+  source: https://github.com/Homebrew/brew
+  license: https://github.com/Homebrew/brew/blob/master/LICENSE.txt
+containers:
+  upstream:
+    name: homebrew
+    image: homebrew/brew
+    version: latest
+description: Homebrew is a package manager for MacOS that allows users to easily install
+  and manage software on their system.
+language: Ruby
+license: Open Source
+platforms:
+- MacOS
+category:
+  default: Package Manager
+  tags:
+  - homebrew
+  - macos
+  - package manager
+

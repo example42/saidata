@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://clusterlabs.org/pacemaker/
+  issues: https://github.com/ClusterLabs/pacemaker/issues
+  documentation: https://clusterlabs.org/pacemaker/doc/
+  support: https://clusterlabs.org/support/
+  source: https://github.com/ClusterLabs/pacemaker
+  license: https://github.com/ClusterLabs/pacemaker/blob/master/COPYING
+containers:
+  upstream:
+    name: pacemaker
+    image: pacemaker/pacemaker
+    version: latest
+description: Pacemaker is an open source high-availability cluster resource manager
+  for Linux and other Unix-like systems, providing automated recovery of failed nodes
+  and services.
+language: C
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Management
+  tags:
+  - high-availability
+  - cluster
+  - resource manager
+

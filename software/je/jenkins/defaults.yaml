@@ -1,0 +1,30 @@
+version: '0.1'
+urls:
+  website: https://www.jenkins.io/
+  issues: https://issues.jenkins.io/
+  documentation: https://www.jenkins.io/doc/
+  support: https://www.jenkins.io/participate/support/
+  source: https://github.com/jenkinsci/jenkins
+  license: https://www.jenkins.io/license/
+  download: https://www.jenkins.io/download/
+containers:
+  upstream:
+    name: jenkins
+    image: jenkins/jenkins
+    version: latest
+description: Jenkins is an open source automation server that helps to automate the
+  non-human part of the software development process, with continuous integration
+  and facilitating technical aspects of continuous delivery.
+language: Java
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Continuous Integration
+  tags:
+  - automation
+  - server
+  - continuous integration
+

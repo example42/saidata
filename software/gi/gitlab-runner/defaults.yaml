@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://docs.gitlab.com/runner/
+  issues: https://gitlab.com/gitlab-org/gitlab-runner/-/issues
+  documentation: https://docs.gitlab.com/runner/
+  support: https://gitlab.com/gitlab-org/gitlab-runner/-/issues
+  source: https://gitlab.com/gitlab-org/gitlab-runner
+  license: https://gitlab.com/gitlab-org/gitlab-runner/-/blob/master/LICENSE
+containers:
+  upstream:
+    name: gitlab-runner
+    image: gitlab/gitlab-runner
+    version: latest
+description: GitLab Runner is an open source continuous integration and deployment
+  tool that works with GitLab. It allows for automated testing and deployment of code
+  changes, making it easier for teams to collaborate and deliver software faster.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: 'null'
+  sub: 'null'
+  tags:
+  - 'null'
+

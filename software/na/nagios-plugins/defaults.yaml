@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  nagios-plugins:
+    website: https://www.nagios-plugins.org/
+    issues: https://github.com/nagios-plugins/nagios-plugins/issues
+    documentation: https://www.nagios-plugins.org/doc/
+    support: https://www.nagios-plugins.org/support/
+    source: https://github.com/nagios-plugins/nagios-plugins
+    license: https://github.com/nagios-plugins/nagios-plugins/blob/master/COPYING
+    download: https://www.nagios-plugins.org/download/
+containers:
+  upstream:
+    name: nagios-plugins
+    image: nagiosplugins/nagios-plugins
+    version: latest
+description: A collection of plugins for Nagios monitoring system
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: System Monitoring
+  sub: Nagios Plugins
+  tags:
+  - nagios
+  - monitoring
+  - plugins
+

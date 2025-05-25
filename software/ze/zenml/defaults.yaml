@@ -1,0 +1,27 @@
+version: '0.1'
+urls:
+  website: https://zenml.io/
+  issues: https://github.com/maiot-io/zenml/issues
+  documentation: https://docs.zenml.io/
+  support: https://zenml.io/contact/
+  source: https://github.com/maiot-io/zenml
+  license: https://github.com/maiot-io/zenml/blob/master/LICENSE
+containers:
+  upstream:
+    name: zenml
+    image: zenml/zenml
+    version: latest
+description: ZenML is an open-source machine learning platform that simplifies the
+  process of building, deploying, and managing machine learning pipelines.
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Machine Learning
+  tags:
+  - machine learning
+  - pipeline
+  - deployment
+

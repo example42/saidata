@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://puppet.com/docs/mcollective/current/
+  issues: https://tickets.puppet.com/browse/MCO
+  documentation: https://puppet.com/docs/mcollective/current/
+  support: https://puppet.com/support-services
+  source: https://github.com/puppetlabs/mcollective
+  license: https://github.com/puppetlabs/mcollective/blob/master/LICENSE
+containers:
+  upstream:
+    name: mcollective
+    image: puppet/mcollective
+    version: latest
+description: MCollective is a framework for building server orchestration or parallel
+  job execution systems.
+language: Ruby
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Server Orchestration
+  tags:
+  - server
+  - orchestration
+  - parallel
+  - job execution
+

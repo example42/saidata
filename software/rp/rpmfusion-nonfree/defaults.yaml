@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://rpmfusion.org/Configuration
+  issues: https://bugzilla.rpmfusion.org/
+  documentation: https://rpmfusion.org/Configuration
+  support: https://rpmfusion.org/Support
+  download: https://rpmfusion.org/Configuration
+containers:
+  upstream:
+    name: rpmfusion-nonfree
+    image: rpmfusion/rpmfusion-nonfree
+    version: latest
+description: RPM Fusion Nonfree is a repository of software packages that are not
+  available in the official Fedora repositories due to licensing restrictions. It
+  provides access to various multimedia and proprietary software, such as codecs,
+  drivers, and applications.
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Package Repository
+  tags:
+  - rpm
+  - repository
+  - multimedia
+  - proprietary
+

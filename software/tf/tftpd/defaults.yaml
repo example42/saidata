@@ -1,0 +1,33 @@
+version: '0.1'
+urls:
+  website: https://tftpd.io/
+  issues: https://github.com/tftpd/tftpd/issues
+  documentation: https://tftpd.io/docs/
+  support: https://tftpd.io/support/
+  source: https://github.com/tftpd/tftpd
+  license: https://github.com/tftpd/tftpd/blob/master/LICENSE
+  download: https://tftpd.io/download/
+containers:
+  upstream:
+    name: tftpd
+    image: alpine/tftp
+    version: latest
+description: A simple TFTP server for transferring files over a network
+ports:
+  default:
+    port: 69
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Networking
+  sub: File Transfer
+  tags:
+  - tftp
+  - server
+  - file transfer
+  - networking
+

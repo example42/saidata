@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://desktop.telegram.org/
+  issues: https://github.com/telegramdesktop/tdesktop/issues
+  documentation: https://github.com/telegramdesktop/tdesktop/wiki
+  support: https://telegram.org/support
+  source: https://github.com/telegramdesktop/tdesktop
+  license: https://github.com/telegramdesktop/tdesktop/blob/master/LICENSE
+containers:
+  upstream:
+    name: telegram-desktop
+    image: telegramdesktop/telegram-desktop
+    version: latest
+description: Telegram Desktop is a cross-platform messaging and VoIP service. It allows
+  users to send messages, photos, videos, and files of any type (doc, zip, mp3, etc),
+  as well as create groups for up to 200,000 people or channels for broadcasting to
+  unlimited audiences. It also supports end-to-end encrypted voice and video calls.
+language: 'null'
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Messaging
+  sub: VoIP
+  tags:
+  - messaging
+  - voip
+  - chat
+

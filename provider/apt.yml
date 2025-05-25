@@ -1,5 +1,4 @@
 # WIP. Sample provider data         emerge: apt list $package_name
-for apt package manager
 apt:
   version: 0.1
   emerge:
@@ -23,6 +22,6 @@ apt:
         command: apt show $package_name
     upgrade:
       name: Upgrade $package_name
-        commands:
-            command: apt-get upgrade -y $package_name
+      commands:
+        command: apt-get upgrade -y $package_name
  

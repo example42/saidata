@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://newrelic.com/
+  issues: https://discuss.newrelic.com/
+  documentation: https://docs.newrelic.com/
+  support: https://support.newrelic.com/
+  license: https://newrelic.com/termsandconditions/software-license-terms
+  download: https://newrelic.com/signup
+containers:
+  upstream:
+    name: newrelic
+    image: newrelic/infrastructure
+    version: latest
+description: New Relic is a performance monitoring and management software that helps
+  developers and IT teams monitor, troubleshoot, and optimize their applications and
+  infrastructure.
+language: 'null'
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Application Performance Monitoring
+  tags:
+  - performance
+  - monitoring
+  - management
+

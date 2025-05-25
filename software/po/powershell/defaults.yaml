@@ -1,0 +1,29 @@
+version: '0.1'
+urls:
+  website: https://docs.microsoft.com/en-us/powershell/
+  issues: https://github.com/PowerShell/PowerShell/issues
+  documentation: https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.1
+  support: https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.1#support
+  source: https://github.com/PowerShell/PowerShell
+  license: https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt
+containers:
+  upstream:
+    name: powershell
+    image: mcr.microsoft.com/powershell
+    version: latest
+description: PowerShell is a task automation and configuration management framework
+  from Microsoft, consisting of a command-line shell and associated scripting language
+  built on the .NET Framework.
+language: PowerShell
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: System Administration
+  tags:
+  - powershell
+  - automation
+  - configuration
+

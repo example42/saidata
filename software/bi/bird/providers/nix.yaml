@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/bird
+  dotconf:
+    path: /etc/bird/bird.conf
+  log:
+    path: /var/log/bird
+  data:
+    path: /var/lib/bird
+  lib:
+    path: /usr/lib/bird
+files:
+  config:
+    path: /etc/bird/bird.conf
+  log:
+    path: /var/log/bird/bird.log
+  pid:
+    path: /var/run/bird.pid
+packages:
+  default:
+    name: bird
+services:
+  default:
+    name: bird
+processes:
+  default:
+    path: /usr/sbin/bird

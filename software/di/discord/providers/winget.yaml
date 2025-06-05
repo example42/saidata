@@ -1,0 +1,15 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\Users\{username}\AppData\Roaming\discord
+  log:
+    path: C:\Users\{username}\AppData\Local\Discord\app-0.0.306\resources\app.asar.unpacked\node_modules\discord_desktop_core\discord_desktop_core.log
+  data:
+    path: C:\Users\{username}\AppData\Local\Discord\app-0.0.306\resources\app.asar.unpacked\node_modules\discord_desktop_core\data
+  lib:
+    path: C:\Users\{username}\AppData\Local\Discord\app-0.0.306\resources\app.asar.unpacked\node_modules\discord_desktop_core\lib
+files:
+  config:
+    path: C:\Users\{username}\AppData\Roaming\discord\settings.json
+  log:
+    path: C:\Users\{username}\AppData\Local\Discord\app-0.0.306\resources\app.asar.unpacked\node_modules\discord_desktop_core\discord

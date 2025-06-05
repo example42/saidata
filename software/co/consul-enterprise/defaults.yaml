@@ -1,30 +1,29 @@
 version: '0.1'
-urls:
-  website: https://www.consul.io/enterprise
-  issues: https://github.com/hashicorp/consul-enterprise/issues
-  documentation: https://www.consul.io/docs/enterprise
-  support: https://www.consul.io/support
-  download: https://www.consul.io/downloads/enterprise
-containers:
-  upstream:
-    name: consul-enterprise
-    image: consul-enterprise
-    version: latest
 description: Consul Enterprise is a distributed, highly available, and data center
   aware solution for service discovery, configuration, and orchestration.
-language: 'null'
+language: Go
+ports:
+  default: 8500
+  ssl: 8501
+category:
+  default: Infrastructure
+  sub: Service Discovery
+  tags: Distributed Systems, Configuration Management, Orchestration
 license: Commercial
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Service Discovery
-  sub: Configuration Management
-  tags:
-  - consul
-  - enterprise
-  - service discovery
-  - configuration
-  - orchestration
-
+urls:
+  website: https://www.consul.io/enterprise.html
+  issues: https://github.com/hashicorp/consul-enterprise/issues
+  documentation: https://www.consul.io/docs/enterprise/index.html
+  support: https://www.hashicorp.com/support.html
+  source: https://github.com/hashicorp/consul-enterprise
+  license: https://www.hashicorp.com/licenses/consul-enterprise.html
+  download: https://www.consul.io/downloads.html
+containers:
+  upstream:
+    name: consul-enterprise
+    image: consul-enterprise
+    version: latest

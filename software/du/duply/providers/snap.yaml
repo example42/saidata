@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /var/snap/duply/common/.duply
+  dotconf:
+    path: /var/snap/duply/common/.duply
+  log:
+    path: /var/snap/duply/common/.duply/log
+  data:
+    path: /var/snap/duply/common/.duply/data
+  lib:
+    path: /var/snap/duply/common/.duply/lib
+files:
+  config:
+    path: /var/snap/duply/common/.duply/conf
+  log:
+    path: /var/snap/duply/common/.duply/log/duply.log
+  pid:
+    path: /var/snap/duply/common/.duply/duply.pid
+packages:
+  default:
+    name: duply
+services:
+  default:
+    name: duply
+processes:
+  default:
+    path: /snap/bin/duply

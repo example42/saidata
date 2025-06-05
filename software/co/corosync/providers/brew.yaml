@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /usr/local/etc/corosync
+  dotconf:
+    path: /usr/local/etc/corosync
+  log:
+    path: /usr/local/var/log/corosync
+  data:
+    path: /usr/local/var/lib/corosync
+  lib:
+    path: /usr/local/lib/corosync
+files:
+  config:
+    path: /usr/local/etc/corosync/corosync.conf
+  log:
+    path: /usr/local/var/log/corosync/corosync.log
+  pid:
+    path: /usr/local/var/run/corosync.pid
+packages:
+  default:
+    name: corosync
+services:
+  default:
+    name: corosync
+processes:
+  default:
+    path: /usr/local/sbin/corosync

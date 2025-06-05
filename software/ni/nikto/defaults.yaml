@@ -1,0 +1,35 @@
+version: '0.1'
+urls:
+  website: https://cirt.net/Nikto2
+  issues: https://github.com/sullo/nikto/issues
+  documentation: https://github.com/sullo/nikto/wiki
+  source: https://github.com/sullo/nikto
+  license: https://github.com/sullo/nikto/blob/master/LICENSE.txt
+  download: https://github.com/sullo/nikto/releases
+containers:
+  upstream:
+    name: nikto
+    image: sullo/nikto
+    version: latest
+description: Nikto is an open source web server scanner that performs comprehensive
+  tests against web servers for multiple items, including over 6700 potentially dangerous
+  files/programs, checks for outdated versions of over 1250 servers, and version specific
+  problems on over 270 servers.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Perl
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http

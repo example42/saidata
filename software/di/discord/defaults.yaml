@@ -1,27 +1,31 @@
 version: '0.1'
+description: Discord is a popular communication platform for gamers and communities.
+ports:
+  default: 80
+  ssl: 443
+category:
+  default: Communication
+  sub: Gaming
+  tags: Community, Voice Chat
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://discord.com/
-  issues: https://support.discord.com/hc/en-us/requests/new
-  documentation: https://discord.com/developers/docs/intro
+  issues: https://support.discord.com/hc/en-us
+  documentation: https://support.discord.com/hc/en-us/categories/360000027212
   support: https://support.discord.com/hc/en-us
+  source: https://github.com/discord/discord-api-docs
+  license: https://discord.com/terms
   download: https://discord.com/download
+  icon: https://discord.com/assets/2c21aeda16de354ba5334551a883b481.png
 containers:
   upstream:
     name: discord
-    image: discord/discord
+    image: discord
     version: latest
-description: Discord is a popular communication platform that allows users to chat,
-  make voice and video calls, and share media with friends and communities.
-language: 'null'
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: 'null'
-  sub: 'null'
-  tags:
-  - web
-  - communication
-  - chat
-
+    ports:
+    - 80
+    - 443

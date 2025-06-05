@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/auditbeat
+  dotconf:
+    path: /usr/share/auditbeat
+  log:
+    path: /var/log/auditbeat
+  data:
+    path: /var/lib/auditbeat
+  lib:
+    path: /var/lib/auditbeat
+files:
+  config:
+    path: /etc/auditbeat/auditbeat.yml
+  log:
+    path: /var/log/auditbeat/auditbeat.log
+  pid:
+    path: /var/run/auditbeat.pid
+packages:
+  default:
+    name: docker.io/elastic/auditbeat:latest
+services:
+  default:
+    name: auditbeat
+processes:
+  default:
+    path: /usr/share/auditbeat/bin/auditbeat

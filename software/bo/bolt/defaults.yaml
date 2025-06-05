@@ -1,4 +1,18 @@
 version: '0.1'
+description: Bolt is a task runner and orchestrator for distributed systems.
+language: Ruby
+ports:
+  default: 22
+  ssl: 443
+category:
+  default: DevOps
+  sub: Automation
+  tags: Task Runner, Orchestration
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://puppet.com/docs/bolt/latest/bolt.html
   issues: https://github.com/puppetlabs/bolt/issues
@@ -6,28 +20,10 @@ urls:
   support: https://puppet.com/support-services
   source: https://github.com/puppetlabs/bolt
   license: https://github.com/puppetlabs/bolt/blob/master/LICENSE
+  download: https://puppet.com/download-bolt
+  icon: https://puppet.com/wp-content/uploads/2019/03/Bolt-Logo-1.png
 containers:
   upstream:
     name: bolt
-    image: bolt/bolt
+    image: puppet/bolt
     version: latest
-description: Bolt is a lightweight and fast web server written in Python. It is designed
-  to handle high traffic and can be easily configured for various web applications.
-ports:
-  default:
-    port: 80
-  ssl:
-    port: 443
-language: Python
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: Web Server
-  sub: HTTP Server
-  tags:
-  - web
-  - server
-  - http
-

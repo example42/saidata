@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /usr/local/etc/named.conf
+  dotconf:
+    path: /usr/local/etc/named.conf
+  log:
+    path: /usr/local/var/log/named.log
+  data:
+    path: /usr/local/var/named
+  lib:
+    path: /usr/local/lib
+files:
+  config:
+    path: /usr/local/etc/named.conf
+  log:
+    path: /usr/local/var/log/named.log
+  pid:
+    path: /usr/local/var/run/named.pid
+packages:
+  default:
+    name: bind
+services:
+  default:
+    name: named
+processes:
+  default:
+    path: /usr/local/sbin/named

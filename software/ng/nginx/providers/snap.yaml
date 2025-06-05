@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /var/snap/nginx/current/conf
+  dotconf:
+    path: /var/snap/nginx/current/conf
+  log:
+    path: /var/snap/nginx/current/logs
+  data:
+    path: /var/snap/nginx/current/data
+  lib:
+    path: /var/snap/nginx/current/lib
+files:
+  config:
+    path: /var/snap/nginx/current/conf/nginx.conf
+  log:
+    path: /var/snap/nginx/current/logs/access.log
+  pid:
+    path: /var/snap/nginx/current/logs/nginx.pid
+packages:
+  default:
+    name: nginx
+services:
+  default:
+    name: nginx
+processes:
+  default:
+    path: /var/snap/nginx/current/sbin/nginx

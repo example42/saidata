@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/asterisk
+  dotconf:
+    path: /etc/asterisk
+  log:
+    path: /var/log/asterisk
+  data:
+    path: /var/lib/asterisk
+  lib:
+    path: /usr/lib/asterisk
+files:
+  config:
+    path: /etc/asterisk/asterisk.conf
+  log:
+    path: /var/log/asterisk/messages
+  pid:
+    path: /var/run/asterisk/asterisk.pid
+packages:
+  default:
+    name: asterisk
+services:
+  default:
+    name: asterisk
+processes:
+  default:
+    path: /usr/sbin/asterisk

@@ -1,30 +1,29 @@
 version: '0.1'
-urls:
-  website: https://corosync.github.io/corosync/
-  issues: https://github.com/corosync/corosync/issues
-  documentation: https://corosync.github.io/corosync/docs/
-  support: https://corosync.github.io/corosync/support/
-  source: https://github.com/corosync/corosync
-  license: https://github.com/corosync/corosync/blob/master/COPYING
-containers:
-  upstream:
-    name: corosync
-    image: corosync/corosync
-    version: latest
-description: Corosync is an open source software for implementing and managing high
-  availability clusters. It provides communication and synchronization services between
-  nodes in a cluster, ensuring that all nodes are aware of the current state of the
-  cluster and can take appropriate actions in case of failures or changes.
+description: Corosync is an open source cluster engine for implementing high availability
+  and fault tolerance in distributed systems.
 language: C
+ports:
+  default: 5405
+  ssl: 5406
+category:
+  default: High Availability
+  sub: Cluster Management
+  tags:
+  - cluster
+  - fault tolerance
+  - distributed systems
 license: Open Source
 platforms:
 - Linux
-- Windows
-- MacOS
-category:
-  default: Cluster Management
-  tags:
-  - cluster
-  - high availability
-  - synchronization
-
+urls:
+  website: https://corosync.github.io/corosync/
+  issues: https://github.com/corosync/corosync/issues
+  documentation: https://corosync.github.io/corosync/docs/corosync-3.1.0/html/
+  support: https://corosync.github.io/corosync/support/
+  source: https://github.com/corosync/corosync
+  license: https://github.com/corosync/corosync/blob/master/COPYING
+  download: https://github.com/corosync/corosync/releases
+containers:
+  upstream:
+    name: corosync
+    image: corosync

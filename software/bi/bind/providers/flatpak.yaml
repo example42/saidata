@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/etc/bind
+  dotconf:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/etc/bind
+  log:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/var/log/bind
+  data:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/var/cache/bind
+  lib:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/usr/lib/bind
+files:
+  config:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/etc/bind/named.conf
+  log:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/var/log/bind/named.log
+  pid:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/var/run/named.pid
+packages:
+  default:
+    name: bind
+services:
+  default:
+    name: named
+processes:
+  default:
+    path: /var/lib/flatpak/app/org.bind.Bind/current/active/files/usr/sbin/n

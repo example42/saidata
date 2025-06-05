@@ -1,28 +1,26 @@
 version: '0.1'
+description: Bash is a Unix shell and command language that is compatible with the
+  Bourne shell (sh).
+language: Shell
+category:
+  default: Shell
+  sub: Unix Shell
+  tags: Bash, Shell, Unix
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://www.gnu.org/software/bash/
   issues: https://savannah.gnu.org/bugs/?group=bash
   documentation: https://www.gnu.org/software/bash/manual/
-  support: https://www.gnu.org/software/bash/support.html
+  support: https://www.gnu.org/software/bash/
   source: https://git.savannah.gnu.org/cgit/bash.git/
   license: https://www.gnu.org/licenses/gpl-3.0.en.html
+  download: https://www.gnu.org/software/bash/
 containers:
   upstream:
     name: bash
     image: bash
     version: latest
-description: Bash is a Unix shell and command language that is widely used for scripting
-  and automation tasks. It is the default shell for most Linux distributions and macOS.
-language: Bash
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: Command Line
-  tags:
-  - bash
-  - shell
-  - scripting
-  - automation
-

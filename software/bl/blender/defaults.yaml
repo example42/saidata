@@ -1,0 +1,25 @@
+version: '0.1'
+description: Blender is a free and open-source 3D creation software.
+category:
+  default: Graphics
+  sub: 3D Modeling
+  tags: Animation, Rendering, VFX
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+urls:
+  website: https://www.blender.org/
+  issues: https://developer.blender.org/
+  documentation: https://docs.blender.org/
+  support: https://www.blender.org/support/
+  source: https://developer.blender.org/diffusion/
+  license: https://www.blender.org/about/license/
+  download: https://www.blender.org/download/
+  icon: https://www.blender.org/wp-content/uploads/2019/07/blender_logo_socket.png
+containers:
+  upstream:
+    name: blender
+    image: blender
+    version: latest

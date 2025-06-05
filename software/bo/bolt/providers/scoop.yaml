@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\scoop\apps\bolt\current\config
+  dotconf:
+    path: C:\ProgramData\scoop\apps\bolt\current\config
+  log:
+    path: C:\ProgramData\scoop\apps\bolt\current\logs
+  data:
+    path: C:\ProgramData\scoop\apps\bolt\current\data
+  lib:
+    path: C:\ProgramData\scoop\apps\bolt\current\lib
+files:
+  config:
+    path: C:\ProgramData\scoop\apps\bolt\current\config\bolt.yaml
+  log:
+    path: C:\ProgramData\scoop\apps\bolt\current\logs\bolt.log
+  pid:
+    path: C:\ProgramData\scoop\apps\bolt\current\logs\bolt.pid
+packages:
+  default:
+    name: bolt
+services:
+  default:
+    name: bolt
+processes:
+  default:
+    path: C:\ProgramData\scoop\apps\bolt\current\bolt.exe

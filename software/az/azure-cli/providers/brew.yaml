@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: /usr/local/etc/azure-cli
+  dotconf:
+    path: /usr/local/etc/azure-cli
+  log:
+    path: /usr/local/var/log/azure-cli
+  data:
+    path: /usr/local/var/lib/azure-cli
+  lib:
+    path: /usr/local/lib/azure-cli
+files:
+  config:
+    path: /usr/local/etc/azure-cli/azure-cli.conf
+  log:
+    path: /usr/local/var/log/azure-cli/azure-cli.log
+  pid:
+    path: /usr/local/var/run/azure-cli/azure-cli.pid
+packages:
+  default:
+    name: azure-cli
+services:
+  default:
+    name: azure-cli
+processes:
+  default:
+    path: /usr/local/bin/azure
+supported: true

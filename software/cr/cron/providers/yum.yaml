@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/cron.d
+  dotconf:
+    path: /etc/cron.d
+  log:
+    path: /var/log/cron
+  data:
+    path: /var/spool/cron
+  lib:
+    path: /usr/lib/cron
+files:
+  config:
+    path: /etc/cron.d
+  log:
+    path: /var/log/cron
+  pid:
+    path: /var/run/crond.pid
+packages:
+  default:
+    name: cronie
+services:
+  default:
+    name: crond
+processes:
+  default:
+    path: /usr/sbin/crond

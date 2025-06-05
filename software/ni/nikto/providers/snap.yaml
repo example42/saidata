@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /snap/nikto/current/etc/nikto
+  dotconf:
+    path: /snap/nikto/current/etc/nikto
+  log:
+    path: /snap/nikto/current/var/log/nikto
+  data:
+    path: /snap/nikto/current/share/nikto
+  lib:
+    path: /snap/nikto/current/lib/nikto
+files:
+  config:
+    path: /snap/nikto/current/etc/nikto.conf
+  log:
+    path: /snap/nikto/current/var/log/nikto/nikto.log
+  pid:
+    path: /snap/nikto/current/var/run/nikto.pid
+packages:
+  default:
+    name: nikto
+services:
+  default:
+    name: nikto
+processes:
+  default:
+    path: /snap/bin/nikto

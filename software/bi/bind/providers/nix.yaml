@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/bind
+  dotconf:
+    path: /etc/bind
+  log:
+    path: /var/log/bind
+  data:
+    path: /var/cache/bind
+  lib:
+    path: /var/lib/bind
+files:
+  config:
+    path: /etc/bind/named.conf
+  log:
+    path: /var/log/bind/bind.log
+  pid:
+    path: /var/run/named/named.pid
+packages:
+  default:
+    name: bind
+services:
+  default:
+    name: named
+processes:
+  default:
+    path: /usr/sbin/named

@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/ansible
+  dotconf:
+    path: /etc/ansible/ansible.cfg
+  log:
+    path: /var/log/ansible
+  data:
+    path: /var/lib/ansible
+  lib:
+    path: /usr/lib/ansible
+files:
+  config:
+    path: /etc/ansible/ansible.cfg
+  log:
+    path: /var/log/ansible/ansible.log
+  pid:
+    path: /var/run/ansible.pid
+packages:
+  default:
+    name: ansible
+services:
+  default:
+    name: ansible
+processes:
+  default:
+    path: /usr/bin/ansible

@@ -1,0 +1,26 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/consul.d
+  log:
+    path: /var/log/consul
+  data:
+    path: /var/lib/consul
+  lib:
+    path: /var/lib/consul
+files:
+  config:
+    path: /etc/consul.d/consul.hcl
+  log:
+    path: /var/log/consul/consul.log
+  pid:
+    path: /var/run/consul.pid
+packages:
+  default:
+    name: consul
+services:
+  default:
+    name: consul
+processes:
+  default:
+    path: /usr/bin/consul

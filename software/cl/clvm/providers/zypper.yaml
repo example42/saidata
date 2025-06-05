@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/clvm
+  dotconf:
+    path: /etc/clvm/clvmd.conf
+  log:
+    path: /var/log/clvm
+  data:
+    path: /var/lib/clvm
+  lib:
+    path: /usr/lib/clvm
+files:
+  config:
+    path: /etc/clvm/clvmd.conf
+  log:
+    path: /var/log/clvm/clvmd.log
+  pid:
+    path: /var/run/clvmd.pid
+packages:
+  default:
+    name: clvm
+services:
+  default:
+    name: clvmd
+processes:
+  default:
+    path: /usr/sbin/clvmd

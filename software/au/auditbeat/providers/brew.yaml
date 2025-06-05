@@ -1,0 +1,28 @@
+version: 7.10.2
+directories:
+  config:
+    path: /usr/local/etc/auditbeat
+  dotconf:
+    path: /usr/local/etc/auditbeat
+  log:
+    path: /usr/local/var/log/auditbeat
+  data:
+    path: /usr/local/var/lib/auditbeat
+  lib:
+    path: /usr/local/lib/auditbeat
+files:
+  config:
+    path: /usr/local/etc/auditbeat/auditbeat.yml
+  log:
+    path: /usr/local/var/log/auditbeat/auditbeat.log
+  pid:
+    path: /usr/local/var/run/auditbeat.pid
+packages:
+  default:
+    name: auditbeat
+services:
+  default:
+    name: auditbeat
+processes:
+  default:
+    path: /usr/local/bin/auditbeat

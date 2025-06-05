@@ -1,4 +1,18 @@
 version: '0.1'
+description: Asterisk is an open source communication platform that allows users to
+  make and receive phone calls over the internet.
+ports:
+  default: 5060
+  ssl: 5061
+category:
+  default: VoIP
+  sub: PBX
+  tags: communication, telephony
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://www.asterisk.org/
   issues: https://issues.asterisk.org/
@@ -12,22 +26,6 @@ containers:
     name: asterisk
     image: asterisk
     version: latest
-description: Asterisk is an open source software implementation of a telephone private
-  branch exchange (PBX) and includes features such as voicemail, conference calling,
-  and interactive voice response (IVR).
-language: C
-license: Open Source
-platforms:
-- Linux
-- Windows
-- MacOS
-category:
-  default: Telephony
-  sub: PBX
-  tags:
-  - telephony
-  - pbx
-  - voicemail
-  - conference calling
-  - ivr
-
+    ports:
+    - 5060
+    - 5061

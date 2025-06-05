@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/collectd
+  dotconf:
+    path: /etc/collectd/collectd.conf
+  log:
+    path: /var/log/collectd
+  data:
+    path: /var/lib/collectd
+  lib:
+    path: /usr/lib/collectd
+files:
+  config:
+    path: /etc/collectd/collectd.conf
+  log:
+    path: /var/log/collectd/collectd.log
+  pid:
+    path: /var/run/collectd.pid
+packages:
+  default:
+    name: collectd
+services:
+  default:
+    name: collectd
+processes:
+  default:
+    path: /usr/sbin/collectd

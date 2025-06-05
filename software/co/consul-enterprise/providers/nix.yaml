@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/consul-enterprise/
+  dotconf:
+    path: /etc/consul-enterprise/
+  log:
+    path: /var/log/consul-enterprise/
+  data:
+    path: /var/lib/consul-enterprise/
+  lib:
+    path: /var/lib/consul-enterprise/
+files:
+  config:
+    path: /etc/consul-enterprise/consul-enterprise.conf
+  log:
+    path: /var/log/consul-enterprise/consul-enterprise.log
+  pid:
+    path: /var/run/consul-enterprise/consul-enterprise.pid
+packages:
+  default:
+    name: consul-enterprise
+services:
+  default:
+    name: consul-enterprise
+processes:
+  default:
+    path: /usr/bin/consul-enterprise

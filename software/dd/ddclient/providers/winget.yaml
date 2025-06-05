@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\ddclient
+  dotconf:
+    path: C:\ProgramData\ddclient
+  log:
+    path: C:\ProgramData\ddclient
+  data:
+    path: C:\ProgramData\ddclient
+  lib:
+    path: C:\ProgramData\ddclient
+files:
+  config:
+    path: C:\ProgramData\ddclient\ddclient.conf
+  log:
+    path: C:\ProgramData\ddclient\ddclient.log
+  pid:
+    path: C:\ProgramData\ddclient\ddclient.pid
+packages:
+  default:
+    name: ddclient
+services:
+  default:
+    name: ddclient
+processes:
+  default:
+    path: C:\Program Files\ddclient\ddclient.exe

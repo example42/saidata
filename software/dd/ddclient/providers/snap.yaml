@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /var/snap/ddclient/common/etc/ddclient
+  dotconf:
+    path: /var/snap/ddclient/common/etc/ddclient.conf
+  log:
+    path: /var/snap/ddclient/common/var/log/ddclient
+  data:
+    path: /var/snap/ddclient/common/var/cache/ddclient
+  lib:
+    path: /var/snap/ddclient/common/lib/ddclient
+files:
+  config:
+    path: /var/snap/ddclient/common/etc/ddclient.conf
+  log:
+    path: /var/snap/ddclient/common/var/log/ddclient.log
+  pid:
+    path: /var/snap/ddclient/common/var/run/ddclient.pid
+packages:
+  default:
+    name: ddclient
+services:
+  default:
+    name: ddclient
+processes:
+  default:
+    path: /usr/bin/ddclient

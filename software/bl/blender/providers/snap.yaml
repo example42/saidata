@@ -1,0 +1,26 @@
+version: 0.1
+directories:
+  config:
+    path: /home/user/snap/blender/current/.config/blender
+  dotconf:
+    path: /home/user/snap/blender/current/.config/blender
+  log:
+    path: /home/user/snap/blender/current/.cache/blender
+  data:
+    path: /home/user/snap/blender/current/.local/share/blender
+  lib:
+    path: /home/user/snap/blender/current/.local/lib/blender
+files:
+  config:
+    path: /home/user/snap/blender/current/.config/blender/blenderrc
+  log:
+    path: /home/user/snap/blender/current/.cache/blender/blender.log
+  pid:
+    path: /home/user/snap/blender/current/.cache/blender/blender.pid
+packages:
+  default:
+    name: blender
+processes:
+  default:
+    path: /snap/bin/blender
+supported: true

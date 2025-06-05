@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\Program Files\Corosync\etc
+  dotconf:
+    path: C:\Program Files\Corosync\etc
+  log:
+    path: C:\Program Files\Corosync\var\log
+  data:
+    path: C:\Program Files\Corosync\var\lib
+  lib:
+    path: C:\Program Files\Corosync\lib
+files:
+  config:
+    path: C:\Program Files\Corosync\etc\corosync.conf
+  log:
+    path: C:\Program Files\Corosync\var\log\corosync.log
+  pid:
+    path: C:\Program Files\Corosync\var\run\corosync.pid
+packages:
+  default:
+    name: Corosync
+services:
+  default:
+    name: Corosync
+processes:
+  default:
+    path: C:\Program Files\Corosync\bin\corosync.exe

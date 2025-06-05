@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\etc
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\etc
+  log:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\var\log
+  data:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\var\lib
+  lib:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\etc\named.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\var\log\named.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\bind\tools\var\run\named.pid
+packages:
+  default:
+    name: bind
+services:
+  default:
+    name: named
+processes:
+  default:
+    path: C:\ProgramData\chocolatey\lib\bind\

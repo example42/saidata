@@ -1,33 +1,31 @@
 version: '0.1'
+description: Boundary is a secure remote access solution that enables organizations
+  to control access to critical systems and data.
+ports:
+  default: 9200
+  ssl: 9201
+category:
+  default: Security
+  sub: Remote Access
+  tags: Authentication, Authorization, Encryption
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
-  website: https://www.boundary.com/
-  issues: https://github.com/boundary/boundary/issues
-  documentation: https://docs.boundary.com/
-  support: https://support.boundary.com/
-  source: https://github.com/boundary/boundary
-  download: https://www.boundary.com/download
+  website: https://www.boundaryproject.com/
+  issues: https://github.com/hashicorp/boundary/issues
+  documentation: https://learn.hashicorp.com/boundary
+  support: https://support.hashicorp.com/
+  source: https://github.com/hashicorp/boundary
+  license: https://www.hashicorp.com/open-source-licenses
+  download: https://www.boundaryproject.com/downloads
 containers:
   upstream:
     name: boundary
-    image: hashicorp/boundary
+    image: boundary
     version: latest
-description: Boundary is a lightweight and efficient web server written in Python.
-  It is designed to handle high traffic and provide fast response times.
-ports:
-  default:
-    port: 80
-  ssl:
-    port: 443
-language: Python
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: Web Server
-  sub: HTTP Server
-  tags:
-  - web
-  - server
-  - http
-
+    ports:
+    - 9200
+    - 9201

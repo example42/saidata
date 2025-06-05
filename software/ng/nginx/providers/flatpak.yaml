@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/config
+  dotconf:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/dotconf
+  log:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/log
+  data:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/data
+  lib:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/lib
+files:
+  config:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/config/nginx.conf
+  log:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/log/nginx.log
+  pid:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/run/nginx.pid
+packages:
+  default:
+    name: org.nginx.Nginx
+services:
+  default:
+    name: org.nginx.Nginx
+processes:
+  default:
+    path: /var/lib/flatpak/app/org.nginx.Nginx/bin/nginx

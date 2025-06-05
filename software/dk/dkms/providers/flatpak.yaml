@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /var/lib/flatpak/dkms/config
+  dotconf:
+    path: /var/lib/flatpak/dkms/dotconf
+  log:
+    path: /var/log/flatpak/dkms
+  data:
+    path: /var/lib/flatpak/dkms/data
+  lib:
+    path: /var/lib/flatpak/dkms/lib
+files:
+  config:
+    path: /etc/flatpak/dkms.conf
+  log:
+    path: /var/log/flatpak/dkms.log
+  pid:
+    path: /var/run/flatpak/dkms.pid
+packages:
+  default:
+    name: dkms
+services:
+  default:
+    name: dkms.service
+processes:
+  default:
+    path: /usr/sbin/dkms

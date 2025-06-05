@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: /usr/local/etc/bolt
+  dotconf:
+    path: /usr/local/etc/bolt
+  log:
+    path: /usr/local/var/log/bolt
+  data:
+    path: /usr/local/var/lib/bolt
+  lib:
+    path: /usr/local/lib/bolt
+files:
+  config:
+    path: /usr/local/etc/bolt/bolt.conf
+  log:
+    path: /usr/local/var/log/bolt/bolt.log
+  pid:
+    path: /usr/local/var/run/bolt.pid
+packages:
+  default:
+    name: bolt
+services:
+  default:
+    name: bolt
+processes:
+  default:
+    path: /usr/local/bin/bolt
+supported: true

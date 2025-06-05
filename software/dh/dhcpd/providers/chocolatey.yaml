@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.conf
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.log
+  data:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.data
+  lib:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\dhcpd\tools\dhcpd.pid
+packages:
+  default:
+    name: dhcpd
+services:
+  default:
+    name: dhcpd
+processes:
+  default:
+    path: C:\ProgramData

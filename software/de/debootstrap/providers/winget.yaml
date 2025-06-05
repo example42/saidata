@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\winget\debootstrap\config
+  dotconf:
+    path: C:\ProgramData\winget\debootstrap\dotconf
+  log:
+    path: C:\ProgramData\winget\debootstrap\log
+  data:
+    path: C:\ProgramData\winget\debootstrap\data
+  lib:
+    path: C:\ProgramData\winget\debootstrap\lib
+files:
+  config:
+    path: C:\ProgramData\winget\debootstrap\config\debootstrap.conf
+  log:
+    path: C:\ProgramData\winget\debootstrap\log\debootstrap.log
+  pid:
+    path: C:\ProgramData\winget\debootstrap\log\debootstrap.pid
+packages:
+  default:
+    name: debootstrap
+services:
+  default:
+    name: debootstrap
+processes:
+  default:
+    path: C:\ProgramData\winget\debootstrap\debootstrap.exe

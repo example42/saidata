@@ -1,33 +1,26 @@
 version: '0.1'
+description: Cinder is a block storage service for OpenStack.
+language: Python
+ports:
+  default: 8776
+  ssl: 8776
+category:
+  default: storage
+  sub: block storage
+  tags: openstack, storage, block storage
+license: Open Source
+platforms:
+- Linux
 urls:
   website: https://docs.openstack.org/cinder/latest/
   issues: https://bugs.launchpad.net/cinder
   documentation: https://docs.openstack.org/cinder/latest/
-  support: https://ask.openstack.org/en/questions/
+  support: https://docs.openstack.org/cinder/latest/
   source: https://github.com/openstack/cinder
-  license: Apache License 2.0
+  license: https://www.apache.org/licenses/LICENSE-2.0
+  download: https://pypi.org/project/cinder/
 containers:
   upstream:
     name: cinder
-    image: openstack/cinder
+    image: cinder
     version: latest
-description: Cinder is an open source web server written in Python. It is designed
-  to be fast, lightweight, and easy to use.
-ports:
-  default:
-    port: 80
-  ssl:
-    port: 443
-language: Python
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: Web Server
-  sub: HTTP Server
-  tags:
-  - web
-  - server
-  - http
-

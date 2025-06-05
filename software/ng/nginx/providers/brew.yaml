@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /usr/local/etc/nginx
+  dotconf:
+    path: /usr/local/etc/nginx/conf.d
+  log:
+    path: /usr/local/var/log/nginx
+  data:
+    path: /usr/local/var/run/nginx
+  lib:
+    path: /usr/local/var/lib/nginx
+files:
+  config:
+    path: /usr/local/etc/nginx/nginx.conf
+  log:
+    path: /usr/local/var/log/nginx/access.log
+  pid:
+    path: /usr/local/var/run/nginx/nginx.pid
+packages:
+  default:
+    name: nginx
+services:
+  default:
+    name: nginx
+processes:
+  default:
+    path: /usr/local/bin/nginx

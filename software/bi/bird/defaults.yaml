@@ -1,33 +1,28 @@
 version: '0.1'
-urls:
-  website: https://www.bird.network/
-  issues: https://github.com/bird-network/bird/issues
-  documentation: https://bird.network/documentation/
-  support: https://bird.network/support/
-  source: https://github.com/bird-network/bird
-  license: https://github.com/bird-network/bird/blob/master/LICENSE
-containers:
-  upstream:
-    name: bird
-    image: docker.io/bird/bird
-    version: latest
-description: BIRD is an open source web server written in Python, designed to be fast,
-  secure, and easy to use.
+description: BIRD is a dynamic routing daemon for IPv4 and IPv6 networks.
+language: C
 ports:
-  default:
-    port: 80
-  ssl:
-    port: 443
-language: Python
+  default: 179
+  ssl: 179
+category:
+  default: Networking
+  sub: Routing
+  tags: BGP, OSPF, RIP
 license: Open Source
 platforms:
 - Linux
+- Windows
 - MacOS
-category:
-  default: Web Server
-  sub: HTTP Server
-  tags:
-  - web
-  - server
-  - http
-
+urls:
+  website: https://bird.network.cz/
+  issues: https://github.com/BIRD/bird/issues
+  documentation: https://bird.network.cz/?get_doc&f=bird-1.html
+  support: https://bird.network.cz/?get_support
+  source: https://github.com/BIRD/bird
+  license: https://bird.network.cz/?get_license
+  download: https://bird.network.cz/?get_download
+containers:
+  upstream:
+    name: bird
+    image: bird
+    version: latest

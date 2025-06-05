@@ -1,28 +1,25 @@
 version: '0.1'
-urls:
-  website: https://aws.amazon.com/cli/
-  issues: https://github.com/aws/aws-cli/issues
-  documentation: https://docs.aws.amazon.com/cli/latest/index.html
-  support: https://aws.amazon.com/support/
-  source: https://github.com/aws/aws-cli
-  license: https://aws.amazon.com/service-terms/
-containers:
-  upstream:
-    name: awscli
-    image: amazon/aws-cli
-    version: latest
-description: Command-line interface for AWS services
-language: Python
+description: The AWS Command Line Interface (CLI) is a unified tool to manage your
+  AWS services.
+category:
+  default: Infrastructure
+  sub: Cloud Computing
+  tags: AWS, Command Line, Infrastructure, Cloud Computing
 license: Open Source
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Cloud Computing
-  sub: AWS
-  tags:
-  - aws
-  - cli
-  - cloud
-
+urls:
+  website: https://aws.amazon.com/cli/
+  issues: https://github.com/aws/aws-cli/issues
+  documentation: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
+  support: https://aws.amazon.com/support/
+  source: https://github.com/aws/aws-cli
+  license: https://github.com/aws/aws-cli/blob/develop/LICENSE.txt
+  download: https://aws.amazon.com/cli/
+containers:
+  upstream:
+    name: awscli
+    image: awscli
+    version: latest

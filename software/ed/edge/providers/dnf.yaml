@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/edge/
+  dotconf:
+    path: /etc/edge/
+  log:
+    path: /var/log/edge/
+  data:
+    path: /var/lib/edge/
+  lib:
+    path: /usr/lib/edge/
+files:
+  config:
+    path: /etc/edge/edge.conf
+  log:
+    path: /var/log/edge/edge.log
+  pid:
+    path: /var/run/edge.pid
+packages:
+  default:
+    name: edge
+services:
+  default:
+    name: edge
+processes:
+  default:
+    path: /usr/bin/edge

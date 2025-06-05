@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /home/user/.config/discord
+  dotconf:
+    path: /home/user/.config/discord
+  log:
+    path: /home/user/.config/discord/logs
+  data:
+    path: /home/user/.config/discord/data
+  lib:
+    path: /home/user/.config/discord/lib
+files:
+  config:
+    path: /home/user/.config/discord/config.json
+  log:
+    path: /home/user/.config/discord/logs/discord.log
+  pid:
+    path: /home/user/.config/discord/discord.pid
+packages:
+  default:
+    name: discord
+services:
+  default:
+    name: discord
+processes:
+  default:
+    path: /usr/bin/discord

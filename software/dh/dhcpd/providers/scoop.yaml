@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\dhcpd
+  dotconf:
+    path: C:\ProgramData\dhcpd\dhcpd.conf
+  log:
+    path: C:\ProgramData\dhcpd\dhcpd.log
+  data:
+    path: C:\ProgramData\dhcpd\data
+  lib:
+    path: C:\ProgramData\dhcpd\lib
+files:
+  config:
+    path: C:\ProgramData\dhcpd\dhcpd.conf
+  log:
+    path: C:\ProgramData\dhcpd\dhcpd.log
+  pid:
+    path: C:\ProgramData\dhcpd\dhcpd.pid
+packages:
+  default:
+    name: dhcpd
+services:
+  default:
+    name: dhcpd
+processes:
+  default:
+    path: C:\Program Files\dhcpd\dhcpd.exe

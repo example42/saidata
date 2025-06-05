@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: C:\Program Files\Blender Foundation\Blender\config
+  dotconf:
+    path: C:\Program Files\Blender Foundation\Blender\dotconf
+  log:
+    path: C:\Program Files\Blender Foundation\Blender\log
+  data:
+    path: C:\Program Files\Blender Foundation\Blender\data
+  lib:
+    path: C:\Program Files\Blender Foundation\Blender\lib
+files:
+  config:
+    path: C:\Program Files\Blender Foundation\Blender\config\blender.conf
+  log:
+    path: C:\Program Files\Blender Foundation\Blender\log\blender.log
+  pid:
+    path: C:\Program Files\Blender Foundation\Blender\log\blender.pid
+packages:
+  default:
+    name: Blender
+services:
+  default:
+    name: Blender Service
+processes:
+  default:
+    path: C:\Program Files\Blender Foundation\Blender\blender.exe
+supported: true

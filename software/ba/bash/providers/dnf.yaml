@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: /etc/bash
+  dotconf:
+    path: /etc/bashrc
+  log:
+    path: /var/log/bash
+  data:
+    path: /usr/share/bash
+  lib:
+    path: /usr/lib/bash
+files:
+  config:
+    path: /etc/bash/bashrc
+  log:
+    path: /var/log/bash.log
+  pid:
+    path: /var/run/bash.pid
+packages:
+  default:
+    name: bash
+services:
+  default:
+    name: bash
+processes:
+  default:
+    path: /bin/bash
+supported: true

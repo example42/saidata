@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/boundary
+  dotconf:
+    path: /etc/boundary/dotconf
+  log:
+    path: /var/log/boundary
+  data:
+    path: /var/lib/boundary
+  lib:
+    path: /var/lib/boundary/lib
+files:
+  config:
+    path: /etc/boundary/boundary.conf
+  log:
+    path: /var/log/boundary/boundary.log
+  pid:
+    path: /var/run/boundary.pid
+packages:
+  default:
+    name: boundary
+services:
+  default:
+    name: boundary
+processes:
+  default:
+    path: /usr/bin/boundary

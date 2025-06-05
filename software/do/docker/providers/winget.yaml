@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: C:\ProgramData\Docker
+  dotconf:
+    path: C:\ProgramData\Docker
+  log:
+    path: C:\ProgramData\Docker\log
+  data:
+    path: C:\ProgramData\Docker
+  lib:
+    path: C:\ProgramData\Docker
+files:
+  config:
+    path: C:\ProgramData\Docker\config.json
+  log:
+    path: C:\ProgramData\Docker\log\docker.log
+  pid:
+    path: C:\ProgramData\Docker\docker.pid
+packages:
+  default:
+    name: Docker Desktop
+services:
+  default:
+    name: Docker Engine
+processes:
+  default:
+    path: C:\Program Files\Docker\Docker\Docker Desktop.exe
+supported: true

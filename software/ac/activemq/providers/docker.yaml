@@ -1,0 +1,26 @@
+version: '0.1'
+directories:
+  config:
+    path: /opt/activemq/conf
+  log:
+    path: /opt/activemq/logs
+  data:
+    path: /opt/activemq/data
+  lib:
+    path: /opt/activemq/lib
+files:
+  config:
+    path: /opt/activemq/conf/activemq.xml
+  log:
+    path: /opt/activemq/logs/activemq.log
+  pid:
+    path: /opt/activemq/data/activemq.pid
+packages:
+  default:
+    name: activemq
+services:
+  default:
+    name: activemq
+processes:
+  default:
+    path: /opt/activemq/bin/activemq

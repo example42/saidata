@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: /snap/discord/current/.config/discord
+  dotconf:
+    path: /snap/discord/current/.config/discord
+  log:
+    path: /snap/discord/current/.config/discord
+  data:
+    path: /snap/discord/current/.config/discord
+  lib:
+    path: /snap/discord/current/.config/discord
+files:
+  config:
+    path: /snap/discord/current/.config/discord/config.json
+  log:
+    path: /snap/discord/current/.config/discord/logs
+  pid:
+    path: /snap/discord/current/.config/discord/discord.pid
+packages:
+  default:
+    name: discord
+services:
+  default:
+    name: discord
+processes:
+  default:
+    path: /snap/bin/discord
+supported: true

@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/debootstrap
+  dotconf:
+    path: /etc/debootstrap/debootstrap.conf
+  log:
+    path: /var/log/debootstrap
+  data:
+    path: /var/cache/debootstrap
+  lib:
+    path: /var/lib/debootstrap
+files:
+  config:
+    path: /etc/debootstrap/debootstrap.conf
+  log:
+    path: /var/log/debootstrap/debootstrap.log
+  pid:
+    path: /var/run/debootstrap.pid
+packages:
+  default:
+    name: debootstrap
+services:
+  default:
+    name: debootstrap
+processes:
+  default:
+    path: /usr/sbin/debootstrap

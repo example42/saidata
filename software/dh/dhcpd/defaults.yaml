@@ -1,33 +1,28 @@
 version: '0.1'
-urls:
-  website: https://www.isc.org/dhcp/
-  issues: https://gitlab.isc.org/isc-projects/dhcp/-/issues
-  documentation: https://kb.isc.org/docs/isc-dhcp
-  support: https://www.isc.org/support/
-  source: https://gitlab.isc.org/isc-projects/dhcp
-  license: https://www.isc.org/licenses/
-  download: https://www.isc.org/downloads/
-containers:
-  upstream:
-    name: dhcpd
-    image: docker.io/library/dhcpd
-    version: latest
-description: Dynamic Host Configuration Protocol (DHCP) server for assigning IP addresses
-  to devices on a network
-ports:
-  default:
-    port: 67
+description: ISC DHCP is an open source implementation of the Dynamic Host Configuration
+  Protocol (DHCP) server and client. It provides a framework for automatic configuration
+  of IP addresses and other network parameters for devices on a network.
 language: C
+ports:
+  default: 67/udp
+category:
+  default: network
+  tags: dhcp, server, client, network
 license: Open Source
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Networking
-  sub: DHCP Server
-  tags:
-  - networking
-  - dhcp
-  - server
-
+urls:
+  website: https://www.isc.org/dhcp/
+  issues: https://gitlab.isc.org/isc-projects/dhcp/issues
+  documentation: https://kb.isc.org/docs/isc-dhcp
+  support: https://www.isc.org/support/
+  source: https://gitlab.isc.org/isc-projects/dhcp
+  license: https://gitlab.isc.org/isc-projects/dhcp/blob/master/COPYING
+  download: https://www.isc.org/download/
+containers:
+  upstream:
+    name: dhcpd
+    image: isc/dhcpd
+    version: latest

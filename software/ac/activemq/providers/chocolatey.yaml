@@ -1,0 +1,16 @@
+version: 0.1
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\activemq\tools\apache-activemq-5.15.9\conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\activemq\tools\apache-activemq-5.15.9\logs
+  data:
+    path: C:\ProgramData\chocolatey\lib\activemq\tools\apache-activemq-5.15.9\data
+  lib:
+    path: C:\ProgramData\chocolatey\lib\activemq\tools\apache-activemq-5.15.9\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\activemq\tools\apache-activemq-5.15.9\conf\activemq.xml
+  log:
+    path: C:\ProgramData\chocolatey\lib\activemq\tools\apache-activemq-5.15.9\logs\activemq.log
+supported: true

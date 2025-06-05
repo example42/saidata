@@ -1,40 +1,29 @@
 version: 0.1
-
 directories:
   config:
     path: /etc/apache2
   dotconf:
-    path: /etc/apache2/conf-enabled
+    path: /etc/apache2/conf.d
   log:
     path: /var/log/apache2
-  mods:
-    path: /etc/apache2/mods-enabled
-  sites:
-    path: /etc/apache2/sites-enabled
   data:
     path: /var/www/html
   lib:
-    path: /var/lib/apache2
-
+    path: /usr/lib/apache2
 files:
   config:
     path: /etc/apache2/apache2.conf
   log:
-    path: /var/log/apache2/access.log
-  errorlog:
     path: /var/log/apache2/error.log
   pid:
     path: /var/run/apache2/apache2.pid
-
 packages:
   default:
     name: apache2
-
 services:
   default:
     name: apache2
-
 processes:
   default:
     path: /usr/sbin/apache2
-
+supported: true

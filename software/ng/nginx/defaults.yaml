@@ -1,4 +1,19 @@
 version: '0.1'
+description: Nginx is a high-performance, open-source web server and reverse proxy
+  used for serving static and dynamic content. It is known for its low memory usage
+  and ability to handle high traffic.
+ports:
+  default: 80
+  ssl: 443
+category:
+  default: Web Server
+  sub: Reverse Proxy
+  tags: Load Balancer, HTTP Server
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://nginx.org/
   issues: https://trac.nginx.org/nginx/report
@@ -12,24 +27,3 @@ containers:
     name: nginx
     image: nginx
     version: latest
-description: nginx is a high-performance, open-source web server and reverse proxy
-  for HTTP, HTTPS, SMTP, POP3, and IMAP protocols. It is known for its stability,
-  rich feature set, simple configuration, and low resource consumption.
-ports:
-  default:
-    port: 80
-  ssl:
-    port: 443
-license: Open Source
-platforms:
-- Linux
-- Windows
-- MacOS
-category:
-  default: Web Server
-  sub: HTTP Server
-  tags:
-  - web
-  - server
-  - http
-

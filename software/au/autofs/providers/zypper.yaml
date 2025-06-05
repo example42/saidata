@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/autofs
+  dotconf:
+    path: /etc/autofs.conf
+  log:
+    path: /var/log/autofs
+  data:
+    path: /var/lib/autofs
+  lib:
+    path: /usr/lib/autofs
+files:
+  config:
+    path: /etc/autofs/auto.master
+  log:
+    path: /var/log/autofs/autofs.log
+  pid:
+    path: /var/run/autofs.pid
+packages:
+  default:
+    name: autofs
+services:
+  default:
+    name: autofs
+processes:
+  default:
+    path: /usr/sbin/automount

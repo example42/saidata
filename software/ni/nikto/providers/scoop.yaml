@@ -1,0 +1,25 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\Users\username\scoop\apps\nikto\current\config
+  dotconf:
+    path: C:\Users\username\scoop\apps\nikto\current\config
+  log:
+    path: C:\Users\username\scoop\apps\nikto\current\log
+  data:
+    path: C:\Users\username\scoop\apps\nikto\current\data
+  lib:
+    path: C:\Users\username\scoop\apps\nikto\current\lib
+files:
+  config:
+    path: C:\Users\username\scoop\apps\nikto\current\config\nikto.conf
+  log:
+    path: C:\Users\username\scoop\apps\nikto\current\log\nikto.log
+  pid:
+    path: C:\Users\username\scoop\apps\nikto\current\log\nikto.pid
+packages:
+  default:
+    name: nikto
+processes:
+  default:
+    path: C:\Users\username\scoop\apps\nikto\current\nikto.pl

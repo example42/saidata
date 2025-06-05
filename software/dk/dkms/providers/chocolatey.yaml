@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\conf
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\log
+  data:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\data
+  lib:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\conf\dkms.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\log\dkms.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\dkms\tools\log\dkms.pid
+packages:
+  default:
+    name: dkms
+services:
+  default:
+    name: dkms
+processes:
+  default:
+    path: C:\ProgramData\chocolatey\

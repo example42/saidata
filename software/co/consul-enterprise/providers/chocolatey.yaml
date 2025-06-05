@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\consul\config
+  dotconf:
+    path: C:\ProgramData\consul\dotconf
+  log:
+    path: C:\ProgramData\consul\logs
+  data:
+    path: C:\ProgramData\consul\data
+  lib:
+    path: C:\ProgramData\consul\lib
+files:
+  config:
+    path: C:\ProgramData\consul\config\consul.hcl
+  log:
+    path: C:\ProgramData\consul\logs\consul.log
+  pid:
+    path: C:\ProgramData\consul\logs\consul.pid
+packages:
+  default:
+    name: consul-enterprise
+services:
+  default:
+    name: consul
+processes:
+  default:
+    path: C:\Program Files\consul\consul.exe

@@ -1,30 +1,25 @@
 version: '0.1'
+description: Ceph is a distributed storage system designed for reliability and scalability.
+ports:
+  default: 6789
+  ssl: 6789
+category:
+  default: storage
+  sub: distributed
+  tags: reliability, scalability
+license: Open Source
+platforms:
+- Linux
 urls:
   website: https://ceph.io/
   issues: https://tracker.ceph.com/
   documentation: https://docs.ceph.com/
-  support: https://ceph.com/support/
+  support: https://ceph.io/support/
   source: https://github.com/ceph/ceph
   license: https://github.com/ceph/ceph/blob/master/COPYING
+  download: https://ceph.io/download/
 containers:
   upstream:
     name: ceph
-    image: ceph/daemon
+    image: ceph
     version: latest
-description: Ceph is a distributed storage platform that provides object, block, and
-  file storage in a single unified system. It is designed to be highly scalable and
-  fault-tolerant, making it ideal for large-scale data storage and management.
-license: Open Source
-platforms:
-- Linux
-- Windows
-- MacOS
-category:
-  default: Storage
-  tags:
-  - distributed
-  - storage
-  - object
-  - block
-  - file
-

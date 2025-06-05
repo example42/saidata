@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/apt
+  dotconf:
+    path: /etc/apt/apt.conf.d
+  log:
+    path: /var/log/apt
+  data:
+    path: /var/lib/apt
+  lib:
+    path: /var/lib/apt/lists
+files:
+  config:
+    path: /etc/apt/sources.list
+  log:
+    path: /var/log/apt/history.log
+  pid:
+    path: /var/run/apt.pid
+packages:
+  default:
+    name: apt
+services:
+  default:
+    name: apt-daily.service
+processes:
+  default:
+    path: /usr/bin/apt-get

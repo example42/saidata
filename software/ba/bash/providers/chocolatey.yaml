@@ -1,0 +1,26 @@
+version: 0.1
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+  log:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+  data:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+  lib:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+  log:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+  pid:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+packages:
+  default:
+    name: bash
+processes:
+  default:
+    path: C:\ProgramData\chocolatey\lib\bash\tools\bin
+supported: true

@@ -1,0 +1,31 @@
+version: '0.1'
+urls:
+  website: https://www.example.com
+  issues: https://github.com/example/example/issues
+  documentation: https://www.example.com/documentation
+  support: https://www.example.com/support
+  source: https://github.com/example/example
+  license: https://www.example.com/license
+containers:
+  upstream:
+    image: docker
+    version: latest
+description: A lightweight and efficient web server written in Python, perfect for
+  hosting small websites and applications.
+ports:
+  default:
+    port: 80
+  ssl:
+    port: 443
+language: Python
+license: Open Source
+platforms:
+- Linux
+- MacOS
+category:
+  default: Web Server
+  sub: HTTP Server
+  tags:
+  - web
+  - server
+  - http

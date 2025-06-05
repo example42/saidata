@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: C:\Users\<username>\AppData\Roaming\discord
+  dotconf:
+    path: C:\Users\<username>\AppData\Roaming\discord
+  log:
+    path: C:\Users\<username>\AppData\Roaming\discord
+  data:
+    path: C:\Users\<username>\AppData\Roaming\discord
+  lib:
+    path: C:\Users\<username>\AppData\Roaming\discord
+files:
+  config:
+    path: C:\Users\<username>\AppData\Roaming\discord\config.json
+  log:
+    path: C:\Users\<username>\AppData\Roaming\discord\discord.log
+  pid:
+    path: C:\Users\<username>\AppData\Roaming\discord\discord.pid
+packages:
+  default:
+    name: discord
+services:
+  default:
+    name: discord
+processes:
+  default:
+    path: C:\Users\<username>\AppData\Local\Discord\app-<version>\Discord.exe
+supported: true

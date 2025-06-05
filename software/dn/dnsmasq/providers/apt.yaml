@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: /etc/dnsmasq.conf
+  dotconf:
+    path: /etc/dnsmasq.d
+  log:
+    path: /var/log/dnsmasq.log
+  data:
+    path: /var/lib/dnsmasq
+  lib:
+    path: /var/lib/dnsmasq
+files:
+  config:
+    path: /etc/dnsmasq.conf
+  log:
+    path: /var/log/dnsmasq.log
+  pid:
+    path: /var/run/dnsmasq.pid
+packages:
+  default:
+    name: dnsmasq
+services:
+  default:
+    name: dnsmasq
+processes:
+  default:
+    path: /usr/sbin/dnsmasq
+supported: true

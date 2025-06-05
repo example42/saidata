@@ -1,0 +1,23 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\dnsmasq\tools\dnsmasq.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\dnsmasq\tools\dnsmasq.log
+  data:
+    path: C:\ProgramData\chocolatey\lib\dnsmasq\tools\dnsmasq.hosts
+  lib:
+    path: C:\ProgramData\chocolatey\lib\dnsmasq\tools\dnsmasq.exe
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\dnsmasq\tools\dnsmasq.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\dnsmasq\tools\dnsmasq.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\dnsmasq\tools\dnsmasq.pid
+packages:
+  default:
+    name: dnsmasq
+services:
+  default:
+    name: dnsmas

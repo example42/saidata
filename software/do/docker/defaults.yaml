@@ -1,27 +1,29 @@
 version: '0.1'
+description: Docker is a platform for developers and sysadmins to build, ship, and
+  run distributed applications.
+ports:
+  default: 2375
+  ssl: 2376
+category:
+  default: DevOps
+  sub: Containerization
+  tags: Docker, Containers, Virtualization
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://www.docker.com/
   issues: https://github.com/docker/docker-ce/issues
   documentation: https://docs.docker.com/
   support: https://www.docker.com/support
   source: https://github.com/docker/docker-ce
-  license: https://www.docker.com/legal
+  license: https://github.com/docker/docker-ce/blob/master/LICENSE
+  download: https://www.docker.com/get-started
+  icon: https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png
 containers:
   upstream:
     name: docker
     image: docker
     version: latest
-description: Docker is a containerization platform that allows developers to package,
-  ship, and run applications in isolated environments.
-license: Open Source
-platforms:
-- Linux
-- Windows
-- MacOS
-category:
-  default: Containerization
-  tags:
-  - docker
-  - containerization
-  - virtualization
-

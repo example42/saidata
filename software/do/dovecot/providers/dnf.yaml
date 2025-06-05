@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/dovecot
+  dotconf:
+    path: /etc/dovecot/conf.d
+  log:
+    path: /var/log/dovecot
+  data:
+    path: /var/lib/dovecot
+  lib:
+    path: /usr/lib/dovecot
+files:
+  config:
+    path: /etc/dovecot/dovecot.conf
+  log:
+    path: /var/log/dovecot/dovecot.log
+  pid:
+    path: /var/run/dovecot/dovecot.pid
+packages:
+  default:
+    name: dovecot
+services:
+  default:
+    name: dovecot
+processes:
+  default:
+    path: /usr/sbin/dovecot

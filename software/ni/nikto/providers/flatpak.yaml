@@ -1,0 +1,23 @@
+version: '0.1'
+directories:
+  config:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/config
+  dotconf:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/dotconf
+  log:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/log
+  data:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/data
+  lib:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/lib
+files:
+  config:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/config/nikto.conf
+  log:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/log/nikto.log
+  pid:
+    path: /var/lib/flatpak/app/org.coolproject.Nikto/current/active/files/pid/nikto.pid
+packages:
+  default:
+    name: org.coolproject.Nikto
+services: default

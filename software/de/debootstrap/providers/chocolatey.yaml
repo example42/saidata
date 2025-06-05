@@ -1,0 +1,19 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\etc
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\etc
+  log:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\var\log
+  data:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\var\lib
+  lib:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\var\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\etc\debootstrap.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\var\log\debootstrap.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\debootstrap\tools\debootstrap\var\run\debootstrap.pid

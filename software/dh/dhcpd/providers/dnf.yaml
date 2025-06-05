@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/dhcp
+  dotconf:
+    path: /etc/dhcp/dhcpd.conf
+  log:
+    path: /var/log/dhcpd.log
+  data:
+    path: /var/lib/dhcpd
+  lib:
+    path: /var/lib/dhcpd
+files:
+  config:
+    path: /etc/dhcp/dhcpd.conf
+  log:
+    path: /var/log/dhcpd.log
+  pid:
+    path: /var/run/dhcpd.pid
+packages:
+  default:
+    name: dhcpd
+services:
+  default:
+    name: dhcpd
+processes:
+  default:
+    path: /usr/sbin/dhcpd

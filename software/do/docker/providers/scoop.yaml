@@ -1,0 +1,10 @@
+version: '0.1'
+packages:
+  default:
+    name: docker
+services:
+  default:
+    name: docker
+processes:
+  default:
+    path: C:\ProgramData\scoop\apps\docker\current\docker.exe

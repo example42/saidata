@@ -1,4 +1,20 @@
 version: '0.1'
+description: collectd is a daemon which collects system performance statistics periodically
+  and provides mechanisms to store the values in a variety of ways, for example in
+  RRD files.
+language: C
+ports:
+  default: 25826
+  ssl: 25826
+category:
+  default: monitoring
+  sub: system
+  tags: performance, statistics, metrics
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://collectd.org/
   issues: https://github.com/collectd/collectd/issues
@@ -10,21 +26,5 @@ urls:
 containers:
   upstream:
     name: collectd
-    image: collectd/collectd
+    image: collectd
     version: latest
-description: collectd is a daemon which collects system and application performance
-  metrics periodically and provides mechanisms to store the values in a variety of
-  ways, for example in RRD files.
-language: C
-license: Open Source
-platforms:
-- Linux
-- Windows
-- MacOS
-category:
-  default: System Monitoring
-  tags:
-  - system
-  - monitoring
-  - metrics
-

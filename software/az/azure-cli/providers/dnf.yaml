@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/azure
+  dotconf:
+    path: /etc/azure
+  log:
+    path: /var/log/azure
+  data:
+    path: /var/lib/azure
+  lib:
+    path: /usr/lib/azure
+files:
+  config:
+    path: /etc/azure/azure.conf
+  log:
+    path: /var/log/azure/azure.log
+  pid:
+    path: /var/run/azure/azure.pid
+packages:
+  default:
+    name: azure-cli
+services:
+  default:
+    name: azure-cli
+processes:
+  default:
+    path: /usr/bin/azure

@@ -1,0 +1,13 @@
+version: '0.1'
+directories:
+  config:
+    path: ~/.aws
+files:
+  config:
+    path: ~/.aws/config
+packages:
+  default:
+    name: awscli
+processes:
+  default:
+    path: /var/lib/flatpak/app/org.awscli.awscli/current/active/files/bin/aws

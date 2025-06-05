@@ -1,29 +1,24 @@
 version: '0.1'
+description: Dynamic DNS client for updating DNS records
+category:
+  default: Networking
+  sub: DNS
+  tags: Dynamic DNS, DNS Client
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
-  website: https://github.com/ddclient/ddclient
+  website: https://ddclient.net/
   issues: https://github.com/ddclient/ddclient/issues
   documentation: https://github.com/ddclient/ddclient/wiki
+  support: https://github.com/ddclient/ddclient/wiki/Support
   source: https://github.com/ddclient/ddclient
   license: https://github.com/ddclient/ddclient/blob/master/LICENSE
   download: https://github.com/ddclient/ddclient/releases
 containers:
   upstream:
     name: ddclient
-    image: linuxserver/ddclient
+    image: ddclient
     version: latest
-description: Dynamic DNS Client (ddclient) is a small but full featured client for
-  updating dynamic DNS entries for popular DNS services.
-language: Perl
-license: Open Source
-platforms:
-- Linux
-- Windows
-- MacOS
-category:
-  default: Networking
-  sub: DNS
-  tags:
-  - dynamic dns
-  - client
-  - dns service
-

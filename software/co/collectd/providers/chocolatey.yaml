@@ -1,0 +1,20 @@
+version: 0.1
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\etc
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\etc\collectd.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\var\log
+  data:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\var\lib\collectd
+  lib:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\etc\collectd.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\var\log\collectd.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\collectd\tools\collectd\var\run\
+supported: true

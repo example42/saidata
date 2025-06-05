@@ -1,30 +1,28 @@
 version: '0.1'
-urls:
-  ansible:
-    website: https://www.ansible.com/
-    issues: https://github.com/ansible/ansible/issues
-    documentation: https://docs.ansible.com/
-    support: https://www.ansible.com/support
-    source: https://github.com/ansible/ansible
-    license: https://github.com/ansible/ansible/blob/devel/LICENSE
-    download: https://www.ansible.com/products/automation-platform/download
-containers:
-  upstream:
-    name: ansible
-    image: ansible/ansible
-    version: latest
-description: Ansible is an open source IT automation tool. It allows users to automate
-  tasks such as configuration management, application deployment, and orchestration
-  across multiple servers.
+description: Ansible is an open-source software provisioning, configuration management,
+  and application deployment tool.
 language: Python
+ports:
+  default: 22
+category:
+  default: DevOps
+  sub: Configuration Management
+  tags: Automation, Infrastructure as Code
 license: Open Source
 platforms:
 - Linux
+- Windows
 - MacOS
-category:
-  default: Configuration Management
-  tags:
-  - automation
-  - deployment
-  - orchestration
-
+urls:
+  website: https://www.ansible.com/
+  issues: https://github.com/ansible/ansible/issues
+  documentation: https://docs.ansible.com/
+  support: https://www.ansible.com/support
+  source: https://github.com/ansible/ansible
+  license: https://github.com/ansible/ansible/blob/devel/LICENSE
+  download: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+containers:
+  upstream:
+    name: ansible
+    image: ansible
+    version: latest

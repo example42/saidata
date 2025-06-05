@@ -1,33 +1,29 @@
 version: '0.1'
-urls:
-  website: https://www.isc.org/bind/
-  issues: https://gitlab.isc.org/isc-projects/bind9/-/issues
-  documentation: https://bind9.readthedocs.io/en/latest/
-  support: https://www.isc.org/support/
-  source: https://gitlab.isc.org/isc-projects/bind9
-  license: https://www.isc.org/licenses/
-containers:
-  upstream:
-    name: bind
-    image: bind
-    version: latest
-description: BIND (Berkeley Internet Name Domain) is an open source DNS server software
-  that provides domain name resolution services for the Internet. It is the most widely
-  used DNS software on the Internet, serving as the backbone of the DNS system.
+description: BIND (Berkeley Internet Name Domain) is an open source software that
+  implements the Domain Name System (DNS) protocols for the Internet. It is a widely
+  used DNS server and provides a robust and secure platform for managing DNS zones
+  and records.
 ports:
-  default:
-    port: 53
-language: C
+  default: 53
+category:
+  default: Networking
+  sub: DNS
+  tags: DNS server, DNS management
 license: Open Source
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Networking
-  sub: DNS Server
-  tags:
-  - dns
-  - server
-  - networking
-
+urls:
+  website: https://www.isc.org/bind/
+  issues: https://gitlab.isc.org/isc-projects/bind9/issues
+  documentation: https://bind9.readthedocs.io/en/latest/
+  support: https://www.isc.org/support/
+  source: https://gitlab.isc.org/isc-projects/bind9
+  license: https://gitlab.isc.org/isc-projects/bind9/-/blob/master/LICENSE
+  download: https://www.isc.org/download/
+containers:
+  upstream:
+    name: bind
+    image: bind
+    version: latest

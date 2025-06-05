@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/dkms
+  dotconf:
+    path: /etc/dkms/dkms.conf
+  log:
+    path: /var/log/dkms
+  data:
+    path: /var/lib/dkms
+  lib:
+    path: /lib/modules
+files:
+  config:
+    path: /etc/dkms/dkms.conf
+  log:
+    path: /var/log/dkms/dkms.log
+  pid:
+    path: /var/run/dkms.pid
+packages:
+  default:
+    name: dkms
+services:
+  default:
+    name: dkms
+processes:
+  default:
+    path: /usr/sbin/dkms

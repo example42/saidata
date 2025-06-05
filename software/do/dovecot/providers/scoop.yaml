@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\etc
+  dotconf:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\etc
+  log:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\var\log
+  data:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\var\lib
+  lib:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\lib
+files:
+  config:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\etc\dovecot.conf
+  log:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\var\log\dovecot.log
+  pid:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\var\run\dovecot.pid
+packages:
+  default:
+    name: dovecot
+services:
+  default:
+    name: dovecot
+processes:
+  default:
+    path: C:\ProgramData\Scoop\apps\dovecot\current\

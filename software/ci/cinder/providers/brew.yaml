@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /usr/local/etc/cinder
+  dotconf:
+    path: /usr/local/etc/cinder
+  log:
+    path: /usr/local/var/log/cinder
+  data:
+    path: /usr/local/var/lib/cinder
+  lib:
+    path: /usr/local/lib/cinder
+files:
+  config:
+    path: /usr/local/etc/cinder/cinder.conf
+  log:
+    path: /usr/local/var/log/cinder/cinder.log
+  pid:
+    path: /usr/local/var/run/cinder.pid
+packages:
+  default:
+    name: cinder
+services:
+  default:
+    name: cinder
+processes:
+  default:
+    path: /usr/local/bin/cinder

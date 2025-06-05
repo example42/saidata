@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/bzip2
+  dotconf:
+    path: /etc/bzip2.conf
+  log:
+    path: /var/log/bzip2
+  data:
+    path: /usr/share/bzip2
+  lib:
+    path: /usr/lib/bzip2
+files:
+  config:
+    path: /etc/bzip2.conf
+  log:
+    path: /var/log/bzip2.log
+  pid:
+    path: /var/run/bzip2.pid
+packages:
+  default:
+    name: bzip2
+services:
+  default:
+    name: bzip2
+processes:
+  default:
+    path: /usr/bin/bzip2

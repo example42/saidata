@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\Program Files\Bind\etc
+  dotconf:
+    path: C:\Program Files\Bind\etc
+  log:
+    path: C:\Program Files\Bind\var\log
+  data:
+    path: C:\Program Files\Bind\var\cache
+  lib:
+    path: C:\Program Files\Bind\lib
+files:
+  config:
+    path: C:\Program Files\Bind\etc\named.conf
+  log:
+    path: C:\Program Files\Bind\var\log\named.log
+  pid:
+    path: C:\Program Files\Bind\var\run\named.pid
+packages:
+  default:
+    name: Bind
+services:
+  default:
+    name: named
+processes:
+  default:
+    path: C:\Program Files\Bind\bin\named.exe

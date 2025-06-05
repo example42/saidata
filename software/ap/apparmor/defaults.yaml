@@ -1,0 +1,24 @@
+version: '0.1'
+description: AppArmor is a Linux security module that allows the system administrator
+  to restrict programs' capabilities with per-program profiles.
+language: C
+category:
+  default: Security
+  sub: Access Control
+  tags: Linux, Security, Access Control
+license: Open Source
+platforms:
+- Linux
+urls:
+  website: https://gitlab.com/apparmor/apparmor
+  issues: https://gitlab.com/apparmor/apparmor/-/issues
+  documentation: https://gitlab.com/apparmor/apparmor/-/wikis/home
+  support: https://gitlab.com/apparmor/apparmor/-/issues
+  source: https://gitlab.com/apparmor/apparmor
+  license: https://gitlab.com/apparmor/apparmor/-/blob/master/COPYING
+  download: https://gitlab.com/apparmor/apparmor/-/releases
+containers:
+  upstream:
+    name: apparmor
+    image: apparmor
+    version: latest

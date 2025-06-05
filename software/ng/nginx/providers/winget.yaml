@@ -1,0 +1,24 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\nginx\conf
+  log:
+    path: C:\nginx\logs
+  lib:
+    path: C:\nginx\lib
+files:
+  config:
+    path: C:\nginx\conf\nginx.conf
+  log:
+    path: C:\nginx\logs\error.log
+  pid:
+    path: C:\nginx\logs\nginx.pid
+packages:
+  default:
+    name: nginx
+services:
+  default:
+    name: nginx
+processes:
+  default:
+    path: C:\nginx\nginx.exe

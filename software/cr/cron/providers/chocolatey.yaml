@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config\.cron
+  log:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config\logs
+  data:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config\data
+  lib:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config\.cron\cron.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config\logs\cron.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\cron\tools\cron-config\cron.pid
+packages:
+  default:
+    name: cron
+services:
+  default:
+    name: cron
+processes:
+  default:
+    path: C:\

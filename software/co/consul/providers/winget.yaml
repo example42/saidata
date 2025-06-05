@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: C:\ProgramData\Consul\config
+  dotconf:
+    path: C:\ProgramData\Consul\dotconf
+  log:
+    path: C:\ProgramData\Consul\log
+  data:
+    path: C:\ProgramData\Consul\data
+  lib:
+    path: C:\ProgramData\Consul\lib
+files:
+  config:
+    path: C:\ProgramData\Consul\config\consul.json
+  log:
+    path: C:\ProgramData\Consul\log\consul.log
+  pid:
+    path: C:\ProgramData\Consul\log\consul.pid
+packages:
+  default:
+    name: Consul
+services:
+  default:
+    name: Consul
+processes:
+  default:
+    path: C:\Program Files\Consul\consul.exe
+supported: true

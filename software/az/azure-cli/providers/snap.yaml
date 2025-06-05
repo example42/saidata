@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: /home/user/snap/azure-cli/current/.azure
+  dotconf:
+    path: /home/user/snap/azure-cli/current/.config
+  log:
+    path: /home/user/snap/azure-cli/current/.logs
+  data:
+    path: /home/user/snap/azure-cli/current/.data
+  lib:
+    path: /home/user/snap/azure-cli/current/.lib
+files:
+  config:
+    path: /home/user/snap/azure-cli/current/.azure/config
+  log:
+    path: /home/user/snap/azure-cli/current/.logs/azure-cli.log
+  pid:
+    path: /home/user/snap/azure-cli/current/.pid/azure-cli.pid
+packages:
+  default:
+    name: azure-cli
+services:
+  default:
+    name: azure-cli.service
+processes:
+  default:
+    path: /home/user/snap/azure-cli/current/bin/azure
+supported: true

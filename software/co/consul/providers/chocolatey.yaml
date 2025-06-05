@@ -1,0 +1,25 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d
+  log:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d
+  data:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d
+  lib:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d\consul.json
+  log:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d\consul.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\consul\tools\consul.d\consul.pid
+packages:
+  default:
+    name: consul
+services:
+  default:
+    name: consul

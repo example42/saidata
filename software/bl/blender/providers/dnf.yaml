@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/blender
+  dotconf:
+    path: /etc/blender
+  log:
+    path: /var/log/blender
+  data:
+    path: /usr/share/blender
+  lib:
+    path: /usr/lib/blender
+files:
+  config:
+    path: /etc/blender/blender.conf
+  log:
+    path: /var/log/blender/blender.log
+  pid:
+    path: /var/run/blender.pid
+packages:
+  default:
+    name: blender
+services:
+  default:
+    name: blender
+processes:
+  default:
+    path: /usr/bin/blender

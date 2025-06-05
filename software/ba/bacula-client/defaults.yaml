@@ -1,28 +1,26 @@
 version: '0.1'
-urls:
-  website: https://www.bacula.org/
-  issues: https://bugs.bacula.org/
-  documentation: https://www.bacula.org/documentation/
-  support: https://www.bacula.org/support/
-  source: https://github.com/bacula/bacula
-  license: https://www.bacula.org/5.4.x-manuals/en/main/License.html
-  download: https://www.bacula.org/download.html
-containers:
-  upstream:
-    name: bacula-client
-    image: bacula/bacula-client
-    version: latest
-description: Open source backup software for Linux, Windows, and MacOS
-language: C++
+description: Bacula is a set of computer programs that permit managing backup, recovery,
+  and verification of computer data across a network of computers of different kinds.
+ports:
+  default: 9102
+  ssl: 9103
+category:
+  default: backup
 license: Open Source
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Backup
-  tags:
-  - backup
-  - data
-  - recovery
-
+urls:
+  website: https://www.bacula.org/
+  issues: https://www.bacula.org/bugs/
+  documentation: https://www.bacula.org/documentation/
+  support: https://www.bacula.org/support/
+  source: https://github.com/bacula/bacula
+  license: https://www.bacula.org/licensing/
+  download: https://www.bacula.org/download/
+containers:
+  upstream:
+    name: bacula-client
+    image: bacula/bacula-client
+    version: latest

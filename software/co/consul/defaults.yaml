@@ -1,30 +1,29 @@
 version: '0.1'
+description: Consul is a distributed service mesh to connect, secure, and configure
+  services across any runtime platform and public or private cloud.
+language: Go
+ports:
+  default: 8500
+  ssl: 8501
+category:
+  default: Service Mesh
+  sub: Distributed Systems
+  tags: Networking, Microservices, Service Discovery, Configuration Management
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://www.consul.io/
   issues: https://github.com/hashicorp/consul/issues
-  documentation: https://www.consul.io/docs/
-  support: https://www.consul.io/support.html
+  documentation: https://www.consul.io/docs
+  support: https://www.consul.io/support
   source: https://github.com/hashicorp/consul
-  license: https://www.consul.io/licenses.html
+  license: https://github.com/hashicorp/consul/blob/master/LICENSE
   download: https://www.consul.io/downloads.html
 containers:
   upstream:
     name: consul
     image: consul
     version: latest
-description: Consul is a service mesh solution providing a full featured control plane
-  with service discovery, configuration, and segmentation functionality.
-language: 'null'
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: 'null'
-  sub: 'null'
-  tags:
-  - service mesh
-  - service discovery
-  - configuration
-  - segmentation
-

@@ -1,28 +1,24 @@
 version: '0.1'
+description: CLVM is a programming language designed for creating smart contracts
+  on the Chia blockchain.
+language: Python
+category:
+  default: Blockchain
+  sub: Smart Contracts
+  tags:
+  - Chia
+  - Cryptocurrency
+license: Open Source
+platforms:
+- Linux
 urls:
-  website: https://github.com/Chia-Network/clvm
+  website: https://www.chia.net/
   issues: https://github.com/Chia-Network/clvm/issues
-  documentation: https://clvm.readthedocs.io/en/latest/
+  documentation: https://github.com/Chia-Network/clvm/blob/master/README.md
   source: https://github.com/Chia-Network/clvm
   license: https://github.com/Chia-Network/clvm/blob/master/LICENSE
 containers:
   upstream:
     name: clvm
-    image: docker.io/clvm/clvm
+    image: clvm
     version: latest
-description: Clustered Logical Volume Manager (CLVM) is a tool for managing shared
-  storage in a cluster environment. It allows multiple servers to access and manage
-  the same storage volumes, providing high availability and scalability for storage
-  resources.
-language: Python
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: Storage Management
-  tags:
-  - cluster
-  - storage
-  - high availability
-

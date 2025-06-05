@@ -1,37 +1,23 @@
 version: '0.1'
-urls:
-  website: https://thekelleys.org.uk/dnsmasq/
-  issues: https://github.com/imp/dnsmasq/issues
-  documentation: https://thekelleys.org.uk/dnsmasq/docs.html
-  support: https://thekelleys.org.uk/dnsmasq/support.html
-  source: https://github.com/imp/dnsmasq
-  license: https://github.com/imp/dnsmasq/blob/master/COPYING
-  download: https://thekelleys.org.uk/dnsmasq/dnsmasq-2.85.tar.gz
-containers:
-  upstream:
-    name: dnsmasq
-    image: dnsmasq/dnsmasq
-    version: latest
 description: Dnsmasq is a lightweight, easy to configure DNS forwarder and DHCP server.
-  It is designed to provide DNS and, optionally, DHCP, to a small network. It can
-  serve the names of local machines which are not in the global DNS. The DHCP server
-  integrates with the DNS server and allows machines with DHCP-allocated addresses
-  to appear in the DNS with names configured either in each host or in a central configuration
-  file. Dnsmasq supports IPv6 for DNS and DHCP.
+  It is designed to provide DNS and DHCP services for small networks, such as home
+  networks, and can also be used as a caching DNS server for larger networks.
 ports:
-  default:
-    port: 53
-language: C
+  default: 53
+category:
+  default: Networking
+  sub: DNS
+  tags: DNS, DHCP, Forwarder, Server
 license: Open Source
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Networking
-  sub: DNS Server
-  tags:
-  - dns
-  - dhcp
-  - networking
-
+urls:
+  website: https://thekelleys.org.uk/dnsmasq/doc.html
+  issues: https://github.com/imp/dnsmasq/issues
+  documentation: https://thekelleys.org.uk/dnsmasq/doc.html
+  support: https://thekelleys.org.uk/dnsmasq/doc.html
+  source: https://github.com/imp/dnsmasq
+  license: https://github.com/imp/dnsmasq/blob/master/COPYING
+  download: https://thekelleys.org.uk/dnsmasq/

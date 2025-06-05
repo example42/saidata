@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/ceilometer
+  dotconf:
+    path: /etc/ceilometer/ceilometer.conf
+  log:
+    path: /var/log/ceilometer
+  data:
+    path: /var/lib/ceilometer
+  lib:
+    path: /usr/lib/ceilometer
+files:
+  config:
+    path: /etc/ceilometer/ceilometer.conf
+  log:
+    path: /var/log/ceilometer/ceilometer.log
+  pid:
+    path: /var/run/ceilometer/ceilometer.pid
+packages:
+  default:
+    name: ceilometer
+services:
+  default:
+    name: ceilometer
+processes:
+  default:
+    path: /usr/bin/ceilometer

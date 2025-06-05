@@ -1,0 +1,24 @@
+version: 0.1
+
+urls:
+  website: https://www.apache.org/
+  issues: https://issues.apache.org/jira/browse/APACHE
+  documentation: https://httpd.apache.org/docs/current/
+  support: https://httpd.apache.org/support.html
+  source: https://github.com/apache/httpd
+
+containers:
+  upstream:
+    image: docker.io/httpd
+    nodaemon_args: '-DFOREGROUND'
+
+actions:
+  commands:
+    info:
+      show_compile_settings: 'httpd -V'
+      show_compiled_modules: 'httpd -l'
+      show_loaded_modules: 'httpd -t -D DUMP_MODULES'
+    test:
+      validate_config: 'httpd -t'
+    version:
+      show_version: httpd -v

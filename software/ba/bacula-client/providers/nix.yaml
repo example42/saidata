@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/bacula
+  dotconf:
+    path: /etc/bacula/bacula-fd.conf
+  log:
+    path: /var/log/bacula
+  data:
+    path: /var/lib/bacula
+  lib:
+    path: /var/lib/bacula
+files:
+  config:
+    path: /etc/bacula/bacula-fd.conf
+  log:
+    path: /var/log/bacula/bacula-fd.log
+  pid:
+    path: /var/run/bacula-fd.pid
+packages:
+  default:
+    name: bacula-client
+services:
+  default:
+    name: bacula-fd
+processes:
+  default:
+    path: /usr/sbin/bacula-fd

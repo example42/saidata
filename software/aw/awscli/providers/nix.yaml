@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /nix/store/...-awscli-.../etc/aws
+  dotconf:
+    path: /nix/store/...-awscli-.../etc/aws
+  log:
+    path: /nix/store/...-awscli-.../var/log/aws
+  data:
+    path: /nix/store/...-awscli-.../share/aws
+  lib:
+    path: /nix/store/...-awscli-.../lib
+files:
+  config:
+    path: /nix/store/...-awscli-.../etc/aws/config
+  log:
+    path: /nix/store/...-awscli-.../var/log/aws/awscli.log
+  pid:
+    path: /nix/store/...-awscli-.../var/run/awscli.pid
+packages:
+  default:
+    name: awscli
+services:
+  default:
+    name: awscli
+processes:
+  default:
+    path: /nix/store/...-awscli-.../bin/aws

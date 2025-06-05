@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\auditbeat
+  dotconf:
+    path: C:\ProgramData\auditbeat
+  log:
+    path: C:\ProgramData\auditbeat\logs
+  data:
+    path: C:\ProgramData\auditbeat\data
+  lib:
+    path: C:\ProgramData\auditbeat\lib
+files:
+  config:
+    path: C:\ProgramData\auditbeat\auditbeat.yml
+  log:
+    path: C:\ProgramData\auditbeat\logs\auditbeat.log
+  pid:
+    path: C:\ProgramData\auditbeat\auditbeat.pid
+packages:
+  default:
+    name: auditbeat
+services:
+  default:
+    name: auditbeat
+processes:
+  default:
+    path: C:\ProgramData\auditbeat\auditbeat.exe

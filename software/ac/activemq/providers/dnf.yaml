@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/activemq
+  dotconf:
+    path: /etc/activemq
+  log:
+    path: /var/log/activemq
+  data:
+    path: /var/lib/activemq
+  lib:
+    path: /usr/lib/activemq
+files:
+  config:
+    path: /etc/activemq/activemq.xml
+  log:
+    path: /var/log/activemq/activemq.log
+  pid:
+    path: /var/run/activemq.pid
+packages:
+  default:
+    name: activemq
+services:
+  default:
+    name: activemq
+processes:
+  default:
+    path: /usr/bin/activemq

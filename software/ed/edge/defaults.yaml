@@ -1,34 +1,30 @@
 version: '0.1'
+description: Edge is a web browser developed by Microsoft. It is the default browser
+  for Windows 10 and is also available for MacOS, iOS, and Android.
+ports:
+  default: 80
+  ssl: 443
+category:
+  default: web browsers
+  sub: modern browsers
+  tags: microsoft, windows, macos, ios, android
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
 urls:
   website: https://www.microsoft.com/en-us/edge
-  issues: https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home
+  issues: https://support.microsoft.com/en-us/hub/4338813/windows-help
   documentation: https://docs.microsoft.com/en-us/microsoft-edge/
-  support: https://support.microsoft.com/en-us/microsoft-edge
+  support: https://support.microsoft.com/en-us
+  license: https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx
   download: https://www.microsoft.com/en-us/edge/business/download
-  icon: https://www.microsoft.com/favicon.ico
 containers:
   upstream:
     name: edge
-    image: mcr.microsoft.com/azureiotedge-agent:latest
+    image: edge
     version: latest
-description: Edge is a lightweight and efficient web server written in Python. It
-  is designed to handle high traffic and deliver fast response times. It is perfect
-  for hosting websites and web applications.
-ports:
-  default:
-    port: 80
-  ssl:
-    port: 443
-language: Python
-license: Open Source
-platforms:
-- Linux
-- MacOS
-category:
-  default: Web Server
-  sub: HTTP Server
-  tags:
-  - web
-  - server
-  - http
-
+    ports:
+    - 80
+    - 443

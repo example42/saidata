@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\Nikto
+  dotconf:
+    path: C:\ProgramData\Nikto
+  log:
+    path: C:\ProgramData\Nikto\logs
+  data:
+    path: C:\ProgramData\Nikto\data
+  lib:
+    path: C:\ProgramData\Nikto\lib
+files:
+  config:
+    path: C:\ProgramData\Nikto\nikto.conf
+  log:
+    path: C:\ProgramData\Nikto\logs\nikto.log
+  pid:
+    path: C:\ProgramData\Nikto\nikto.pid
+packages:
+  default:
+    name: Nikto
+services:
+  default:
+    name: Nikto
+processes:
+  default:
+    path: C:\ProgramData\Nikto\nikto.exe

@@ -1,19 +1,2 @@
-version: 0.1
-
-directories:
-  config:
-    path: ~/scoop/apps/apache/current/etc/httpd/conf
-  log:
-    path: ~/scoop/apps/apache/current/logs
-  data:
-    path: ~/scoop/apps/apache/current/htdocs
-  lib:
-    path: ~/scoop/apps/apache/current/lib
-
-files:
-  config:
-    path: ~/scoop/apps/apache/current/etc/httpd/conf/httpd
-  log:
-    path: ~/scoop/apps/apache/current/logs/access.log
-  errorlog:
-    path: ~/scoop/apps/apache/current/logs/error.log
+version: '0.1'
+supported: false

@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /usr/local/etc/ddclient
+  dotconf:
+    path: /usr/local/etc/ddclient
+  log:
+    path: /usr/local/var/log/ddclient
+  data:
+    path: /usr/local/var/lib/ddclient
+  lib:
+    path: /usr/local/lib/ddclient
+files:
+  config:
+    path: /usr/local/etc/ddclient/ddclient.conf
+  log:
+    path: /usr/local/var/log/ddclient/ddclient.log
+  pid:
+    path: /usr/local/var/run/ddclient.pid
+packages:
+  default:
+    name: ddclient
+services:
+  default:
+    name: ddclient
+processes:
+  default:
+    path: /usr/local/bin/ddclient

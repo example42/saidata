@@ -1,28 +1,28 @@
 version: '0.1'
-urls:
-  azure-cli:
-    website: https://docs.microsoft.com/en-us/cli/azure/
-    issues: https://github.com/Azure/azure-cli/issues
-    documentation: https://docs.microsoft.com/en-us/cli/azure/
-    support: https://azure.microsoft.com/en-us/support/
-    source: https://github.com/Azure/azure-cli
-    license: https://github.com/Azure/azure-cli/blob/dev/LICENSE
-containers:
-  upstream:
-    name: azure-cli
-    image: mcr.microsoft.com/azure-cli
-    version: latest
-description: Command-line tool for managing Azure resources
-language: Python
+description: Azure CLI is a command-line tool for managing Azure resources.
+category:
+  default: Infrastructure Management
+  sub: Cloud Computing
+  tags:
+  - Azure
+  - CLI
+  - Command Line
+  - DevOps
 license: Open Source
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Cloud Management
-  tags:
-  - azure
-  - cloud
-  - management
-
+urls:
+  website: https://docs.microsoft.com/en-us/cli/azure/
+  issues: https://github.com/Azure/azure-cli/issues
+  documentation: https://docs.microsoft.com/en-us/cli/azure/
+  support: https://azure.microsoft.com/en-us/support/
+  source: https://github.com/Azure/azure-cli
+  license: https://github.com/Azure/azure-cli/blob/dev/LICENSE.txt
+  download: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+containers:
+  upstream:
+    name: azure-cli
+    image: azure-cli
+    version: latest

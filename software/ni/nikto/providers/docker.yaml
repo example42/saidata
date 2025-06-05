@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/nikto
+  dotconf:
+    path: /etc/nikto
+  log:
+    path: /var/log/nikto
+  data:
+    path: /usr/share/nikto
+  lib:
+    path: /usr/lib/nikto
+files:
+  config:
+    path: /etc/nikto/nikto.conf
+  log:
+    path: /var/log/nikto/nikto.log
+  pid:
+    path: /var/run/nikto.pid
+packages:
+  default:
+    name: nikto
+services:
+  default:
+    name: nikto
+processes:
+  default:
+    path: /usr/bin/nikto

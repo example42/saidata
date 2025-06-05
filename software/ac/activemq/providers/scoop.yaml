@@ -1,0 +1,7 @@
+version: '0.1'
+packages:
+  default:
+    name: activemq
+services:
+  default:
+    name: activemq

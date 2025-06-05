@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/ceph
+  dotconf:
+    path: /etc/ceph/ceph.conf
+  log:
+    path: /var/log/ceph
+  data:
+    path: /var/lib/ceph
+  lib:
+    path: /var/lib/ceph
+files:
+  config:
+    path: /etc/ceph/ceph.conf
+  log:
+    path: /var/log/ceph/ceph.log
+  pid:
+    path: /var/run/ceph/ceph.pid
+packages:
+  default:
+    name: ceph
+services:
+  default:
+    name: ceph
+processes:
+  default:
+    path: /usr/bin/ceph

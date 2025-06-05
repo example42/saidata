@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /usr/local/etc/duply
+  dotconf:
+    path: /usr/local/etc/duply
+  log:
+    path: /usr/local/var/log/duply
+  data:
+    path: /usr/local/var/lib/duply
+  lib:
+    path: /usr/local/lib/duply
+files:
+  config:
+    path: /usr/local/etc/duply/duply.conf
+  log:
+    path: /usr/local/var/log/duply/duply.log
+  pid:
+    path: /usr/local/var/run/duply.pid
+packages:
+  default:
+    name: duply
+services:
+  default:
+    name: duply
+processes:
+  default:
+    path: /usr/local/bin/duply

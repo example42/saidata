@@ -1,26 +1,23 @@
 version: '0.1'
+description: Autoruns is a utility that displays all the programs configured to run
+  on startup on a Windows system.
+category:
+  default: System Administration
+  sub: Startup Management
+  tags: Windows, System, Startup, Management
+license: Commercial
+platforms:
+- Windows
 urls:
   website: https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
+  issues: https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
   documentation: https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
-  download: https://download.sysinternals.com/files/Autoruns.zip
+  support: https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
+  source: https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
+  license: https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
+  download: https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns
 containers:
   upstream:
     name: autoruns
-    image: microsoft/sysinternals:autoruns
+    image: autoruns
     version: latest
-description: Autoruns is a utility that displays all the programs configured to run
-  automatically when you start your system. It lists the full set of Registry and
-  file locations where applications can configure auto-start settings.
-language: 'null'
-license: Open Source
-platforms:
-- Linux
-- Windows
-- MacOS
-category:
-  default: System Utility
-  tags:
-  - autorun
-  - startup
-  - registry
-

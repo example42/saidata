@@ -1,0 +1,28 @@
+version: '2.85'
+directories:
+  config:
+    path: /usr/local/etc/dnsmasq.conf
+  dotconf:
+    path: /usr/local/etc/dnsmasq.d
+  log:
+    path: /usr/local/var/log/dnsmasq.log
+  data:
+    path: /usr/local/var/lib/dnsmasq
+  lib:
+    path: /usr/local/lib/dnsmasq
+files:
+  config:
+    path: /usr/local/etc/dnsmasq.conf
+  log:
+    path: /usr/local/var/log/dnsmasq.log
+  pid:
+    path: /usr/local/var/run/dnsmasq.pid
+packages:
+  default:
+    name: dnsmasq
+services:
+  default:
+    name: dnsmasq
+processes:
+  default:
+    path: /usr/local/sbin/dnsmasq

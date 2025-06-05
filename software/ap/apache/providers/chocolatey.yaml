@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\conf
+  dotconf:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\conf
+  log:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\logs
+  data:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\data
+  lib:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\lib
+files:
+  config:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\conf\httpd.conf
+  log:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\logs\error.log
+  pid:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\logs\httpd.pid
+packages:
+  default:
+    name: apache
+services:
+  default:
+    name: Apache2.4
+processes:
+  default:
+    path: C:\Program Files\Apache Software Foundation\Apache2.4\bin\httpd.exe

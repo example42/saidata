@@ -1,0 +1,47 @@
+
+apt:
+  version: '0.1'
+  directories:
+    config:
+      path: /etc/squid
+    dotconf:
+      path: /etc/squid
+    log:
+      path: /var/log/squid
+    data:
+      path: /var/spool/squid
+    lib:
+      path: /usr/lib/squid
+  files:
+    config:
+      path: /etc/squid/squid.conf
+    log:
+      path: /var/log/squid/access.log
+    pid:
+      path: /var/run/squid.pid
+  packages:
+    default:
+      name: squid
+  services:
+    default:
+      name: squid
+  processes:
+    default:
+      path: /usr/sbin/squid
+
+yum:
+  version: '0.1'
+  directories:
+    config:
+      path: /etc/squid
+    dotconf:
+      path: /etc/squid
+    log:
+      path: /var/log/squid
+    data:
+      path: /var/spool/squid
+    lib:
+      path: /usr/lib/squid
+  files:
+    config:
+      path: /etc/squ

@@ -1,0 +1,29 @@
+version: 0.1
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\etc
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\etc
+  log:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\var\log
+  data:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\var\lib
+  lib:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\etc\bird.conf
+  log:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\var\log\bird.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\bird\tools\var\run\bird.pid
+packages:
+  default:
+    name: bird
+services:
+  default:
+    name: bird
+processes:
+  default:
+    path: C:\ProgramData\chocolatey\
+supported: true

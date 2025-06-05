@@ -1,0 +1,22 @@
+version: '0.1'
+directories:
+  config:
+    path: /usr/local/Cellar/nikto/2.1.6_1/etc/nikto
+  dotconf:
+    path: /usr/local/Cellar/nikto/2.1.6_1/etc/nikto
+  log:
+    path: /usr/local/Cellar/nikto/2.1.6_1/var/log/nikto
+  data:
+    path: /usr/local/Cellar/nikto/2.1.6_1/share/nikto
+  lib:
+    path: /usr/local/Cellar/nikto/2.1.6_1/libexec/nikto
+files:
+  config:
+    path: /usr/local/Cellar/nikto/2.1.6_1/etc/nikto.conf
+  log:
+    path: /usr/local/Cellar/nikto/2.1.6_1/var/log/nikto/nikto.log
+  pid:
+    path: /usr/local/Cellar/nikto/2.1.6_1/var/run/nikto.pid
+packages:
+  default:
+    name: nik

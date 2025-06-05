@@ -1,0 +1,40 @@
+version: 0.1
+
+directories:
+  config:
+    path: /etc/httpd
+  dotconf:
+    path: /etc/httpd/conf.d
+  log:
+    path: /var/log/httpd
+  data:
+    path: /var/www/html
+  mods:
+    path: /etc/httpd/conf.modules.d
+  lib:
+    path: /var/lib/httpd
+
+files:
+  config:
+    path: /etc/httpd/conf/httpd.conf
+  log:
+    path: /var/log/httpd/access.log
+  errorlog:
+    path: /var/log/httpd/error.log
+  pid:
+    path: /var/run/httpd/httpd.pid
+
+packages:
+  default:
+    name: httpd
+
+services:
+  default:
+    name: httpd
+
+processes:
+  default:
+    path: /usr/sbin/httpd
+    owner: root
+    group: root
+

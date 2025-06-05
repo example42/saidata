@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/apparmor
+  dotconf:
+    path: /etc/apparmor.d
+  log:
+    path: /var/log/apparmor
+  data:
+    path: /var/lib/apparmor
+  lib:
+    path: /usr/lib/apparmor
+files:
+  config:
+    path: /etc/apparmor/apparmor.conf
+  log:
+    path: /var/log/apparmor/audit.log
+  pid:
+    path: /var/run/apparmor.pid
+packages:
+  default:
+    name: apparmor
+services:
+  default:
+    name: apparmor
+processes:
+  default:
+    path: /usr/sbin/apparmor_parser

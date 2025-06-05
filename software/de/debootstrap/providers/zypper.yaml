@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: /etc/zypp/repos.d
+  dotconf:
+    path: /etc/zypp/repos.d
+  log:
+    path: /var/log/zypper.log
+  data:
+    path: /var/lib/zypp
+  lib:
+    path: /usr/lib/zypp/plugins
+files:
+  config:
+    path: /etc/zypp/zypp.conf
+  log:
+    path: /var/log/zypper.log
+  pid:
+    path: /var/run/zypp.pid
+packages:
+  default:
+    name: zypper
+services:
+  default:
+    name: zypper
+processes:
+  default:
+    path: /usr/bin/zypper

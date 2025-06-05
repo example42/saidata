@@ -1,28 +1,28 @@
 version: '0.1'
-urls:
-  website: https://cron.help/
-  issues: https://github.com/cron-dev/cron/issues
-  documentation: https://cron.help/docs/
-  support: https://github.com/cron-dev/cron/discussions
-  source: https://github.com/cron-dev/cron
-  license: https://github.com/cron-dev/cron/blob/master/LICENSE
-containers:
-  upstream:
-    name: cron
-    image: docker/cron
-    version: latest
-description: Cron is a time-based job scheduler used in Unix-like operating systems
-  to execute commands or scripts at specific times.
-language: 'null'
-license: Open Source
-platforms:
-- Linux
-- MacOS
+description: Cron is a time-based job scheduler in Unix-like operating systems.
+language: Shell
+ports:
+  default: 22
 category:
-  default: System Utility
-  sub: Task Scheduler
+  default: System Administration
+  sub: Task Scheduling
   tags:
   - cron
   - scheduler
-  - unix
-
+  - jobs
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+urls:
+  website: https://en.wikipedia.org/wiki/Cron
+  issues: https://github.com/cron/cron/issues
+  documentation: https://man7.org/linux/man-pages/man5/crontab.5.html
+  source: https://github.com/cron/cron
+  license: https://github.com/cron/cron/blob/master/LICENSE
+containers:
+  upstream:
+    name: cron
+    image: cron
+    version: latest

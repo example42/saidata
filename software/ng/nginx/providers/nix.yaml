@@ -7,9 +7,9 @@ directories:
   log:
     path: /var/log/nginx
   data:
-    path: /var/lib/nginx
+    path: /var/www/html
   lib:
-    path: /var/lib/nginx/modules
+    path: /var/lib/nginx
 files:
   config:
     path: /etc/nginx/nginx.conf

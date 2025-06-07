@@ -1,0 +1,28 @@
+
+description: Ansible is an open-source software provisioning, configuration management,
+  and application deployment tool.
+language: Python
+ports:
+  default: 22
+category:
+  default: DevOps
+  sub: Configuration Management
+  tags: Automation, Infrastructure as Code
+license: Open Source
+platforms:
+- Linux
+- Windows
+- MacOS
+urls:
+  website: https://www.ansible.com/
+  issues: https://github.com/ansible/ansible/issues
+  documentation: https://docs.ansible.com/
+  support: https://www.ansible.com/support
+  source: https://github.com/ansible/ansible
+  license: https://github.com/ansible/ansible/blob/devel/LICENSE
+  download: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+containers:
+  upstream:
+    name: ansible
+    image: ansible
+    version: latest

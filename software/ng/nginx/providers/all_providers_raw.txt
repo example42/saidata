@@ -1,0 +1,56 @@
+
+nginx:
+version: '0.1'
+supported: true
+description: "nginx is a popular web server and reverse proxy."
+install:
+  package: nginx
+  version: null
+  repo: null
+  options: null
+uninstall:
+  package: nginx
+  options: null
+update:
+  package: nginx
+  options: null
+notes: null
+
+apt:
+version: '0.1'
+supported: true
+description: "apt is a package manager for Debian-based Linux distributions."
+install:
+  package: nginx
+  version: null
+  repo: null
+  options: null
+uninstall:
+  package: nginx
+  options: null
+update:
+  package: nginx
+  options: null
+notes: null
+
+yum:
+version: '0.1'
+supported: true
+description: "yum is a package manager for Red Hat-based Linux distributions."
+install:
+  package: nginx
+  version: null
+  repo: null
+  options: null
+uninstall:
+  package: nginx
+  options: null
+update:
+  package: nginx
+  options: null
+notes: null
+
+zypper:
+version: '0.1'
+supported: true
+description: "zypper is a

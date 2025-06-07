@@ -1,0 +1,343 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SaiData Defaults Schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": ["string", "null"],
+      "description": "Schema/data version",
+      "example": "0.1"
+    },
+    "packages": {
+      "type": "object",
+      "description": "Package definitions",
+      "properties": {
+        "default": {
+          "$ref": "#/definitions/package"
+        }
+      },
+      "additionalProperties": true
+    },
+    "services": {
+      "type": "object",
+      "description": "Service definitions",
+      "properties": {
+        "default": {
+          "$ref": "#/definitions/service"
+        }
+      },
+      "additionalProperties": true
+    },
+    "directories": {
+      "type": "object",
+      "description": "Directory paths and permissions",
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/directory"
+        },
+        "dotconf": {
+          "$ref": "#/definitions/directory"
+        },
+        "log": {
+          "$ref": "#/definitions/directory"
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/directory"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "processes": {
+      "type": "object",
+      "description": "Process definitions",
+      "properties": {
+        "default": {
+          "$ref": "#/definitions/process"
+        }
+      },
+      "additionalProperties": true
+    },
+    "ports": {
+      "type": "object",
+      "description": "Port configurations",
+      "properties": {
+        "default": {
+          "$ref": "#/definitions/port"
+        }
+      },
+      "additionalProperties": true
+    },
+    "containers": {
+      "type": "object",
+      "description": "Container configurations",
+      "properties": {
+        "upstream": {
+          "$ref": "#/definitions/container"
+        }
+      },
+      "additionalProperties": true
+    },
+    "charts": {
+      "type": "object",
+      "description": "Helm chart configurations",
+      "properties": {
+        "upstream": {
+          "type": "object",
+          "description": "Upstream chart configuration",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "repos": {
+      "type": "object",
+      "description": "Repository configurations",
+      "properties": {
+        "upstream": {
+          "type": "object",
+          "description": "Upstream repository configuration",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "urls": {
+      "type": "object",
+      "description": "Relevant URLs for the software",
+      "properties": {
+        "website": {
+          "type": ["string", "null"],
+          "description": "Homepage URL"
+        },
+        "sbom": {
+          "type": ["string", "null"],
+          "description": "Sbom URL"
+        },
+        "issues": {
+          "type": ["string", "null"],
+          "description": "Issue tracker URL"
+        },
+        "documentation": {
+          "type": ["string", "null"],
+          "description": "Documentation URL"
+        },
+        "support": {
+          "type": ["string", "null"],
+          "description": "Support URL"
+        },
+        "source": {
+          "type": ["string", "null"],
+          "description": "Source code URL"
+        },
+        "license": {
+          "type": ["string", "null"],
+          "description": "License URL"
+        },
+        "changelog": {
+          "type": ["string", "null"],
+          "description": "Changelog URL"
+        },
+        "download": {
+          "type": ["string", "null"],
+          "description": "Download URL"
+        },
+        "icon": {
+          "type": ["string", "null"],
+          "description": "Icon or image URL"
+        }
+      },
+      "additionalProperties": true
+    },
+    "language": {
+      "type": ["string", "null"],
+      "description": "Main programming language"
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Description of the software"
+    },
+    "category": {
+      "type": "object",
+      "description": "Software categorization",
+      "properties": {
+        "default": {
+          "type": ["string", "null"],
+          "description": "Primary category"
+        },
+        "sub": {
+          "type": ["string", "null"],
+          "description": "Subcategory"
+        },
+        "tags": {
+          "type": ["array", "null"],
+          "description": "List of tags",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "license": {
+      "type": ["string", "null"],
+      "description": "License type"
+    },
+    "platforms": {
+      "type": "array",
+      "description": "Supported platforms",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [],
+  "additionalProperties": true,
+  "definitions": {
+    "package": {
+      "type": "object",
+      "description": "Package configuration",
+      "properties": {
+        "name": {
+          "type": ["string", "null"],
+          "description": "Package name"
+        },
+        "version": {
+          "type": ["string", "null"],
+          "description": "Package version"
+        },
+        "install_options": {
+          "type": ["string", "null"],
+          "description": "Installation options"
+        }
+      },
+      "additionalProperties": true
+    },
+    "service": {
+      "type": "object",
+      "description": "Service configuration",
+      "properties": {
+        "name": {
+          "type": ["string", "null"],
+          "description": "Service name"
+        },
+        "service_name": {
+          "type": ["string", "null"],
+          "description": "System service name"
+        }
+      },
+      "additionalProperties": true
+    },
+    "directory": {
+      "type": "object",
+      "description": "Directory configuration",
+      "properties": {
+        "path": {
+          "type": ["string", "null"],
+          "description": "Directory path"
+        },
+        "owner": {
+          "type": ["string", "null"],
+          "description": "Owner of the directory"
+        },
+        "group": {
+          "type": ["string", "null"],
+          "description": "Group of the directory"
+        },
+        "mode": {
+          "type": ["string", "null"],
+          "description": "Permission mode (e.g., 0755)"
+        }
+      },
+      "additionalProperties": true
+    },
+    "process": {
+      "type": "object",
+      "description": "Process configuration",
+      "properties": {
+        "path": {
+          "type": ["string", "null"],
+          "description": "Process path"
+        },
+        "owner": {
+          "type": ["string", "null"],
+          "description": "Process owner"
+        },
+        "group": {
+          "type": ["string", "null"],
+          "description": "Process group"
+        }
+      },
+      "additionalProperties": true
+    },
+    "port": {
+      "type": "object",
+      "description": "Port configuration",
+      "properties": {
+        "port": {
+          "type": ["integer", "null"],
+          "description": "Port number"
+        },
+        "protocol": {
+          "type": ["string", "null"],
+          "description": "Protocol (e.g., tcp)"
+        }
+      },
+      "additionalProperties": true
+    },
+    "container": {
+      "type": "object",
+      "description": "Container configuration",
+      "properties": {
+        "name": {
+          "type": ["string", "null"],
+          "description": "Container name"
+        },
+        "image": {
+          "type": ["string", "null"],
+          "description": "Container image"
+        },
+        "version": {
+          "type": ["string", "null"],
+          "description": "Container version"
+        },
+        "network": {
+          "type": ["string", "null"],
+          "description": "Network configuration"
+        },
+        "ports": {
+          "type": ["array", "null"],
+          "description": "List of ports to expose",
+          "items": {
+            "type": "string"
+          }
+        },
+        "volumes": {
+          "type": ["array", "null"],
+          "description": "List of volumes to mount",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nodaemon_args": {
+          "type": ["string", "null"],
+          "description": "Arguments for non-daemon mode"
+        },
+        "env": {
+          "type": ["array", "null"],
+          "description": "Environment variables",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

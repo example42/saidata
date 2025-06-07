@@ -74,6 +74,7 @@ repos:
 
 urls:
   website: ~
+  sbom: ~
   issues: ~
   documentation: ~
   support: ~

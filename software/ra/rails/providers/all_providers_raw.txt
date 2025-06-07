@@ -1,0 +1,54 @@
+
+rails:
+version: '0.1'
+supported: true
+description: "A web application framework written in Ruby."
+install:
+  package: "rails"
+  version: null
+  repo: null
+  options: null
+uninstall:
+  package: "rails"
+  options: null
+update:
+  package: "rails"
+  options: null
+notes: null
+
+apt:
+version: '0.1'
+supported: true
+description: "A package manager for Debian-based Linux distributions."
+install:
+  package: "rails"
+  version: null
+  repo: "ppa:ruby-on-rails/ppa"
+  options: null
+uninstall:
+  package: "rails"
+  options: null
+update:
+  package: "rails"
+  options: null
+notes: null
+
+yum:
+version: '0.1'
+supported: true
+description: "A package manager for Red Hat-based Linux distributions."
+install:
+  package: "rails"
+  version: null
+  repo: null
+  options: null
+uninstall:
+  package: "rails"
+  options: null
+update:
+  package: "rails"
+  options: null
+notes: null
+
+zypper:
+version: '0.1

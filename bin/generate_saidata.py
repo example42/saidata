@@ -66,6 +66,7 @@ def generate_default_yaml(software_name, overwrite="disable"):
     "platforms": [],  # Array of supported platforms, e.g. [linux, windows, macos]
     "urls": {
       "website": None,
+      "sbom": None,
       "issues": None,
       "documentation": None,
       "support": None,
@@ -252,3 +253,9 @@ if __name__ == "__main__":
   generate_provider_yaml(software_name, 'brew', overwrite=overwrite_method)
   generate_provider_yaml(software_name, 'winget', overwrite=overwrite_method)
   generate_provider_yaml(software_name, 'nix', overwrite=overwrite_method)
+  generate_provider_yaml(software_name, 'gem', overwrite=overwrite_method)
+  generate_provider_yaml(software_name, 'pip', overwrite=overwrite_method)
+  generate_provider_yaml(software_name, 'nuget', overwrite=overwrite_method)
+  generate_provider_yaml(software_name, 'npm', overwrite=overwrite_method)
+  generate_provider_yaml(software_name, 'nix', overwrite=overwrite_method)
+#  generate_provider_yaml(software_name, 'maven', overwrite=overwrite_method)

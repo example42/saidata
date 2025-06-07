@@ -1,0 +1,28 @@
+version: '0.1'
+description: Opera is a web browser developed by Opera Software. It is available for
+  Windows, MacOS, and Linux.
+ports:
+  default: 80
+  ssl: 443
+category:
+  default: web browser
+  tags: internet, browsing, software
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+urls:
+  website: https://www.opera.com/
+  issues: https://bugs.opera.com/
+  documentation: https://help.opera.com/
+  support: https://help.opera.com/en/
+  source: https://github.com/operasoftware
+  license: https://www.opera.com/terms
+  download: https://www.opera.com/download
+  icon: https://www.opera.com/favicon.ico
+containers:
+  upstream:
+    name: opera
+    image: opera
+    version: latest

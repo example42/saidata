@@ -1,0 +1,251 @@
+```yaml
+apt:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available in the default Ubuntu/Debian repositories."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+yum:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available in the default CentOS/RHEL repositories."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+zypper:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available in the default openSUSE/SLES repositories."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+dnf:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available in the default Fedora/RHEL8+ repositories."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+snap:
+  version: '0.1'
+  supported: false
+
+flatpak:
+  version: '0.1'
+  supported: false
+
+scoop:
+  version: '0.1'
+  supported: false
+
+chocolatey:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available as a Chocolatey package for Windows."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+brew:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available in the Homebrew core tap."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+winget:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available via winget on Windows."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+nix:
+  version: '0.1'
+  supported: true
+  description: "HAProxy is available in the Nixpkgs collection."
+  install:
+    package: haproxy
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: null
+
+pip:
+  version: '0.1'
+  supported: false
+
+pipx:
+  version: '0.1'
+  supported: false
+
+conda:
+  version: '0.1'
+  supported: false
+
+docker:
+  version: '0.1'
+  supported: true
+  description: "HAProxy official images are available on Docker Hub."
+  install:
+    package: haproxy
+    version: null
+    repo: docker.io/library/haproxy
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: "Use 'docker pull haproxy' to get the latest image."
+
+helm:
+  version: '0.1'
+  supported: true
+  description: "HAProxy Community provides a Helm chart for Kubernetes."
+  install:
+    package: haproxy
+    version: null
+    repo: https://haproxytech.github.io/helm-charts
+    options: null
+  uninstall:
+    package: haproxy
+    options: null
+  update:
+    package: haproxy
+    options: null
+  notes: "Add the repo and install with 'helm install'."
+
+maven:
+  version: '0.1'
+  supported: false
+
+gradle:
+  version: '0.1'
+  supported: false
+
+npm:
+  version: '0.1'
+  supported: false
+
+yarn:
+  version: '0.1'
+  supported: false
+
+composer:
+  version: '0.1'
+  supported: false
+
+nuget:
+  version: '0.1'
+  supported: false
+
+gem:
+  version: '0.1'
+  supported: false
+
+cargo:
+  version: '0.1'
+  supported: false
+
+go get:
+  version: '0.1'
+  supported: false
+
+crates.io:
+  version: '0.1'
+  supported: false
+
+leiningen:
+  version: '0.1'
+  supported: false
+
+cabal:
+  version: '0.1'
+  supported: false
+
+stack:
+  version: '0.1'
+  supported: false
+
+cpan:
+  version: '0.1'
+  supported: false
+```

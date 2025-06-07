@@ -1,0 +1,28 @@
+version: '0.1'
+directories:
+  config:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\config
+  dotconf:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\dotconf
+  log:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\log
+  data:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\data
+  lib:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\lib
+files:
+  config:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\config\tensorflow.cfg
+  log:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\log\tensorflow.log
+  pid:
+    path: C:\ProgramData\chocolatey\lib\tensorflow\tools\log\tensorflow.pid
+packages:
+  default:
+    name: tensorflow
+services:
+  default:
+    name: tensorflow
+processes:
+  default:
+    path: C:\ProgramData\chocolatey\lib

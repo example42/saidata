@@ -1,0 +1,56 @@
+
+version: '0.1'
+supported: true
+description: null
+install:
+  apt:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  yum:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  zypper:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  dnf:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  snap:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  flatpak:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  scoop:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  chocolatey:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  brew:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  winget:
+    package: opera
+    version: null
+    repo: null
+    options: null
+  n

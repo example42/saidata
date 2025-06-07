@@ -1,4 +1,4 @@
-version: '0.1'
+version: 0.1
 directories:
   config:
     path: C:\ProgramData\chocolatey\lib\nginx\tools\nginx-1.19.0\conf
@@ -10,7 +10,7 @@ files:
   config:
     path: C:\ProgramData\chocolatey\lib\nginx\tools\nginx-1.19.0\conf\nginx.conf
   log:
-    path: C:\ProgramData\chocolatey\lib\nginx\tools\nginx-1.19.0\logs\error.log
+    path: C:\ProgramData\chocolatey\lib\nginx\tools\nginx-1.19.0\logs\access.log
   pid:
     path: C:\ProgramData\chocolatey\lib\nginx\tools\nginx-1.19.0\logs\nginx.pid
 packages:
@@ -21,4 +21,5 @@ services:
     name: nginx
 processes:
   default:
-    path: C:\ProgramData\
+    path: C
+supported: true

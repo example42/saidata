@@ -1,29 +1,30 @@
 version: '0.1'
-urls:
-  website: https://rubyonrails.org/
-  issues: https://github.com/rails/rails/issues
-  documentation: https://guides.rubyonrails.org/
-  support: https://guides.rubyonrails.org/getting_started.html#where-to-get-help
-  source: https://github.com/rails/rails
-  license: https://github.com/rails/rails/blob/master/MIT-LICENSE
-containers:
-  upstream:
-    name: rails
-    image: ruby:latest
-    version: latest
-description: Rails is a web application development framework written in Ruby. It
-  follows the Model-View-Controller (MVC) architectural pattern and provides a full-stack
-  framework for building database-backed web applications.
+description: Rails is a web application development framework written in the Ruby
+  programming language.
 language: Ruby
+ports:
+  default: 3000
+  ssl: 443
+category:
+  default: Web Development
+  sub: Framework
+  tags: Ruby, MVC, RESTful
 license: Open Source
 platforms:
 - Linux
 - Windows
 - MacOS
-category:
-  default: Web Framework
-  tags:
-  - web
-  - framework
-  - ruby
-
+urls:
+  website: https://rubyonrails.org/
+  issues: https://github.com/rails/rails/issues
+  documentation: https://guides.rubyonrails.org/
+  support: https://stackoverflow.com/questions/tagged/ruby-on-rails
+  source: https://github.com/rails/rails
+  license: https://github.com/rails/rails/blob/master/MIT-LICENSE
+  download: https://rubygems.org/gems/rails
+  icon: https://rubyonrails.org/images/rails-logo.svg
+containers:
+  upstream:
+    name: rails
+    image: rails
+    version: latest

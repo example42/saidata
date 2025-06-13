@@ -1,0 +1,34 @@
+version: '0.1'
+description: Real-time monitoring tool for crowd events, providing insights and analytics.
+language: Python
+ports:
+  default: 8080
+  ssl: 8443
+category:
+  default: Monitoring
+  sub: Event Management
+  tags:
+  - crowd
+  - analytics
+  - monitoring
+license: Open Source
+platforms:
+- linux
+- windows
+urls:
+  website: https://crowdwatch.example.com
+  issues: https://github.com/example/crowdwatch/issues
+  documentation: https://crowdwatch.example.com/docs
+  support: https://crowdwatch.example.com/support
+  source: https://github.com/example/crowdwatch
+  license: https://crowdwatch.example.com/license
+  download: https://crowdwatch.example.com/download
+  icon: https://crowdwatch.example.com/icon.png
+containers:
+  upstream:
+    name: crowdwatch
+    image: crowdwatch
+    version: latest
+    ports:
+    - 8080
+    - 8443

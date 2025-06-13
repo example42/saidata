@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import yaml
 import os
+import json
 from langchain.prompts import PromptTemplate
-from langchain_openai import OpenAI
+from langchain_openai import ChatOpenAI
 
 main_dir = None
 main_dir = os.popen("git rev-parse --show-toplevel").read().strip()
@@ -38,7 +39,7 @@ def extract_yaml_from_llm_output(llm_output):
     return llm_output
 
 ### MAIN FUNCTION TO GENERATE DEFAULT YAML FILES ###
-def generate_default_yaml(software_name, overwrite="disable"):
+def generate_default_yaml(software_name, overwrite="disable", model=None):
 
   # If overwrite is disable and file exists, do not overwrite and exit
   if overwrite not in ["disable", "enable", "merge"]:
@@ -48,7 +49,65 @@ def generate_default_yaml(software_name, overwrite="disable"):
     if os.path.exists(output_file):
       print(f"File {output_file} already exists. Skipping generation.")
       return
-  # Base YAML structure
+  # Try to load base_yaml from saidata-0.1.schema.json if available
+  schema_path = os.path.join(main_dir, "saidata-0.1.schema.json")
+  if os.path.exists(schema_path):
+    with open(schema_path, "r") as f:
+      schema_json = json.load(f)
+      # Try to extract the main schema properties
+      if "properties" in schema_json:
+        def schema_props_to_yaml(props):
+          result = {}
+          for k, v in props.items():
+            if v.get("type") == "object" and "properties" in v:
+              result[k] = schema_props_to_yaml(v["properties"])
+            elif v.get("type") == "array":
+              result[k] = []
+            else:
+              result[k] = None
+          return result
+        base_yaml = schema_props_to_yaml(schema_json["properties"])
+        base_yaml["version"] = "0.1"
+  else:
+    # Base YAML structure
+    base_yaml = {
+      "version": "0.1",
+      "description": None,
+      "language": None,
+      "ports": { # If not applicable do not include this key
+        "default": None,  # Default port
+        "ssl": None       # SSL port
+      },
+      "category": {
+        "default": None,  # Default is undefined.
+        "sub": None,      # Default is undefined.
+        "tags": None      # Default is undefined.
+      },
+      "license": None,  # Default is undefined.
+      "platforms": [],  # Array of supported platforms, e.g. [linux, windows, macos]
+      "urls": {
+        "website": None,
+        "issues": None,
+        "documentation": None,
+        "support": None,
+        "source": None,
+        "license": None,
+        "download": None,
+        "icon": None
+      },
+      "containers": {
+        "upstream": {
+          "name": software_name,
+          "image": software_name,
+          "version": "latest",
+          "network": None,
+          "ports": [],
+          "volumes": [],
+          "nodaemon_args": None,
+          "env": []
+        },
+      },
+    }
   base_yaml = {
     "version": "0.1",
     "description": None,
@@ -66,7 +125,6 @@ def generate_default_yaml(software_name, overwrite="disable"):
     "platforms": [],  # Array of supported platforms, e.g. [linux, windows, macos]
     "urls": {
       "website": None,
-      "sbom": None,
       "issues": None,
       "documentation": None,
       "support": None,
@@ -91,7 +149,7 @@ def generate_default_yaml(software_name, overwrite="disable"):
   }
 
   # Initialize LLM
-  llm = OpenAI(temperature=0)
+  llm = ChatOpenAI(model=model, temperature=0)
 
   # Convert base_yaml to YAML string for prompt
   base_yaml_str = yaml.dump(base_yaml, sort_keys=False)
@@ -107,7 +165,12 @@ def generate_default_yaml(software_name, overwrite="disable"):
       "and the official Docker image (image). Do not include key for missing data, use null for missing values. "
     )
   )
-  all_info_raw = (all_info_prompt | llm).invoke({"software": software_name, "base_yaml": base_yaml_str})
+  # Invoke LLM and pull out the content string
+  ai_message = (all_info_prompt | llm).invoke({
+    "software": software_name,
+    "base_yaml": base_yaml_str
+  })
+  all_info_raw = ai_message.content
   all_info_yaml = extract_yaml_from_llm_output(all_info_raw)
   all_info_data = yaml.safe_load(all_info_yaml)
   if all_info_data:
@@ -124,7 +187,77 @@ def generate_default_yaml(software_name, overwrite="disable"):
         elif v is not None:
           base_yaml[k] = v
 
+  # Clean the YAML first
   cleaned_yaml = clean(base_yaml)
+
+  # --- Data validation checks ---
+
+  # 1. URL checks: Ensure all URLs are valid if present
+  def is_valid_url(url):
+      if not url or not isinstance(url, str):
+          return True  # Accept None or missing
+      url_regex = re.compile(
+          r'^(https?|ftp)://[^\s/$.?#].[^\s]*$', re.IGNORECASE)
+      try:
+          response = requests.head(url, allow_redirects=True, timeout=5)
+          # Fail if the URL is accessible (status code < 400)
+          if response.status_code < 400:
+            print(f"ERROR: URL '{url}' is accessible (status {response.status_code}), but should not be.")
+          return False
+      except requests.RequestException:
+          # If request fails, treat as not accessible (which is desired)
+          return True
+      return bool(url_regex.match(url))
+
+  if "urls" in cleaned_yaml and isinstance(cleaned_yaml["urls"], dict):
+      for url_key, url_val in cleaned_yaml["urls"].items():
+          if url_val and not is_valid_url(url_val):
+              print(f"WARNING: {url_key} URL '{url_val}' is not a valid URL.")
+
+  # 2. Ports check: Ensure ports are integers or None
+  if "ports" in cleaned_yaml and isinstance(cleaned_yaml["ports"], dict):
+      for port_key, port_val in cleaned_yaml["ports"].items():
+          if port_val is not None and not isinstance(port_val, int):
+              try:
+                  cleaned_yaml["ports"][port_key] = int(port_val)
+              except Exception:
+                  print(f"WARNING: Port '{port_key}' value '{port_val}' is not an integer or convertible.")
+
+  # 3. Platforms check: Ensure platforms are among allowed values
+  allowed_platforms = {"linux", "windows", "macos"}
+  if "platforms" in cleaned_yaml and isinstance(cleaned_yaml["platforms"], list):
+      cleaned_yaml["platforms"] = [
+          p.lower() for p in cleaned_yaml["platforms"] if isinstance(p, str) and p.lower() in allowed_platforms
+      ]
+
+  # 4. License check: Accept only Open Source, Commercial, or Public Domain (case-insensitive)
+  allowed_licenses = {"open source", "commercial", "public domain"}
+  if "license" in cleaned_yaml and cleaned_yaml["license"]:
+      lic = str(cleaned_yaml["license"]).strip().lower()
+      if lic not in allowed_licenses:
+          print(f"WARNING: License '{cleaned_yaml['license']}' is not one of {allowed_licenses}.")
+
+  # 5. Category check: Ensure keys exist and are strings or None
+  if "category" in cleaned_yaml and isinstance(cleaned_yaml["category"], dict):
+      for cat_key in ["default", "sub", "tags"]:
+          if cat_key not in cleaned_yaml["category"]:
+              cleaned_yaml["category"][cat_key] = None
+
+  # 6. Docker image check: Ensure containers.upstream.image is a non-empty string
+  try:
+      image_val = cleaned_yaml["containers"]["upstream"]["image"]
+      if not image_val or not isinstance(image_val, str):
+          print("WARNING: Docker image is missing or not a string.")
+  except Exception:
+      print("WARNING: containers.upstream.image is missing.")
+
+  # Additional checks (optional): MCP provider/package checks would require integration with provider logic
+
+  # Check if data is correct:
+  # - All the url checks
+  # - The package installations (via a MCP provider)
+  # - The ports are correct (checked after installation via a MCP provider)
+
 
   os.makedirs(software_dir, exist_ok=True)
 
@@ -145,117 +278,144 @@ def generate_default_yaml(software_name, overwrite="disable"):
     print(f"Skipping write to {output_file} as overwrite is disabled.")
 
 ### FUCTION TO GENERATE PROVIDER YAML FILES ###
-def generate_provider_yaml(software_name, provider_name, overwrite="disable"):
+def generate_all_providers_yaml(software_name, provider_names, overwrite="disable", model=None):
   provider_dir = os.path.join(software_dir, "providers")
-  output_file = os.path.join(provider_dir, f"{provider_name}.yaml")
-
-  if overwrite == "disable" and os.path.exists(output_file):
-    print(f"File {output_file} already exists. Skipping generation.")
-    return
-
-  # Base YAML structure for provider
-  base_provider_yaml = {
-    "version": "0.1",
-    "directories": {
-      "config": {"path": None},
-      "dotconf": {"path": None},
-      "log": {"path": None},
-      "data": {"path": None},
-      "lib": {"path": None}
-    },
-    "files": {
-      "config": {"path": None},
-      "log": {"path": None},
-      "pid": {"path": None}
-    },
-    "packages": {
-      "default": {"name": None}
-    },
-    "services": {
-      "default": {"name": None}
-    },
-    "processes": {
-      "default": {"path": None}
-    }
-  }
-
-  # Initialize LLM
-  llm = OpenAI(temperature=0)
-
-  # Convert base_provider_yaml to YAML string for prompt
-  base_provider_yaml_str = yaml.dump(base_provider_yaml, sort_keys=False)
-
-  # Query for provider-specific settings
-  settings_prompt = PromptTemplate(
-    input_variables=["software", "provider", "base_yaml"],
-    template=(
-      "Check official {software} and {provider} sites to verify if {provider} can install {software}. If it can't reply with:\nversion: 0.1\nsupported: false\n."      
-      "Otherwise Provide the configuration settings for {software} installation and management using {provider}. "
-      "Provide only data for sure you have correct answers, use null for missing data. Output as YAML with the following structure:\n{base_yaml}"
-
-    )
-  )
-  settings_raw = (settings_prompt | llm).invoke({"software": software_name, "provider": provider_name, "base_yaml": base_provider_yaml_str})
-  settings_yaml = extract_yaml_from_llm_output(settings_raw)
-  settings_data = yaml.safe_load(settings_yaml)
-  
-  if settings_data:
-    if settings_data.get("supported") is False:
-      base_provider_yaml = {"version": "0.1", "supported": False}
-    else:
-      base_provider_yaml.update({k: v for k, v in settings_data.items() if v is not None})
-
-  # Clean None/empty values
-  cleaned_provider_yaml = clean(base_provider_yaml)
-
   os.makedirs(provider_dir, exist_ok=True)
 
-  # Write to YAML file if overwrite is enabled or if the file does not exist
-  if overwrite == "enable" or not os.path.exists(output_file):
-    with open(output_file, 'w') as f:
-      yaml.dump(cleaned_provider_yaml, f, sort_keys=False)
-  elif overwrite == "merge":
-    # If merge, read existing file and update it
-    if os.path.exists(output_file):
-      with open(output_file, 'r') as f:
-        existing_yaml = yaml.safe_load(f) or {}
-      existing_yaml.update(cleaned_provider_yaml)
-      cleaned_provider_yaml = existing_yaml
+  # Base YAML structure for provider is baes on the json schema in saidata-0.1.schema.json
+  # 
+  base_provider_yaml = {
+    "version": "0.1",
+    "supported": None,
+    "description": None,
+    "install": {
+      "package": None,
+      "version": None,
+      "repo": None,
+      "options": None
+    },
+    "uninstall": {
+      "package": None,
+      "options": None
+    },
+    "update": {
+      "package": None,
+      "options": None
+    },
+    "notes": None
+  }
+  # Load base_provider_yaml from saidata-0.1.schema.json if available
+  schema_path = os.path.join(main_dir, "saidata-0.1.schema.json")
+  if os.path.exists(schema_path):
+    with open(schema_path, "r") as f:
+      schema_json = json.load(f)
+      # Try to extract the provider schema if present
+      if "definitions" in schema_json and "provider" in schema_json["definitions"]:
+        provider_props = schema_json["definitions"]["provider"].get("properties", {})
+        # Convert JSON schema properties to a YAML-like dict with None as default values
+        def schema_props_to_yaml(props):
+          result = {}
+          for k, v in props.items():
+            if v.get("type") == "object" and "properties" in v:
+              result[k] = schema_props_to_yaml(v["properties"])
+            elif v.get("type") == "array":
+              result[k] = []
+            else:
+              result[k] = None
+          return result
+        base_provider_yaml = schema_props_to_yaml(provider_props)
+        base_provider_yaml["version"] = "0.1"
+  llm = ChatOpenAI(model=model, temperature=0)
+  base_provider_yaml_str = yaml.dump(base_provider_yaml, sort_keys=False)
+
+  # Single prompt for all providers
+  all_providers_prompt = PromptTemplate(
+    input_variables=["software", "providers", "base_yaml"],
+    template=(
+      "Generate a yaml based on {base_yaml} specs for each provider of this lisr {providers} for the software: {software}."
+      "Be sure to check if a given provider can install or manage the software. If it can't, return an empty YAML structure with version 0.1 and supported: false. "
+      "If it can, provide the configuration settings for installation and management using that provider. "
+      "File output should be a valid YAML dictionary where each key is a provider name and the value is the data for that provider in format {base_yaml}. "
+    )
+  )
+  providers_str = ", ".join(provider_names)
+  ai_message = (all_providers_prompt | llm).invoke({
+        "software": software_name,
+        "providers": providers_str,
+        "base_yaml": base_provider_yaml_str
+      })
+  all_providers_raw = ai_message.content
+  # Write the raw output to a file for debugging
+  with open(os.path.join(provider_dir, "all_providers_raw.txt"), 'w') as f:
+    f.write(all_providers_raw)
+  all_providers_yaml = extract_yaml_from_llm_output(all_providers_raw)
+  all_providers_data, valid_lines = safe_partial_yaml_load(all_providers_yaml)
+  if all_providers_data is None:
+      print("ERROR: Could not parse any valid YAML from LLM output!")
+      print("Raw YAML output was:")
+      print(all_providers_yaml)
+      raise RuntimeError("No valid YAML could be parsed.")
+  if valid_lines < len(all_providers_yaml.strip().splitlines()):
+      print("WARNING: LLM output was incomplete YAML. Parsed only the valid part at the top.")
+
+  for provider in provider_names:
+    output_file = os.path.join(provider_dir, f"{provider}.yaml")
+    provider_data = all_providers_data.get(provider, None)
+    if provider_data:
+      if provider_data.get("supported") is False:
+        cleaned_provider_yaml = {"version": "0.1", "supported": False}
+      else:
+        cleaned_provider_yaml = clean(provider_data)
+    else:
+      cleaned_provider_yaml = {"version": "0.1", "supported": False}
+
+    if overwrite == "enable" or not os.path.exists(output_file):
       with open(output_file, 'w') as f:
         yaml.dump(cleaned_provider_yaml, f, sort_keys=False)
-  else:
-    print(f"Skipping write to {output_file} as overwrite is disabled.")
+    elif overwrite == "merge":
+      if os.path.exists(output_file):
+        with open(output_file, 'r') as f:
+          existing_yaml = yaml.safe_load(f) or {}
+        existing_yaml.update(cleaned_provider_yaml)
+        cleaned_provider_yaml = existing_yaml
+        with open(output_file, 'w') as f:
+          yaml.dump(cleaned_provider_yaml, f, sort_keys=False)
+    else:
+      print(f"Skipping write to {output_file} as overwrite is disabled.")
+
+def safe_partial_yaml_load(yaml_text):
+    """
+    Try to load as much valid YAML as possible from the top of the string.
+    If parsing fails, iteratively remove lines from the end until it succeeds or nothing is left.
+    """
+    lines = yaml_text.strip().splitlines()
+    while lines:
+        try:
+            return yaml.safe_load('\n'.join(lines)), len(lines)
+        except yaml.YAMLError:
+            lines = lines[:-1]
+    return None, 0
 
 
 if __name__ == "__main__":
-  import sys
-  if len(sys.argv) < 2:
-    print("Usage: python script.py <software_name> [overwrite_method]")
-    sys.exit(1)
-  software_name = sys.argv[1]
-  overwrite_method = sys.argv[2] if len(sys.argv) > 2 else "disable"
+    import sys
+    import re
+    import requests
+    if len(sys.argv) < 2:
+        print("Usage: python script.py <software_name> [overwrite_method] [openai_model]")
+        sys.exit(1)
+    software_name = sys.argv[1]
+    overwrite_method = sys.argv[2] if len(sys.argv) > 2 else "disable"
+    openai_model = sys.argv[3] if len(sys.argv) > 3 else "gpt-4.1"  # Default model
 
-  software_initials = software_name[:2].lower()
-  software_dir = os.path.join(main_dir, "software", software_initials, software_name)
-  output_file = os.path.join(software_dir, "defaults.yaml")
+    software_initials = software_name[:2].lower()
+    software_dir = os.path.join(main_dir, "software", software_initials, software_name)
+    output_file = os.path.join(software_dir, "defaults.yaml")
 
-  if overwrite_method not in ["disable", "enable", "merge"]:
-    raise ValueError("Invalid overwrite method. Use 'disable', 'enable', or 'merge'.")
-  generate_default_yaml(software_name, overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'apt', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'yum', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'zypper', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'dnf', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'snap', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'flatpak', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'scoop', overwrite=overwrite_method) 
-  generate_provider_yaml(software_name, 'chocolatey', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'brew', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'winget', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'nix', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'gem', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'pip', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'nuget', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'npm', overwrite=overwrite_method)
-  generate_provider_yaml(software_name, 'nix', overwrite=overwrite_method)
-#  generate_provider_yaml(software_name, 'maven', overwrite=overwrite_method)
+    if overwrite_method not in ["disable", "enable", "merge"]:
+      raise ValueError("Invalid overwrite method. Use 'disable', 'enable', or 'merge'.")
+    generate_default_yaml(software_name, overwrite=overwrite_method, model=openai_model)
+    provider_list = [
+      'apt', 'yum', 'zypper', 'dnf', 'snap', 'flatpak', 'scoop', 'chocolatey', 'brew', 'winget', 'nix', 'pip', 'pipx', 'conda', 'docker', 'helm', 'maven', 'gradle', 'npm', 'yarn', 'composer', 'nuget', 'gem', 'cargo', 'go get', 'crates.io', 'leiningen', 'cabal', 'stack', 'cpan'
+    ]
+    generate_all_providers_yaml(software_name, provider_list, overwrite=overwrite_method, model=openai_model)

@@ -205,7 +205,7 @@ def generate_all_providers_yaml(software_name, provider_names, overwrite="disabl
     input_variables=["software", "providers", "base_yaml"],
     template=(
       "Generate a yaml based on {base_yaml} specs for each provider of this lisr {providers} for the software: {software}."
-      "Be sure to check if a given provider can install or manage the software.If it can't, return an empty YAML structure with version 0.1 and supported: false. "
+      "Be sure to check if a given provider can install or manage the software. If it can't, return an empty YAML structure with version 0.1 and supported: false. "
       "If it can, provide the configuration settings for installation and management using that provider. "
       "File output should be a valid YAML dictionary where each key is a provider name and the value is the data for that provider in format {base_yaml}. "
     )

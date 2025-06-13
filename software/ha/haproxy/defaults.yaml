@@ -1,19 +1,17 @@
 version: '0.1'
-description: HAProxy is a high performance TCP/HTTP load balancer and proxy server
-  for high availability environments.
+description: HAProxy is a high-performance TCP/HTTP load balancer and proxy server
+  for web applications.
 language: C
 ports:
   default: 80
   ssl: 443
 category:
-  default: Networking
-  sub: Load Balancer
+  default: Load Balancer
+  sub: Proxy
   tags:
-  - proxy
-  - load-balancer
-  - tcp
-  - http
-  - reverse-proxy
+  - HTTP
+  - TCP
+  - Load Balancing
 license: Open Source
 platforms:
 - Linux
@@ -22,12 +20,11 @@ platforms:
 urls:
   website: https://www.haproxy.org/
   issues: https://github.com/haproxy/haproxy/issues
-  documentation: https://www.haproxy.org/download/2.8/doc/
-  support: https://discourse.haproxy.org/
+  documentation: https://www.haproxy.org/download/2.4/doc/
+  support: https://www.haproxy.com/support/
   source: https://github.com/haproxy/haproxy
-  license: https://www.haproxy.org/download/2.8/doc/LICENSE
-  download: https://www.haproxy.org/download/
-  icon: https://www.haproxy.org/img/haproxy_logo.svg
+  license: https://www.haproxy.org/download/2.4/doc/haproxy.txt
+  download: https://www.haproxy.org/download/2.4/
 containers:
   upstream:
     name: haproxy

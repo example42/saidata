@@ -1,0 +1,24 @@
+version: '0.1'
+description: CrowdStrike provides cloud-delivered endpoint protection through its
+  Falcon platform.
+category:
+  default: security
+  sub: endpoint protection
+  tags:
+  - cloud
+  - cybersecurity
+  - threat detection
+license: Commercial
+platforms:
+- Linux
+- Windows
+- MacOS
+urls:
+  website: https://www.crowdstrike.com
+  documentation: https://www.crowdstrike.com/resources/
+  support: https://www.crowdstrike.com/support/
+containers:
+  upstream:
+    name: crowdstrike
+    image: crowdstrike/falcon-sensor
+    version: latest

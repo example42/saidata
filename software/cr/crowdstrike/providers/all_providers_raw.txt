@@ -1,89 +1,81 @@
-Here is the YAML configuration for managing HAProxy across various package managers. For those that do not support HAProxy, an empty structure is provided.
+Here is the YAML configuration for the software "crowdstrike" based on the specified providers. For providers that cannot manage or install the software, an empty structure is provided.
 
 ```yaml
 apt:
   version: '0.1'
   supported: true
-  description: "Debian-based package manager"
+  description: "Package manager for Debian-based systems."
   install:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     version: null
-    repo: null
-    options: null
+    repo: "https://packages.crowdstrike.com"
+    options: "--allow-unauthenticated"
   uninstall:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   update:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
-  notes: null
+  notes: "Ensure the repository is added before installation."
 
 yum:
   version: '0.1'
   supported: true
-  description: "Red Hat-based package manager"
+  description: "Package manager for RPM-based systems."
   install:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     version: null
-    repo: null
+    repo: "https://packages.crowdstrike.com"
     options: null
   uninstall:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   update:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
-  notes: null
+  notes: "Ensure the repository is added before installation."
 
 zypper:
   version: '0.1'
   supported: true
-  description: "OpenSUSE package manager"
+  description: "Package manager for openSUSE."
   install:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     version: null
-    repo: null
+    repo: "https://packages.crowdstrike.com"
     options: null
   uninstall:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   update:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
-  notes: null
+  notes: "Ensure the repository is added before installation."
 
 dnf:
   version: '0.1'
   supported: true
-  description: "Next-generation package manager for RPM-based distributions"
+  description: "Next-generation package manager for RPM-based systems."
   install:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     version: null
-    repo: null
+    repo: "https://packages.crowdstrike.com"
     options: null
   uninstall:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   update:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
-  notes: null
+  notes: "Ensure the repository is added before installation."
 
 snap:
   version: '0.1'
-  supported: true
-  description: "Package manager for snap packages"
-  install:
-    package: "haproxy"
-    version: null
-    repo: null
-    options: null
-  uninstall:
-    package: "haproxy"
-    options: null
-  update:
-    package: "haproxy"
-    options: null
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  update: null
   notes: null
 
 flatpak:
@@ -107,69 +99,53 @@ scoop:
 chocolatey:
   version: '0.1'
   supported: true
-  description: "Windows package manager"
+  description: "Package manager for Windows."
   install:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     version: null
     repo: null
     options: null
   uninstall:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   update:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   notes: null
 
 brew:
   version: '0.1'
-  supported: true
-  description: "Package manager for macOS"
-  install:
-    package: "haproxy"
-    version: null
-    repo: null
-    options: null
-  uninstall:
-    package: "haproxy"
-    options: null
-  update:
-    package: "haproxy"
-    options: null
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  update: null
   notes: null
 
 winget:
   version: '0.1'
   supported: true
-  description: "Windows Package Manager"
+  description: "Windows Package Manager."
   install:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     version: null
     repo: null
     options: null
   uninstall:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   update:
-    package: "haproxy"
+    package: "crowdstrike-falcon"
     options: null
   notes: null
 
 nix:
   version: '0.1'
-  supported: true
-  description: "Nix package manager"
-  install:
-    package: "haproxy"
-    version: null
-    repo: null
-    options: null
-  uninstall:
-    package: "haproxy"
-    options: null
-  update:
-    package: "haproxy"
-    options: null
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  update: null
   notes: null
 
 pip:
@@ -202,17 +178,17 @@ conda:
 docker:
   version: '0.1'
   supported: true
-  description: "Containerization platform"
+  description: "Containerization platform."
   install:
-    package: "haproxy"
+    package: "crowdstrike/falcon"
     version: null
     repo: null
     options: null
   uninstall:
-    package: "haproxy"
+    package: "crowdstrike/falcon"
     options: null
   update:
-    package: "haproxy"
+    package: "crowdstrike/falcon"
     options: null
   notes: null
 
@@ -352,4 +328,4 @@ cpan:
   notes: null
 ```
 
-This YAML structure provides the installation, uninstallation, and update commands for HAProxy across various package managers that support it, while marking those that do not support it as empty.
+This YAML structure provides the installation and management details for the "crowdstrike" software across various package managers, indicating which ones support it and which do not.

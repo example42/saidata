@@ -1,0 +1,160 @@
+package_repositories:
+  - name: apt
+    description: "The Advanced Package Tool (APT) is the cornerstone of package management for Debian and its numerous derivatives, including Ubuntu."
+    supported_os:
+      - "Debian"
+      - "Ubuntu"
+      - "Other Debian-based Linux distributions"
+    link: "https://deb.debian.org/debian/"
+
+  - name: dnf
+    description: "DNF (Dandified YUM) is the modern package manager for the Red Hat ecosystem, including Fedora, CentOS, and RHEL."
+    supported_os:
+      - "Fedora"
+      - "Red Hat Enterprise Linux (RHEL)"
+      - "CentOS"
+      - "Other RPM-based Linux distributions"
+    link: "https://mirrors.fedoraproject.org/"
+
+  - name: zypper
+    description: "Zypper is the primary command-line package manager for the SUSE Linux ecosystem."
+    supported_os:
+      - "openSUSE"
+      - "SUSE Linux Enterprise (SLES)"
+    link: "http://download.opensuse.org/"
+
+  - name: snap
+    description: "A universal Linux package manager that bundles applications with their dependencies to run in a sandboxed environment across many distributions."
+    supported_os:
+      - "Universal Linux (Ubuntu, Fedora, Arch, etc.)"
+    link: "https://snapcraft.io/store"
+
+  - name: flatpak
+    description: "A community-driven framework for distributing sandboxed desktop applications on Linux."
+    supported_os:
+      - "Universal Linux (Fedora, Ubuntu, Arch, etc.)"
+    link: "https://flathub.org"
+
+  - name: scoop
+    description: "A command-line installer for Windows, focusing on portable developer tools installed in the user's home directory."
+    supported_os:
+      - "Windows"
+    link: "https://github.com/ScoopInstaller/Main"
+
+  - name: chocolatey
+    description: "An established package manager for Windows that leverages PowerShell and the NuGet infrastructure for powerful, scriptable management."
+    supported_os:
+      - "Windows"
+    link: "https://community.chocolatey.org/"
+
+  - name: brew
+    description: "The de-facto package manager for macOS and a popular choice on Linux for developer tools."
+    supported_os:
+      - "macOS"
+      - "Linux"
+    link: "https://formulae.brew.sh/"
+
+  - name: winget
+    description: "Microsoft's official, built-in package manager for Windows, designed for secure application discovery and installation."
+    supported_os:
+      - "Windows 10"
+      - "Windows 11"
+    link: "https://github.com/microsoft/winget-pkgs"
+
+  - name: nix
+    description: "A powerful, purely functional package manager providing atomic upgrades and rollbacks, usable on NixOS, other Linux distributions, and macOS."
+    supported_os:
+      - "NixOS"
+      - "Linux"
+      - "macOS"
+    link: "https://github.com/NixOS/nixpkgs"
+
+  - name: pip
+    description: "The official and standard package-management system for installing libraries and applications from the Python Package Index (PyPI)."
+    supported_os:
+      - "Cross-platform (Windows, macOS, Linux)"
+    link: "https://pypi.org"
+
+  - name: conda
+    description: "A cross-platform, language-agnostic package and environment manager, popular in the data science community for handling complex binary dependencies."
+    supported_os:
+      - "Cross-platform (Windows, macOS, Linux)"
+    link: "https://repo.anaconda.com/pkgs/main"
+
+  - name: docker
+    description: "A platform for building, sharing, and running applications in isolated environments called containers. Docker Hub is the default public registry."
+    supported_os:
+      - "Cross-platform (Linux, Windows, macOS)"
+    link: "https://hub.docker.com"
+
+  - name: helm
+    description: "The de-facto package manager for Kubernetes, used to package, configure, and deploy applications onto a Kubernetes cluster."
+    supported_os:
+      - "Cross-platform (anywhere with Kubernetes access)"
+    link: "https://artifacthub.io"
+
+  - name: maven
+    description: "A project management tool for Java projects, managing builds, reporting, and dependencies from a central Project Object Model (POM)."
+    supported_os:
+      - "Cross-platform (anywhere with a JVM)"
+    link: "https://repo.maven.apache.org/maven2/"
+
+  - name: gradle
+    description: "A modern and flexible build automation tool for the JVM ecosystem, offering a powerful Groovy or Kotlin DSL for configuration."
+    supported_os:
+      - "Cross-platform (anywhere with a JVM)"
+    link: "https://repo.maven.apache.org/maven2/"
+
+  - name: npm
+    description: "The default package manager for Node.js and the world's largest software registry for JavaScript libraries."
+    supported_os:
+      - "Cross-platform (anywhere with Node.js)"
+    link: "https://registry.npmjs.org"
+
+  - name: composer
+    description: "The de-facto standard dependency manager for PHP, managing libraries from the Packagist repository."
+    supported_os:
+      - "Cross-platform (anywhere with PHP)"
+    link: "https://packagist.org"
+
+  - name: nuget
+    description: "The official package manager for the .NET ecosystem, used to share and consume reusable code as packages."
+    supported_os:
+      - "Cross-platform (anywhere with .NET)"
+    link: "https://api.nuget.org/v3/index.json"
+
+  - name: gem
+    description: "The standard package manager for the Ruby programming language, providing a format for distributing libraries called 'gems'."
+    supported_os:
+      - "Cross-platform (anywhere with Ruby)"
+    link: "https://rubygems.org"
+
+  - name: cargo
+    description: "The official build system and package manager for Rust, tightly integrated with the language for managing dependencies from crates.io."
+    supported_os:
+      - "Cross-platform (anywhere with Rust)"
+    link: "https://crates.io"
+
+  - name: go
+    description: "The official Go toolchain includes integrated support for package management via Go Modules, using a decentralized model with a public proxy."
+    supported_os:
+      - "Cross-platform (anywhere with Go)"
+    link: "https://proxy.golang.org"
+
+  - name: cabal
+    description: "The original package manager and build tool for Haskell, interacting with the central package repository, Hackage."
+    supported_os:
+      - "Cross-platform (anywhere with Haskell)"
+    link: "https://hackage.haskell.org"
+
+  - name: stack
+    description: "A modern build tool for Haskell that provides reproducible builds by default using curated sets of packages called Stackage snapshots."
+    supported_os:
+      - "Cross-platform (anywhere with Haskell)"
+    link: "https://www.stackage.org"
+
+  - name: cpan
+    description: "The Comprehensive Perl Archive Network (CPAN), one of the oldest open-source software repositories, distributed across a network of mirrors."
+    supported_os:
+      - "Cross-platform (anywhere with Perl)"
+    link: "https://www.cpan.org"

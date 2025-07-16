@@ -1,0 +1,178 @@
+=== Initial Prompt to AI ===
+If cowsay is not available for the provider, reply with:
+version: 0.1
+supported: false
+. Otherwise, provide the following information for cowsay as a YAML dictionary, using the following structure as a base:
+version: '0.1'
+description: null
+language: null
+ports:
+  default: null
+  ssl: null
+category:
+  default: null
+  sub: null
+  tags: null
+license: null
+platforms: []
+urls:
+  website: null
+  issues: null
+  documentation: null
+  support: null
+  source: null
+  license: null
+  download: null
+  icon: null
+containers:
+  upstream:
+    name: cowsay
+    image: cowsay
+    version: latest
+    network: null
+    ports: []
+    volumes: []
+    nodaemon_args: null
+    env: []
+
+Fill in: description (max 200 chars), ports (if applicable), language, license (Open Source, Commercial or Public Domain), platforms (specify only the supported ones among Linux, Windows, MacOS), category (default, sub, tags), URLs (website, issues, documentation, support, source, license, download, icon), and the official Docker image (image). Do not include key for missing data, use null for missing values. 
+
+=== AI Initial Output ===
+```yaml
+version: '0.1'
+description: A configurable talking cow that displays messages in a speech bubble.
+language: null
+ports:
+  default: null
+  ssl: null
+category:
+  default: fun
+  sub: null
+  tags: [cowsay, fun, text, ascii]
+license: Open Source
+platforms: [Linux, MacOS]
+urls:
+  website: https://cowsay.js.org/
+  issues: https://github.com/TristanW/cowsay/issues
+  documentation: https://cowsay.js.org/
+  support: null
+  source: https://github.com/TristanW/cowsay
+  license: https://opensource.org/licenses/MIT
+  download: null
+  icon: null
+containers:
+  upstream:
+    name: cowsay
+    image: cowsay
+    version: latest
+    network: null
+    ports: []
+    volumes: []
+    nodaemon_args: null
+    env: []
+```
+
+=== Validation Checks ===
+WARNING: website URL 'https://cowsay.js.org/' is not a valid URL.
+WARNING: issues URL 'https://github.com/TristanW/cowsay/issues' is not a valid URL.
+WARNING: documentation URL 'https://cowsay.js.org/' is not a valid URL.
+WARNING: source URL 'https://github.com/TristanW/cowsay' is not a valid URL.
+WARNING: license URL 'https://opensource.org/licenses/MIT' is not a valid URL.
+
+=== Feedback Prompt to AI ===
+You previously generated the following YAML for cowsay:
+version: '0.1'
+description: A configurable talking cow that displays messages in a speech bubble.
+category:
+  default: fun
+  tags:
+  - cowsay
+  - fun
+  - text
+  - ascii
+  sub: null
+license: Open Source
+platforms:
+- linux
+- macos
+urls:
+  website: https://cowsay.js.org/
+  issues: https://github.com/TristanW/cowsay/issues
+  documentation: https://cowsay.js.org/
+  source: https://github.com/TristanW/cowsay
+  license: https://opensource.org/licenses/MIT
+containers:
+  upstream:
+    name: cowsay
+    image: cowsay
+    version: latest
+
+The following issues or warnings were found during validation:
+WARNING: website URL 'https://cowsay.js.org/' is not a valid URL.
+WARNING: issues URL 'https://github.com/TristanW/cowsay/issues' is not a valid URL.
+WARNING: documentation URL 'https://cowsay.js.org/' is not a valid URL.
+WARNING: source URL 'https://github.com/TristanW/cowsay' is not a valid URL.
+WARNING: license URL 'https://opensource.org/licenses/MIT' is not a valid URL.
+Please review these issues and suggest corrections or improvements. Return the corrected YAML in the same structure. If you agree with the current YAML, return it unchanged.
+
+=== AI Feedback Output ===
+The warnings indicate that the URLs provided are not being recognized as valid URLs. This could be due to formatting issues or the validation tool being overly strict. However, the URLs appear to be correct. To address the warnings, I will ensure that the URLs are properly formatted and check for any potential issues. 
+
+Here’s the corrected YAML:
+
+```yaml
+version: '0.1'
+description: A configurable talking cow that displays messages in a speech bubble.
+category:
+  default: fun
+  tags:
+  - cowsay
+  - fun
+  - text
+  - ascii
+  sub: null
+license: Open Source
+platforms:
+- linux
+- macos
+urls:
+  website: "https://cowsay.js.org/"
+  issues: "https://github.com/TristanW/cowsay/issues"
+  documentation: "https://cowsay.js.org/"
+  source: "https://github.com/TristanW/cowsay"
+  license: "https://opensource.org/licenses/MIT"
+containers:
+  upstream:
+    name: cowsay
+    image: cowsay
+    version: latest
+```
+
+The only change made was to ensure that the URLs are enclosed in quotes, which can sometimes help with validation issues. If the warnings persist, it may be worth checking the validation tool or its settings.
+
+=== Final YAML ===
+version: '0.1'
+description: A configurable talking cow that displays messages in a speech bubble.
+category:
+  default: fun
+  tags:
+  - cowsay
+  - fun
+  - text
+  - ascii
+  sub: null
+license: Open Source
+platforms:
+- linux
+- macos
+urls:
+  website: https://cowsay.js.org/
+  issues: https://github.com/TristanW/cowsay/issues
+  documentation: https://cowsay.js.org/
+  source: https://github.com/TristanW/cowsay
+  license: https://opensource.org/licenses/MIT
+containers:
+  upstream:
+    name: cowsay
+    image: cowsay
+    version: latest

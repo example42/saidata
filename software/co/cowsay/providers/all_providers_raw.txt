@@ -1,81 +1,89 @@
-Here is the YAML configuration for the software "crowdstrike" based on the specified providers. For providers that cannot manage or install the software, an empty structure is provided.
+Here is the YAML configuration for the software "cowsay" based on the specified providers. Each provider that can manage "cowsay" is included with its respective configuration settings, while those that cannot manage it are represented with an empty structure.
 
 ```yaml
 apt:
   version: '0.1'
   supported: true
-  description: "Package manager for Debian-based systems."
+  description: "Debian package manager"
   install:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     version: null
-    repo: "https://packages.crowdstrike.com"
-    options: "--allow-unauthenticated"
+    repo: null
+    options: null
   uninstall:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     options: null
-  update:
-    package: "crowdstrike-falcon"
+  info:
+    command: "cowsay"
     options: null
-  notes: "Ensure the repository is added before installation."
+  notes: null
 
 yum:
   version: '0.1'
   supported: true
-  description: "Package manager for RPM-based systems."
+  description: "Yellowdog Updater Modified"
   install:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     version: null
-    repo: "https://packages.crowdstrike.com"
+    repo: null
     options: null
   uninstall:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     options: null
-  update:
-    package: "crowdstrike-falcon"
+  info:
+    command: "cowsay"
     options: null
-  notes: "Ensure the repository is added before installation."
+  notes: null
 
 zypper:
   version: '0.1'
   supported: true
-  description: "Package manager for openSUSE."
+  description: "Zypper package manager for openSUSE"
   install:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     version: null
-    repo: "https://packages.crowdstrike.com"
+    repo: null
     options: null
   uninstall:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     options: null
-  update:
-    package: "crowdstrike-falcon"
+  info:
+    command: "cowsay"
     options: null
-  notes: "Ensure the repository is added before installation."
+  notes: null
 
 dnf:
   version: '0.1'
   supported: true
-  description: "Next-generation package manager for RPM-based systems."
+  description: "Dandified YUM"
   install:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     version: null
-    repo: "https://packages.crowdstrike.com"
+    repo: null
     options: null
   uninstall:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     options: null
-  update:
-    package: "crowdstrike-falcon"
+  info:
+    command: "cowsay"
     options: null
-  notes: "Ensure the repository is added before installation."
+  notes: null
 
 snap:
   version: '0.1'
-  supported: false
-  description: null
-  install: null
-  uninstall: null
-  update: null
+  supported: true
+  description: "Snap package manager"
+  install:
+    package: "cowsay"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "cowsay"
+    options: null
+  info:
+    command: "cowsay"
+    options: null
   notes: null
 
 flatpak:
@@ -84,68 +92,92 @@ flatpak:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 scoop:
   version: '0.1'
-  supported: false
-  description: null
-  install: null
-  uninstall: null
-  update: null
+  supported: true
+  description: "Windows command-line installer"
+  install:
+    package: "cowsay"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "cowsay"
+    options: null
+  info:
+    command: "cowsay"
+    options: null
   notes: null
 
 chocolatey:
   version: '0.1'
   supported: true
-  description: "Package manager for Windows."
+  description: "Windows package manager"
   install:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     version: null
     repo: null
     options: null
   uninstall:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     options: null
-  update:
-    package: "crowdstrike-falcon"
+  info:
+    command: "cowsay"
     options: null
   notes: null
 
 brew:
   version: '0.1'
-  supported: false
-  description: null
-  install: null
-  uninstall: null
-  update: null
+  supported: true
+  description: "Homebrew package manager for macOS"
+  install:
+    package: "cowsay"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "cowsay"
+    options: null
+  info:
+    command: "cowsay"
+    options: null
   notes: null
 
 winget:
   version: '0.1'
   supported: true
-  description: "Windows Package Manager."
+  description: "Windows Package Manager"
   install:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     version: null
     repo: null
     options: null
   uninstall:
-    package: "crowdstrike-falcon"
+    package: "cowsay"
     options: null
-  update:
-    package: "crowdstrike-falcon"
+  info:
+    command: "cowsay"
     options: null
   notes: null
 
 nix:
   version: '0.1'
-  supported: false
-  description: null
-  install: null
-  uninstall: null
-  update: null
+  supported: true
+  description: "Nix package manager"
+  install:
+    package: "cowsay"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "cowsay"
+    options: null
+  info:
+    command: "cowsay"
+    options: null
   notes: null
 
 pip:
@@ -154,16 +186,24 @@ pip:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 pipx:
   version: '0.1'
-  supported: false
-  description: null
-  install: null
-  uninstall: null
-  update: null
+  supported: true
+  description: "Python package manager for applications"
+  install:
+    package: "cowsay"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "cowsay"
+    options: null
+  info:
+    command: "cowsay"
+    options: null
   notes: null
 
 conda:
@@ -172,23 +212,23 @@ conda:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 docker:
   version: '0.1'
   supported: true
-  description: "Containerization platform."
+  description: "Docker container management"
   install:
-    package: "crowdstrike/falcon"
+    package: "cowsay"
     version: null
     repo: null
     options: null
   uninstall:
-    package: "crowdstrike/falcon"
+    package: "cowsay"
     options: null
-  update:
-    package: "crowdstrike/falcon"
+  info:
+    command: "docker run -it --rm nathanlewis/cowsay"
     options: null
   notes: null
 
@@ -198,7 +238,7 @@ helm:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 maven:
@@ -207,7 +247,7 @@ maven:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 gradle:
@@ -216,7 +256,7 @@ gradle:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 npm:
@@ -225,7 +265,7 @@ npm:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 yarn:
@@ -234,7 +274,7 @@ yarn:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 composer:
@@ -243,7 +283,7 @@ composer:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 nuget:
@@ -252,7 +292,7 @@ nuget:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 gem:
@@ -261,7 +301,7 @@ gem:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 cargo:
@@ -270,7 +310,7 @@ cargo:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 go get:
@@ -279,7 +319,7 @@ go get:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 crates.io:
@@ -288,7 +328,7 @@ crates.io:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 leiningen:
@@ -297,7 +337,7 @@ leiningen:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 cabal:
@@ -306,7 +346,7 @@ cabal:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 stack:
@@ -315,7 +355,7 @@ stack:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 
 cpan:
@@ -324,8 +364,8 @@ cpan:
   description: null
   install: null
   uninstall: null
-  update: null
+  info: null
   notes: null
 ```
 
-This YAML structure provides the installation and management details for the "crowdstrike" software across various package managers, indicating which ones support it and which do not.
+This YAML structure provides the installation and management details for "cowsay" across various package managers, indicating which ones support it and which do not.

@@ -1,0 +1,299 @@
+Here is the YAML configuration for the software "znc" based on the specified providers. Each provider that can manage "znc" is included with its respective configuration settings.
+
+```yaml
+apt:
+  version: '0.1'
+  supported: true
+  description: "Debian-based package manager"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+yum:
+  version: '0.1'
+  supported: true
+  description: "Red Hat-based package manager"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+dnf:
+  version: '0.1'
+  supported: true
+  description: "Next-generation package manager for RPM-based distributions"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+zypper:
+  version: '0.1'
+  supported: true
+  description: "Package manager for openSUSE"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+snap:
+  version: '0.1'
+  supported: true
+  description: "Package management system for installing snaps"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+flatpak:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+scoop:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+chocolatey:
+  version: '0.1'
+  supported: true
+  description: "Package manager for Windows"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+brew:
+  version: '0.1'
+  supported: true
+  description: "Package manager for macOS"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+winget:
+  version: '0.1'
+  supported: true
+  description: "Windows Package Manager"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: null
+  uninstall:
+    package: "znc"
+    options: null
+  notes: null
+
+nix:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+pip:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+pipx:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+conda:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+docker:
+  version: '0.1'
+  supported: true
+  description: "Containerization platform"
+  install:
+    package: "znc"
+    version: null
+    repo: null
+    options: "docker pull znc"
+  uninstall:
+    package: "znc"
+    options: "docker rmi znc"
+  notes: null
+
+helm:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+maven:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+gradle:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+npm:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+yarn:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+composer:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+nuget:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+gem:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+cargo:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+go get:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+crates.io:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+leiningen:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+cabal:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+stack:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+
+cpan:
+  version: '0.1'
+  supported: false
+  description: null
+  install: null
+  uninstall: null
+  notes: null
+```
+
+This YAML structure provides the installation and uninstallation details for the "znc" software across various package managers, indicating which ones support it and which do not.

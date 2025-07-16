@@ -4,6 +4,8 @@ import os
 import json
 from langchain.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
+import re
+import requests
 
 main_dir = None
 main_dir = os.popen("git rev-parse --show-toplevel").read().strip()
@@ -25,17 +27,29 @@ def extract_yaml_from_llm_output(llm_output):
     """
     Extracts the YAML part from LLM output, removing markdown/code block markers and leading/trailing text.
     """
-    import re
+    if not isinstance(llm_output, str):
+        print(f"WARNING: llm_output is not a string, type: {type(llm_output)}")
+        return ""
+        
     # Remove markdown code block markers
     llm_output = re.sub(r'^```[a-zA-Z]*', '', llm_output, flags=re.MULTILINE)
     llm_output = llm_output.replace('```', '')
     # Remove leading/trailing whitespace and dots
     llm_output = llm_output.strip().lstrip('.')
+    
+    # Debug: Print the processed output
+    print(f"DEBUG: Processed LLM output (first 200 chars): {llm_output[:200]}")
+    
     # Remove any leading lines that are not YAML keys
     lines = llm_output.splitlines()
     for i, line in enumerate(lines):
-        if line.strip().startswith('version:'):
-            return '\n'.join(lines[i:])
+        try:
+            if line.strip().startswith('version:'):
+                return '\n'.join(lines[i:])
+        except Exception as e:
+            print(f"ERROR: Exception processing line {i}: {line}")
+            print(f"Exception: {e}")
+            continue
     return llm_output
 
 ### MAIN FUNCTION TO GENERATE DEFAULT YAML FILES ###
@@ -158,7 +172,7 @@ def generate_default_yaml(software_name, overwrite="disable", model=None):
   all_info_prompt = PromptTemplate(
     input_variables=["software", "base_yaml"],
     template=(
-      "If {software} is not available for any platform, reply with:\nversion: 0.1\nsupported: false\n. "
+      "If {software} is not available for the provider, reply with:\nversion: 0.1\nsupported: false\n. "
       "Otherwise, provide the following information for {software} as a YAML dictionary, using the following structure as a base:\n{base_yaml}\n"
       "Fill in: description (max 200 chars), ports (if applicable), language, license (Open Source, Commercial or Public Domain), "
       "platforms (specify only the supported ones among Linux, Windows, MacOS), category (default, sub, tags), URLs (website, issues, documentation, support, source, license, download, icon), "
@@ -170,9 +184,36 @@ def generate_default_yaml(software_name, overwrite="disable", model=None):
     "software": software_name,
     "base_yaml": base_yaml_str
   })
+  
+  # Debug: Check if ai_message.content is a string
+  if not hasattr(ai_message, 'content'):
+    print(f"ERROR: ai_message does not have 'content' attribute. Type: {type(ai_message)}")
+    print(f"ai_message: {ai_message}")
+    raise ValueError("LLM response does not have expected 'content' attribute")
+    
   all_info_raw = ai_message.content
+  
+  # Debug: Check if content is a string
+  if not isinstance(all_info_raw, str):
+    print(f"ERROR: ai_message.content is not a string. Type: {type(all_info_raw)}")
+    print(f"Content: {all_info_raw}")
+    raise ValueError("LLM response content is not a string")
+    
   all_info_yaml = extract_yaml_from_llm_output(all_info_raw)
-  all_info_data = yaml.safe_load(all_info_yaml)
+  
+  # Debug: Print the extracted YAML
+  print(f"DEBUG: Extracted YAML (first 200 chars): {all_info_yaml[:200]}")
+  
+  try:
+    all_info_data = yaml.safe_load(all_info_yaml)
+  except yaml.YAMLError as e:
+    print(f"ERROR: Failed to parse YAML: {e}")
+    print(f"YAML content: {all_info_yaml}")
+    raise ValueError(f"Invalid YAML from LLM: {e}")
+  except Exception as e:
+    print(f"ERROR: Unexpected error parsing YAML: {e}")
+    print(f"YAML content: {all_info_yaml}")
+    raise
   if all_info_data:
     if all_info_data.get("supported") is False:
       base_yaml = {"version": "0.1", "supported": False}
@@ -194,20 +235,17 @@ def generate_default_yaml(software_name, overwrite="disable", model=None):
 
   # 1. URL checks: Ensure all URLs are valid if present
   def is_valid_url(url):
-      if not url or not isinstance(url, str):
-          return True  # Accept None or missing
-      url_regex = re.compile(
-          r'^(https?|ftp)://[^\s/$.?#].[^\s]*$', re.IGNORECASE)
-      try:
-          response = requests.head(url, allow_redirects=True, timeout=5)
-          # Fail if the URL is accessible (status code < 400)
-          if response.status_code < 400:
-            print(f"ERROR: URL '{url}' is accessible (status {response.status_code}), but should not be.")
-          return False
-      except requests.RequestException:
-          # If request fails, treat as not accessible (which is desired)
-          return True
-      return bool(url_regex.match(url))
+    if not url or not isinstance(url, str):
+        return True  # Accept None or missing
+    url_regex = re.compile(
+        r'^(https?|ftp)://[^\s/$.?#].[^\s]*', re.IGNORECASE)
+    if not url_regex.match(url):
+        return False
+    try:
+        response = requests.head(url, allow_redirects=True, timeout=10)
+        return response.status_code < 400  # Return True if status code indicates success
+    except requests.RequestException:
+        return False  # Return False if request fails
 
   if "urls" in cleaned_yaml and isinstance(cleaned_yaml["urls"], dict):
       for url_key, url_val in cleaned_yaml["urls"].items():
@@ -253,13 +291,84 @@ def generate_default_yaml(software_name, overwrite="disable", model=None):
 
   # Additional checks (optional): MCP provider/package checks would require integration with provider logic
 
-  # Check if data is correct:
-  # - All the url checks
-  # - The package installations (via a MCP provider)
-  # - The ports are correct (checked after installation via a MCP provider)
+  # --- AI feedback and integration step ---
 
+  # Gather results of checks
+  checks_summary = []
+  # 1. URL checks
+  if "urls" in cleaned_yaml and isinstance(cleaned_yaml["urls"], dict):
+      for url_key, url_val in cleaned_yaml["urls"].items():
+          if url_val and not is_valid_url(url_val):
+              checks_summary.append(f"WARNING: {url_key} URL '{url_val}' is not a valid URL.")
+  # 2. Ports check
+  if "ports" in cleaned_yaml and isinstance(cleaned_yaml["ports"], dict):
+      for port_key, port_val in cleaned_yaml["ports"].items():
+          if port_val is not None and not isinstance(port_val, int):
+              try:
+                  int(port_val)
+              except Exception:
+                  checks_summary.append(f"WARNING: Port '{port_key}' value '{port_val}' is not an integer or convertible.")
+  # 3. Platforms check
+  if "platforms" in cleaned_yaml and isinstance(cleaned_yaml["platforms"], list):
+      for p in cleaned_yaml["platforms"]:
+          if p not in allowed_platforms:
+              checks_summary.append(f"WARNING: Platform '{p}' is not in allowed list {allowed_platforms}.")
+  # 4. License check
+  if "license" in cleaned_yaml and cleaned_yaml["license"]:
+      lic = str(cleaned_yaml["license"]).strip().lower()
+      if lic not in allowed_licenses:
+          checks_summary.append(f"WARNING: License '{cleaned_yaml['license']}' is not one of {allowed_licenses}.")
+  # 5. Docker image check
+  try:
+      image_val = cleaned_yaml["containers"]["upstream"]["image"]
+      if not image_val or not isinstance(image_val, str):
+          checks_summary.append("WARNING: Docker image is missing or not a string.")
+  except Exception:
+      checks_summary.append("WARNING: containers.upstream.image is missing.")
+
+  # Compose feedback prompt for AI
+  feedback_prompt = PromptTemplate(
+      input_variables=["software", "checks", "current_yaml"],
+      template=(
+          "You previously generated the following YAML for {software}:\n"
+          "{current_yaml}\n"
+          "The following issues or warnings were found during validation:\n"
+          "{checks}\n"
+          "Please review these issues and suggest corrections or improvements. "
+          "Return the corrected YAML in the same structure. If you agree with the current YAML, return it unchanged."
+      )
+  )
+  checks_str = "\n".join(checks_summary) if checks_summary else "No issues found."
+  current_yaml_str = yaml.dump(cleaned_yaml, sort_keys=False)
+  ai_feedback_message = (feedback_prompt | llm).invoke({
+      "software": software_name,
+      "checks": checks_str,
+      "current_yaml": current_yaml_str
+  })
+  ai_feedback_yaml = extract_yaml_from_llm_output(ai_feedback_message.content)
+  try:
+      ai_feedback_data = yaml.safe_load(ai_feedback_yaml)
+      if ai_feedback_data:
+          cleaned_yaml = clean(ai_feedback_data)
+  except Exception:
+      # If parsing fails, keep previous cleaned_yaml
+      pass
+
+  # --- Conversation and output logging ---
+  conversation_log = []
+  conversation_log.append("=== Initial Prompt to AI ===\n" + all_info_prompt.format(software=software_name, base_yaml=base_yaml_str))
+  conversation_log.append("=== AI Initial Output ===\n" + all_info_raw)
+  conversation_log.append("=== Validation Checks ===\n" + checks_str)
+  conversation_log.append("=== Feedback Prompt to AI ===\n" + feedback_prompt.format(software=software_name, checks=checks_str, current_yaml=current_yaml_str))
+  conversation_log.append("=== AI Feedback Output ===\n" + ai_feedback_message.content)
+  conversation_log.append("=== Final YAML ===\n" + yaml.dump(cleaned_yaml, sort_keys=False))
 
   os.makedirs(software_dir, exist_ok=True)
+
+  # Write conversation log to file
+  log_file = os.path.join(software_dir, "generation_conversation.log")
+  with open(log_file, "w") as f:
+      f.write("\n\n".join(conversation_log))
 
   # Write to YAML file if overwrite is enabled or if the file does not exist
   if overwrite == "enable" or not os.path.exists(output_file):
@@ -295,10 +404,6 @@ def generate_all_providers_yaml(software_name, provider_names, overwrite="disabl
       "options": None
     },
     "uninstall": {
-      "package": None,
-      "options": None
-    },
-    "update": {
       "package": None,
       "options": None
     },
@@ -363,7 +468,8 @@ def generate_all_providers_yaml(software_name, provider_names, overwrite="disabl
     provider_data = all_providers_data.get(provider, None)
     if provider_data:
       if provider_data.get("supported") is False:
-        cleaned_provider_yaml = {"version": "0.1", "supported": False}
+#        cleaned_provider_yaml = {"version": "0.1", "supported": ToCheck}
+        cleaned_provider_yaml = clean(provider_data)
       else:
         cleaned_provider_yaml = clean(provider_data)
     else:
@@ -399,8 +505,6 @@ def safe_partial_yaml_load(yaml_text):
 
 if __name__ == "__main__":
     import sys
-    import re
-    import requests
     if len(sys.argv) < 2:
         print("Usage: python script.py <software_name> [overwrite_method] [openai_model]")
         sys.exit(1)
@@ -416,6 +520,6 @@ if __name__ == "__main__":
       raise ValueError("Invalid overwrite method. Use 'disable', 'enable', or 'merge'.")
     generate_default_yaml(software_name, overwrite=overwrite_method, model=openai_model)
     provider_list = [
-      'apt', 'yum', 'zypper', 'dnf', 'snap', 'flatpak', 'scoop', 'chocolatey', 'brew', 'winget', 'nix', 'pip', 'pipx', 'conda', 'docker', 'helm', 'maven', 'gradle', 'npm', 'yarn', 'composer', 'nuget', 'gem', 'cargo', 'go get', 'crates.io', 'leiningen', 'cabal', 'stack', 'cpan'
+      'apt', 'yum', 'zypper', 'dnf', 'snap', 'flatpak', 'scoop', 'choco', 'brew', 'winget', 'nix', 'pip', 'pipx', 'conda', 'docker', 'helm', 'maven', 'gradle', 'npm', 'yarn', 'composer', 'nuget', 'gem', 'cargo', 'go get', 'crates.io', 'leiningen', 'cabal', 'stack', 'cpan','pacman', 'apk', 'portage', 'xbps', 'slackpkg', 'opkg', 'emerge', 'guix', 'fink', 'macports', 'spack', 'pkg', 'nixpkgs'
     ]
     generate_all_providers_yaml(software_name, provider_list, overwrite=overwrite_method, model=openai_model)

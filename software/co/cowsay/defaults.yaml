@@ -1,0 +1,25 @@
+version: '0.1'
+description: A configurable talking cow that displays messages in a speech bubble.
+category:
+  default: fun
+  tags:
+  - cowsay
+  - fun
+  - text
+  - ascii
+  sub: null
+license: Open Source
+platforms:
+- linux
+- macos
+urls:
+  website: https://cowsay.js.org/
+  issues: https://github.com/TristanW/cowsay/issues
+  documentation: https://cowsay.js.org/
+  source: https://github.com/TristanW/cowsay
+  license: https://opensource.org/licenses/MIT
+containers:
+  upstream:
+    name: cowsay
+    image: cowsay
+    version: latest

@@ -1,0 +1,31 @@
+version: '0.1'
+description: ZNC is an advanced IRC bouncer that allows users to stay connected to
+  IRC networks while offline.
+ports:
+  default: 6667
+  ssl: 6697
+category:
+  default: bouncer
+  sub: irc
+  tags:
+  - irc
+  - bouncer
+  - open-source
+license: Open Source
+platforms:
+- linux
+- windows
+- macos
+urls:
+  website: https://znc.in/
+  issues: https://github.com/znc/znc/issues
+  documentation: https://znc.in/docs/
+  support: https://znc.in/support/
+  source: https://github.com/znc/znc
+  license: https://znc.in/license/
+  download: https://znc.in/download/
+containers:
+  upstream:
+    name: znc
+    image: znc
+    version: latest

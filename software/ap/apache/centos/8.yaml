@@ -7,9 +7,9 @@ metadata:
   name: "apache"
 
 packages:
-  - name: "httpd"  # CentOS uses 'httpd' instead of 'apache2'
+  - name: "apache"  # CentOS uses 'httpd' instead of 'apache2'
+    package_name: "httpd"
     version: "2.4.37-43.module_el8.5.0+1022+b541f3b1"
-    alternatives: ["apache", "apache2"]
     install_options: "--enablerepo=appstream"
     repository: "appstream"
 
@@ -90,6 +90,7 @@ providers:
   dnf:
     packages:
       - name: "httpd"
+        package_name: "httpd"
         version: "2.4.37-43.module_el8.5.0+1022+b541f3b1"
         alternatives: ["apache", "apache2"]
         install_options: "--enablerepo=appstream"

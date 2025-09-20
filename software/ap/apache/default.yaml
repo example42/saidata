@@ -31,6 +31,7 @@ metadata:
 
 packages:
   - name: "apache2"
+    package_name: "apache2"
     version: "2.4.58"
     alternatives: ["httpd", "apache2-bin"]
     install_options: "--with-ssl --enable-rewrite"
@@ -167,6 +168,7 @@ providers:
     build_commands: ["./configure --enable-ssl", "make", "make install"]
     packages:
       - name: "apache2"
+        package_name: "apache2"
         version: "2.4.58-1ubuntu1"
         alternatives: ["apache2-bin", "apache2-utils"]
         install_options: "--no-install-recommends"
@@ -178,6 +180,7 @@ providers:
         repository: "ubuntu-main"
         packages:
           - name: "apache2"
+            package_name: "apache2"
             version: "2.4.58-1ubuntu1"
         notes: "Official Ubuntu repository package"
       - name: "backports"
@@ -186,6 +189,7 @@ providers:
         repository: "ubuntu-backports"
         packages:
           - name: "apache2"
+            package_name: "apache2"
             version: "2.4.59-1ubuntu1~22.04.1"
         notes: "Newer version from backports"
     repositories:
@@ -200,6 +204,7 @@ providers:
         notes: "Official Ubuntu repository"
         packages:
           - name: "apache2"
+            package_name: "apache2"
             version: "2.4.58-1ubuntu1"
         services:
           - name: "apache"
@@ -254,7 +259,8 @@ providers:
 
   brew:
     packages:
-      - name: "httpd"
+      - name: "apache"
+        package_name: "httpd"
         version: "2.4.58"
         alternatives: ["apache2"]
     services:
@@ -297,6 +303,7 @@ providers:
       - "make install"
     packages:
       - name: "httpd"
+        package_name: "httpd"
         version: "2.4.58"
         download_url: "https://archive.apache.org/dist/httpd/httpd-2.4.58.tar.gz"
         checksum: "sha256:fa16d72a078210a54c47dd5bef2f8b9b8a01d94909a51453956b3ec6442ea4c5"

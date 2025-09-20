@@ -26,12 +26,15 @@ metadata:
 
 packages:
   - name: "server"
+    package_name: "mysql-server"
     version: "8.0.34"
     alternatives: ["mysql-server", "mysql-server-8.0"]
   - name: "client"
+    package_name: "mysql-client"
     version: "8.0.34"
     alternatives: ["mysql-client", "mysql-client-8.0"]
   - name: "common"
+    package_name: "mysql-common"
     version: "8.0.34"
     alternatives: ["mysql-common"]
 
@@ -127,17 +130,21 @@ providers:
         recommended: true
         packages:
           - name: "server"
+            package_name: "mysql-server"
             version: "8.0.34-0ubuntu0.22.04.1"
             alternatives: ["mysql-server-8.0"]
           - name: "client"
+            package_name: "mysql-client"
             version: "8.0.34-0ubuntu0.22.04.1"
             alternatives: ["mysql-client-8.0"]
       - name: "ubuntu-default"
         type: "os-default"
         packages:
           - name: "server"
+            package_name: "mysql-server"
             alternatives: ["mysql-server", "default-mysql-server"]
           - name: "client"
+            package_name: "mysql-client"
             alternatives: ["mysql-client", "default-mysql-client"]
 
   dnf:
@@ -149,32 +156,39 @@ providers:
         recommended: true
         packages:
           - name: "server"
+            package_name: "mysql-community-server"
             alternatives: ["mysql-community-server"]
           - name: "client"
+            package_name: "mysql-community-client"
             alternatives: ["mysql-community-client"]
       - name: "appstream"
         type: "os-default"
         packages:
           - name: "server"
+            package_name: "mysql-server"
             alternatives: ["mysql-server"]
           - name: "client"
+            package_name: "mysql"
             alternatives: ["mysql"]
 
   brew:
     packages:
       - name: "server"
+        package_name: "mysql"
         alternatives: ["mysql@8.0", "mysql"]
         recommended: true
 
   choco:
     packages:
       - name: "server"
+        package_name: "mysql"
         version: "8.0.34"
         alternatives: ["mysql"]
 
   winget:
     packages:
       - name: "server"
+        package_name: "Oracle.MySQL"
         id: "Oracle.MySQL"
         version: "8.0.34"
         recommended: true
@@ -203,6 +217,7 @@ providers:
         recommended: true
         packages:
           - name: "mysql"
+            package_name: "mysql"
             alternatives: ["mysql"]
 
 compatibility:

@@ -7,7 +7,8 @@ metadata:
   name: "apache"
 
 packages:
-  - name: "httpd"  # macOS uses 'httpd' instead of 'apache2'
+  - name: "apache"  # macOS uses 'httpd' instead of 'apache2'
+    package_name: "httpd"
     version: "2.4.58"
     alternatives: ["apache2"]
 
@@ -74,6 +75,7 @@ providers:
   brew:
     packages:
       - name: "httpd"
+        package_name: "httpd"
         version: "2.4.58"
         alternatives: ["apache2"]
         install_options: "--with-http2"  # macOS-specific build option

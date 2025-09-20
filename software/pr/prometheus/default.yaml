@@ -26,12 +26,15 @@ metadata:
 
 packages:
   - name: "prometheus"
+    package_name: "prometheus"
     version: "2.45.0"
     alternatives: ["prometheus"]
   - name: "node-exporter"
+    package_name: "prometheus-node-exporter"
     version: "1.6.0"
     alternatives: ["prometheus-node-exporter"]
   - name: "alertmanager"
+    package_name: "prometheus-alertmanager"
     version: "0.25.0"
     alternatives: ["prometheus-alertmanager"]
 
@@ -156,26 +159,34 @@ providers:
   apt:
     packages:
       - name: "prometheus"
+        package_name: "prometheus"
         alternatives: ["prometheus"]
       - name: "node-exporter"
+        package_name: "prometheus-node-exporter"
         alternatives: ["prometheus-node-exporter"]
       - name: "alertmanager"
+        package_name: "prometheus-alertmanager"
         alternatives: ["prometheus-alertmanager"]
 
   dnf:
     packages:
       - name: "prometheus"
+        package_name: "prometheus"
         alternatives: ["prometheus"]
       - name: "node-exporter"
+        package_name: "golang-github-prometheus-node-exporter"
         alternatives: ["golang-github-prometheus-node-exporter"]
 
   brew:
     packages:
       - name: "prometheus"
+        package_name: "prometheus"
         alternatives: ["prometheus"]
       - name: "node-exporter"
+        package_name: "node_exporter"
         alternatives: ["node_exporter"]
       - name: "alertmanager"
+        package_name: "alertmanager"
         alternatives: ["alertmanager"]
 
   docker:
@@ -195,6 +206,7 @@ providers:
         recommended: true
         packages:
           - name: "prometheus"
+            package_name: "kube-prometheus-stack"
             alternatives: ["kube-prometheus-stack"]
 
 compatibility:

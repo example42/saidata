@@ -26,12 +26,15 @@ metadata:
 
 packages:
   - name: "server"
+    package_name: "mongodb-org-server"
     version: "7.0.0"
     alternatives: ["mongodb-org-server", "mongod"]
   - name: "shell"
+    package_name: "mongodb-mongosh"
     version: "7.0.0"
     alternatives: ["mongodb-org-shell", "mongosh"]
   - name: "tools"
+    package_name: "mongodb-org-tools"
     version: "7.0.0"
     alternatives: ["mongodb-org-tools"]
 
@@ -119,16 +122,20 @@ providers:
         recommended: true
         packages:
           - name: "server"
+            package_name: "mongodb-org-server"
             version: "7.0.0"
             alternatives: ["mongodb-org-server"]
           - name: "shell"
+            package_name: "mongodb-mongosh"
             alternatives: ["mongodb-mongosh"]
           - name: "tools"
+            package_name: "mongodb-org-tools"
             alternatives: ["mongodb-org-tools"]
       - name: "ubuntu-default"
         type: "os-default"
         packages:
           - name: "server"
+            package_name: "mongodb"
             alternatives: ["mongodb"]
         notes: "Usually older version"
 
@@ -141,21 +148,26 @@ providers:
         recommended: true
         packages:
           - name: "server"
+            package_name: "mongodb-org-server"
             alternatives: ["mongodb-org-server"]
           - name: "shell"
+            package_name: "mongodb-mongosh"
             alternatives: ["mongodb-mongosh"]
           - name: "tools"
+            package_name: "mongodb-org-tools"
             alternatives: ["mongodb-org-tools"]
 
   brew:
     packages:
       - name: "server"
+        package_name: "mongodb-community@7.0"
         alternatives: ["mongodb-community@7.0", "mongodb/brew/mongodb-community"]
         recommended: true
 
   choco:
     packages:
       - name: "server"
+        package_name: "mongodb"
         version: "7.0.0"
         alternatives: ["mongodb"]
 
@@ -181,6 +193,7 @@ providers:
         recommended: true
         packages:
           - name: "mongodb"
+            package_name: "mongodb"
             alternatives: ["mongodb"]
 
 compatibility:

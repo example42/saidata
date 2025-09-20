@@ -26,15 +26,19 @@ metadata:
 
 packages:
   - name: "kubelet"
+    package_name: "kubelet"
     version: "1.28.0"
     alternatives: ["kubelet"]
   - name: "kubeadm"
+    package_name: "kubeadm"
     version: "1.28.0"
     alternatives: ["kubeadm"]
   - name: "kubectl"
+    package_name: "kubectl"
     version: "1.28.0"
     alternatives: ["kubectl"]
   - name: "kube-proxy"
+    package_name: "kube-proxy"
     version: "1.28.0"
     alternatives: ["kube-proxy"]
 
@@ -164,10 +168,13 @@ providers:
         recommended: true
         packages:
           - name: "kubelet"
+            package_name: "kubelet"
             version: "1.28.0-00"
           - name: "kubeadm"
+            package_name: "kubeadm"
             version: "1.28.0-00"
           - name: "kubectl"
+            package_name: "kubectl"
             version: "1.28.0-00"
 
   dnf:
@@ -179,17 +186,22 @@ providers:
         recommended: true
         packages:
           - name: "kubelet"
+            package_name: "kubelet"
             version: "1.28.0-0"
           - name: "kubeadm"
+            package_name: "kubeadm"
             version: "1.28.0-0"
           - name: "kubectl"
+            package_name: "kubectl"
             version: "1.28.0-0"
 
   brew:
     packages:
       - name: "kubectl"
+        package_name: "kubectl"
         alternatives: ["kubectl"]
       - name: "kubeadm"
+        package_name: "kubeadm"
         alternatives: ["kubeadm"]
 
   helm:
@@ -199,6 +211,7 @@ providers:
         type: "third-party"
         packages:
           - name: "kubernetes"
+            package_name: "kubernetes"
             alternatives: ["kubernetes"]
 
   docker:

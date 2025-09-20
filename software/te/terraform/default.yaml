@@ -26,6 +26,7 @@ metadata:
 
 packages:
   - name: "terraform"
+    package_name: "terraform"
     version: "1.5.0"
     checksum: "sha256:..."
     download_url: "https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip"
@@ -85,6 +86,7 @@ providers:
         recommended: true
         packages:
           - name: "terraform"
+            package_name: "terraform"
             version: "1.5.0"
 
   dnf:
@@ -95,16 +97,19 @@ providers:
         recommended: true
         packages:
           - name: "terraform"
+            package_name: "terraform"
             version: "1.5.0"
 
   brew:
     packages:
       - name: "terraform"
+        package_name: "terraform"
         alternatives: ["terraform"]
 
   snap:
     packages:
       - name: "terraform"
+        package_name: "terraform"
         alternatives: ["terraform"]
 
   docker:

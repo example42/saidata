@@ -26,6 +26,7 @@ metadata:
 
 packages:
   - name: "elasticsearch"
+    package_name: "elasticsearch"
     version: "8.9.0"
     alternatives: ["elasticsearch"]
 
@@ -115,6 +116,7 @@ providers:
         recommended: true
         packages:
           - name: "elasticsearch"
+            package_name: "elasticsearch"
             version: "8.9.0"
 
   dnf:
@@ -126,11 +128,13 @@ providers:
         recommended: true
         packages:
           - name: "elasticsearch"
+            package_name: "elasticsearch"
             version: "8.9.0"
 
   brew:
     packages:
       - name: "elasticsearch"
+        package_name: "elasticsearch"
         alternatives: ["elasticsearch@8"]
 
   docker:
@@ -167,6 +171,7 @@ providers:
         recommended: true
         packages:
           - name: "elasticsearch"
+            package_name: "elasticsearch"
             alternatives: ["elasticsearch"]
 
 compatibility:

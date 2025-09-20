@@ -26,6 +26,7 @@ metadata:
 
 packages:
   - name: "redis"
+    package_name: "redis-server"
     version: "7.0.12"
     alternatives: ["redis-server", "redis-tools"]
 
@@ -104,6 +105,7 @@ providers:
         type: "os-default"
         packages:
           - name: "redis"
+            package_name: "redis-server"
             alternatives: ["redis-server", "redis-tools"]
         recommended: true
       - name: "redis-official"
@@ -112,6 +114,7 @@ providers:
         type: "upstream"
         packages:
           - name: "redis"
+            package_name: "redis-stack-server"
             version: "7.0.12"
             alternatives: ["redis-stack-server"]
 
@@ -121,21 +124,25 @@ providers:
         type: "os-default"
         packages:
           - name: "redis"
+            package_name: "redis"
             alternatives: ["redis"]
         recommended: true
       - name: "epel"
         type: "third-party"
         packages:
           - name: "redis"
+            package_name: "redis"
 
   brew:
     packages:
       - name: "redis"
+        package_name: "redis"
         alternatives: ["redis"]
 
   choco:
     packages:
       - name: "redis"
+        package_name: "redis-64"
         version: "7.0.12"
         alternatives: ["redis-64"]
 
@@ -167,6 +174,7 @@ providers:
         recommended: true
         packages:
           - name: "redis"
+            package_name: "redis"
             alternatives: ["redis"]
 
 compatibility:

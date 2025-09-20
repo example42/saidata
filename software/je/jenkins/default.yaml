@@ -26,6 +26,7 @@ metadata:
 
 packages:
   - name: "jenkins"
+    package_name: "jenkins"
     version: "2.414.0"
     alternatives: ["jenkins"]
 
@@ -117,6 +118,7 @@ providers:
         recommended: true
         packages:
           - name: "jenkins"
+            package_name: "jenkins"
             version: "2.414.0"
 
   dnf:
@@ -128,11 +130,13 @@ providers:
         recommended: true
         packages:
           - name: "jenkins"
+            package_name: "jenkins"
             version: "2.414.0"
 
   brew:
     packages:
       - name: "jenkins"
+        package_name: "jenkins-lts"
         alternatives: ["jenkins-lts"]
 
   docker:
@@ -154,6 +158,7 @@ providers:
         recommended: true
         packages:
           - name: "jenkins"
+            package_name: "jenkins"
             alternatives: ["jenkins"]
 
 compatibility:

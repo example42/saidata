@@ -7,7 +7,8 @@ metadata:
   name: "apache"
 
 packages:
-  - name: "apache2"
+  - name: "apache"
+    package_name: "apache2"
     version: "2.4.52-1ubuntu4"  # Ubuntu 22.04 specific version
     alternatives: ["apache2-bin", "apache2-utils", "apache2-dev"]
     install_options: "--install-suggests"  # Ubuntu-specific install options
@@ -85,6 +86,7 @@ providers:
   apt:
     packages:
       - name: "apache2"
+        package_name: "apache2"
         version: "2.4.52-1ubuntu4"
         alternatives: ["apache2-bin", "apache2-utils", "apache2-dev"]
         install_options: "--install-suggests"

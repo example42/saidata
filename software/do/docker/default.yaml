@@ -26,12 +26,15 @@ metadata:
 
 packages:
   - name: "engine"
+    package_name: "docker-ce"
     version: "24.0.0"
     alternatives: ["docker-ce", "docker.io"]
   - name: "cli"
+    package_name: "docker-ce-cli"
     version: "24.0.0"
     alternatives: ["docker-ce-cli"]
   - name: "compose"
+    package_name: "docker-compose-plugin"
     version: "2.20.0"
     alternatives: ["docker-compose-plugin"]
 
@@ -109,20 +112,25 @@ providers:
         recommended: true
         packages:
           - name: "engine"
+            package_name: "docker-ce"
             version: "5:24.0.0-1~ubuntu.22.04~jammy"
             alternatives: ["docker-ce"]
           - name: "cli"
+            package_name: "docker-ce-cli"
             version: "5:24.0.0-1~ubuntu.22.04~jammy"
             alternatives: ["docker-ce-cli"]
           - name: "compose"
+            package_name: "docker-compose-plugin"
             version: "2.20.0-1~ubuntu.22.04~jammy"
             alternatives: ["docker-compose-plugin"]
       - name: "ubuntu-default"
         type: "os-default"
         packages:
           - name: "engine"
+            package_name: "docker.io"
             alternatives: ["docker.io"]
           - name: "compose"
+            package_name: "docker-compose"
             alternatives: ["docker-compose"]
         notes: "Older version, not recommended for production"
 
@@ -135,17 +143,22 @@ providers:
         recommended: true
         packages:
           - name: "engine"
+            package_name: "docker-ce"
             alternatives: ["docker-ce"]
           - name: "cli"
+            package_name: "docker-ce-cli"
             alternatives: ["docker-ce-cli"]
           - name: "compose"
+            package_name: "docker-compose-plugin"
             alternatives: ["docker-compose-plugin"]
 
   brew:
     packages:
       - name: "engine"
+        package_name: "docker"
         alternatives: ["docker"]
       - name: "compose"
+        package_name: "docker-compose"
         alternatives: ["docker-compose"]
 
   docker:

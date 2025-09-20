@@ -26,6 +26,7 @@ metadata:
 
 packages:
   - name: "grafana"
+    package_name: "grafana"
     version: "10.0.0"
     alternatives: ["grafana"]
 
@@ -122,6 +123,7 @@ providers:
         recommended: true
         packages:
           - name: "grafana"
+            package_name: "grafana"
             version: "10.0.0"
 
   dnf:
@@ -133,11 +135,13 @@ providers:
         recommended: true
         packages:
           - name: "grafana"
+            package_name: "grafana"
             version: "10.0.0"
 
   brew:
     packages:
       - name: "grafana"
+        package_name: "grafana"
         alternatives: ["grafana"]
 
   docker:
@@ -159,6 +163,7 @@ providers:
         recommended: true
         packages:
           - name: "grafana"
+            package_name: "grafana"
             alternatives: ["grafana"]
 
 compatibility:

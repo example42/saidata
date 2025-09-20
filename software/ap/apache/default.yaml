@@ -1,0 +1,344 @@
+version: "0.2"
+
+metadata:
+  name: "apache"
+  display_name: "Apache HTTP Server"
+  description: "The Apache HTTP Server is a free and open-source cross-platform web server software"
+  version: "2.4.58"
+  category: "web-server"
+  subcategory: "http-server"
+  tags: ["web", "server", "http", "https", "ssl", "proxy", "load-balancer"]
+  license: "Apache-2.0"
+  language: "C"
+  maintainer: "Apache Software Foundation"
+  urls:
+    website: "https://httpd.apache.org/"
+    documentation: "https://httpd.apache.org/docs/"
+    source: "https://github.com/apache/httpd"
+    issues: "https://bz.apache.org/bugzilla/"
+    support: "https://httpd.apache.org/support.html"
+    download: "https://httpd.apache.org/download.cgi"
+    changelog: "https://httpd.apache.org/CHANGES_2.4"
+    license: "https://www.apache.org/licenses/LICENSE-2.0"
+    sbom: "https://httpd.apache.org/security/sbom.json"
+    icon: "https://httpd.apache.org/images/httpd_logo_wide_new.png"
+  security:
+    cve_exceptions: ["CVE-2023-12345"]
+    security_contact: "security@apache.org"
+    vulnerability_disclosure: "https://httpd.apache.org/security/vulnerabilities_24.html"
+    sbom_url: "https://httpd.apache.org/security/sbom.json"
+    signing_key: "https://downloads.apache.org/httpd/KEYS"
+
+packages:
+  - name: "apache2"
+    version: "2.4.58"
+    alternatives: ["httpd", "apache2-bin"]
+    install_options: "--with-ssl --enable-rewrite"
+    repository: "main"
+    checksum: "sha256:abc123def456..."
+    signature: "gpg:apache-signing-key"
+    download_url: "https://archive.apache.org/dist/httpd/httpd-2.4.58.tar.gz"
+
+services:
+  - name: "apache"
+    service_name: "apache2"
+    type: "systemd"
+    enabled: true
+    config_files: ["/etc/apache2/apache2.conf", "/etc/apache2/sites-available/000-default.conf"]
+
+files:
+  - name: "config"
+    path: "/etc/apache2/apache2.conf"
+    type: "config"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+    backup: true
+  - name: "binary"
+    path: "/usr/sbin/apache2"
+    type: "binary"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+    backup: false
+  - name: "log"
+    path: "/var/log/apache2/access.log"
+    type: "log"
+    owner: "www-data"
+    group: "adm"
+    mode: "0640"
+    backup: false
+  - name: "error_log"
+    path: "/var/log/apache2/error.log"
+    type: "log"
+    owner: "www-data"
+    group: "adm"
+    mode: "0640"
+    backup: false
+  - name: "pid"
+    path: "/var/run/apache2/apache2.pid"
+    type: "temp"
+    owner: "www-data"
+    group: "www-data"
+    mode: "0644"
+    backup: false
+
+directories:
+  - name: "config"
+    path: "/etc/apache2"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+    recursive: true
+  - name: "log"
+    path: "/var/log/apache2"
+    owner: "www-data"
+    group: "adm"
+    mode: "0750"
+    recursive: false
+  - name: "lib"
+    path: "/usr/lib/apache2"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+    recursive: true
+  - name: "data"
+    path: "/var/www/html"
+    owner: "www-data"
+    group: "www-data"
+    mode: "0755"
+    recursive: true
+
+commands:
+  - name: "apache2"
+    path: "/usr/sbin/apache2"
+    arguments: ["-D", "FOREGROUND"]
+    aliases: ["httpd"]
+    shell_completion: true
+    man_page: "apache2(8)"
+  - name: "apache2ctl"
+    path: "/usr/sbin/apache2ctl"
+    arguments: ["configtest"]
+    aliases: ["apachectl"]
+    shell_completion: true
+    man_page: "apache2ctl(8)"
+  - name: "a2ensite"
+    path: "/usr/sbin/a2ensite"
+    arguments: ["000-default"]
+    aliases: []
+    shell_completion: true
+    man_page: "a2ensite(8)"
+
+ports:
+  - port: 80
+    protocol: "tcp"
+    service: "http"
+    description: "HTTP web server port"
+  - port: 443
+    protocol: "tcp"
+    service: "https"
+    description: "HTTPS secure web server port"
+  - port: 8080
+    protocol: "tcp"
+    service: "http-alt"
+    description: "Alternative HTTP port"
+
+containers:
+  - name: "apache-httpd"
+    image: "httpd"
+    tag: "2.4"
+    registry: "docker.io"
+    platform: "linux/amd64"
+    ports: ["80:80", "443:443"]
+    volumes: ["/var/www/html:/usr/local/apache2/htdocs", "/etc/apache2:/usr/local/apache2/conf"]
+    environment:
+      APACHE_RUN_USER: "www-data"
+      APACHE_RUN_GROUP: "www-data"
+      APACHE_LOG_DIR: "/var/log/apache2"
+    networks: ["web-network"]
+    labels:
+      app: "apache"
+      version: "2.4"
+      environment: "production"
+
+providers:
+  apt:
+    prerequisites: ["build-essential", "libssl-dev", "zlib1g-dev"]
+    build_commands: ["./configure --enable-ssl", "make", "make install"]
+    packages:
+      - name: "apache2"
+        version: "2.4.58-1ubuntu1"
+        alternatives: ["apache2-bin", "apache2-utils"]
+        install_options: "--no-install-recommends"
+        repository: "main"
+    package_sources:
+      - name: "official"
+        priority: 1
+        recommended: true
+        repository: "ubuntu-main"
+        packages:
+          - name: "apache2"
+            version: "2.4.58-1ubuntu1"
+        notes: "Official Ubuntu repository package"
+      - name: "backports"
+        priority: 2
+        recommended: false
+        repository: "ubuntu-backports"
+        packages:
+          - name: "apache2"
+            version: "2.4.59-1ubuntu1~22.04.1"
+        notes: "Newer version from backports"
+    repositories:
+      - name: "ubuntu-main"
+        url: "http://archive.ubuntu.com/ubuntu"
+        key: "871920D1991BC93C"
+        type: "os-default"
+        components: ["main", "universe"]
+        maintainer: "Ubuntu Developers"
+        priority: 1
+        recommended: true
+        notes: "Official Ubuntu repository"
+        packages:
+          - name: "apache2"
+            version: "2.4.58-1ubuntu1"
+        services:
+          - name: "apache"
+            service_name: "apache2"
+            type: "systemd"
+        files:
+          - name: "config"
+            path: "/etc/apache2/apache2.conf"
+            type: "config"
+        directories:
+          - name: "config"
+            path: "/etc/apache2"
+        commands:
+          - name: "apache2"
+            path: "/usr/sbin/apache2"
+        ports:
+          - port: 80
+            protocol: "tcp"
+        containers:
+          - name: "apache-httpd"
+            image: "httpd"
+    services:
+      - name: "apache"
+        service_name: "apache2"
+        type: "systemd"
+        enabled: true
+        config_files: ["/etc/apache2/apache2.conf"]
+    files:
+      - name: "config"
+        path: "/etc/apache2/apache2.conf"
+        type: "config"
+        owner: "root"
+        group: "root"
+        mode: "0644"
+    directories:
+      - name: "config"
+        path: "/etc/apache2"
+        owner: "root"
+        group: "root"
+        mode: "0755"
+    commands:
+      - name: "apache2"
+        path: "/usr/sbin/apache2"
+    ports:
+      - port: 80
+        protocol: "tcp"
+        service: "http"
+    containers:
+      - name: "apache-httpd"
+        image: "httpd"
+        tag: "2.4-alpine"
+
+  brew:
+    packages:
+      - name: "httpd"
+        version: "2.4.58"
+        alternatives: ["apache2"]
+    services:
+      - name: "apache"
+        service_name: "httpd"
+        type: "launchd"
+        enabled: false
+    files:
+      - name: "config"
+        path: "/opt/homebrew/etc/httpd/httpd.conf"
+        type: "config"
+    directories:
+      - name: "config"
+        path: "/opt/homebrew/etc/httpd"
+    commands:
+      - name: "httpd"
+        path: "/opt/homebrew/bin/httpd"
+
+  docker:
+    containers:
+      - name: "apache-httpd"
+        image: "httpd"
+        tag: "2.4-alpine"
+        registry: "docker.io"
+        platform: "linux/amd64"
+        ports: ["8080:80"]
+        volumes: ["./html:/usr/local/apache2/htdocs"]
+        environment:
+          HTTPD_PREFIX: "/usr/local/apache2"
+        networks: ["default"]
+        labels:
+          traefik.enable: "true"
+          traefik.http.routers.apache.rule: "Host(`localhost`)"
+
+  source:
+    prerequisites: ["gcc", "make", "libssl-dev", "zlib1g-dev", "libpcre3-dev"]
+    build_commands:
+      - "./configure --prefix=/usr/local/apache2 --enable-ssl --enable-rewrite --with-included-apr"
+      - "make"
+      - "make install"
+    packages:
+      - name: "httpd"
+        version: "2.4.58"
+        download_url: "https://archive.apache.org/dist/httpd/httpd-2.4.58.tar.gz"
+        checksum: "sha256:fa16d72a078210a54c47dd5bef2f8b9b8a01d94909a51453956b3ec6442ea4c5"
+
+compatibility:
+  matrix:
+    - provider: "apt"
+      platform: ["linux"]
+      os: ["ubuntu", "debian"]
+      architecture: ["x86_64", "arm64"]
+      os_version: ["20.04", "22.04", "11", "12"]
+      supported: true
+      notes: "Fully supported on Debian-based systems"
+      tested: true
+      recommended: true
+    - provider: "brew"
+      platform: ["macos"]
+      os: ["macos"]
+      architecture: ["x86_64", "arm64"]
+      os_version: ["12.0", "13.0", "14.0"]
+      supported: true
+      notes: "Works well on macOS with Homebrew"
+      tested: true
+      recommended: true
+    - provider: "docker"
+      platform: ["linux", "macos", "windows"]
+      os: ["ubuntu", "debian", "centos", "rocky", "macos", "windows"]
+      architecture: ["x86_64", "arm64"]
+      supported: true
+      notes: "Cross-platform container support"
+      tested: true
+      recommended: false
+    - provider: "source"
+      platform: ["linux", "macos"]
+      os: ["ubuntu", "debian", "centos", "rocky", "macos"]
+      architecture: ["x86_64", "arm64"]
+      supported: true
+      notes: "Source compilation available but complex"
+      tested: false
+      recommended: false
+  versions:
+    latest: "2.4.58"
+    minimum: "2.4.0"
+    latest_lts: "2.4.58"
+    latest_minimum: "2.4.50"

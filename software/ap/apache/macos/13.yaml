@@ -1,0 +1,111 @@
+version: "0.2"
+
+# macOS 13-specific overrides for Apache HTTP Server
+# This file demonstrates OS-specific configuration that gets deep-merged with default.yaml
+
+metadata:
+  name: "apache"
+
+packages:
+  - name: "httpd"  # macOS uses 'httpd' instead of 'apache2'
+    version: "2.4.58"
+    alternatives: ["apache2"]
+
+services:
+  - name: "apache"
+    service_name: "httpd"  # macOS service name
+    type: "launchd"        # macOS uses launchd instead of systemd
+    enabled: false         # Default to disabled on macOS
+    config_files: ["/opt/homebrew/etc/httpd/httpd.conf"]
+
+files:
+  - name: "config"
+    path: "/opt/homebrew/etc/httpd/httpd.conf"  # Homebrew path on macOS
+    type: "config"
+    owner: "$(whoami)"  # Current user instead of root
+    group: "staff"      # macOS default group
+    mode: "0644"
+  - name: "binary"
+    path: "/opt/homebrew/bin/httpd"  # Homebrew binary path
+    type: "binary"
+    owner: "root"
+    group: "wheel"  # macOS admin group
+    mode: "0755"
+  - name: "log"
+    path: "/opt/homebrew/var/log/httpd/access_log"  # macOS log path
+    type: "log"
+    owner: "$(whoami)"
+    group: "staff"
+    mode: "0640"
+  - name: "error_log"
+    path: "/opt/homebrew/var/log/httpd/error_log"
+    type: "log"
+    owner: "$(whoami)"
+    group: "staff"
+    mode: "0640"
+
+directories:
+  - name: "config"
+    path: "/opt/homebrew/etc/httpd"  # Homebrew config directory
+    owner: "$(whoami)"
+    group: "staff"
+    mode: "0755"
+  - name: "log"
+    path: "/opt/homebrew/var/log/httpd"  # Homebrew log directory
+    owner: "$(whoami)"
+    group: "staff"
+    mode: "0750"
+  - name: "data"
+    path: "/opt/homebrew/var/www"  # Homebrew document root
+    owner: "$(whoami)"
+    group: "staff"
+    mode: "0755"
+
+commands:
+  - name: "httpd"
+    path: "/opt/homebrew/bin/httpd"  # Homebrew binary path
+    arguments: ["-D", "FOREGROUND"]
+    aliases: ["apache2"]
+    shell_completion: true
+    man_page: "httpd(8)"
+
+# Override provider configuration for macOS 13
+providers:
+  brew:
+    packages:
+      - name: "httpd"
+        version: "2.4.58"
+        alternatives: ["apache2"]
+        install_options: "--with-http2"  # macOS-specific build option
+    services:
+      - name: "apache"
+        service_name: "httpd"
+        type: "launchd"
+        enabled: false  # Don't auto-start on macOS
+
+    files:
+      - name: "config"
+        path: "/opt/homebrew/etc/httpd/httpd.conf"
+        type: "config"
+
+    directories:
+      - name: "config"
+        path: "/opt/homebrew/etc/httpd"
+        owner: "$(whoami)"
+        group: "staff"
+    commands:
+      - name: "httpd"
+        path: "/opt/homebrew/bin/httpd"
+
+
+# macOS 13-specific compatibility matrix
+compatibility:
+  matrix:
+    - provider: "brew"
+      platform: "macos"
+      architecture: ["x86_64", "arm64"]
+      os_version: ["13.0"]
+      supported: true
+      notes: "Recommended installation method for macOS 13"
+      tested: true
+      recommended: true

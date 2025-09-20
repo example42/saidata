@@ -1,0 +1,125 @@
+version: "0.2"
+
+# CentOS 8-specific overrides for Apache HTTP Server
+# This file demonstrates OS-specific configuration that gets deep-merged with default.yaml
+
+metadata:
+  name: "apache"
+
+packages:
+  - name: "httpd"  # CentOS uses 'httpd' instead of 'apache2'
+    version: "2.4.37-43.module_el8.5.0+1022+b541f3b1"
+    alternatives: ["apache", "apache2"]
+    install_options: "--enablerepo=appstream"
+    repository: "appstream"
+
+services:
+  - name: "apache"
+    service_name: "httpd"  # CentOS service name
+    type: "systemd"
+    enabled: true
+    config_files: [
+      "/etc/httpd/conf/httpd.conf",
+      "/etc/httpd/conf.d/ssl.conf"  # CentOS-specific SSL config
+    ]
+
+files:
+  - name: "config"
+    path: "/etc/httpd/conf/httpd.conf"  # CentOS config path
+    type: "config"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  - name: "binary"
+    path: "/usr/sbin/httpd"  # CentOS binary path
+    type: "binary"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  - name: "log"
+    path: "/var/log/httpd/access_log"  # CentOS log path (no .log extension)
+    type: "log"
+    owner: "apache"  # CentOS uses 'apache' user
+    group: "apache"
+    mode: "0640"
+  - name: "error_log"
+    path: "/var/log/httpd/error_log"
+    type: "log"
+    owner: "apache"
+    group: "apache"
+    mode: "0640"
+
+directories:
+  - name: "config"
+    path: "/etc/httpd"  # CentOS config directory
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  - name: "conf_d"
+    path: "/etc/httpd/conf.d"  # CentOS conf.d directory
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  - name: "log"
+    path: "/var/log/httpd"  # CentOS log directory
+    owner: "apache"
+    group: "apache"
+    mode: "0750"
+  - name: "data"
+    path: "/var/www/html"  # CentOS document root
+    owner: "apache"
+    group: "apache"
+    mode: "0755"
+
+commands:
+  - name: "httpd"
+    path: "/usr/sbin/httpd"  # CentOS binary path
+    arguments: ["-D", "FOREGROUND"]
+    aliases: ["apache2"]
+    shell_completion: true
+    man_page: "httpd(8)"
+  - name: "apachectl"
+    path: "/usr/sbin/apachectl"  # CentOS control script
+    arguments: ["configtest"]
+    aliases: ["apache2ctl"]
+    shell_completion: true
+    man_page: "apachectl(8)"
+
+# CentOS 8-specific provider configuration
+providers:
+  dnf:
+    packages:
+      - name: "httpd"
+        version: "2.4.37-43.module_el8.5.0+1022+b541f3b1"
+        alternatives: ["apache", "apache2"]
+        install_options: "--enablerepo=appstream"
+        repository: "appstream"
+    prerequisites: [
+      "ca-certificates",
+      "centos-release"  # CentOS-specific release package
+    ]
+
+    services:
+      - name: "apache"
+        service_name: "httpd"
+        type: "systemd"
+        enabled: true
+
+    repositories:
+      - name: "appstream"
+        url: "http://mirror.centos.org/centos/8-stream/AppStream/x86_64/os/"
+        key: "RPM-GPG-KEY-centosofficial"
+        type: "os-default"
+        components: ["appstream"]
+
+# CentOS 8-specific compatibility
+compatibility:
+  matrix:
+    - provider: "dnf"
+      platform: ["linux"]
+      architecture: ["x86_64", "aarch64"]
+      os_version: ["8"]
+      supported: true
+      notes: "Native CentOS 8 package with SELinux integration"
+      tested: true
+      recommended: true

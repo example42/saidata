@@ -1,0 +1,119 @@
+version: "0.2"
+
+# Ubuntu 22.04-specific overrides for Apache HTTP Server
+# This file demonstrates OS-specific configuration that gets deep-merged with default.yaml
+
+metadata:
+  name: "apache"
+
+packages:
+  - name: "apache2"
+    version: "2.4.52-1ubuntu4"  # Ubuntu 22.04 specific version
+    alternatives: ["apache2-bin", "apache2-utils", "apache2-dev"]
+    install_options: "--install-suggests"  # Ubuntu-specific install options
+    repository: "main"
+
+services:
+  - name: "apache"
+    service_name: "apache2"
+    type: "systemd"
+    enabled: true
+    config_files: [
+      "/etc/apache2/apache2.conf",
+      "/etc/apache2/sites-available/000-default.conf",
+      "/etc/apache2/conf-available/security.conf"
+    ]
+
+files:
+  - name: "security_config"
+    path: "/etc/apache2/conf-available/security.conf"
+    type: "config"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  - name: "envvars"
+    path: "/etc/apache2/envvars"
+    type: "config"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
+directories:
+  - name: "sites-available"
+    path: "/etc/apache2/sites-available"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  - name: "sites-enabled"
+    path: "/etc/apache2/sites-enabled"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  - name: "mods-available"
+    path: "/etc/apache2/mods-available"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  - name: "mods-enabled"
+    path: "/etc/apache2/mods-enabled"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+
+commands:
+  - name: "a2ensite"
+    path: "/usr/sbin/a2ensite"
+    arguments: ["000-default"]
+    aliases: []
+    shell_completion: true
+    man_page: "a2ensite(8)"
+  - name: "a2dissite"
+    path: "/usr/sbin/a2dissite"
+    arguments: ["000-default"]
+    aliases: []
+    shell_completion: true
+    man_page: "a2dissite(8)"
+  - name: "a2enmod"
+    path: "/usr/sbin/a2enmod"
+    arguments: ["rewrite"]
+    aliases: []
+    shell_completion: true
+    man_page: "a2enmod(8)"
+
+# Ubuntu 22.04-specific provider configuration
+providers:
+  apt:
+    packages:
+      - name: "apache2"
+        version: "2.4.52-1ubuntu4"
+        alternatives: ["apache2-bin", "apache2-utils", "apache2-dev"]
+        install_options: "--install-suggests"
+        repository: "main"
+    prerequisites: [
+      "ca-certificates",
+      "lsb-release",
+      "ubuntu-keyring"
+    ]
+    services:
+      - name: "apache"
+        service_name: "apache2"
+        type: "systemd"
+        enabled: true
+    repositories:
+      - name: "ubuntu-main"
+        url: "http://archive.ubuntu.com/ubuntu"
+        key: "871920D1991BC93C"
+        type: "os-default"
+        components: ["main", "universe"]
+
+# Ubuntu 22.04-specific compatibility
+compatibility:
+  matrix:
+    - provider: "apt"
+      platform: "ubuntu"  # Fixed: use 'platform' as required by schema
+      architecture: ["x86_64", "arm64"]
+      os_version: ["22.04"]
+      supported: true
+      notes: "Native Ubuntu 22.04 package with full integration"
+      tested: true
+      recommended: true

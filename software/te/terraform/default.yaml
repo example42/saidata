@@ -1,153 +1,1677 @@
-version: "0.2"
-
+# Exported from openskills.info. Facts and Evidence links only; quoted
+# source spans and captures stay in the openskills.info bundle.
+# Evidence of kind scenario_step marks an executed Scenario step; a node
+# with only primary_source Evidence is reviewed, not verified.
+# Unverified Targets: linux-rpm, macos, windows
+version: "0.4"
 metadata:
-  name: "terraform"
-  display_name: "Terraform"
-  description: "Infrastructure as Code tool for building, changing, and versioning infrastructure"
-  version: "1.5.0"
-  category: "infrastructure"
-  subcategory: "iac"
-  tags: ["terraform", "infrastructure", "iac", "devops", "cloud"]
-  license: "MPL-2.0"
-  language: "Go"
-  maintainer: "HashiCorp"
+  name: terraform
+  display_name: Terraform
+  version: 1.14.9
+  description: Infrastructure as code tool that plans and applies changes to real objects from declarative configuration files.
+  category: infrastructure-as-code
+  language: Go
   urls:
-    website: "https://www.terraform.io"
-    documentation: "https://www.terraform.io/docs"
-    source: "https://github.com/hashicorp/terraform"
-    issues: "https://github.com/hashicorp/terraform/issues"
-    support: "https://www.terraform.io/community"
-    download: "https://releases.hashicorp.com/terraform"
-    changelog: "https://github.com/hashicorp/terraform/blob/main/CHANGELOG.md"
-    license: "https://github.com/hashicorp/terraform/blob/main/LICENSE"
-  security:
-    security_contact: "security@hashicorp.com"
-    vulnerability_disclosure: "https://www.hashicorp.com/security"
-
-packages:
-  - name: "terraform"
-    package_name: "terraform"
-    version: "1.5.0"
-    checksum: "sha256:..."
-    download_url: "https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip"
-
+    website: https://developer.hashicorp.com/terraform
+    documentation: https://developer.hashicorp.com/terraform/docs
+    source: https://github.com/hashicorp/terraform
+    changelog: https://github.com/hashicorp/terraform/blob/v1.14.9/CHANGELOG.md
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/terraform/v1.14.9/README.md
+        version: 1.14.9
+        date: 2026-10-24
+  licenses:
+    - spdx_id: BUSL-1.1
+      as_of_version: 1.14.9
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/hashicorp/terraform/v1.14.9/LICENSE
+          version: 1.14.9
+          date: 2026-10-24
+    - spdx_id: MPL-2.0
+      as_of_version: 1.5.7
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/hashicorp/terraform/v1.5.7/LICENSE
+          version: 1.5.7
+          date: 2026-10-24
+  identifiers:
+    purl: pkg:github/hashicorp/terraform@v1.14.9
+    cpe: cpe:2.3:a:hashicorp:terraform:1.14.9:*:*:*:*:*:*:*
+    evidence:
+      - kind: primary_source
+        source: https://github.com/package-url/purl-spec/blob/fa275946ad2dde7392c41e8fec313dff5682b7fb/types-doc/github-definition.md
+        version: 1.14.9
+        date: 2026-10-24
+  evidence:
+    - kind: primary_source
+      source: https://raw.githubusercontent.com/hashicorp/terraform/v1.14.9/README.md
+      version: 1.14.9
+      date: 2026-10-24
 files:
-  - name: "config"
-    path: "~/.terraformrc"
-    type: "config"
-    owner: "$(whoami)"
-    group: "$(whoami)"
-    mode: "0644"
-    backup: true
-  - name: "credentials"
-    path: "~/.terraform.d/credentials.tfrc.json"
-    type: "config"
-    owner: "$(whoami)"
-    group: "$(whoami)"
-    mode: "0600"
-    backup: true
-  - name: "log"
-    path: "/tmp/terraform.log"
-    type: "log"
-    owner: "$(whoami)"
-    group: "$(whoami)"
-    mode: "0644"
-
+  - name: cli-config-unix
+    path: ~/.terraformrc
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - name: cli-config-windows
+    path: "%APPDATA%\\terraform.rc"
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - name: dependency-lock
+    path: .terraform.lock.hcl
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/init.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - name: local-state
+    path: terraform.tfstate
+    type: data
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/index.mdx
+        version: 1.14.9
+        date: 2026-10-24
 directories:
-  - name: "config"
-    path: "~/.terraform.d"
-    owner: "$(whoami)"
-    group: "$(whoami)"
-    mode: "0755"
-  - name: "plugins"
-    path: "~/.terraform.d/plugins"
-    owner: "$(whoami)"
-    group: "$(whoami)"
-    mode: "0755"
-  - name: "cache"
-    path: "~/.terraform.d/plugin-cache"
-    owner: "$(whoami)"
-    group: "$(whoami)"
-    mode: "0755"
-
+  - name: working-data
+    path: .terraform
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - name: user-plugins-unix
+    path: ~/.terraform.d/plugins
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - name: user-plugins-windows
+    path: "%APPDATA%\\terraform.d\\plugins"
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
 commands:
-  - name: "terraform"
-    path: "/usr/local/bin/terraform"
-    shell_completion: true
-    aliases: ["tf"]
-
+  - name: terraform
+    flags:
+      - name: -chdir
+        value_type: string
+        description: Switch to another working directory before running the subcommand; relative paths in later arguments resolve inside it.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/index.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: -help
+        value_type: boolean
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/index.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: -version
+        value_type: boolean
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/index.mdx
+            version: 1.14.9
+            date: 2026-10-24
+    subcommands:
+      - name: init
+        description: "Prepare a working directory: configure the backend, install providers and modules, write the dependency lock file."
+        flags:
+          - name: -backend
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -backend-config
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -force-copy
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -from-module
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -get
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -input
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock-timeout
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -json
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -plugin-dir
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -reconfigure
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -migrate-state
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -upgrade
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lockfile
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -ignore-remote-version
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -test-directory
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/init.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: validate
+        description: Check that the configuration is syntactically valid and internally consistent without contacting remote services.
+        flags:
+          - name: -json
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-tests
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -query
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/validate.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: plan
+        description: Compute the changes needed to make real objects match the configuration, optionally saving them to a plan file.
+        flags:
+          - name: -destroy
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -refresh-only
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -refresh
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -replace
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -target
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var-file
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -compact-warnings
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -detailed-exitcode
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -generate-config-out
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -input
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock-timeout
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -out
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -parallelism
+            value_type: number
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -state
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/plan.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: apply
+        description: Create or update infrastructure, either from a saved plan file or after planning and confirming in one step.
+        flags:
+          - name: -auto-approve
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -backup
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -compact-warnings
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -destroy
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock-timeout
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -input
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -parallelism
+            value_type: number
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -replace
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -state
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -state-out
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var-file
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/apply.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: destroy
+        description: Plan and apply the removal of every object the configuration manages.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/destroy.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: console
+        description: Evaluate Terraform expressions interactively against the current state.
+        flags:
+          - name: -state
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -plan
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var-file
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/console.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: fmt
+        description: Rewrite configuration files to the canonical style.
+        flags:
+          - name: -list
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -write
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -diff
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -check
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -recursive
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/fmt.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: force-unlock
+        description: Release a state lock that a crashed run left behind.
+        flags:
+          - name: -force
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: get
+        description: Download or update the modules a configuration declares.
+        flags:
+          - name: -update
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/get.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: graph
+        description: Print the dependency graph of a configuration or saved plan in Graphviz DOT format.
+        flags:
+          - name: -plan
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -draw-cycles
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -type
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -module-depth
+            value_type: number
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/graph.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: import
+        description: Associate an existing real object with a resource address in state.
+        flags:
+          - name: -config
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -input
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock-timeout
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var-file
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -ignore-remote-version
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/import.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: login
+        description: Obtain and store an API token for a Terraform host.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/login.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: logout
+        description: Remove a stored API token for a Terraform host.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/logout.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: metadata
+        description: Print machine-readable metadata about Terraform, such as function signatures.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/index.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: modules
+        description: List the modules a working directory declares.
+        flags:
+          - name: -json
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/modules.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: output
+        description: Print the root module output values stored in state.
+        flags:
+          - name: -state
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -json
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -raw
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/output.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: providers
+        description: Report which providers the configuration and state require.
+        subcommands:
+          - name: lock
+            description: Write checksums for provider packages into the dependency lock file.
+            flags:
+              - name: -fs-mirror
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -net-mirror
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -platform
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -enable-plugin-cache
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -test-directory
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/providers/lock.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: mirror
+            description: Copy provider packages into a local mirror directory.
+            flags:
+              - name: -platform
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock-file
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/providers/mirror.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: schema
+            description: Print the schemas of the required providers as JSON.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/providers/schema.mdx
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/providers.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: query
+        description: Search for existing infrastructure with list resources.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/index.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: refresh
+        description: Update state to match the real objects; superseded by apply -refresh-only.
+        flags:
+          - name: -compact-warnings
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -input
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock-timeout
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -parallelism
+            value_type: number
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -target
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var-file
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/refresh.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: show
+        description: Print the current state or a saved plan in human or JSON form.
+        flags:
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -json
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/show.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: stacks
+        description: Manage HCP Terraform stack operations.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/index.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: state
+        description: Inspect and edit state with subcommands.
+        subcommands:
+          - name: list
+            description: List resource addresses recorded in state.
+            flags:
+              - name: -state
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -id
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/list.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: show
+            description: Print the attributes of one resource in state.
+            flags:
+              - name: -state
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/show.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: rm
+            description: Forget resources in state without destroying the real objects.
+            flags:
+              - name: -dry-run
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -backup
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock-timeout
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -state
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -ignore-remote-version
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/rm.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: mv
+            description: Move or rename a resource address in state.
+            flags:
+              - name: -dry-run
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock-timeout
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -ignore-remote-version
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/mv.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: pull
+            description: Write the current state to standard output.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/pull.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: push
+            description: Replace the remote state with a local state file.
+            flags:
+              - name: -force
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock-timeout
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/push.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: replace-provider
+            description: Change the provider source address recorded in state.
+            flags:
+              - name: -auto-approve
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock-timeout
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -ignore-remote-version
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/replace-provider.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: identities
+            description: List the identities of resources recorded in state.
+            flags:
+              - name: -state
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -id
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state/identities.mdx
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/state.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: taint
+        description: Mark a resource instance for replacement on the next apply.
+        flags:
+          - name: -allow-missing
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock-timeout
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -ignore-remote-version
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/taint.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: test
+        description: Run Terraform test files against a module.
+        flags:
+          - name: -cloud-run
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -filter
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -json
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -junit-xml
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -no-color
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -parallelism
+            value_type: number
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var-file
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -verbose
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -var
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/test.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: untaint
+        description: Clear the tainted mark from a resource instance.
+        flags:
+          - name: -allow-missing
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -lock-timeout
+            value_type: string
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+          - name: -ignore-remote-version
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/untaint.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: version
+        description: Print the Terraform version and installed provider versions.
+        flags:
+          - name: -json
+            value_type: boolean
+            evidence:
+              - kind: capture
+                source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/version.mdx
+            version: 1.14.9
+            date: 2026-10-24
+      - name: workspace
+        description: Create, list, select and delete workspaces, each with its own state.
+        subcommands:
+          - name: list
+            description: List workspaces and mark the selected one.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/workspace/list.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: new
+            description: Create a workspace and switch to it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/workspace/new.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: select
+            description: Switch to an existing workspace.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/workspace/select.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: show
+            description: Print the name of the selected workspace.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/workspace/show.mdx
+                version: 1.14.9
+                date: 2026-10-24
+          - name: delete
+            description: Delete a workspace.
+            flags:
+              - name: -force
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock
+                value_type: boolean
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+              - name: -lock-timeout
+                value_type: string
+                evidence:
+                  - kind: capture
+                    source: courses/it/terraform-fundamentals/tool/evidence/terraform-cli-flags-1.14.9.json
+                    version: 1.14.9
+                    date: 2026-10-24
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/workspace/delete.mdx
+                version: 1.14.9
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/workspace.mdx
+            version: 1.14.9
+            date: 2026-10-24
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/commands/index.mdx
+        version: 1.14.9
+        date: 2026-10-24
+settings:
+  - key: TF_LOG
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_LOG_PATH
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_INPUT
+    type: boolean
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_CLI_ARGS
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_DATA_DIR
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_WORKSPACE
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_IN_AUTOMATION
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_CLI_CONFIG_FILE
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_PLUGIN_CACHE_DIR
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: TF_VAR_name
+    type: string
+    scope: environment
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/environment-variables.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: plugin_cache_dir
+    type: string
+    scope: file
+    file: cli-config-unix
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: disable_checkpoint
+    type: boolean
+    scope: file
+    file: cli-config-unix
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: disable_checkpoint_signature
+    type: boolean
+    scope: file
+    file: cli-config-unix
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
+  - key: credentials_helper
+    type: string
+    scope: file
+    file: cli-config-unix
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/web-unified-docs/e8026b59cf2aa5586b46679e10ae25145730b4cb/content/terraform/v1.14.x/docs/cli/config/config-file.mdx
+        version: 1.14.9
+        date: 2026-10-24
 providers:
   apt:
-    repositories:
-      - name: "hashicorp-official"
-        url: "https://apt.releases.hashicorp.com"
-        key: "https://apt.releases.hashicorp.com/gpg"
-        type: "upstream"
-        recommended: true
-        packages:
-          - name: "terraform"
-            package_name: "terraform"
-            version: "1.5.0"
-
-  dnf:
-    repositories:
-      - name: "hashicorp-official"
-        url: "https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo"
-        type: "upstream"
-        recommended: true
-        packages:
-          - name: "terraform"
-            package_name: "terraform"
-            version: "1.5.0"
-
+    prerequisites:
+      - Debian-family host with APT administration privileges; ca-certificates, curl and gpg.
+      - Add the HashiCorp signing key under /usr/share/keyrings and the apt.releases.hashicorp.com repository for the release codename.
+      - Select the exact release with terraform=1.14.9-1; an unqualified install takes the newest release the repository carries, which is newer than 1.14.9.
+    evidence:
+      - kind: capture
+        source: courses/it/terraform-fundamentals/tool/evidence/apt-noble-amd64-terraform.stanza
+        version: 1.14.9
+        date: 2026-10-24
+    packages:
+      - name: terraform
+        package_name: terraform
+        repository: https://apt.releases.hashicorp.com
+        evidence:
+          - kind: capture
+            source: courses/it/terraform-fundamentals/tool/evidence/apt-noble-amd64-terraform.stanza
+            version: 1.14.9
+            date: 2026-10-24
   brew:
+    prerequisites:
+      - Homebrew on macOS.
+      - The hashicorp/tap tap installs the newest release it publishes; it does not pin 1.14.9. Verify the installed version with terraform version.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/hashicorp/homebrew-tap/6bfab853edc694e3801926b72446d57396f4c06c/Formula/terraform.rb
+        version: 1.14.9
+        date: 2026-10-24
     packages:
-      - name: "terraform"
-        package_name: "terraform"
-        alternatives: ["terraform"]
-
-  snap:
+      - name: terraform
+        package_name: hashicorp/tap/terraform
+        repository: https://github.com/hashicorp/homebrew-tap
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/hashicorp/homebrew-tap/6bfab853edc694e3801926b72446d57396f4c06c/Formula/terraform.rb
+            version: 1.14.9
+            date: 2026-10-24
+  binary:
+    prerequisites:
+      - Download the zip for the platform from releases.hashicorp.com, verify it against the signed SHA256SUMS file, and place the terraform executable on PATH.
+      - This is the documented manual path for Windows; the Windows page offers no package manager.
+    evidence:
+      - kind: primary_source
+        source: https://releases.hashicorp.com/terraform/1.14.9/terraform_1.14.9_SHA256SUMS
+        version: 1.14.9
+        date: 2026-10-24
     packages:
-      - name: "terraform"
-        package_name: "terraform"
-        alternatives: ["terraform"]
-
+      - name: terraform-windows-amd64
+        package_name: terraform_1.14.9_windows_amd64.zip
+        repository: https://releases.hashicorp.com/terraform/1.14.9/
+        evidence:
+          - kind: primary_source
+            source: https://releases.hashicorp.com/terraform/1.14.9/
+            version: 1.14.9
+            date: 2026-10-24
   docker:
+    prerequisites:
+      - Docker, or another engine that can pull from Docker Hub.
+      - HashiCorp publishes hashicorp/terraform on Docker Hub; the image runs terraform as its entrypoint, so arguments are passed after the image name.
+      - Pin by digest. The index digest below is the 1.14.9 tag and carries linux amd64, arm64, 386 and arm/v6 images.
+    evidence:
+      - kind: capture
+        source: courses/it/terraform-fundamentals/tool/evidence/docker-index-1.14.9.json
+        version: 1.14.9
+        date: 2026-10-24
     containers:
-      - name: "terraform"
-        image: "hashicorp/terraform"
-        tag: "1.5.0"
-        registry: "docker.io"
-        volumes: ["/workspace:/workspace"]
-        environment:
-          TF_LOG: "INFO"
-        labels:
-          purpose: "infrastructure-as-code"
-
-compatibility:
-  matrix:
-    - provider: "apt"
-      platform: ["ubuntu", "debian"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      recommended: true
-      tested: true
-    - provider: "dnf"
-      platform: ["fedora", "rhel", "centos"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      recommended: true
-    - provider: "brew"
-      platform: "macos"
-      architecture: ["amd64", "arm64"]
-      supported: true
-      recommended: true
-    - provider: "snap"
-      platform: "linux"
-      architecture: ["amd64", "arm64"]
-      supported: true
-    - provider: "docker"
-      platform: ["linux", "macos", "windows"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      notes: "Containerized execution environment"
+      - name: terraform
+        image: hashicorp/terraform
+        tag: 1.14.9
+        registry: docker.io
+        evidence:
+          - kind: capture
+            source: courses/it/terraform-fundamentals/tool/evidence/docker-index-1.14.9.json
+            version: 1.14.9
+            date: 2026-10-24

@@ -1,213 +1,2449 @@
-version: "0.2"
-
+# Exported from openskills.info. Facts and Evidence links only; quoted
+# source spans and captures stay in the openskills.info bundle.
+# Evidence of kind scenario_step marks an executed Scenario step; a node
+# with only primary_source Evidence is reviewed, not verified.
+# Unverified Targets: linux-rpm, macos
+version: "0.4"
 metadata:
-  name: "redis"
-  display_name: "Redis"
-  description: "In-memory data structure store used as database, cache, and message broker"
-  version: "7.0.12"
-  category: "database"
-  subcategory: "nosql"
-  tags: ["redis", "cache", "database", "nosql", "in-memory", "key-value"]
-  license: "BSD-3-Clause"
-  language: "C"
-  maintainer: "Redis Ltd."
+  name: redis
+  display_name: Redis
+  version: 8.2.1
+  description: In-memory data store with a server, command-line client and persistence inspection tools.
   urls:
-    website: "https://redis.io"
-    documentation: "https://redis.io/docs"
-    source: "https://github.com/redis/redis"
-    issues: "https://github.com/redis/redis/issues"
-    support: "https://redis.io/support"
-    download: "https://redis.io/download"
-    changelog: "https://github.com/redis/redis/releases"
-    license: "https://github.com/redis/redis/blob/unstable/COPYING"
-  security:
-    security_contact: "security@redis.io"
-    vulnerability_disclosure: "https://redis.io/security"
-
-packages:
-  - name: "redis"
-    package_name: "redis-server"
-    version: "7.0.12"
-    alternatives: ["redis-server", "redis-tools"]
-
-services:
-  - name: "redis"
-    service_name: "redis-server"
-    type: "systemd"
-    enabled: true
-    config_files: ["/etc/redis/redis.conf"]
-
+    website: https://redis.io/
+    documentation: https://redis.io/docs/latest/
+    source: https://github.com/redis/redis
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/README.md
+        version: 8.2.1
+        date: 2026-10-14
+  licenses:
+    - name: Redis Source Available License v2
+      as_of_version: "8.0"
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/redis/redis/8.2.1/LICENSE.txt
+          version: 8.2.1
+          date: 2026-10-14
+    - name: Server Side Public License v1
+      spdx_id: SSPL-1.0
+      as_of_version: "8.0"
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/redis/redis/8.2.1/LICENSE.txt
+          version: 8.2.1
+          date: 2026-10-14
+    - name: GNU Affero General Public License v3
+      spdx_id: AGPL-3.0-only
+      as_of_version: "8.0"
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/redis/redis/8.2.1/LICENSE.txt
+          version: 8.2.1
+          date: 2026-10-14
+  evidence:
+    - kind: primary_source
+      source: https://raw.githubusercontent.com/redis/redis/8.2.1/README.md
+      version: 8.2.1
+      date: 2026-10-14
 files:
-  - name: "config"
-    path: "/etc/redis/redis.conf"
-    type: "config"
-    owner: "redis"
-    group: "redis"
-    mode: "0640"
-    backup: true
-  - name: "log"
-    path: "/var/log/redis/redis-server.log"
-    type: "log"
-    owner: "redis"
-    group: "redis"
-    mode: "0644"
-  - name: "pid"
-    path: "/var/run/redis/redis-server.pid"
-    type: "temp"
-    owner: "redis"
-    group: "redis"
-    mode: "0644"
-
+  - name: redis-server
+    path: /usr/local/bin/redis-server
+    type: binary
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+  - name: redis-cli
+    path: /usr/local/bin/redis-cli
+    type: binary
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+  - name: redis-benchmark
+    path: /usr/local/bin/redis-benchmark
+    type: binary
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+  - name: redis-sentinel
+    path: /usr/local/bin/redis-sentinel
+    type: binary
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+  - name: redis-check-rdb
+    path: /usr/local/bin/redis-check-rdb
+    type: binary
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+  - name: redis-check-aof
+    path: /usr/local/bin/redis-check-aof
+    type: binary
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+  - name: redis.conf
+    path: redis.conf
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - name: sentinel.conf
+    path: sentinel.conf
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/sentinel.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - name: rdb-snapshot-relative-to-dir
+    path: ./dump.rdb
+    type: data
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - name: pidfile-from-example-config
+    path: /var/run/redis_6379.pid
+    type: temp
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
 directories:
-  - name: "config"
-    path: "/etc/redis"
-    owner: "redis"
-    group: "redis"
-    mode: "0755"
-  - name: "data"
-    path: "/var/lib/redis"
-    owner: "redis"
-    group: "redis"
-    mode: "0750"
-  - name: "log"
-    path: "/var/log/redis"
-    owner: "redis"
-    group: "redis"
-    mode: "0755"
-  - name: "run"
-    path: "/var/run/redis"
-    owner: "redis"
-    group: "redis"
-    mode: "0755"
-
+  - name: source-install-binaries
+    path: /usr/local/bin
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+  - name: data-directory-from-example-config
+    path: ./
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - name: aof-directory-relative-to-dir-when-enabled
+    path: ./appendonlydir
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+services:
+  - name: upstream-systemd-template
+    service_name: systemd-redis_server.service
+    type: systemd
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/utils/systemd-redis_server.service
+        version: 8.2.1
+        date: 2026-10-14
 commands:
-  - name: "redis-server"
-    path: "/usr/bin/redis-server"
-    man_page: "redis-server(1)"
-  - name: "redis-cli"
-    path: "/usr/bin/redis-cli"
-    shell_completion: true
-    man_page: "redis-cli(1)"
-  - name: "redis-benchmark"
-    path: "/usr/bin/redis-benchmark"
-    man_page: "redis-benchmark(1)"
-
+  - name: redis-server
+    path: /usr/local/bin/redis-server
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+        version: 8.2.1
+        date: 2026-10-14
+    positionals:
+      - name: config-file
+        value_type: string
+        required: false
+        description: Read an explicitly supplied config file, or use - to read it from standard input.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+    flags:
+      - name: --help
+        aliases:
+          - -h
+        value_type: boolean
+        description: Print invocation syntax.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --version
+        aliases:
+          - -v
+        value_type: boolean
+        description: Print the build version.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --test-memory
+        value_type: integer
+        description: Check the requested number of megabytes of memory.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --check-system
+        value_type: boolean
+        description: Run operating-system checks.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --sentinel
+        value_type: boolean
+        description: Start in Sentinel mode.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --port
+        value_type: integer
+        description: Set the listening TCP port.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --bind
+        value_type: string
+        description: Select listening addresses.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --protected-mode
+        value_type: enum
+        description: Select yes or no for local-only access protection.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --dir
+        value_type: string
+        description: Set the working directory for persistence files.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --appendonly
+        value_type: enum
+        description: Select yes or no for append-only persistence.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --save
+        value_type: string
+        description: Set snapshot intervals and change thresholds.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --maxmemory
+        value_type: string
+        description: Set the memory ceiling, with optional units.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --maxmemory-policy
+        value_type: enum
+        description: Choose the memory eviction policy.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --daemonize
+        value_type: enum
+        description: Select yes or no for background operation.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --supervised
+        value_type: enum
+        description: Choose the supervisor notification mode.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+  - name: redis-cli
+    path: /usr/local/bin/redis-cli
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+        version: 8.2.1
+        date: 2026-10-14
+    flags:
+      - name: -h
+        value_type: string
+        description: Connect to this host.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -p
+        value_type: integer
+        description: Connect to this TCP port.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -s
+        value_type: string
+        description: Connect through this Unix socket.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -a
+        aliases:
+          - --pass
+        value_type: string
+        description: Supply the password for authentication.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --user
+        value_type: string
+        description: Authenticate as this ACL user.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --askpass
+        value_type: boolean
+        description: Read a masked password interactively.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -u
+        value_type: string
+        description: Connect using a Redis URI.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -n
+        value_type: integer
+        description: Select a numbered database.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -c
+        value_type: boolean
+        description: Follow Redis Cluster redirects.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -e
+        value_type: boolean
+        description: Use a failure exit code for command errors.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: "-2"
+        value_type: boolean
+        description: Use RESP2.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: "-3"
+        value_type: boolean
+        description: Use RESP3.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -x
+        value_type: boolean
+        description: Read the final command argument from standard input.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --raw
+        value_type: boolean
+        description: Print replies without display formatting.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --no-raw
+        value_type: boolean
+        description: Apply display formatting to replies.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --json
+        value_type: boolean
+        description: Print replies as JSON.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --tls
+        value_type: boolean
+        description: Use TLS when the client was built with TLS support.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --cacert
+        value_type: string
+        description: Read trusted CA certificates from this file.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --cert
+        value_type: string
+        description: Read the client certificate from this file.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --key
+        value_type: string
+        description: Read the client private key from this file.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --scan
+        value_type: boolean
+        description: Iterate through the key space.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --pattern
+        value_type: string
+        description: Restrict key sampling to a matching pattern.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --count
+        value_type: integer
+        description: Set the scan count hint.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --stat
+        value_type: boolean
+        description: Stream server statistics.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --latency
+        value_type: boolean
+        description: Sample round-trip latency.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --bigkeys
+        value_type: boolean
+        description: Sample keys by their element count.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --memkeys
+        value_type: boolean
+        description: Sample keys by their memory usage.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --hotkeys
+        value_type: boolean
+        description: Sample frequently accessed keys when an LFU policy is in use.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --rdb
+        value_type: string
+        description: Save a snapshot transferred from the server.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --cluster
+        value_type: string
+        description: Select a client-side cluster management operation.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+    positionals:
+      - name: command
+        value_type: string
+        required: false
+        description: Send a server command; omit it to enter the interactive client.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: arguments
+        value_type: string
+        required: false
+        description: Pass the arguments accepted by the selected server command.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+            version: 8.2.1
+            date: 2026-10-14
+    subcommands:
+      - name: PING
+        description: Test the connection or echo a message.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/ping.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: message
+            value_type: string
+            required: false
+            description: Value for message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/ping.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: SET
+        description: Store a string value, with optional conditions and expiry.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/set.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/set.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: value
+            value_type: string
+            required: true
+            description: Value for value.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/set.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: GET
+        description: Read a string value.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/get.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/get.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: DEL
+        description: Remove one or more keys.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/del.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: One or more values for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/del.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: EXISTS
+        description: Count the supplied keys that exist.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/exists.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: One or more values for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/exists.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: EXPIRE
+        description: Set a key expiry in seconds.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/expire.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/expire.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: seconds
+            value_type: integer
+            required: true
+            description: Value for seconds.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/expire.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: TTL
+        description: Read the remaining lifetime in seconds.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/ttl.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/ttl.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: SCAN
+        description: Iterate over keys using a cursor.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/scan.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: cursor
+            value_type: integer
+            required: true
+            description: Value for cursor.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/scan.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: INFO
+        description: Read server status sections.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/info.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: section
+            value_type: string
+            required: false
+            description: One or more values for section.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/info.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: HSET
+        description: Store fields in a hash.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/hset.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: HGETALL
+        description: Read all fields and values in a hash.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/hgetall.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/hgetall.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: LPUSH
+        description: Prepend values to a list.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/lpush.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/lpush.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: element
+            value_type: string
+            required: true
+            description: One or more values for element.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/lpush.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: LRANGE
+        description: Read a range of list elements.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/lrange.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/lrange.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: start
+            value_type: integer
+            required: true
+            description: Value for start.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/lrange.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: stop
+            value_type: integer
+            required: true
+            description: Value for stop.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/lrange.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: SADD
+        description: Add members to a set.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/sadd.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/sadd.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: member
+            value_type: string
+            required: true
+            description: One or more values for member.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/sadd.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: SMEMBERS
+        description: Read the members of a set.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/smembers.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/smembers.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: ZADD
+        description: Add scored members to a sorted set.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/zadd.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: ZRANGE
+        description: Read a range from a sorted set.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/zrange.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/zrange.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: start
+            value_type: string
+            required: true
+            description: Value for start.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/zrange.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: stop
+            value_type: string
+            required: true
+            description: Value for stop.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/zrange.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: XADD
+        description: Append an entry to a stream.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/xadd.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: XRANGE
+        description: Read a range of stream entries.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/xrange.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: Value for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/xrange.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: start
+            value_type: string
+            required: true
+            description: Value for start.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/xrange.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: end
+            value_type: string
+            required: true
+            description: Value for end.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/xrange.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: PUBLISH
+        description: Send a message to a channel.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/publish.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: channel
+            value_type: string
+            required: true
+            description: Value for channel.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/publish.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: message
+            value_type: string
+            required: true
+            description: Value for message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/publish.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: SUBSCRIBE
+        description: Listen for messages on channels.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/subscribe.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: channel
+            value_type: string
+            required: true
+            description: One or more values for channel.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/subscribe.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: MULTI
+        description: Begin a transaction queue.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/multi.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: EXEC
+        description: Execute queued transaction commands.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/exec.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: WATCH
+        description: Track keys for optimistic transaction checks.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/watch.json
+            version: 8.2.1
+            date: 2026-10-14
+        positionals:
+          - name: key
+            value_type: string
+            required: true
+            description: One or more values for key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/watch.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: BGSAVE
+        description: Request a background snapshot.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/bgsave.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: BGREWRITEAOF
+        description: Request a background append-only file rewrite.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/bgrewriteaof.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: SHUTDOWN
+        description: Stop the server with the selected persistence behavior.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/shutdown.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: REPLICAOF
+        description: Configure replication or return to independent operation.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/replicaof.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: CONFIG
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config.json
+            version: 8.2.1
+            date: 2026-10-14
+        subcommands:
+          - name: GET
+            description: Read configuration values.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-get.json
+                version: 8.2.1
+                date: 2026-10-14
+            positionals:
+              - name: parameter
+                value_type: string
+                required: true
+                description: One or more values for parameter.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-get.json
+                    version: 8.2.1
+                    date: 2026-10-14
+          - name: SET
+            description: Change supported runtime settings.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-set.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: REWRITE
+            description: Persist runtime configuration to the startup file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-rewrite.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: RESETSTAT
+            description: Clear server statistics counters.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-resetstat.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: ACL
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/acl.json
+            version: 8.2.1
+            date: 2026-10-14
+        subcommands:
+          - name: LIST
+            description: Read user access rules.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/acl-list.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: SETUSER
+            description: Create or update an access-control user.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/acl-setuser.json
+                version: 8.2.1
+                date: 2026-10-14
+            positionals:
+              - name: username
+                value_type: string
+                required: true
+                description: Value for username.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/acl-setuser.json
+                    version: 8.2.1
+                    date: 2026-10-14
+              - name: rule
+                value_type: string
+                required: false
+                description: One or more values for rule.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/acl-setuser.json
+                    version: 8.2.1
+                    date: 2026-10-14
+          - name: WHOAMI
+            description: Read the authenticated user name.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/acl-whoami.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: CLIENT
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/client.json
+            version: 8.2.1
+            date: 2026-10-14
+        subcommands:
+          - name: LIST
+            description: Inspect connected clients.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/client-list.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: MEMORY
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/memory.json
+            version: 8.2.1
+            date: 2026-10-14
+        subcommands:
+          - name: USAGE
+            description: Estimate memory occupied by a key.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/memory-usage.json
+                version: 8.2.1
+                date: 2026-10-14
+            positionals:
+              - name: key
+                value_type: string
+                required: true
+                description: Value for key.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/memory-usage.json
+                    version: 8.2.1
+                    date: 2026-10-14
+      - name: SLOWLOG
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/slowlog.json
+            version: 8.2.1
+            date: 2026-10-14
+        subcommands:
+          - name: GET
+            description: Read slow-command records.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/slowlog-get.json
+                version: 8.2.1
+                date: 2026-10-14
+            positionals:
+              - name: count
+                value_type: integer
+                required: false
+                description: Value for count.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/slowlog-get.json
+                    version: 8.2.1
+                    date: 2026-10-14
+          - name: LEN
+            description: Count slow-command records.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/slowlog-len.json
+                version: 8.2.1
+                date: 2026-10-14
+          - name: RESET
+            description: Clear slow-command records.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/slowlog-reset.json
+                version: 8.2.1
+                date: 2026-10-14
+      - name: CLUSTER
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/cluster.json
+            version: 8.2.1
+            date: 2026-10-14
+        subcommands:
+          - name: INFO
+            description: Read cluster state counters.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/cluster-info.json
+                version: 8.2.1
+                date: 2026-10-14
+  - name: redis-sentinel
+    path: /usr/local/bin/redis-sentinel
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+        version: 8.2.1
+        date: 2026-10-14
+    positionals:
+      - name: config-file
+        value_type: string
+        required: true
+        description: Read the writable Sentinel configuration file.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/server.c
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/sentinel.conf
+            version: 8.2.1
+            date: 2026-10-14
+  - name: redis-benchmark
+    path: /usr/local/bin/redis-benchmark
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-benchmark.c
+        version: 8.2.1
+        date: 2026-10-14
+    flags:
+      - name: -h
+        value_type: string
+        description: Connect to this host.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-benchmark.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -p
+        value_type: integer
+        description: Connect to this TCP port.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-benchmark.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -c
+        value_type: integer
+        description: Set concurrent client connections.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-benchmark.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -n
+        value_type: integer
+        description: Set the total request count.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-benchmark.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: -t
+        value_type: string
+        description: Select named benchmark tests.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-benchmark.c
+            version: 8.2.1
+            date: 2026-10-14
+  - name: redis-check-rdb
+    path: /usr/local/bin/redis-check-rdb
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-check-rdb.c
+        version: 8.2.1
+        date: 2026-10-14
+    positionals:
+      - name: rdb-file
+        value_type: string
+        required: true
+        description: Inspect the supplied snapshot file.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-check-rdb.c
+            version: 8.2.1
+            date: 2026-10-14
+  - name: redis-check-aof
+    path: /usr/local/bin/redis-check-aof
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/Makefile
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-check-aof.c
+        version: 8.2.1
+        date: 2026-10-14
+    positionals:
+      - name: aof-file-or-manifest
+        value_type: string
+        required: true
+        description: Inspect an append-only file or multipart manifest.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-check-aof.c
+            version: 8.2.1
+            date: 2026-10-14
+    flags:
+      - name: --fix
+        value_type: boolean
+        description: Attempt repair of the supplied persistence data.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-check-aof.c
+            version: 8.2.1
+            date: 2026-10-14
+      - name: --truncate-to-timestamp
+        value_type: integer
+        description: Truncate persistence data at the supplied timestamp.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-check-aof.c
+            version: 8.2.1
+            date: 2026-10-14
 ports:
   - port: 6379
-    protocol: "tcp"
-    service: "redis"
-    description: "Redis server"
-
+    protocol: tcp
+    service: redis
+    description: Default client TCP port; port 0 disables the plain TCP listener.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - port: 26379
+    protocol: tcp
+    service: redis-sentinel
+    description: Default Sentinel listener when Sentinel mode is started.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/sentinel.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - port: 16379
+    protocol: tcp
+    service: redis-cluster-bus
+    description: Cluster bus port when cluster mode is enabled, the client port is 6379 and cluster-port is 0; standalone Redis does not open this listener.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+settings:
+  - key: bind
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 127.0.0.1 -::1
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: protected-mode
+    type: enum
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: yes
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: port
+    type: integer
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 6379
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: tcp-backlog
+    type: integer
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 511
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: timeout
+    type: integer
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 0
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: tcp-keepalive
+    type: integer
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 300
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: daemonize
+    type: enum
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: no
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: pidfile
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: /var/run/redis_6379.pid
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: logfile
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: ""
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: databases
+    type: integer
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 16
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: save
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 3600 1 300 100 60 10000
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: dbfilename
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: dump.rdb
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: dir
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: ./
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: appendonly
+    type: enum
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: no
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: appendfilename
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: appendonly.aof
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: appenddirname
+    type: string
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: appendonlydir
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: appendfsync
+    type: enum
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: everysec
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: maxmemory-policy
+    type: enum
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: noeviction
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/redis.conf
+        version: 8.2.1
+        date: 2026-10-14
+  - key: supervised
+    type: enum
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: no
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: cluster-enabled
+    type: enum
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: no
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: maxmemory
+    type: integer
+    scope: file
+    file: redis.conf
+    change_effect: restart
+    defaults:
+      - value: 0
+        as_of_version: 8.2.1
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+            version: 8.2.1
+            date: 2026-10-14
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: port
+    type: integer
+    scope: runtime_command
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-set.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: protected-mode
+    type: enum
+    scope: runtime_command
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-set.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: appendonly
+    type: enum
+    scope: runtime_command
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-set.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: appendfsync
+    type: enum
+    scope: runtime_command
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-set.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: maxmemory
+    type: integer
+    scope: runtime_command
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-set.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: maxmemory-policy
+    type: enum
+    scope: runtime_command
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/commands/config-set.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/config.c
+        version: 8.2.1
+        date: 2026-10-14
+  - key: REDISCLI_AUTH
+    type: string
+    scope: environment
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis/8.2.1/src/redis-cli.c
+        version: 8.2.1
+        date: 2026-10-14
 providers:
-  apt:
-    repositories:
-      - name: "ubuntu-default"
-        type: "os-default"
-        packages:
-          - name: "redis"
-            package_name: "redis-server"
-            alternatives: ["redis-server", "redis-tools"]
-        recommended: true
-      - name: "redis-official"
-        url: "https://packages.redis.io/deb"
-        key: "https://packages.redis.io/gpg"
-        type: "upstream"
-        packages:
-          - name: "redis"
-            package_name: "redis-stack-server"
-            version: "7.0.12"
-            alternatives: ["redis-stack-server"]
-
-  dnf:
-    repositories:
-      - name: "fedora-default"
-        type: "os-default"
-        packages:
-          - name: "redis"
-            package_name: "redis"
-            alternatives: ["redis"]
-        recommended: true
-      - name: "epel"
-        type: "third-party"
-        packages:
-          - name: "redis"
-            package_name: "redis"
-
-  brew:
-    packages:
-      - name: "redis"
-        package_name: "redis"
-        alternatives: ["redis"]
-
-  choco:
-    packages:
-      - name: "redis"
-        package_name: "redis-64"
-        version: "7.0.12"
-        alternatives: ["redis-64"]
-
   docker:
+    prerequisites:
+      - Docker installed on Linux, macOS, or Windows. On Windows, Docker must be configured for Linux containers; this is Docker on Windows, not a native Windows Redis build.
+      - Pull by index digest redis@sha256:5fa2edb1e408fa8235e6db8fab01d1afaaae96c9403ba67b70feceb8661e8621 to select Redis 8.2.1; the redis:8.2.1 tag is mutable.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/docker.md
+        version: 8.2.1
+        date: 2026-10-14
     containers:
-      - name: "redis"
-        image: "redis"
-        tag: "7.0.12"
-        registry: "docker.io"
-        ports: ["6379:6379"]
-        volumes: ["/data:/data"]
-        command: ["redis-server", "--appendonly", "yes"]
-        labels:
-          purpose: "cache-database"
-      - name: "redis-alpine"
-        image: "redis"
-        tag: "7.0.12-alpine"
-        registry: "docker.io"
-        ports: ["6379:6379"]
-        volumes: ["/data:/data"]
-        labels:
-          purpose: "lightweight-cache"
-
-  helm:
-    repositories:
-      - name: "bitnami"
-        url: "https://charts.bitnami.com/bitnami"
-        type: "third-party"
-        recommended: true
-        packages:
-          - name: "redis"
-            package_name: "redis"
-            alternatives: ["redis"]
-
-compatibility:
-  matrix:
-    - provider: "apt"
-      platform: ["ubuntu", "debian"]
-      architecture: ["amd64", "arm64", "i386"]
-      supported: true
-      recommended: true
-      tested: true
-    - provider: "dnf"
-      platform: ["fedora", "rhel", "centos", "rocky", "alma"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      recommended: true
-    - provider: "brew"
-      platform: "macos"
-      architecture: ["amd64", "arm64"]
-      supported: true
-      recommended: true
-    - provider: "choco"
-      platform: "windows"
-      architecture: ["amd64"]
-      supported: true
-      notes: "Windows port with some limitations"
-    - provider: "docker"
-      platform: ["linux", "macos", "windows"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      recommended: true
-      notes: "Recommended for development and containerized deployments"
-    - provider: "helm"
-      platform: ["linux", "macos", "windows"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      notes: "Kubernetes deployment with clustering support"
+      - name: redis
+        image: redis
+        tag: 8.2.1
+        registry: docker.io
+        ports:
+          - 6379/tcp
+        volumes:
+          - /data
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/docker-library/official-images/9940a91d1c73b8698cb8866b8ac04d40c7b1948c/library/redis
+            version: 8.2.1
+            date: 2026-10-14
+  brew:
+    prerequisites:
+      - macOS with Homebrew installed. Intel keeps binaries under /usr/local/bin, Apple silicon under /opt/homebrew/bin; add the Homebrew bin directory to PATH.
+      - The formula always installs the latest Redis Open Source release; it cannot pin 8.2.1. Use the Docker method for 8.2.1.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/docs/88f8433a556c27490f362416b992dd73686e559f/content/operate/oss_and_stack/install/install-stack/homebrew.md
+        version: 8.2.1
+        date: 2026-10-14
+    packages:
+      - name: redis
+        package_name: redis
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/docs/88f8433a556c27490f362416b992dd73686e559f/content/operate/oss_and_stack/install/install-stack/homebrew.md
+            version: 8.2.1
+            date: 2026-10-14
+  apt:
+    prerequisites:
+      - Ubuntu 22.04 (jammy), Ubuntu 24.04 (noble), or Debian 12 (bookworm); 8.2.1 is indexed for amd64 and arm64.
+      - APT administration privileges; lsb-release, curl and gpg.
+      - Configure the Redis-signed packages.redis.io/deb repository for the host suite using its GPG key and signed-by keyring.
+      - Exact 8.2.1 selection requires all four Redis packages at the same full suite-specific version; see evidence/linux-install-scope.md.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/apt.md
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis-debian/e3a07c52d6f7004cae203f6e11e27f337870f019/README.md
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: capture
+        source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: capture
+        source: courses/it/redis-fundamentals/tool/evidence/linux-install-scope.md
+        version: 8.2.1
+        date: 2026-10-14
+    packages:
+      - name: redis
+        package_name: redis
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/apt.md
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-server
+        package_name: redis-server
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/apt.md
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-sentinel
+        package_name: redis-sentinel
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/apt.md
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-tools
+        package_name: redis-tools
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/apt.md
+            version: 8.2.1
+            date: 2026-10-14
+    files:
+      - name: redis-server
+        path: /usr/bin/redis-server
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-cli
+        path: /usr/bin/redis-cli
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-benchmark
+        path: /usr/bin/redis-benchmark
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-rdb
+        path: /usr/bin/redis-check-rdb
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-aof
+        path: /usr/bin/redis-check-aof
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis.conf
+        path: /etc/redis/redis.conf
+        type: config
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-server-defaults
+        path: /etc/default/redis-server
+        type: config
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+    commands:
+      - name: redis-server
+        path: /usr/bin/redis-server
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-cli
+        path: /usr/bin/redis-cli
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-benchmark
+        path: /usr/bin/redis-benchmark
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-rdb
+        path: /usr/bin/redis-check-rdb
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-aof
+        path: /usr/bin/redis-check-aof
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+    directories:
+      - name: redis-config
+        path: /etc/redis
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+    services:
+      - name: redis-server
+        service_name: redis-server.service
+        type: systemd
+        enabled: true
+        config_files:
+          - /etc/redis/redis.conf
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/apt.md
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/apt-package-footprints.json
+            architecture: amd64
+            version: 8.2.1
+            date: 2026-10-14
+  yum:
+    prerequisites:
+      - Rocky Linux or AlmaLinux 8 or 9 as documented by the Redis RPM guide; packaging repository additionally claims RHEL 8/9 compatibility.
+      - "x86_64 or aarch64: 8.2.1-1 is listed for both architectures in each 8/9 repository."
+      - Administration privileges, curl, rpm and yum; systemd for the documented service lifecycle.
+      - Configure the matching rockylinux8 or rockylinux9 Redis repository with gpgcheck=1 and import the Redis GPG key.
+      - Major version 10 is supported by current packaging, but its captured repository has no Redis 8.2.1 package; do not use this 8.2.1 method on 10.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/rpm.md
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/redis/redis-rpm/3c6ca58286d01c781fdd6e465707d2fc21eb0f27/README.md
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: capture
+        source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+        version: 8.2.1
+        date: 2026-10-14
+      - kind: capture
+        source: courses/it/redis-fundamentals/tool/evidence/linux-install-scope.md
+        version: 8.2.1
+        date: 2026-10-14
+    packages:
+      - name: redis
+        package_name: redis
+        version: 8.2.1-1
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+    files:
+      - name: redis-server
+        path: /usr/bin/redis-server
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-cli
+        path: /usr/bin/redis-cli
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-benchmark
+        path: /usr/bin/redis-benchmark
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-rdb
+        path: /usr/bin/redis-check-rdb
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-aof
+        path: /usr/bin/redis-check-aof
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-sentinel
+        path: /usr/bin/redis-sentinel
+        type: binary
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis.conf
+        path: /etc/redis/redis.conf
+        type: config
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: sentinel.conf
+        path: /etc/redis/sentinel/sentinel.conf
+        type: config
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-unit
+        path: /usr/lib/systemd/system/redis.service
+        type: config
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-sentinel-unit
+        path: /usr/lib/systemd/system/redis-sentinel.service
+        type: config
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-server-log
+        path: /var/log/redis/redis-server.log
+        type: log
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-sentinel-log
+        path: /var/log/redis/redis-sentinel.log
+        type: log
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-server-pid
+        path: /run/redis/redis-server.pid
+        type: temp
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+    directories:
+      - name: redis-config
+        path: /etc/redis
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-data
+        path: /var/lib/redis
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-logs
+        path: /var/log/redis
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-runtime
+        path: /run/redis
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-modules
+        path: /usr/lib/redis/modules
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+    commands:
+      - name: redis-server
+        path: /usr/bin/redis-server
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-cli
+        path: /usr/bin/redis-cli
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-benchmark
+        path: /usr/bin/redis-benchmark
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-rdb
+        path: /usr/bin/redis-check-rdb
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-check-aof
+        path: /usr/bin/redis-check-aof
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+      - name: redis-sentinel
+        path: /usr/bin/redis-sentinel
+        evidence:
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14
+    services:
+      - name: redis
+        service_name: redis.service
+        type: systemd
+        enabled: false
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/redis/docs/9f080672f7ca6f9cc0e8bbec5b138047ccb152ee/content/operate/oss_and_stack/install/install-stack/rpm.md
+            version: 8.2.1
+            date: 2026-10-14
+          - kind: capture
+            source: courses/it/redis-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 8.2.1
+            date: 2026-10-14

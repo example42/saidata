@@ -1,0 +1,189 @@
+# Exported from openskills.info. Facts and Evidence links only; quoted
+# source spans and captures stay in the openskills.info bundle.
+# Evidence of kind scenario_step marks an executed Scenario step; a node
+# with only primary_source Evidence is reviewed, not verified.
+# Unverified Targets: linux-rpm, macos, windows
+version: "0.4"
+metadata:
+  name: github-copilot
+  display_name: GitHub Copilot
+  version: 1.0.103
+  description: AI coding assistant service from GitHub; this footprint covers its command line client.
+  urls:
+    website: https://github.com/features/copilot
+    documentation: https://docs.github.com/en/copilot
+    source: https://github.com/github/copilot-cli
+    changelog: https://github.com/github/copilot-cli/releases/tag/v1.0.103
+    evidence:
+      - kind: primary_source
+        source: https://github.com/github/copilot-cli/blob/v1.0.103/README.md
+        version: 1.0.103
+        date: 2026-10-24
+  licenses:
+    - name: GitHub Copilot CLI License
+      as_of_version: 1.0.103
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/github/copilot-cli/v1.0.103/LICENSE.md
+          version: 1.0.103
+          date: 2026-10-24
+  evidence:
+    - kind: primary_source
+      source: https://github.com/github/copilot-cli/blob/v1.0.103/README.md
+      version: 1.0.103
+      date: 2026-10-24
+commands:
+  - name: copilot
+    path: copilot
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+        version: 1.0.103
+        date: 2026-10-24
+    subcommands:
+      - name: version
+        description: Show version information and check for a newer release.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: help
+        description: Show help, optionally for a topic such as config, commands or environment.
+        positionals:
+          - name: topic
+            description: "Help topic: billing, config, commands, environment, logging, monitoring, permissions, providers or sandbox."
+            required: false
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: completion
+        description: Print a tab-completion script for a shell.
+        positionals:
+          - name: shell
+            description: bash, zsh or fish.
+            required: true
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: config
+        description: Read or change settings outside an interactive session.
+        positionals:
+          - name: key
+            required: false
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+          - name: value
+            required: false
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: update
+        description: Download and install the latest release.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: login
+        description: Authenticate with GitHub through OAuth; needs a Copilot seat and an interactive or token flow.
+        flags:
+          - name: --host
+            value_type: string
+            description: GitHub host to authenticate against.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+          - name: --web-flow
+            value_type: boolean
+            description: Force the browser-based flow.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+          - name: --device-code
+            value_type: boolean
+            description: Force the device code flow.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+          - name: --with-token
+            value_type: boolean
+            description: Read a token from standard input.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+                version: 1.0.103
+                date: 2026-10-24
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: init
+        description: Initialise custom instructions for a repository.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: mcp
+        description: Manage MCP server configurations.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: plugin
+        description: Manage plugins and plugin marketplaces.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+      - name: skill
+        description: Manage agent skills.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+            version: 1.0.103
+            date: 2026-10-24
+settings:
+  - key: COPILOT_HOME
+    type: string
+    scope: environment
+    change_effect: restart
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/github/docs/7bd329989069858e274414422264dbeafc210a7f/content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+        version: 1.0.103
+        date: 2026-10-24

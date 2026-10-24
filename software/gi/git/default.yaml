@@ -1,0 +1,4323 @@
+# Exported from openskills.info. Facts and Evidence links only; quoted
+# source spans and captures stay in the openskills.info bundle.
+# Evidence of kind scenario_step marks an executed Scenario step; a node
+# with only primary_source Evidence is reviewed, not verified.
+# Unverified Targets: linux-rpm, macos, windows
+version: "0.4"
+metadata:
+  name: git
+  display_name: Git
+  version: 2.56.0
+  description: Distributed version control system for recording, comparing and sharing the history of a source tree.
+  category: version-control
+  language: C
+  urls:
+    website: https://git-scm.com/
+    documentation: https://git-scm.com/docs
+    source: https://github.com/git/git
+    changelog: https://github.com/git/git/blob/v2.56.0/Documentation/RelNotes/2.56.0.adoc
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/README.md
+        version: 2.56.0
+        date: 2026-10-18
+  licenses:
+    - spdx_id: GPL-2.0-only
+      as_of_version: 2.56.0
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/git/git/v2.56.0/COPYING
+          version: 2.56.0
+          date: 2026-10-18
+  identifiers:
+    purl: pkg:github/git/git@v2.56.0
+    cpe: cpe:2.3:a:git-scm:git:2.56.0:*:*:*:*:*:*:*
+    evidence:
+      - kind: primary_source
+        source: https://github.com/package-url/purl-spec/blob/fa275946ad2dde7392c41e8fec313dff5682b7fb/types-doc/github-definition.md
+        version: 2.56.0
+        date: 2026-10-18
+  evidence:
+    - kind: primary_source
+      source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+      version: 2.56.0
+      date: 2026-10-18
+files:
+  - name: system-config
+    path: /etc/gitconfig
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Makefile
+        version: 2.56.0
+        date: 2026-10-18
+  - name: system-gitattributes
+    path: /etc/gitattributes
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Makefile
+        version: 2.56.0
+        date: 2026-10-18
+  - name: user-config-xdg
+    path: ~/.config/git/config
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: user-config-home
+    path: ~/.gitconfig
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: repository-config
+    path: .git/config
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: worktree-config
+    path: .git/config.worktree
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: user-ignore
+    path: ~/.config/git/ignore
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: user-attributes
+    path: ~/.config/git/attributes
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: gitignore
+    path: .gitignore
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitignore.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: gitattributes
+    path: .gitattributes
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitattributes.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: gitmodules
+    path: .gitmodules
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitmodules.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: repo-exclude
+    path: .git/info/exclude
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitignore.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: repo-head
+    path: .git/HEAD
+    type: data
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitrepository-layout.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: repo-index
+    path: .git/index
+    type: data
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitrepository-layout.adoc
+        version: 2.56.0
+        date: 2026-10-18
+directories:
+  - name: repository-dir
+    path: .git
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitrepository-layout.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: hooks
+    path: .git/hooks
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/githooks.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: objects
+    path: .git/objects
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitrepository-layout.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: refs
+    path: .git/refs
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/gitrepository-layout.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: templates
+    path: /usr/share/git-core/templates
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - name: xdg-user-config
+    path: ~/.config/git
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+        version: 2.56.0
+        date: 2026-10-18
+commands:
+  - name: git
+    path: git
+    man_page: git(1)
+    flags:
+      - name: --version
+        value_type: boolean
+        description: Print the Git version.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --help
+        value_type: boolean
+        description: Print help.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: -C
+        value_type: string
+        description: Run as if started in this directory.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: -c
+        value_type: string
+        description: Set a configuration variable for this invocation.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --git-dir
+        value_type: string
+        description: Use this repository directory.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --work-tree
+        value_type: string
+        description: Use this working tree.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --no-pager
+        value_type: boolean
+        description: Do not pipe output into a pager.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --paginate
+        aliases:
+          - -p
+        value_type: boolean
+        description: Always use a pager.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --bare
+        value_type: boolean
+        description: Treat the repository as bare.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --exec-path
+        value_type: string
+        description: Print or set the path to the Git core programs.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: --no-optional-locks
+        value_type: boolean
+        description: Do not take optional locks.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    subcommands:
+      - name: init
+        description: Create an empty repository or reinitialize an existing one.
+        positionals:
+          - name: directory
+            value_type: string
+            required: false
+            description: Directory to create the repository in.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --initial-branch
+            aliases:
+              - -b
+            value_type: string
+            description: Name the first branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --bare
+            value_type: boolean
+            description: Create a repository with no working tree.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --object-format
+            value_type: enum
+            description: Choose the object hash algorithm (sha1 or sha256).
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --template
+            value_type: string
+            description: Copy files from this template directory.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --separate-git-dir
+            value_type: string
+            description: Place the repository directory somewhere other than .git.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --shared
+            value_type: string
+            description: Set group permissions for a shared repository.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --quiet
+            aliases:
+              - -q
+            value_type: boolean
+            description: Suppress progress and informational output.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-init.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: clone
+        description: Copy a repository into a new directory.
+        positionals:
+          - name: repository
+            value_type: string
+            required: true
+            description: URL or path of the source repository.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: directory
+            value_type: string
+            required: false
+            description: Target directory.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --depth
+            value_type: integer
+            description: Limit history to this many commits.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --branch
+            aliases:
+              - -b
+            value_type: string
+            description: Check out this branch or tag instead of the remote default.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --bare
+            value_type: boolean
+            description: Make a bare clone.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --mirror
+            value_type: boolean
+            description: Mirror all refs of the source.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --recurse-submodules
+            value_type: boolean
+            description: Initialize and clone submodules.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --single-branch
+            value_type: boolean
+            description: Fetch only the history of one branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --filter
+            value_type: string
+            description: Request a partial clone with this object filter.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --origin
+            aliases:
+              - -o
+            value_type: string
+            description: Name the remote something other than origin.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-checkout
+            aliases:
+              - -n
+            value_type: boolean
+            description: Skip checking out HEAD.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --sparse
+            value_type: boolean
+            description: Start with a sparse checkout.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --quiet
+            aliases:
+              - -q
+            value_type: boolean
+            description: Suppress progress and informational output.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clone.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: add
+        description: Stage file contents for the next commit.
+        positionals:
+          - name: pathspec
+            value_type: string
+            required: false
+            description: Files or patterns to stage.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --patch
+            aliases:
+              - -p
+            value_type: boolean
+            description: Choose hunks interactively.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --all
+            aliases:
+              - -A
+            value_type: boolean
+            description: Stage additions, modifications and deletions across the tree.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --update
+            aliases:
+              - -u
+            value_type: boolean
+            description: Stage changes to tracked files only.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --intent-to-add
+            aliases:
+              - -N
+            value_type: boolean
+            description: Record that a path will be added later.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Allow adding otherwise ignored files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --interactive
+            aliases:
+              - -i
+            value_type: boolean
+            description: Use the interactive staging menu.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --dry-run
+            aliases:
+              - -n
+            value_type: boolean
+            description: Show what would happen without doing it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-add.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: status
+        description: Show the state of the working tree and index.
+        flags:
+          - name: --short
+            aliases:
+              - -s
+            value_type: boolean
+            description: Use the compact two-column format.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-status.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --branch
+            aliases:
+              - -b
+            value_type: boolean
+            description: Show branch and tracking information.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-status.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --porcelain
+            value_type: enum
+            description: Emit a stable machine-readable format.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-status.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --untracked-files
+            aliases:
+              - -u
+            value_type: enum
+            description: Control how untracked files are shown.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-status.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --ignored
+            value_type: enum
+            description: Also list ignored files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-status.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --ahead-behind
+            value_type: boolean
+            description: Compute ahead and behind counts.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-status.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-status.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: commit
+        description: Record staged changes as a new commit.
+        flags:
+          - name: --message
+            aliases:
+              - -m
+            value_type: string
+            description: Commit message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --all
+            aliases:
+              - -a
+            value_type: boolean
+            description: Stage modified and deleted tracked files first.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --amend
+            value_type: boolean
+            description: Replace the tip commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-edit
+            value_type: boolean
+            description: Reuse the previous message when amending.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --signoff
+            aliases:
+              - -s
+            value_type: boolean
+            description: Add a Signed-off-by trailer.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/signoff-option.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --gpg-sign
+            aliases:
+              - -S
+            value_type: string
+            description: Sign the commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-verify
+            aliases:
+              - -n
+            value_type: boolean
+            description: Skip the pre-commit and commit-msg hooks.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --allow-empty
+            value_type: boolean
+            description: Permit a commit with no changes.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --fixup
+            value_type: string
+            description: Create a fixup commit for the given commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --author
+            value_type: string
+            description: Override the commit author.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --date
+            value_type: string
+            description: Override the author date.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --file
+            aliases:
+              - -F
+            value_type: string
+            description: Read the message from a file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-commit.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: diff
+        description: Show changes between commits, the index and the working tree.
+        flags:
+          - name: --staged
+            aliases:
+              - --cached
+            value_type: boolean
+            description: Compare the index with HEAD.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-diff.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --stat
+            value_type: boolean
+            description: Summarize changes per file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --name-only
+            value_type: boolean
+            description: List only changed paths.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --name-status
+            value_type: boolean
+            description: List changed paths with a status letter.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-diff.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --word-diff
+            value_type: enum
+            description: Show changes by word.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --color-moved
+            value_type: enum
+            description: Color moved lines differently.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --ignore-all-space
+            aliases:
+              - -w
+            value_type: boolean
+            description: Ignore whitespace when comparing lines.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --check
+            value_type: boolean
+            description: Report whitespace errors.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-index
+            value_type: boolean
+            description: Compare two paths outside a repository.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-diff.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --unified
+            aliases:
+              - -U
+            value_type: integer
+            description: Lines of context.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-diff.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: log
+        description: Show commit history.
+        positionals:
+          - name: revision-range
+            value_type: string
+            required: false
+            description: Revisions to walk.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: path
+            value_type: string
+            required: false
+            description: Limit to these paths.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --oneline
+            value_type: boolean
+            description: One line per commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/pretty-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --graph
+            value_type: boolean
+            description: Draw the commit graph.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/rev-list-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --all
+            value_type: boolean
+            description: Include every ref.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/rev-list-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --decorate
+            value_type: enum
+            description: Show ref names on commits.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --max-count
+            aliases:
+              - -n
+            value_type: integer
+            description: Limit the number of commits.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/rev-list-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --since
+            value_type: string
+            description: Show commits after a date.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --until
+            value_type: string
+            description: Show commits before a date.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/rev-list-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --author
+            value_type: string
+            description: Filter by author.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/rev-list-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --grep
+            value_type: string
+            description: Filter by message pattern.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/rev-list-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --patch
+            aliases:
+              - -p
+            value_type: boolean
+            description: Show the patch for each commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --stat
+            value_type: boolean
+            description: Show a diffstat.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --follow
+            value_type: boolean
+            description: Follow a file across renames.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --format
+            aliases:
+              - --pretty
+            value_type: string
+            description: Choose the output format.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --first-parent
+            value_type: boolean
+            description: Follow only first parents of merges.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-log.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: show
+        description: Show one or more objects such as commits, tags and blobs.
+        positionals:
+          - name: object
+            value_type: string
+            required: false
+            description: Object to show; defaults to HEAD.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-show.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --stat
+            value_type: boolean
+            description: Show a diffstat.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --name-only
+            value_type: boolean
+            description: List changed paths.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-show.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --format
+            aliases:
+              - --pretty
+            value_type: string
+            description: Choose the output format.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-show.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-patch
+            aliases:
+              - -s
+            value_type: boolean
+            description: Suppress the diff.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/diff-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-show.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: branch
+        description: List, create, rename or delete branches.
+        flags:
+          - name: --list
+            aliases:
+              - -l
+            value_type: boolean
+            description: List branches.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --all
+            aliases:
+              - -a
+            value_type: boolean
+            description: Include remote-tracking branches.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --remotes
+            aliases:
+              - -r
+            value_type: boolean
+            description: List remote-tracking branches only.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --delete
+            aliases:
+              - -d
+            value_type: boolean
+            description: Delete a fully merged branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -D
+            value_type: boolean
+            description: Force deletion regardless of merge state.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --move
+            aliases:
+              - -m
+            value_type: boolean
+            description: Rename a branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --set-upstream-to
+            aliases:
+              - -u
+            value_type: string
+            description: Set the upstream of a branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --unset-upstream
+            value_type: boolean
+            description: Remove the upstream of a branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --merged
+            value_type: string
+            description: List branches merged into a commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-merged
+            value_type: string
+            description: List branches not merged into a commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --show-current
+            value_type: boolean
+            description: Print the current branch name.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --sort
+            value_type: string
+            description: Sort by a field.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --contains
+            value_type: string
+            description: List branches containing a commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-branch.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: switch
+        description: Change the current branch.
+        positionals:
+          - name: branch
+            value_type: string
+            required: false
+            description: Branch to switch to.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --create
+            aliases:
+              - -c
+            value_type: string
+            description: Create a branch and switch to it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -C
+            value_type: string
+            description: Create or reset a branch and switch to it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --detach
+            aliases:
+              - -d
+            value_type: boolean
+            description: Detach HEAD at a commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --discard-changes
+            value_type: boolean
+            description: Throw away local changes when switching.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --track
+            aliases:
+              - -t
+            value_type: boolean
+            description: Set up tracking for a new branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --orphan
+            value_type: string
+            description: Start a branch with no history.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Same as discarding local changes.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-switch.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: checkout
+        description: Switch branches or restore working tree files.
+        flags:
+          - name: -b
+            value_type: string
+            description: Create a branch and check it out.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -B
+            value_type: string
+            description: Create or reset a branch and check it out.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --detach
+            value_type: boolean
+            description: Detach HEAD at a commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Discard local changes.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --track
+            aliases:
+              - -t
+            value_type: boolean
+            description: Set up tracking for a new branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --orphan
+            value_type: string
+            description: Start a branch with no history.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --patch
+            aliases:
+              - -p
+            value_type: boolean
+            description: Choose hunks interactively.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-checkout.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: restore
+        description: Restore working tree files or unstage changes.
+        positionals:
+          - name: pathspec
+            value_type: string
+            required: true
+            description: Paths to restore.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-restore.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --staged
+            aliases:
+              - -S
+            value_type: boolean
+            description: Restore the index.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-restore.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --worktree
+            aliases:
+              - -W
+            value_type: boolean
+            description: Restore the working tree.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-restore.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --source
+            aliases:
+              - -s
+            value_type: string
+            description: Take content from this tree-ish.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-restore.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --patch
+            aliases:
+              - -p
+            value_type: boolean
+            description: Choose hunks interactively.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-restore.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --overlay
+            value_type: boolean
+            description: Never delete tracked files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-restore.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-restore.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: merge
+        description: Join two or more development histories.
+        positionals:
+          - name: commit
+            value_type: string
+            required: false
+            description: Commits or branches to merge.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --no-ff
+            value_type: boolean
+            description: Always create a merge commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --ff-only
+            value_type: boolean
+            description: Refuse unless the merge is a fast-forward.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --squash
+            value_type: boolean
+            description: Apply the changes without committing.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --abort
+            value_type: boolean
+            description: Abandon a conflicted merge.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --continue
+            value_type: boolean
+            description: Finish a merge after resolving conflicts.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --strategy
+            aliases:
+              - -s
+            value_type: string
+            description: Use this merge strategy.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/merge-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --strategy-option
+            aliases:
+              - -X
+            value_type: string
+            description: Pass an option to the strategy.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/merge-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-commit
+            value_type: boolean
+            description: Stop before creating the merge commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -m
+            value_type: string
+            description: Merge commit message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --signoff
+            value_type: boolean
+            description: Add a Signed-off-by trailer.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/signoff-option.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-merge.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: rebase
+        description: Reapply commits on top of another base.
+        positionals:
+          - name: upstream
+            value_type: string
+            required: false
+            description: Upstream to rebase onto.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: branch
+            value_type: string
+            required: false
+            description: Branch to rebase.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --interactive
+            aliases:
+              - -i
+            value_type: boolean
+            description: Edit the todo list before replaying.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --onto
+            value_type: string
+            description: Replay onto this base.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --continue
+            value_type: boolean
+            description: Resume after resolving conflicts.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --abort
+            value_type: boolean
+            description: Return to the pre-rebase state.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --skip
+            value_type: boolean
+            description: Drop the current patch and go on.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --autosquash
+            value_type: boolean
+            description: Reorder fixup and squash commits.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --autostash
+            value_type: boolean
+            description: Stash and reapply local changes around the rebase.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --rebase-merges
+            aliases:
+              - -r
+            value_type: boolean
+            description: Preserve merge topology.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --root
+            value_type: boolean
+            description: Rebase all commits reachable from the tip.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --exec
+            aliases:
+              - -x
+            value_type: string
+            description: Run a command after each commit.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rebase.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: reset
+        description: Move HEAD and optionally rewrite the index and working tree.
+        positionals:
+          - name: commit
+            value_type: string
+            required: false
+            description: Target commit; defaults to HEAD.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reset.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --soft
+            value_type: boolean
+            description: Move HEAD only.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reset.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --mixed
+            value_type: boolean
+            description: Move HEAD and reset the index.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reset.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --hard
+            value_type: boolean
+            description: Move HEAD and reset index and working tree.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reset.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --keep
+            value_type: boolean
+            description: Reset while keeping local changes.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reset.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --patch
+            aliases:
+              - -p
+            value_type: boolean
+            description: Choose hunks interactively.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reset.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reset.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: revert
+        description: Create commits that undo earlier commits.
+        positionals:
+          - name: commit
+            value_type: string
+            required: true
+            description: Commits to revert.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-revert.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --no-commit
+            aliases:
+              - -n
+            value_type: boolean
+            description: Apply the inverse changes without committing.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-revert.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-edit
+            value_type: boolean
+            description: Keep the generated message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-revert.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --mainline
+            aliases:
+              - -m
+            value_type: integer
+            description: Parent number for reverting a merge.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-revert.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --continue
+            value_type: boolean
+            description: Resume after resolving conflicts.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-revert.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --abort
+            value_type: boolean
+            description: Cancel the operation.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-revert.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-revert.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: cherry-pick
+        description: Apply the changes of existing commits onto the current branch.
+        positionals:
+          - name: commit
+            value_type: string
+            required: true
+            description: Commits to apply.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --no-commit
+            aliases:
+              - -n
+            value_type: boolean
+            description: Apply without committing.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -x
+            value_type: boolean
+            description: Append the source commit name to the message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --mainline
+            aliases:
+              - -m
+            value_type: integer
+            description: Parent number for picking a merge.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --continue
+            value_type: boolean
+            description: Resume after resolving conflicts.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --abort
+            value_type: boolean
+            description: Cancel the operation.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --edit
+            aliases:
+              - -e
+            value_type: boolean
+            description: Edit the message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-cherry-pick.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: stash
+        description: Set aside local changes and restore them later.
+        subcommands:
+          - name: push
+            description: Save local changes as a new stash entry.
+            flags:
+              - name: --include-untracked
+                aliases:
+                  - -u
+                value_type: boolean
+                description: Also stash untracked files.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --keep-index
+                aliases:
+                  - -k
+                value_type: boolean
+                description: Leave staged changes in place.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --message
+                aliases:
+                  - -m
+                value_type: string
+                description: Label the entry.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --patch
+                aliases:
+                  - -p
+                value_type: boolean
+                description: Choose hunks interactively.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: pop
+            description: Apply the newest entry and drop it.
+            flags:
+              - name: --index
+                value_type: boolean
+                description: Also restore the index state.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: apply
+            description: Apply an entry and keep it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: list
+            description: List stash entries.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: show
+            description: Show the changes recorded in an entry.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: drop
+            description: Delete an entry.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: clear
+            description: Delete every entry.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: branch
+            description: Create a branch from an entry and apply it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-stash.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: tag
+        description: Create, list, delete or verify tags.
+        positionals:
+          - name: tagname
+            value_type: string
+            required: false
+            description: Name of the tag.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: commit
+            value_type: string
+            required: false
+            description: Object to tag; defaults to HEAD.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --annotate
+            aliases:
+              - -a
+            value_type: boolean
+            description: Create an annotated tag.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --message
+            aliases:
+              - -m
+            value_type: string
+            description: Tag message.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --sign
+            aliases:
+              - -s
+            value_type: boolean
+            description: Create a GPG-signed tag.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --delete
+            aliases:
+              - -d
+            value_type: boolean
+            description: Delete a tag.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --list
+            aliases:
+              - -l
+            value_type: boolean
+            description: List tags matching a pattern.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Replace an existing tag.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verify
+            aliases:
+              - -v
+            value_type: boolean
+            description: Verify a tag signature.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --sort
+            value_type: string
+            description: Sort the listing.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-tag.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: fetch
+        description: Download objects and refs from another repository.
+        positionals:
+          - name: repository
+            value_type: string
+            required: false
+            description: Remote name or URL.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-fetch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --all
+            value_type: boolean
+            description: Fetch from every remote.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-fetch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --prune
+            aliases:
+              - -p
+            value_type: boolean
+            description: Remove remote-tracking refs that no longer exist upstream.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-fetch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --tags
+            aliases:
+              - -t
+            value_type: boolean
+            description: Fetch all tags.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-fetch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --depth
+            value_type: integer
+            description: Limit history to this many commits.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --unshallow
+            value_type: boolean
+            description: Convert a shallow repository to a complete one.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Overwrite local refs.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --jobs
+            aliases:
+              - -j
+            value_type: integer
+            description: Fetch in parallel.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --dry-run
+            value_type: boolean
+            description: Show what would be fetched.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --quiet
+            aliases:
+              - -q
+            value_type: boolean
+            description: Suppress progress and informational output.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-fetch.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-fetch.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: pull
+        description: Fetch from a remote and integrate into the current branch.
+        positionals:
+          - name: repository
+            value_type: string
+            required: false
+            description: Remote name or URL.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: refspec
+            value_type: string
+            required: false
+            description: Refs to fetch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --rebase
+            aliases:
+              - -r
+            value_type: enum
+            description: Rebase instead of merging.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --ff-only
+            value_type: boolean
+            description: Refuse unless the result is a fast-forward.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-rebase
+            value_type: boolean
+            description: Merge instead of rebasing.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --autostash
+            value_type: boolean
+            description: Stash and reapply local changes around the pull.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/merge-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --prune
+            aliases:
+              - -p
+            value_type: boolean
+            description: Prune stale remote-tracking refs.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --all
+            value_type: boolean
+            description: Fetch from every remote.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/fetch-options.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --quiet
+            aliases:
+              - -q
+            value_type: boolean
+            description: Suppress progress and informational output.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-pull.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: push
+        description: Upload local refs and objects to a remote.
+        positionals:
+          - name: repository
+            value_type: string
+            required: false
+            description: Remote name or URL.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: refspec
+            value_type: string
+            required: false
+            description: Refs to push.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --set-upstream
+            aliases:
+              - -u
+            value_type: boolean
+            description: Record the remote branch as upstream.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force-with-lease
+            value_type: string
+            description: Force only if the remote ref is unchanged since last fetch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Overwrite remote refs unconditionally.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --tags
+            value_type: boolean
+            description: Push all tags.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --follow-tags
+            value_type: boolean
+            description: Push annotated tags reachable from pushed commits.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --delete
+            aliases:
+              - -d
+            value_type: boolean
+            description: Delete the remote ref.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --all
+            value_type: boolean
+            description: Push every branch.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --atomic
+            value_type: boolean
+            description: Update all refs or none.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --dry-run
+            aliases:
+              - -n
+            value_type: boolean
+            description: Show what would be pushed.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --no-verify
+            value_type: boolean
+            description: Skip the pre-push hook.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --quiet
+            aliases:
+              - -q
+            value_type: boolean
+            description: Suppress progress and informational output.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-push.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: remote
+        description: Manage the set of tracked repositories.
+        flags:
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        subcommands:
+          - name: add
+            description: Add a remote.
+            positionals:
+              - name: name
+                value_type: string
+                required: true
+                description: Remote name.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: url
+                value_type: string
+                required: true
+                description: Remote URL.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: remove
+            description: Remove a remote and its tracking refs.
+            positionals:
+              - name: name
+                value_type: string
+                required: true
+                description: Remote name.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: rename
+            description: Rename a remote.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: set-url
+            description: Change the URL of a remote.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: show
+            description: Show information about a remote.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: prune
+            description: Delete stale remote-tracking refs.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-remote.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: rm
+        description: Remove files from the working tree and index.
+        positionals:
+          - name: pathspec
+            value_type: string
+            required: true
+            description: Files to remove.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rm.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --cached
+            value_type: boolean
+            description: Remove from the index only.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rm.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Override the up-to-date check.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rm.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -r
+            value_type: boolean
+            description: Allow recursive removal.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rm.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --dry-run
+            aliases:
+              - -n
+            value_type: boolean
+            description: Show what would happen without doing it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rm.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-rm.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: mv
+        description: Move or rename a file, directory or symlink.
+        positionals:
+          - name: source
+            value_type: string
+            required: true
+            description: Existing path.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-mv.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: destination
+            value_type: string
+            required: true
+            description: New path.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-mv.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Overwrite the destination.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-mv.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --dry-run
+            aliases:
+              - -n
+            value_type: boolean
+            description: Show what would happen without doing it.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-mv.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --verbose
+            aliases:
+              - -v
+            value_type: boolean
+            description: Print more detail.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-mv.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-mv.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: clean
+        description: Remove untracked files from the working tree.
+        flags:
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            description: Actually delete files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clean.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -d
+            value_type: boolean
+            description: Include untracked directories.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clean.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -x
+            value_type: boolean
+            description: Include ignored files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clean.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -X
+            value_type: boolean
+            description: Remove only ignored files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clean.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --dry-run
+            aliases:
+              - -n
+            value_type: boolean
+            description: Show what would be removed.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clean.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --interactive
+            aliases:
+              - -i
+            value_type: boolean
+            description: Choose interactively.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clean.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-clean.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: bisect
+        description: Find the commit that introduced a bug by binary search.
+        subcommands:
+          - name: start
+            description: Begin a bisection.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-bisect.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: good
+            description: Mark a commit as good.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-bisect.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: bad
+            description: Mark a commit as bad.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-bisect.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: run
+            description: Automate the search with a command.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-bisect.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: reset
+            description: End the bisection and return to the original HEAD.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-bisect.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: log
+            description: Show the bisection log so far.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-bisect.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-bisect.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: blame
+        description: Show which commit last changed each line of a file.
+        positionals:
+          - name: file
+            value_type: string
+            required: true
+            description: File to annotate.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-blame.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: -L
+            value_type: string
+            description: Restrict to a line range.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-blame.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -w
+            value_type: boolean
+            description: Ignore whitespace changes.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-blame.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: -C
+            value_type: boolean
+            description: Detect lines moved or copied from other files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-blame.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --ignore-rev
+            value_type: string
+            description: Skip a commit when assigning blame.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-blame.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --porcelain
+            aliases:
+              - -p
+            value_type: boolean
+            description: Emit a machine-readable format.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-blame.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-blame.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: grep
+        description: Search tracked files for a pattern.
+        positionals:
+          - name: pattern
+            value_type: string
+            required: true
+            description: Pattern to search for.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --line-number
+            aliases:
+              - -n
+            value_type: boolean
+            description: Show line numbers.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --ignore-case
+            aliases:
+              - -i
+            value_type: boolean
+            description: Match case-insensitively.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --count
+            aliases:
+              - -c
+            value_type: boolean
+            description: Count matches per file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --files-with-matches
+            aliases:
+              - -l
+            value_type: boolean
+            description: List matching files only.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --fixed-strings
+            aliases:
+              - -F
+            value_type: boolean
+            description: Treat the pattern as a literal string.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --untracked
+            value_type: boolean
+            description: Also search untracked files.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --word-regexp
+            aliases:
+              - -w
+            value_type: boolean
+            description: Match whole words.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-grep.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: worktree
+        description: Manage multiple working trees attached to one repository.
+        subcommands:
+          - name: add
+            description: Create a new working tree.
+            flags:
+              - name: -b
+                value_type: string
+                description: Create a branch in the new tree.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --detach
+                value_type: boolean
+                description: Detach HEAD in the new tree.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --force
+                aliases:
+                  - -f
+                value_type: boolean
+                description: Override safety checks.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: list
+            description: List working trees.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: remove
+            description: Delete a working tree.
+            flags:
+              - name: --force
+                aliases:
+                  - -f
+                value_type: boolean
+                description: Remove even if dirty.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: prune
+            description: Clean up stale working tree records.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: move
+            description: Move a working tree.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-worktree.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: submodule
+        description: Initialize, update or inspect submodules.
+        subcommands:
+          - name: add
+            description: Add a repository as a submodule.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: init
+            description: Register submodules in the local config.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: update
+            description: Check out the recorded submodule commits.
+            flags:
+              - name: --init
+                value_type: boolean
+                description: Initialize submodules first.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --recursive
+                value_type: boolean
+                description: Recurse into nested submodules.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --remote
+                value_type: boolean
+                description: Use the remote branch tip.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: status
+            description: Show submodule state.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: sync
+            description: Refresh submodule URLs from .gitmodules.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-submodule.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: reflog
+        description: Inspect the log of ref updates.
+        subcommands:
+          - name: show
+            description: Show the log of a ref.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reflog.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: expire
+            description: Prune old entries.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reflog.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: delete
+            description: Remove a single entry.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reflog.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: exists
+            description: Check whether a ref has a reflog.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reflog.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-reflog.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: config
+        description: Read and write configuration variables.
+        flags:
+          - name: --system
+            value_type: boolean
+            description: Use the system-wide file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --global
+            value_type: boolean
+            description: Use the per-user file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --local
+            value_type: boolean
+            description: Use the repository file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --worktree
+            value_type: boolean
+            description: Use the per-worktree file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --file
+            aliases:
+              - -f
+            value_type: string
+            description: Use a specific file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --type
+            value_type: enum
+            description: Canonicalize values as bool, int, path, expiry-date or color.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --show-origin
+            value_type: boolean
+            description: Show the file each value came from.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --show-scope
+            value_type: boolean
+            description: Show the scope each value came from.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --null
+            aliases:
+              - -z
+            value_type: boolean
+            description: End values with NUL.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        subcommands:
+          - name: list
+            description: List all variables and values.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: get
+            description: Print the value of a variable.
+            flags:
+              - name: --all
+                value_type: boolean
+                description: Print every value of a multi-valued key.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+              - name: --default
+                value_type: string
+                description: Value to use when the key is unset.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: set
+            description: Set a variable.
+            flags:
+              - name: --append
+                value_type: boolean
+                description: Add a value without replacing existing ones.
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                    version: 2.56.0
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: unset
+            description: Remove a variable.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: rename-section
+            description: Rename a section.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: remove-section
+            description: Delete a section.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: edit
+            description: Open a config file in the editor.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-config.adoc
+            version: 2.56.0
+            date: 2026-10-18
+      - name: help
+        description: Display help for Git and its commands.
+        positionals:
+          - name: command
+            value_type: string
+            required: false
+            description: Command or guide to describe.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-help.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        flags:
+          - name: --all
+            aliases:
+              - -a
+            value_type: boolean
+            description: List all available commands.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-help.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --config
+            aliases:
+              - -c
+            value_type: boolean
+            description: List all configuration variables.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-help.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --guides
+            aliases:
+              - -g
+            value_type: boolean
+            description: List the concept guides.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-help.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --man
+            aliases:
+              - -m
+            value_type: boolean
+            description: Show the manual page.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-help.adoc
+                version: 2.56.0
+                date: 2026-10-18
+          - name: --web
+            aliases:
+              - -w
+            value_type: boolean
+            description: Show HTML help in a browser.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-help.adoc
+                version: 2.56.0
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git-help.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/git.adoc
+        version: 2.56.0
+        date: 2026-10-18
+settings:
+  - key: user.name
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/user.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: user.email
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/user.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: user.signingKey
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/user.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: init.defaultBranch
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/init.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.editor
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.pager
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: less
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.autocrlf
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.eol
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: native
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.fileMode
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.ignoreCase
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: false
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.symlinks
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: true
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.excludesFile
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: $XDG_CONFIG_HOME/git/ignore
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.attributesFile
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: $XDG_CONFIG_HOME/git/attributes
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.hooksPath
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: $GIT_DIR/hooks
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.fsmonitor
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.untrackedCache
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: keep
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.sshCommand
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.commentChar
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: "#"
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.quotePath
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: core.whitespace
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/core.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: pull.rebase
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/pull.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: pull.ff
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/pull.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: push.default
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: simple
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/push.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/push.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: push.autoSetupRemote
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/push.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: push.followTags
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/push.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: fetch.prune
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/fetch.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: fetch.parallel
+    type: integer
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: 1
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/fetch.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/fetch.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: fetch.fsckObjects
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: false
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/fetch.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/fetch.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: merge.ff
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: true
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/merge.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/merge.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: merge.conflictStyle
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: merge
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/merge.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/merge.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: merge.tool
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/merge.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: rebase.autoStash
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: false
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/rebase.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/rebase.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: rebase.autoSquash
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/rebase.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: commit.gpgSign
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/commit.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: commit.template
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/commit.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: commit.verbose
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/commit.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: tag.gpgSign
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/tag.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: gpg.format
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: openpgp
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/gpg.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/gpg.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: diff.algorithm
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: myers
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/diff.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/diff.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: diff.colorMoved
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/diff.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: diff.tool
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/difftool.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: difftool.prompt
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/difftool.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: color.ui
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/color.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: column.ui
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: never
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/column.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/column.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: credential.helper
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/credential.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: credential.useHttpPath
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: false
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/credential.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/credential.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: http.proxy
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/http.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: http.sslVerify
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: true
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/http.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/http.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: branch.autoSetupMerge
+    type: enum
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: true
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/branch.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/branch.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: branch.sort
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/branch.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: status.short
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/status.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: safe.directory
+    type: string
+    scope: file
+    file: git config files in protected configuration (system and global scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/safe.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: rerere.enabled
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/rerere.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: help.autoCorrect
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: show
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/help.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/help.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: log.date
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/log.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: maintenance.auto
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: true
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/maintenance.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/maintenance.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: gc.auto
+    type: integer
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: 6700
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/gc.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/gc.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: transfer.fsckObjects
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: false
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/transfer.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/transfer.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: submodule.recurse
+    type: boolean
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    defaults:
+      - value: false
+        as_of_version: 2.56.0
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/submodule.adoc
+            version: 2.56.0
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/submodule.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: include.path
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/includeif.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: url.<base>.insteadOf
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/url.adoc
+        version: 2.56.0
+        date: 2026-10-18
+  - key: alias.<name>
+    type: string
+    scope: file
+    file: git config files (system, global, local, worktree scopes)
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/Documentation/config/alias.adoc
+        version: 2.56.0
+        date: 2026-10-18
+providers:
+  apt:
+    prerequisites:
+      - Debian-family host with configured APT repositories, network access and administration privileges.
+      - Package name is git. Exact version is suite-specific; unqualified apt install git selects the current candidate, not upstream 2.56.0. See evidence/linux-install-scope.md.
+      - Ubuntu jammy, noble and plucky amd64 indexes were captured on 2026-10-20. Debian suite indexes and Ubuntu arm64 indexes were not reachable from this worktree (HTTP 403).
+    evidence:
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-package-indexes.json
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-install-scope.md
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/README.md
+        version: 2.56.0
+        date: 2026-10-20
+    packages:
+      - name: git
+        package_name: git
+        evidence:
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 2.56.0
+            date: 2026-10-20
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/apt-noble-amd64-git.stanza
+            version: 1:2.43.0-1ubuntu7
+            date: 2026-10-20
+  yum:
+    prerequisites:
+      - Red Hat-family host with dnf or yum, configured repositories and administration privileges.
+      - Package name is git. Exact NEVRA was not read from a live repomd in this worktree; see evidence/linux-install-scope.md capture limits. Do not invent a version from Ubuntu apt rows.
+    evidence:
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-install-scope.md
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-package-indexes.json
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/README.md
+        version: 2.56.0
+        date: 2026-10-20
+    packages:
+      - name: git
+        package_name: git
+        evidence:
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/linux-install-scope.md
+            version: 2.56.0
+            date: 2026-10-20
+  brew:
+    prerequisites:
+      - macOS with Homebrew installed. Intel keeps binaries under /usr/local/bin, Apple silicon under /opt/homebrew/bin; add the Homebrew bin directory to PATH.
+      - This is the Homebrew formula git, distinct from Apple Xcode Command Line Tools git (see providers.binaries apple-clt-git). brew install git installs the formula's current upstream tarball; the captured formula packages 2.56.0.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/Homebrew/homebrew-core/7ad55e3bc523898edae3e76ac782c5622ffa60ea/Formula/g/git.rb
+        version: 2.56.0
+        date: 2026-10-18
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/brew-git-formula-7ad55e3.rb
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-package-indexes.json
+        version: 2.56.0
+        date: 2026-10-20
+    packages:
+      - name: git
+        package_name: git
+        version: 2.56.0
+        evidence:
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/brew-git-formula-7ad55e3.rb
+            version: 2.56.0
+            date: 2026-10-20
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/Homebrew/homebrew-core/7ad55e3bc523898edae3e76ac782c5622ffa60ea/Formula/g/git.rb
+            version: 2.56.0
+            date: 2026-10-18
+    files:
+      - name: system-config
+        path: $(brew --prefix)/etc/gitconfig
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/Homebrew/homebrew-core/7ad55e3bc523898edae3e76ac782c5622ffa60ea/Formula/g/git.rb
+            version: 2.56.0
+            date: 2026-10-18
+  binaries:
+    prerequisites:
+      - "macOS Apple Xcode Command Line Tools: install with xcode-select --install (or full Xcode). The resulting /usr/bin/git is Apple's build. It is not the Homebrew formula. Version is Apple-controlled; there is no public package index row for it."
+      - "Windows Git for Windows installer: download the tagged release from git-for-windows/git (latest stable captured v2.56.0.windows.2). The installer ships Git Bash (MSYS2/Bash), Git Credential Manager, and a default system gitconfig with core.autocrlf=true."
+    evidence:
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-package-indexes.json
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/git-for-windows-releases.atom
+        version: 2.56.0.windows.2
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/git-for-windows-gitconfig
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/git-for-windows-ReleaseNotes.md
+        version: 2.56.0.windows.2
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git-for-windows/build-extra/4d65f59ac68d094611dfb8d6d17d463a8eb710e8/git-extra/gitconfig
+        version: 2.56.0
+        date: 2026-10-20
+    packages:
+      - name: apple-clt-git
+        package_name: git
+        version: 2.54.0
+        evidence:
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/linux-package-indexes.json
+            version: 2.54.0
+            date: 2026-10-20
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/linux-install-scope.md
+            version: 2.54.0
+            date: 2026-10-20
+      - name: git-for-windows-installer
+        package_name: Git for Windows
+        version: 2.56.0.windows.2
+        download_url: https://github.com/git-for-windows/git/releases/tag/v2.56.0.windows.2
+        evidence:
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/git-for-windows-releases.atom
+            version: 2.56.0.windows.2
+            date: 2026-10-20
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/git-for-windows-ReleaseNotes.md
+            version: 2.56.0.windows.2
+            date: 2026-10-20
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/git-for-windows-gitconfig
+            version: 2.56.0
+            date: 2026-10-20
+  winget:
+    prerequisites:
+      - Windows with winget available. Package id Git.Git.
+      - winget installs the listed PackageVersion from winget-pkgs. On 2026-10-20 the newest manifest directory was 2.55.0 (installer URLs for v2.55.0.windows.1). The Git for Windows releases feed was already at v2.56.0.windows.2; use the installer method for that tag.
+      - "Same product family as the Git for Windows installer: Git Bash, Git Credential Manager, and default core.autocrlf=true apply to the installed tree."
+    evidence:
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/winget-Git.Git-2.55.0/Git.Git.installer.yaml
+        version: 2.55.0
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-package-indexes.json
+        version: 2.55.0
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/git-for-windows-gitconfig
+        version: 2.56.0
+        date: 2026-10-20
+    packages:
+      - name: git
+        package_name: Git.Git
+        version: 2.55.0
+        evidence:
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/winget-Git.Git-2.55.0/Git.Git.yaml
+            version: 2.55.0
+            date: 2026-10-20
+          - kind: capture
+            source: courses/it/git-fundamentals/tool/evidence/winget-Git.Git-2.55.0/Git.Git.installer.yaml
+            version: 2.55.0
+            date: 2026-10-20
+  docker:
+    prerequisites:
+      - "not applicable: Git is a client tool. Upstream documents host installs of the git CLI (Linux packages, macOS Homebrew or Apple Command Line Tools, Git for Windows). There is no official Git runtime image that is the supported way to use Git (unlike a daemon image such as Docker Hub library/redis for Redis). Images that merely contain git are application or distro images, not an official Git product image; third-party images are not offered as a default here."
+    evidence:
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-install-scope.md
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/README.md
+        version: 2.56.0
+        date: 2026-10-20
+    containers: []
+  kubernetes:
+    prerequisites:
+      - "not applicable: Git is not deployed as a Kubernetes control-plane or workload install. There is no official Helm chart or operator for Git itself. Pods that need the git client use an image or node that already provides it. Third-party charts are not offered as a default here."
+    evidence:
+      - kind: capture
+        source: courses/it/git-fundamentals/tool/evidence/linux-install-scope.md
+        version: 2.56.0
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/git/git/v2.56.0/README.md
+        version: 2.56.0
+        date: 2026-10-20
+    charts: []

@@ -1,256 +1,2911 @@
-version: "0.2"
-
+# Exported from openskills.info. Facts and Evidence links only; quoted
+# source spans and captures stay in the openskills.info bundle.
+# Evidence of kind scenario_step marks an executed Scenario step; a node
+# with only primary_source Evidence is reviewed, not verified.
+# Unverified Targets: linux-debian, linux-rpm, macos, windows
+version: "0.4"
 metadata:
-  name: "kubernetes"
-  display_name: "Kubernetes"
-  description: "Container orchestration platform for automating deployment, scaling, and management"
-  version: "1.28.0"
-  category: "orchestration"
-  subcategory: "container"
-  tags: ["kubernetes", "orchestration", "containers", "devops", "cloud-native"]
-  license: "Apache-2.0"
-  language: "Go"
-  maintainer: "Cloud Native Computing Foundation"
+  name: kubernetes
+  display_name: Kubernetes
+  version: 1.37.1
+  description: Container orchestration platform driven by the kubectl client and bootstrapped with kubeadm.
   urls:
-    website: "https://kubernetes.io"
-    documentation: "https://kubernetes.io/docs"
-    source: "https://github.com/kubernetes/kubernetes"
-    issues: "https://github.com/kubernetes/kubernetes/issues"
-    support: "https://kubernetes.io/community"
-    download: "https://github.com/kubernetes/kubernetes/releases"
-    changelog: "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG"
-    license: "https://github.com/kubernetes/kubernetes/blob/master/LICENSE"
-  security:
-    security_contact: "security@kubernetes.io"
-    vulnerability_disclosure: "https://kubernetes.io/docs/reference/issues-security/security"
-
-packages:
-  - name: "kubelet"
-    package_name: "kubelet"
-    version: "1.28.0"
-    alternatives: ["kubelet"]
-  - name: "kubeadm"
-    package_name: "kubeadm"
-    version: "1.28.0"
-    alternatives: ["kubeadm"]
-  - name: "kubectl"
-    package_name: "kubectl"
-    version: "1.28.0"
-    alternatives: ["kubectl"]
-  - name: "kube-proxy"
-    package_name: "kube-proxy"
-    version: "1.28.0"
-    alternatives: ["kube-proxy"]
-
-services:
-  - name: "kubelet"
-    service_name: "kubelet"
-    type: "systemd"
-    enabled: true
-    config_files: ["/var/lib/kubelet/config.yaml", "/etc/kubernetes/kubelet/kubelet-config.json"]
-  - name: "kube-proxy"
-    service_name: "kube-proxy"
-    type: "systemd"
-    enabled: true
-
+    website: https://kubernetes.io/
+    documentation: https://kubernetes.io/docs/
+    source: https://github.com/kubernetes/kubernetes
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/README.md
+        version: 1.37.1
+        date: 2026-10-18
+  licenses:
+    - spdx_id: Apache-2.0
+      as_of_version: "1.37"
+      evidence:
+        - kind: primary_source
+          source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/LICENSE
+          version: 1.37.1
+          date: 2026-10-18
+  identifiers:
+    purl: pkg:github/kubernetes/kubernetes@v1.37.1
+    cpe: cpe:2.3:a:kubernetes:kubernetes:1.37.1:*:*:*:*:*:*:*
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/README.md
+        version: 1.37.1
+        date: 2026-10-18
+  evidence:
+    - kind: primary_source
+      source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/README.md
+      version: 1.37.1
+      date: 2026-10-18
 files:
-  - name: "kubelet-config"
-    path: "/var/lib/kubelet/config.yaml"
-    type: "config"
-    owner: "root"
-    group: "root"
-    mode: "0644"
-    backup: true
-  - name: "kubeconfig"
-    path: "/etc/kubernetes/admin.conf"
-    type: "config"
-    owner: "root"
-    group: "root"
-    mode: "0600"
-    backup: true
-  - name: "kubelet-log"
-    path: "/var/log/kubelet.log"
-    type: "log"
-    owner: "root"
-    group: "root"
-    mode: "0644"
-
+  - name: kubeconfig-posix
+    path: $HOME/.kube/config
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/client-go/tools/clientcmd/loader.go
+        version: 1.37.1
+        date: 2026-10-18
+  - name: kubeconfig-windows
+    path: "%USERPROFILE%\\.kube\\config"
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/client-go/util/homedir/homedir.go
+        version: 1.37.1
+        date: 2026-10-18
+  - name: kuberc-posix
+    path: $HOME/.kube/kuberc
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/kuberc/kuberc.go
+        version: 1.37.1
+        date: 2026-10-20
+  - name: kuberc-windows
+    path: "%USERPROFILE%\\.kube\\kuberc"
+    type: config
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/kuberc/kuberc.go
+        version: 1.37.1
+        date: 2026-10-20
 directories:
-  - name: "config"
-    path: "/etc/kubernetes"
-    owner: "root"
-    group: "root"
-    mode: "0755"
-  - name: "kubelet-data"
-    path: "/var/lib/kubelet"
-    owner: "root"
-    group: "root"
-    mode: "0755"
-  - name: "etcd-data"
-    path: "/var/lib/etcd"
-    owner: "root"
-    group: "root"
-    mode: "0700"
-  - name: "manifests"
-    path: "/etc/kubernetes/manifests"
-    owner: "root"
-    group: "root"
-    mode: "0755"
-
+  - name: kube-dir-posix
+    path: $HOME/.kube
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/client-go/tools/clientcmd/loader.go
+        version: 1.37.1
+        date: 2026-10-18
+  - name: kube-dir-windows
+    path: "%USERPROFILE%\\.kube"
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/client-go/util/homedir/homedir.go
+        version: 1.37.1
+        date: 2026-10-18
+  - name: kubectl-cache-posix
+    path: $HOME/.kube/cache
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+        version: 1.37.1
+        date: 2026-10-18
+  - name: kubectl-cache-windows
+    path: "%USERPROFILE%\\.kube\\cache"
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+        version: 1.37.1
+        date: 2026-10-18
 commands:
-  - name: "kubectl"
-    path: "/usr/bin/kubectl"
-    shell_completion: true
-    man_page: "kubectl(1)"
-  - name: "kubeadm"
-    path: "/usr/bin/kubeadm"
-    shell_completion: true
-    man_page: "kubeadm(1)"
-  - name: "kubelet"
-    path: "/usr/bin/kubelet"
-    man_page: "kubelet(8)"
-
-ports:
-  - port: 6443
-    protocol: "tcp"
-    service: "kube-apiserver"
-    description: "Kubernetes API server"
-  - port: 2379
-    protocol: "tcp"
-    service: "etcd-client"
-    description: "etcd client communication"
-  - port: 2380
-    protocol: "tcp"
-    service: "etcd-peer"
-    description: "etcd peer communication"
-  - port: 10250
-    protocol: "tcp"
-    service: "kubelet-api"
-    description: "Kubelet API"
-  - port: 10259
-    protocol: "tcp"
-    service: "kube-scheduler"
-    description: "kube-scheduler"
-  - port: 10257
-    protocol: "tcp"
-    service: "kube-controller-manager"
-    description: "kube-controller-manager"
-
-containers:
-  - name: "kube-apiserver"
-    image: "k8s.gcr.io/kube-apiserver"
-    tag: "v1.28.0"
-    registry: "k8s.gcr.io"
-    ports: ["6443:6443"]
-    volumes: ["/etc/kubernetes:/etc/kubernetes", "/etc/ssl/certs:/etc/ssl/certs"]
-  - name: "kube-controller-manager"
-    image: "k8s.gcr.io/kube-controller-manager"
-    tag: "v1.28.0"
-    registry: "k8s.gcr.io"
-  - name: "kube-scheduler"
-    image: "k8s.gcr.io/kube-scheduler"
-    tag: "v1.28.0"
-    registry: "k8s.gcr.io"
-  - name: "etcd"
-    image: "k8s.gcr.io/etcd"
-    tag: "3.5.9-0"
-    registry: "k8s.gcr.io"
-    ports: ["2379:2379", "2380:2380"]
-    volumes: ["/var/lib/etcd:/var/lib/etcd"]
-
+  - name: kubectl
+    flags:
+      - name: --kubeconfig
+        value_type: string
+        description: Use this one kubeconfig file and ignore KUBECONFIG and the default file; no merging. Without the flag, KUBECONFIG lists files that are merged; without both, the default file in the user home .kube directory is used alone.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --cache-dir
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --client-certificate
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --client-key
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --token
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --as
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --as-uid
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --as-group
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --as-user-extra
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --cluster
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --user
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --namespace
+        aliases:
+          - -n
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --context
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --server
+        aliases:
+          - -s
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --tls-server-name
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --insecure-skip-tls-verify
+        value_type: boolean
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --certificate-authority
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --request-timeout
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --kuberc
+        value_type: string
+        description: Path to the kuberc preferences file; takes precedence over the KUBERC environment variable and the default file.
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/kuberc/kuberc.go
+            version: 1.37.1
+            date: 2026-10-20
+      - name: --disable-compression
+        value_type: boolean
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --proxy-url
+        value_type: string
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: --warnings-as-errors
+        value_type: boolean
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+    subcommands:
+      - name: create
+        description: Create resources from files or by kind.
+        flags:
+          - name: --filename
+            aliases:
+              - -f
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --recursive
+            aliases:
+              - -R
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --kustomize
+            aliases:
+              - -k
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --edit
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --raw
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --field-manager
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --selector
+            aliases:
+              - -l
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --output
+            aliases:
+              - -o
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --dry-run
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --save-config
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --validate
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+        subcommands:
+          - name: namespace
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: quota
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: secret
+            subcommands:
+              - name: generic
+                flags:
+                  - name: --from-file
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --from-literal
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --from-env-file
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --type
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --append-hash
+                    value_type: boolean
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: docker-registry
+                flags:
+                  - name: --docker-username
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_docker.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --docker-password
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_docker.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --docker-email
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_docker.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --docker-server
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_docker.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --from-file
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_docker.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --append-hash
+                    value_type: boolean
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_docker.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_docker.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: tls
+                flags:
+                  - name: --cert
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_tls.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --key
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_tls.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --append-hash
+                    value_type: boolean
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_tls.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_secret_tls.go
+                    version: 1.37.1
+                    date: 2026-10-20
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: configmap
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: serviceaccount
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: service
+            subcommands:
+              - name: clusterip
+                flags:
+                  - name: --tcp
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --clusterip
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: nodeport
+                flags:
+                  - name: --node-port
+                    value_type: integer
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --tcp
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: loadbalancer
+                flags:
+                  - name: --tcp
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: externalname
+                flags:
+                  - name: --tcp
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                  - name: --external-name
+                    value_type: string
+                    evidence:
+                      - kind: primary_source
+                        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                        version: 1.37.1
+                        date: 2026-10-20
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create_service.go
+                    version: 1.37.1
+                    date: 2026-10-20
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: deployment
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: clusterrole
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: clusterrolebinding
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: role
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: rolebinding
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: poddisruptionbudget
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: priorityclass
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: job
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: cronjob
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: ingress
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: token
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/create/create.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: expose
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: run
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: set
+        description: Change fields on existing objects.
+        subcommands:
+          - name: image
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/set/set.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: env
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/set/set.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: resources
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/set/set.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: selector
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/set/set.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: serviceaccount
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/set/set.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: subject
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/set/set.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/set/set.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: explain
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: get
+        description: Display resources.
+        flags:
+          - name: --filename
+            aliases:
+              - -f
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --recursive
+            aliases:
+              - -R
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --kustomize
+            aliases:
+              - -k
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --output
+            aliases:
+              - -o
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --all-namespaces
+            aliases:
+              - -A
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --selector
+            aliases:
+              - -l
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --field-selector
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --watch
+            aliases:
+              - -w
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --show-labels
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --label-columns
+            aliases:
+              - -L
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --sort-by
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --no-headers
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --chunk-size
+            value_type: integer
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --ignore-not-found
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --show-managed-fields
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --subresource
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+        positionals:
+          - name: TYPE[/NAME]
+            value_type: string
+            required: false
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/get/get.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: edit
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: delete
+        description: Delete resources.
+        flags:
+          - name: --filename
+            aliases:
+              - -f
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --recursive
+            aliases:
+              - -R
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --kustomize
+            aliases:
+              - -k
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --selector
+            aliases:
+              - -l
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --all
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --all-namespaces
+            aliases:
+              - -A
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --field-selector
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --cascade
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --grace-period
+            value_type: integer
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --now
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --force
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --wait
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --timeout
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --ignore-not-found
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --dry-run
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --output
+            aliases:
+              - -o
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --interactive
+            aliases:
+              - -i
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/delete/delete.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: rollout
+        description: Manage the rollout of workload resources.
+        subcommands:
+          - name: history
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: pause
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: resume
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: undo
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: status
+            description: Report rollout progress.
+            flags:
+              - name: --filename
+                aliases:
+                  - -f
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/util/helpers.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --recursive
+                aliases:
+                  - -R
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/util/helpers.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --kustomize
+                aliases:
+                  - -k
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/util/helpers.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --watch
+                aliases:
+                  - -w
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout_status.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --revision
+                value_type: integer
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout_status.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --timeout
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout_status.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --selector
+                aliases:
+                  - -l
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/util/helpers.go
+                    version: 1.37.1
+                    date: 2026-10-20
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout_status.go
+                version: 1.37.1
+                date: 2026-10-20
+          - name: restart
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/rollout/rollout.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: scale
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: autoscale
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: certificate
+        subcommands:
+          - name: approve
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/certificates/certificates.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: deny
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/certificates/certificates.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/certificates/certificates.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: cluster-info
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: top
+        subcommands:
+          - name: node
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/top/top.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: pod
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/top/top.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/top/top.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: cordon
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: uncordon
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: drain
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: taint
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: describe
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: logs
+        description: Print container logs.
+        flags:
+          - name: --follow
+            aliases:
+              - -f
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --container
+            aliases:
+              - -c
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --previous
+            aliases:
+              - -p
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --tail
+            value_type: integer
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --since
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --since-time
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --timestamps
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --all-containers
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --prefix
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --selector
+            aliases:
+              - -l
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --limit-bytes
+            value_type: integer
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --max-log-requests
+            value_type: integer
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --ignore-errors
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/logs/logs.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: attach
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: exec
+        description: Run a command in a container.
+        flags:
+          - name: --container
+            aliases:
+              - -c
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --stdin
+            aliases:
+              - -i
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --tty
+            aliases:
+              - -t
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --filename
+            aliases:
+              - -f
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --pod-running-timeout
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: port-forward
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: proxy
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: cp
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: auth
+        subcommands:
+          - name: can-i
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/auth/auth.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: reconcile
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/auth/auth.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: whoami
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/auth/auth.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/auth/auth.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: debug
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: events
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: diff
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: apply
+        description: Apply a configuration to resources.
+        flags:
+          - name: --filename
+            aliases:
+              - -f
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --recursive
+            aliases:
+              - -R
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --kustomize
+            aliases:
+              - -k
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --server-side
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --force-conflicts
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --prune
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --selector
+            aliases:
+              - -l
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --all
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --dry-run
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --validate
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --force
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --overwrite
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --cascade
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --wait
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --grace-period
+            value_type: integer
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --timeout
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --field-manager
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --show-managed-fields
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --output
+            aliases:
+              - -o
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+                version: 1.37.1
+                date: 2026-10-18
+        subcommands:
+          - name: view-last-applied
+            description: Print the last-applied configuration annotation of a resource.
+            flags:
+              - name: --output
+                aliases:
+                  - -o
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply_view_last_applied.go
+                    version: 1.37.1
+                    date: 2026-10-18
+              - name: --all
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply_view_last_applied.go
+                    version: 1.37.1
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply_view_last_applied.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: set-last-applied
+            description: Set the last-applied configuration annotation from a file.
+            flags:
+              - name: --create-annotation
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply_set_last_applied.go
+                    version: 1.37.1
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply_set_last_applied.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: edit-last-applied
+            description: Edit the last-applied configuration annotation in an editor.
+            flags:
+              - name: --windows-line-endings
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply_edit_last_applied.go
+                    version: 1.37.1
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply_edit_last_applied.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/apply/apply.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: patch
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: replace
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: wait
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kustomize
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: label
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: annotate
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: completion
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: alpha
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: config
+        description: Modify kubeconfig files.
+        subcommands:
+          - name: view
+            description: Show the merged or selected kubeconfig.
+            flags:
+              - name: --flatten
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/view.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --minify
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/view.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --raw
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/view.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --merge
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/view.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --output
+                aliases:
+                  - -o
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/view.go
+                    version: 1.37.1
+                    date: 2026-10-20
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/view.go
+                version: 1.37.1
+                date: 2026-10-20
+          - name: set-cluster
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: set-credentials
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: set-context
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: set
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: unset
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: current-context
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: use-context
+            description: Switch the current context.
+            positionals:
+              - name: CONTEXT_NAME
+                value_type: string
+                required: true
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/use_context.go
+                    version: 1.37.1
+                    date: 2026-10-20
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/use_context.go
+                version: 1.37.1
+                date: 2026-10-20
+          - name: get-contexts
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: get-clusters
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: get-users
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: delete-cluster
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: delete-context
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: delete-user
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: rename-context
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/config/config.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kuberc
+        description: Inspect and edit the kubectl preferences file (aliases and per-command defaults). Registered only while KUBECTL_KUBERC is not false.
+        subcommands:
+          - name: view
+            description: Show the kuberc preferences file.
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/view.go
+                version: 1.37.1
+                date: 2026-10-20
+          - name: set
+            description: Add or change an alias or a command default in the kuberc file.
+            flags:
+              - name: --section
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --command
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --name
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --policy
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --option
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --prependarg
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --appendarg
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --allowlist-entry
+                value_type: string
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+              - name: --overwrite
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                    version: 1.37.1
+                    date: 2026-10-20
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/kuberc/set.go
+                version: 1.37.1
+                date: 2026-10-20
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-20
+      - name: plugin
+        subcommands:
+          - name: list
+            flags:
+              - name: --name-only
+                value_type: boolean
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/plugin/plugin.go
+                    version: 1.37.1
+                    date: 2026-10-20
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/plugin/plugin.go
+                version: 1.37.1
+                date: 2026-10-20
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: version
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: api-versions
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: api-resources
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: options
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+            version: 1.37.1
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/cmd.go
+        version: 1.37.1
+        date: 2026-10-18
+  - name: kubeadm
+    subcommands:
+      - name: init
+        description: Bootstrap a control-plane node.
+        flags:
+          - name: --config
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --apiserver-advertise-address
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --apiserver-bind-port
+            value_type: integer
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --control-plane-endpoint
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --pod-network-cidr
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --service-cidr
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --kubernetes-version
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --cri-socket
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --node-name
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --upload-certs
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --dry-run
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --token
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --image-repository
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --skip-phases
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --ignore-preflight-errors
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/init.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: join
+        description: Join a node to a cluster.
+        flags:
+          - name: --config
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --token
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --discovery-token-ca-cert-hash
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --discovery-token-unsafe-skip-ca-verification
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --control-plane
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --certificate-key
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --cri-socket
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --node-name
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --ignore-preflight-errors
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --dry-run
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/join.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: reset
+        description: Revert changes made by init or join.
+        flags:
+          - name: --force
+            aliases:
+              - -f
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/reset.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --cri-socket
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/reset.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --cleanup-tmp-dir
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/reset.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --ignore-preflight-errors
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/reset.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --dry-run
+            value_type: boolean
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/reset.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: --config
+            value_type: string
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/reset.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/reset.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: upgrade
+        subcommands:
+          - name: apply
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/upgrade/upgrade.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: plan
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/upgrade/upgrade.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: diff
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/upgrade/upgrade.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: node
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/upgrade/upgrade.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/upgrade/upgrade.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: token
+        subcommands:
+          - name: create
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/token.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: delete
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/token.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: generate
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/token.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: list
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/token.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/token.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: version
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/version.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: config
+        subcommands:
+          - name: images
+            subcommands:
+              - name: list
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                    version: 1.37.1
+                    date: 2026-10-18
+              - name: pull
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                    version: 1.37.1
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: migrate
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: print
+            subcommands:
+              - name: init-defaults
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                    version: 1.37.1
+                    date: 2026-10-18
+              - name: join-defaults
+                evidence:
+                  - kind: primary_source
+                    source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                    version: 1.37.1
+                    date: 2026-10-18
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: validate
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/config.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: alpha
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/alpha/alpha.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: completion
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/completion.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: certs
+        subcommands:
+          - name: renew
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/certs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: check-expiration
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/certs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: certificate-key
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/certs.go
+                version: 1.37.1
+                date: 2026-10-18
+          - name: generate-csr
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/certs.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/certs.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubeconfig
+        subcommands:
+          - name: user
+            evidence:
+              - kind: primary_source
+                source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/kubeconfig.go
+                version: 1.37.1
+                date: 2026-10-18
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/kubeconfig.go
+            version: 1.37.1
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/cmd/cmd.go
+        version: 1.37.1
+        date: 2026-10-18
+settings:
+  - key: KUBECONFIG
+    type: string
+    scope: environment
+    change_effect: immediate
+    defaults:
+      - value: null
+        as_of_version: "1.37"
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/client-go/tools/clientcmd/loader.go
+            version: 1.37.1
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/client-go/tools/clientcmd/loader.go
+        version: 1.37.1
+        date: 2026-10-18
+  - key: KUBECACHEDIR
+    type: string
+    scope: environment
+    change_effect: immediate
+    defaults:
+      - value: $HOME/.kube/cache
+        as_of_version: "1.37"
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+            version: 1.37.1
+            date: 2026-10-18
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+        version: 1.37.1
+        date: 2026-10-18
+  - key: kubeconfig
+    type: string
+    scope: flag
+    change_effect: immediate
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/cli-runtime/pkg/genericclioptions/config_flags.go
+        version: 1.37.1
+        date: 2026-10-18
+  - key: KUBERC
+    type: string
+    scope: environment
+    change_effect: immediate
+    defaults:
+      - value: null
+        as_of_version: "1.37"
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/kuberc/kuberc.go
+            version: 1.37.1
+            date: 2026-10-20
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/kuberc/kuberc.go
+        version: 1.37.1
+        date: 2026-10-20
+  - key: KUBECTL_KUBERC
+    type: boolean
+    scope: environment
+    change_effect: immediate
+    defaults:
+      - value: null
+        as_of_version: "1.37"
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/util/helpers.go
+            version: 1.37.1
+            date: 2026-10-20
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/staging/src/k8s.io/kubectl/pkg/cmd/util/helpers.go
+        version: 1.37.1
+        date: 2026-10-20
 providers:
   apt:
-    repositories:
-      - name: "kubernetes-official"
-        url: "https://apt.kubernetes.io"
-        key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
-        type: "upstream"
-        recommended: true
-        packages:
-          - name: "kubelet"
-            package_name: "kubelet"
-            version: "1.28.0-00"
-          - name: "kubeadm"
-            package_name: "kubeadm"
-            version: "1.28.0-00"
-          - name: "kubectl"
-            package_name: "kubectl"
-            version: "1.28.0-00"
-
-  dnf:
-    repositories:
-      - name: "kubernetes-official"
-        url: "https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64"
-        key: "https://packages.cloud.google.com/yum/doc/yum-key.gpg"
-        type: "upstream"
-        recommended: true
-        packages:
-          - name: "kubelet"
-            package_name: "kubelet"
-            version: "1.28.0-0"
-          - name: "kubeadm"
-            package_name: "kubeadm"
-            version: "1.28.0-0"
-          - name: "kubectl"
-            package_name: "kubectl"
-            version: "1.28.0-0"
-
-  brew:
+    prerequisites:
+      - Debian-family host with APT administration privileges; apt-transport-https (may be a dummy package), ca-certificates, curl and gpg (or gnupg).
+      - Configure the Kubernetes apt repository for minor v1.37 at https://pkgs.k8s.io/core:/stable:/v1.37/deb/ with its Release.key keyring under /etc/apt/keyrings/kubernetes-apt-keyring.gpg. A different minor replaces v1.37 in that path.
+      - For a client only, install kubectl from that repository. For a cluster node, install kubelet, kubeadm and kubectl together and hold their versions (apt-mark hold) so unattended upgrades cannot skew them.
+      - Exact 1.37.1 selection needs the repository candidate for that patch; unqualified install selects the current candidate in the configured minor repository. See evidence/linux-install-scope.md.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-linux.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/kubernetes-fundamentals/tool/evidence/linux-install-scope.md
+        version: 1.37.1
+        date: 2026-10-20
     packages:
-      - name: "kubectl"
-        package_name: "kubectl"
-        alternatives: ["kubectl"]
-      - name: "kubeadm"
-        package_name: "kubeadm"
-        alternatives: ["kubeadm"]
-
-  helm:
-    repositories:
-      - name: "bitnami"
-        url: "https://charts.bitnami.com/bitnami"
-        type: "third-party"
-        packages:
-          - name: "kubernetes"
-            package_name: "kubernetes"
-            alternatives: ["kubernetes"]
-
+      - name: kubectl
+        package_name: kubectl
+        repository: https://pkgs.k8s.io/core:/stable:/v1.37/deb/
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-linux.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubeadm
+        package_name: kubeadm
+        repository: https://pkgs.k8s.io/core:/stable:/v1.37/deb/
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubelet
+        package_name: kubelet
+        repository: https://pkgs.k8s.io/core:/stable:/v1.37/deb/
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md
+            version: 1.37.1
+            date: 2026-10-20
+  yum:
+    prerequisites:
+      - Red Hat-family host with yum or dnf and administration privileges.
+      - Configure the Kubernetes yum repository for minor v1.37 at https://pkgs.k8s.io/core:/stable:/v1.37/rpm/ with gpgcheck=1 and gpgkey https://pkgs.k8s.io/core:/stable:/v1.37/rpm/repodata/repomd.xml.key. A different minor replaces v1.37 in that path.
+      - For a client only, install kubectl. For a cluster node, install kubelet, kubeadm and kubectl with --disableexcludes=kubernetes when the repo excludes those packages.
+      - Exact 1.37.1 selection needs the repository candidate for that patch; see evidence/linux-install-scope.md.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-linux.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/kubernetes-fundamentals/tool/evidence/linux-install-scope.md
+        version: 1.37.1
+        date: 2026-10-20
+    packages:
+      - name: kubectl
+        package_name: kubectl
+        repository: https://pkgs.k8s.io/core:/stable:/v1.37/rpm/
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-linux.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubeadm
+        package_name: kubeadm
+        repository: https://pkgs.k8s.io/core:/stable:/v1.37/rpm/
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubelet
+        package_name: kubelet
+        repository: https://pkgs.k8s.io/core:/stable:/v1.37/rpm/
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md
+            version: 1.37.1
+            date: 2026-10-20
+  brew:
+    prerequisites:
+      - macOS with Homebrew installed. Intel keeps binaries under /usr/local/bin, Apple silicon under /opt/homebrew/bin; add the Homebrew bin directory to PATH.
+      - brew install kubectl (or brew install kubernetes-cli) installs the current Homebrew formula release; it does not pin 1.37.1. Use the binary provider for a pinned patch.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-macos.md
+        version: 1.37.1
+        date: 2026-10-20
+    packages:
+      - name: kubectl
+        package_name: kubectl
+        alternatives:
+          - kubernetes-cli
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-macos.md
+            version: 1.37.1
+            date: 2026-10-20
+  binary:
+    prerequisites:
+      - curl (or equivalent) and a writable PATH directory. On Linux, install(1) or chmod plus mv into PATH.
+      - Pin patch v1.37.1 in the download URL https://dl.k8s.io/release/v1.37.1/bin/<os>/<arch>/kubectl (kubectl.exe on Windows). Download the matching kubectl.sha256 (or kubectl.exe.sha256) and verify before install. Live checksum bytes were not captured here; see evidence/linux-install-scope.md.
+      - Upstream documents linux amd64/arm64, darwin amd64/arm64 and windows amd64.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-linux.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-macos.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-windows.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/kubernetes-fundamentals/tool/evidence/linux-install-scope.md
+        version: 1.37.1
+        date: 2026-10-20
+    packages:
+      - name: kubectl-linux-amd64
+        package_name: kubectl
+        version: 1.37.1
+        download_url: https://dl.k8s.io/release/v1.37.1/bin/linux/amd64/kubectl
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-linux.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubectl-linux-arm64
+        package_name: kubectl
+        version: 1.37.1
+        download_url: https://dl.k8s.io/release/v1.37.1/bin/linux/arm64/kubectl
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-linux.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubectl-darwin-amd64
+        package_name: kubectl
+        version: 1.37.1
+        download_url: https://dl.k8s.io/release/v1.37.1/bin/darwin/amd64/kubectl
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-macos.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubectl-darwin-arm64
+        package_name: kubectl
+        version: 1.37.1
+        download_url: https://dl.k8s.io/release/v1.37.1/bin/darwin/arm64/kubectl
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-macos.md
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kubectl-windows-amd64
+        package_name: kubectl.exe
+        version: 1.37.1
+        download_url: https://dl.k8s.io/release/v1.37.1/bin/windows/amd64/kubectl.exe
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-windows.md
+            version: 1.37.1
+            date: 2026-10-20
+  winget:
+    prerequisites:
+      - Windows with winget available. Package id Kubernetes.kubectl as published in the upstream install guide.
+      - winget installs the current listed release; it does not pin 1.37.1. Use the binary provider for a pinned patch.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-windows.md
+        version: 1.37.1
+        date: 2026-10-20
+    packages:
+      - name: kubectl
+        package_name: Kubernetes.kubectl
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-windows.md
+            version: 1.37.1
+            date: 2026-10-20
+  choco:
+    prerequisites:
+      - "Third party: Chocolatey package manager on Windows. Upstream documents choco install kubernetes-cli alongside scoop and winget."
+      - Chocolatey installs the current listed release; it does not pin 1.37.1. Use the binary provider for a pinned patch.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-windows.md
+        version: 1.37.1
+        date: 2026-10-20
+    packages:
+      - name: kubectl
+        package_name: kubernetes-cli
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/tasks/tools/install-kubectl-windows.md
+            version: 1.37.1
+            date: 2026-10-20
   docker:
+    prerequisites:
+      - Docker (or another engine that can pull from registry.k8s.io) on Linux, macOS or Windows.
+      - Official control-plane and node component images are published at registry.k8s.io and are what kubeadm pulls for a matching release (for example registry.k8s.io/kube-apiserver:v1.37.1). Pin by tag that matches the desired patch; digests were not captured here.
+      - "Third party: kind (kubernetes-sigs/kind) runs a local Kubernetes cluster inside Docker. It is a SIGs project, not the upstream install path for production nodes; label it third party when offering a Docker-hosted cluster."
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/kubernetes-fundamentals/tool/evidence/linux-install-scope.md
+        version: 1.37.1
+        date: 2026-10-20
     containers:
-      - name: "kind-cluster"
-        image: "kindest/node"
-        tag: "v1.28.0"
-        registry: "docker.io"
-        ports: ["6443:6443"]
-        volumes: ["/var/lib/docker"]
-        labels:
-          purpose: "kubernetes-in-docker"
-
-compatibility:
-  matrix:
-    - provider: "apt"
-      platform: ["ubuntu", "debian"]
-      architecture: ["amd64", "arm64"]
-      os_version: ["18.04", "20.04", "22.04"]
-      supported: true
-      recommended: true
-      tested: true
-    - provider: "dnf"
-      platform: ["fedora", "rhel", "centos"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      recommended: true
-    - provider: "brew"
-      platform: "macos"
-      architecture: ["amd64", "arm64"]
-      supported: true
-      notes: "Client tools only"
-    - provider: "helm"
-      platform: ["linux", "macos", "windows"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      notes: "Managed Kubernetes deployment"
-    - provider: "docker"
-      platform: ["linux", "macos", "windows"]
-      architecture: ["amd64", "arm64"]
-      supported: true
-      notes: "Kind (Kubernetes in Docker) for development"
+      - name: kube-apiserver
+        image: kube-apiserver
+        tag: v1.37.1
+        registry: registry.k8s.io
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kube-controller-manager
+        image: kube-controller-manager
+        tag: v1.37.1
+        registry: registry.k8s.io
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kube-scheduler
+        image: kube-scheduler
+        tag: v1.37.1
+        registry: registry.k8s.io
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-20
+      - name: kube-proxy
+        image: kube-proxy
+        tag: v1.37.1
+        registry: registry.k8s.io
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-20
+  helm:
+    prerequisites:
+      - "not applicable: no official chart for Kubernetes itself. The Kubernetes project documents cluster bootstrap with kubeadm (init, join, CNI add-on), not a Helm chart that installs the control plane. Charts that claim to install Kubernetes are third party and are not offered here."
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: capture
+        source: courses/it/kubernetes-fundamentals/tool/evidence/linux-install-scope.md
+        version: 1.37.1
+        date: 2026-10-20
+    charts: []
+  kubernetes:
+    prerequisites:
+      - A Linux host (control-plane or worker). kubeadm control-plane bootstrapping is the Linux cluster Target.
+      - Install matching kubeadm, kubelet and kubectl from the pkgs.k8s.io minor repository (v1.37) or another documented method, plus a container runtime kubeadm can detect.
+      - Initialize with kubeadm init, then install a CNI-based Pod network add-on before expecting Pods other than those on the control plane to schedule. CNI choice is a prerequisite (kubeadm is CNI-agnostic; pick and apply one add-on from its project docs). Join workers with the kubeadm join command printed by init (token and discovery-token-ca-cert-hash).
+      - Helm is not used to install Kubernetes itself; see providers.helm.
+    evidence:
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+        version: 1.37.1
+        date: 2026-10-18
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm.md
+        version: 1.37.1
+        date: 2026-10-20
+      - kind: primary_source
+        source: https://raw.githubusercontent.com/kubernetes/website/6f1e5a9b1e7dce93a8afc425b41d8653e71e7f1e/content/en/docs/setup/production-environment/tools/kubeadm/install-kubeadm.md
+        version: 1.37.1
+        date: 2026-10-20
+    files:
+      - name: kubeadm-admin.conf
+        path: /etc/kubernetes/admin.conf
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubeadm-super-admin.conf
+        path: /etc/kubernetes/super-admin.conf
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubeadm-kubelet.conf
+        path: /etc/kubernetes/kubelet.conf
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubeadm-controller-manager.conf
+        path: /etc/kubernetes/controller-manager.conf
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubeadm-scheduler.conf
+        path: /etc/kubernetes/scheduler.conf
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: static-pod-etcd
+        path: /etc/kubernetes/manifests/etcd.yaml
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: static-pod-kube-apiserver
+        path: /etc/kubernetes/manifests/kube-apiserver.yaml
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: static-pod-kube-controller-manager
+        path: /etc/kubernetes/manifests/kube-controller-manager.yaml
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: static-pod-kube-scheduler
+        path: /etc/kubernetes/manifests/kube-scheduler.yaml
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubelet-config
+        path: /var/lib/kubelet/config.yaml
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubelet-flags-env
+        path: /var/lib/kubelet/kubeadm-flags.env
+        type: config
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+    directories:
+      - name: kubernetes-dir
+        path: /etc/kubernetes
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubernetes-pki
+        path: /etc/kubernetes/pki
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubernetes-manifests
+        path: /etc/kubernetes/manifests
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kubelet-run
+        path: /var/lib/kubelet
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+    services:
+      - name: coredns
+        service_name: coredns
+        type: kubernetes
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
+      - name: kube-proxy
+        service_name: kube-proxy
+        type: kubernetes
+        evidence:
+          - kind: primary_source
+            source: https://raw.githubusercontent.com/kubernetes/kubernetes/v1.37.1/cmd/kubeadm/app/constants/constants.go
+            version: 1.37.1
+            date: 2026-10-18
